@@ -1,0 +1,82 @@
+
+
+
+
+### Introducción
+
+La parte de combinatoria de esta asignatura puede seguirse en gran medida
+por [@brualdi]. Es un gran complemento para [@bujalance-costa], el libro
+oficial, ya que contiene bastantes más explicaciones y ejemplos ilustrativos
+de todos los conceptos que presenta.
+
+En cualquier caso, debe ser consciente de que en el texto oficial se
+presentan algunos conceptos con mayor rigurosidad y abstracción, pero no
+creo que esto suponga ningún problema para hacer los ejercicios, que es la
+meta principal de esta asignatura.
+
+Muchas veces, se dice que la combinatoria es "el arte de contar". Aunque
+piense que se trata de una exageración, esta frase es bastante cierta TKTK.
+
+En cualquier caso, existen otras definiciones más informativas, como la que
+aparece en [@brualdi]:
+
+> La combinatoria tiene que ver con disposiciones (_arrangements_) de los
+> objetos de un conjunto en patrones que satisfagan ciertas reglas.
+
+
+
+---
+
+
+
+En combinatoria, es bastante frecuente que cambiando el punto de vista se
+llegue fácilmente a una demostración. A una demostración de este tipo se la
+suele llamar *demostración combinatoria*. También he visto que hay quien lo
+llama , como hace el profesor de la Universidad de Harvard Joseph
+K. Blitzstein en su libro de probabilidad. Esto se define de un modo que me
+gusta bastante en _Discrete Mathematics_ de Rosen, pág. 412:
+
+> Una demostración combinatoria de una identidad es una demostración que usa
+> argumentos de contar para demostrar que ambos lados de la identidad
+> cuentan el mismo número de objetos pero de formas distintas o una
+> demostración que se basa en mostrar que existe una biyección entre los
+> conjuntos de objetos contados por los dos lados de la identidad. A estos
+> dos tipos de demostraciones se las llama, respectivamente, _demostraciones
+> por conteo doble_ y _demostraciónes biyectivas_.
+
+Creo que lo que se suele llamar *demostraciones combinatorias* es lo que en
+la cita anterior llaman _demostraciones por conteo doble_.
+
+A este respecto, algo que ha comentado varias veces el profesor Mario Pineda
+es que, por ejemplo, cuando se nos plantea un problema y hablamos de que
+"importa el orden", en realidad eso es una interpretación que hacemos
+nosotros. El problema en realidad, de forma intrínseca, no es que sea un
+problema de cosas con orden. De hecho, muchos problemas se pueden resolver
+tanto teniendo en cuenta el orden como sin tenerlo. Por ejemplo, esto sucede
+con la demostración de que el cardinal de las partes de un conjunto es 2
+elevado al cardinal de dicho conjunto. Se puede resolver tanto por
+permutaciones con repetición como por sumas de combinaciones.
+
+De hecho, cuando toma cierta soltura en combinatoria, puede optar por
+resolver los problemas sin siquiera pensar en las fórmulas de permutaciones,
+combinaciones, etc., sino que esas fórmulas las puede construir uno mismo a
+partir de los principios que se presentan en el
+[](#ch-comb-tecnicas-basicas){.nameref}, de los que se deducen esas otras
+fórmulas. Esto es lo más recomendable, pues le sirve también para estar
+preparado para los casos en los que no pueda hacer uso de esas fórmulas
+"enlatadas".
+
+Por tanto, tal y como verá, para resolver los ejercicios y problemas influye
+mucho la subjetividad. Analizar las cosas desde cierto punto de vista
+facilita mucho el trabajo en combinatoria. Pero no es que sea algo subjetivo
+en realidad, pues el resultado de cada situación es objetivo y, por tanto,
+siempre el mismo. Esto se explica en [@brualdi p. 43]. La regla a seguir es
+comenzar por la regla más restrictiva.
+
+También, debe saber que la combinatoria es un área de las matemáticas que
+tiene aplicación en casi todas las demás. Lo más natural es pensar en su
+aplicación a la probabilidad, pero realmente tiene aplicación en muchas
+otras áreas.
+
+
+

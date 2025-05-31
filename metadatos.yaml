@@ -1,0 +1,20 @@
+author: "Carlos E. Tafur Egido"
+metad-author: "Carlos E. Tafur Egido"
+lang: es-ES
+otherlangs: en-US
+title: "Matemáticas discretas"
+metad-title: "Matemáticas discretas"
+date: 02/08/2025
+metad-date: 02/08/2025
+description: "Matemáticas discretas"
+keywords:
+  - matemáticas
+  - teoría de números
+  - combinatoria
+  - teoría de grafos
+  - matemáticas discretas
+bibliography: referencias.yaml
+
+# Hay que ponerlo en este archivo, necesariamente.
+link-citations: true
+

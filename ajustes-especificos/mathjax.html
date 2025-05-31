@@ -1,0 +1,25 @@
+<script>
+  window.MathJax = window.MathJax || {};
+  window.MathJax.tex = window.MathJax.tex || {};
+  Object.assign(window.MathJax.tex.macros, {
+
+
+
+    opmod: "\\,\\operatorname{MOD}\\,",
+    gcd: ["\\operatorname{mcd}#1", 1],
+    mcm: ["\\operatorname{mcm}#1", 1], // quedarme con el de debajo
+    lcm: ["\\operatorname{mcm}#1", 1],
+
+    divset: ["\\operatorname{div}#1", 1],
+
+
+    /* TODO No lo hace porque MathJax no llega a implementar muchas partes de
+    LaTeX. Otra forma sería con el entorno multiline, pero tampoco se puede en
+    MathJax. */
+    // wrap: ["\\begin{array}{r@{\\displaystyle}l}#1\\end{array}", 1],
+
+
+  });
+</script>
+
+

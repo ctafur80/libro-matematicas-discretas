@@ -1,0 +1,297 @@
+
+
+
+Esta es la división que aprendió en la educación primaria, solo que ahora
+justificamos por qué funciona.
+
+\begin{theorem}[de la División en $\zset$ con Resto]%
+\label{th-div-entera-con-resto}
+  Dados $a, b \in \zset$ con $b \neq 0$. Existe un único par de números $q,
+  r, \in \zset$ con $0 \leq r < |b|$ tales que
+
+  $$ a = b \cdot q + r $$
+\end{theorem}
+
+Se trata de un teorema de existencia y unicidad.
+
+\iffalse
+Otra opción sería poner $0 \leq r \leq |b-1|$.
+\fi
+
+Lo que viene a decir este teorema es que existe una operación, que llamamos
+división en $\zset$ con resto, de tal forma que podemos expresar TKTK. A
+esta operación también la llaman \m{división euclidiana} (\emph{Euclidean
+division}) o \m{división euclidea}.\footnotemark
+
+\footnotetext{Este teorema puede ver que lo llaman de muchas formas
+distintas. La que usa el libro es (teorema del) Algoritmo de la División,
+pero me parece desacertada, pues en realidad no se trata de un algoritmo.
+También, puede ver que lo llaman Lema de la División de Euclides o Teorema
+de Euclides. La forma en que lo llamo yo, ``división en $\zset$ con resto'',
+la he copiado de Paolo Aluffi, un profesor de la Universidad de Florida que
+ha escrito algunos libros muy buenos sobre álgebra abstracta. También se
+podría decir División Entera con Resto.}
+
+A los distintos elementos que aparecen en esta forma de expresar la relación
+entre dos números se les dan los nombres siguientes:
+
+\begin{center}
+\begin{tabular}{l|l}
+  $a$ & dividendo o numerador \\
+  $b$ & divisor o denominador \\
+  $q$ & cociente \\
+  $r$ & resto
+\end{tabular}
+\end{center}
+
+Pero, ¿por qué se excluye de la definición el caso en el que el divisor,
+$b$, valga 0? Porque, en ese caso, el intervalo en el que se encuentra $r$
+sería el conjunto vacío, es decir, no tiene sentido decir $0 \leq r < 0$.
+Además, en ese caso el cociente no sería único.
+
+Vamos a ver ahora la demostración del teorema.
+
+\begin{proof}
+  La demostración va a ser de tipo constructivo.
+
+  Vamos a dividirla en dos casos.
+
+  Caso $b > 0$.
+
+  Tomamos un valor $q \in \zset$ tal que sea el mayor con el que se cumpla
+  $bq \leq a$. Es decir, $bq$ es el mayor múltiplo de $b$ que es menor o
+  igual que $a$. Entonces, se da
+
+  $$ bq \leq a < b(q+1) $$
+
+  \noindent La desigualdad de la derecha tiene que darse necesariamente
+  porque, si con nuestro $q$ no se cumple $a < b(q+1)$, es que lo hemos
+  seleccionado mal. En ese caso, tendríamos que haber elegido $q+1$ o algún
+  otro valor superior.
+
+  Ahora, defino una variable $r = a - bq$, ya que deseo que se dé $a = bq +
+  r$, y resto $bq$ en todas las partes de ambas desigualdades.
+
+  \begin{alignat*}{2}
+    bq - bq   &\leq a - bq   < b(q+1) - bq = bq + b - bq \\
+    0         &\leq r        < b \\
+    0         &\leq r        < |b|
+  \end{alignat*}
+
+  \noindent Se da que $b = |b|$ porque nos encontramos en el caso en el que
+  $b > 0$. Por cierto, advierta que la desigualdad $0 \leq a - bq$ es
+  coherente con que, tal y como dijimos, $bq$ es el mayor múltiplo de $b$
+  menor o igual que $a$.
+
+  Con esto, hemos demostrado la primera parte, es decir, que existen $q, r
+  \in \zset$ tales que $a = bq + r$ con $0 \leq r < |b|$. Ojo, existen uno o
+  varios. Es decir, hemos demostrado la existencia; ahora, queda demostrar
+  la unicidad.
+
+  Para esto, vamos a tratar de hacer una demostración por contradicción.
+  Suponemos que lo anterior se cumple para dos pares de $q$ y $r$ distintos
+  entre sí. Los designaremos por $q_1$ y $r_1$, y $q_2$ y $r_2$, y suponemos
+  que se da, tal y como acabamos de decir, $r_1 \neq r_2$.
+
+  Tenemos entonces que
+
+  \begin{alignat*}{2}
+    a = bq_1 + r_1  & \quad \text{con} \ 0 \leq r_1 < |b| = b \\
+    a = bq_2 + r_2  & \quad \text{con} \ 0 \leq r_2 < |b| = b
+  \end{alignat*}
+
+  Vamos a quedarnos, de momento, con las ecuaciones de la izquierda. Si
+  restamos ambas expresiones, tenemos
+
+  \begin{alignat*}{2}
+    a - a       &= b q_1 + r_1 - (b q_2 + r_2) \\
+    0           &= b(q_1 - q_2) + (r_1 - r_2) \\
+    r_2 - r_1   &= b(q_1 - q_2) \tag{*}\label{euclid-ref-1}
+  \end{alignat*}
+
+  Por tanto, tenemos que $b \mid (r_2 - r_1)$, ya que $(q_1 - q_2) \in
+  \zset$. Por la Proposición \ref{prop-factor-men}, se tiene que
+
+  $$ |b| \leq |r_2 - r_1| $$
+
+  Ahora, nos centraremos en las desigualdades. Ya que se cumplen $0 \leq r_1
+  < |b| = b$ y $0 \leq r_2 < |b| = b$, se dará necesariamente que, en la
+  recta real (o entera), la distancia entre $r_1$ y $r_2$ será menor
+  (estrictamente) que $b$, que es lo mismo que decir que
+
+  $$ |r_2 - r_1| < b = |b| $$
+
+  \noindent que justamente contradice la conclusión a la que acabábamos de
+  llegar.
+
+  Por tanto, al darse esta contradicción, la premisa de la que partimos, que
+  era que $r_1 \neq r_2$ será falsa. Por lo tanto, se da que $r_1 = r_2$.
+
+  Además, si $r_1 = r_2$, veamos qué sucederá al sustituirlos en la
+  ecuación~\ref{euclid-ref-1}.
+
+  $$ r_2 - r_1 = b(q_1 - q_2) $$
+
+  \noindent Como $r_1 = r_2$, se tiene
+
+  $$ 0 = b(q_1 - q_2) $$
+
+  \noindent y, como partimos de la premisa de que $b \neq 0$, se tiene que
+  $q_1 - q_2 = 0$, o, lo que es lo mismo, $q_1 = q_2$.
+
+  Así, hemos demostrado que $q$ y $r$ son únicos.
+
+  Caso $b < 0$.
+
+  Si $b < 0$, entonces, ${-b} > 0$ y podemos aplicar lo que demostramos para
+  el caso anterior. Tenemos que existen $q, r \in \zset$ siendo $0 \leq r <
+  |{-b}|$, para los que se cumple
+
+  $$ a = ({-b})q + r$$
+
+  \noindent Ahora, podemos manipular la expresión anterior.
+
+  $$ a = ({-b})q + r = ({-q})b + r \quad \text{con} \ 0 \leq r < |{-b}| =
+  |b| $$
+
+  \noindent con lo que hemos demostrado que existen $({-q}), r \in \zset$
+  únicos con los que se cumple la división en $\zset$ con resto de $a$ entre
+  $b$, siendo $b < 0$.
+\end{proof}
+
+Si no le convence la parte en la que se justifica que $|r_2 - r_1| < |b|$
+por la distancia entre estos, podemos hacerlo alternativamente manipulando
+expresiones. Partimos de
+
+\[
+  \begin{array}{c@{}c@{}c}
+    0 &\leq r_1 &\leq |b| \\
+    0 &\leq r_2 &\leq |b|
+  \end{array}
+\]
+
+Ahora, operamos $0 \leq r_1$ para llegar a ${-r_1} \leq 0$.
+
+De esto se deduce que
+
+\[ r_2 - r_1 < |b| - r_1 \leq |b| \]
+
+\noindent ya que ${-r_1} \leq 0$. Además, se tiene que
+
+\[ |r_1 - r_1| \geq 0 \]
+
+\noindent como es evidente. Por tanto, se tiene que
+
+\[ 0 \leq |r_2 - r_1| < |b| \]
+
+Advierta que, tal y como se ve en la primera parte de la demostración, $bq$
+queda siempre por ``debajo'' de $a$, tanto si se trata de $a \geq 0$ como de
+$a < 0$. Concretamente, a una distancia menor de $|b|$. Así, por ejemplo,
+para los valores $a = {-15}$ y $b = 8$ se descompondrá del modo siguiente:
+
+$$ {-15} = 8 \cdot ({-2}) + 1 = {-16} + 1 \quad \text{con} \ 0 \leq 1 < 8 $$
+
+\noindent Es decir, ese $q$ tiene que valer ${-2}$ para que $bq$ quede por
+``debajo'' de ${-15}$.
+
+Existen otros tipos de divisiones, como, por ejemplo, una en la que el valor
+absoluto del resto sería el mínimo posible. Esta viene explicada en
+\cite{weissman}, pero aquí no la veremos.
+
+Existe otra forma de llamar al resto de este tipo de división. Se trata del
+\m{operador módulo} (\engm{modulus operator}).
+
+\begin{deffinition}[Operador módulo]
+  Dados $a, b \in \zset$ con $b \neq 0$, definimos el operador módulo, que
+  designamos por `$\mathrm{MOD}$', como el resto $r$ que obtenemos al
+  aplicar el Teorema \ref{th-div-entera-con-resto}.
+
+  $$ a \opmod b = r $$
+
+  \noindent tal que
+
+  $$ b = aq + r \quad \text{con} \ 0 \leq r < |b| $$
+\end{deffinition}
+
+Existe otro operador que guarda relación con esta operación y se le conoce
+como el \m{operador congruencia}. Lo designaríamos del modo siguiente:
+
+$$ a \equiv r \pmod b $$
+
+En cualquier caso, este operador se estudiará en profundidad en un capítulo
+posterior.
+
+\begin{properties}
+  Si tenemos $a, b, c, d, m \in \zset$ con $m \neq 0$ y se da que
+
+  $$ a \opmod m = c \opmod m \quad \text{y} \quad b \opmod m = d \opmod m $$
+
+  \noindent entonces:
+
+  \begin{enumerate}
+    \item $(a + b) \opmod m = (c + d) \opmod m$.
+    \item $(a \cdot b) \opmod m = (c \cdot d) \opmod m$.
+  \end{enumerate}
+\end{properties}
+
+\begin{proof}
+  Estas demostraciones son triviales.
+
+  \begin{enumerate}
+    \item Como se cumple $a \opmod m = c \opmod m$, se tiene que existen
+      $r_1, q_1, q_2 \in \zset$ con $0 \leq r_1 < |m|$ tales que
+
+      \begin{alignat*}{2}
+        a &= mq_1 + r_1 \\
+        c &= mq_2 + r_1
+      \end{alignat*}
+
+      Por otro lado, como se cumple $b \opmod m = d \opmod m$, se tiene que
+      existen $r_2, q_3, q_4 \in \zset$ con $0 \leq r_2 < |m|$ tal que
+
+      \begin{alignat*}{2}
+        b &= mq_3 + r_2 \\
+        d &= mq_4 + r_2
+      \end{alignat*}
+
+      Tenemos entonces
+
+      \begin{alignat*}{2}
+        a + b &= m(q_1 + q_3) + (r_1 + r_2) \\
+        c + d &= m(q_2 + q_4) + (r_1 + r_2)
+      \end{alignat*}
+
+      \noindent Advierta que, ya que $r_1 > 0$ y $r_2 > 0$, se tiene también
+      que $r_1 + r_2 > 0$.
+
+      Ahora, se pueden dar dos situaciones. Por un lado, puede que $r_1 +
+      r_2 < m$. En ese caso, por el Teorema TKTK, tenemos que
+
+      \begin{alignat*}{2}
+        a + b &= m(q_1 + q_3) + (r_1 + r_2) \\
+        c + d &= m(q_2 + q_4) + (r_1 + r_2)
+      \end{alignat*}
+
+      \noindent serán la divisiones en $\zset$ con resto de $a + b$ y $c +
+      d$, respectivamente, siendo $r_1 + r_2$ el resto de ambos y $q_1 +
+      q_3$ y $q_2 + q_4$ los cocientes respectivos.
+
+      En el caso de que $r_1 + r_2 \geq m$, lo que se hará será tomar un
+      $r_3$ que sea tal que $r_3 = r_1 + r_2 - m$. Tenemos entonces
+
+      \begin{alignat*}{2}
+        a + b &= m(q_1 + q_3) + m + r_3 = m(q_1 + q_3 + 1) + r_3 \\
+        c + d &= m(q_2 + q_4) + m + r_3 = m(q_2 + q_4 + 1) + r_3
+      \end{alignat*}
+
+      \noindent con $0 \geq r_3 < m$. Advierta que no puede darse $r_1 + r_2
+      \geq 2m$, ya que $r_1 < m$ y $r_2 < m$. Se tiene entonces que se trata
+      de divisiones en $\zset$ con resto con resto de ambos $r_3$ y $q_1 +
+      q_3$ y $q_2 + q_4$ los cocientes respectivos.
+
+    \item el caso del producto se demuestra de forma análoga.\qedhere
+  \end{enumerate}
+\end{proof}
+
+
+

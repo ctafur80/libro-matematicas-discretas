@@ -1,0 +1,181 @@
+
+
+
+#### Ecuación lineal
+
+::: { .theorem #teor-ec-lineal-cond-sol data-label="Teorema de las
+Condiciones de Soluciones de la Ecuación Diofántica Lineal" }
+Dados $a, b, n \in \mathbb{N}$. La ecuación lineal $ax + by = n$ tiene solución
+entera si y solo si $n$ es un múltiplo de $\gcd(a, b)$.
+:::
+
+::: proof
+Veamos primero el caso en el que $a \neq 0$ y $b \neq 0$, dejando para el
+final las particularidades en las que hay algún 0 involucrado.
+
+Por hacer más cómoda la notación, definiremos $d = \gcd(a, b)$.
+
+Vamos a demostrar primero que, si $x_0, y_0 \in \mathbb{Z}$ son soluciones de la
+ecuación, de $x$ e $y$ respectivamente, es decir, se cumple
+
+$$ ax_0 + by_0 = n $$
+
+entonces $d \mid n$.
+
+Como $d$ es divisor común de $a$ y $b$, se cumple, por la Proposición
+[](#prop-divide-al-multiplo){.nameref} y la
+[](#princ-dos-de-tres){.nameref}, que $d \mid (ax_0 + by_0)$, o, lo que es
+lo mismo, $d \mid n$.
+
+Ahora, hay que demostrar el condicional en el otro sentido. Partimos de que
+se cumple $d \mid n$ y deseamos demostrar que existen $x_0, y_0 \in \mathbb{Z}$
+tales que
+
+$$ ax_0 + by_0 = n $$
+
+Como $d = \gcd(a, b)$, existirán, por el Lema [](#lema-bezout){.nameref},
+$k, l \in \mathbb{Z}$ tales que
+
+$$ d = ak + bl $$
+
+Además, como $d \mid n$, existe un $m \in \mathbb{Z}$ para el que se cumple $n =
+md$. Por tanto,
+
+$$
+\begin{aligned}{2}
+  d             &= ak + bl \\
+  d\frac{n}{d}  &= (ak + bl)\frac{n}{d} \\
+  n             &= a\frac{n}{d}k + b\frac{n}{d}l =
+    a\left(\frac{n}{d}k\right) + b\left(\frac{n}{d}l\right)
+\end{aligned}
+$$
+
+Cambiando de nombre a esos coeficientes tal que
+
+$$ x_0 = \frac{n}{d}k \quad \text{;} \quad y_0 = \frac{n}{d}l $$
+
+tendríamos ya una solición particular de la ecuación diofántica lineal.
+
+Para el caso en que $n = 0$, los valores $x_0 = y_0 = 0$ son solución de la
+ecuación.
+:::
+
+En el fondo esto ya lo habíamos demostrado, pues es lo mismo que el
+Corolario [\[cor-mult-mcd\]](#cor-mult-mcd){reference-type="ref"
+reference="cor-mult-mcd"}, que dice que las combinaciones lineales enteras
+de dos números generan todos los múltiplos de su máximo común divisor.
+
+::: theorem
+La solución de la ecuación diofántica lineal tiene la forma siguiente:
+
+$$ x_0 = \frac{n}{d}k \quad \text{;} \quad y_0 = \frac{n}{d}l $$
+
+siendo $k, l \in \mathbb{Z}$ los coeficientes de Bézout de $a$ y $b$ y siendo $d
+= \gcd(a, b)$.
+:::
+
+La demostración se encuentra dentro del teorema anterior.
+
+En cualquier caso, esa solución es una de las muchas soluciones que tiene la
+ecuación. Veamos la forma de la solución general.
+
+::: { .theorem #teor-sol-gral-ec-diof-lin data-label="Teorema de la Solución
+General de la Ecuación Diofántica Lineal" }
+Dados $a, b, n \in \mathbb{Z}$ con $a \neq 0$, $b \neq 0$ y $n \neq 0$ y $d =
+\gcd(a, b)$. La solución general de la ecuación
+
+$$ n = ax + by $$
+
+para $x, y \in \mathbb{Z}$ siendo $n$ un múltiplo de $d$, es
+
+$$ x = x_0 + t\frac{b}{d} \quad \text{;} \quad y = y_0 - t\frac{a}{d} $$
+
+siendo $t \in \mathbb{Z}$ el parámetro de esta y $(x_0, y_0)$ una solución
+particular de la ecuación diofántica lineal.
+:::
+
+::: proof
+Supongamos que tenemos una solución particular $(x_0, y_0)$ para la
+ecuación, es decir, se cumple
+
+$$ ax_0 + by_0 = n $$
+
+Como $d \mid a$, $d \mid b$ y $d \mid n$, podemos dividir entre $d$ todas
+las partes de la ecuación y seguiríamos teniendo coeficientes enteros.
+Tendríamos
+
+$$ \frac{ax_0}{d} + \frac{by_0}{d} = \frac{n}{d} $$
+
+También tenemos, por el Teorema [](#teor-mcd-multiplos){.nameref},
+
+$$ \gcd\left(\frac{a}{d}, \frac{b}{d}\right) = \frac{d}{d} = 1 $$
+
+Vamos a designar por $(x_1, y_1)$ a otra solución particular. Se podría
+hacer lo mismo:
+
+$$ \frac{ax_1}{d} + \frac{by_1}{d} = \frac{n}{d} $$
+
+Entonces, restando esta y su análoga para $(x_0, y_0)$, tenemos
+
+$$ \frac{a}{d}(x_1 - x_0) + \frac{b}{d}(y_1 - y_0) = \frac{n}{d} -
+\frac{n}{d} = 0 $$
+
+y, reordenando,
+
+$$
+\label{eq-temp-diofant-sol-general}\tag{ec-temp-diofant-sol-general}
+\frac{a}{d}(x_1 - x_0) = \frac{b}{d}(y_0 - y_1)
+$$
+
+Por tanto, se tiene que
+
+$$ \frac{a}{d} \mid \frac{b}{d} (y_0 - y_1) $$
+
+y, por el Lema [](#lema-euclides){.nameref}, como se tiene que como
+$\gcd(a/d, b/d) = 1$, se dará que
+
+$$ \frac{a}{d} \mid (y_0 - y_1) $$
+
+o, lo que es lo mismo, existe un $t \in \mathbb{Z}$ para el que
+
+$$ y_0 - y_1 = t \frac{a}{d} $$
+
+o sea,
+
+$$ y_1 = y_0 - t \frac{a}{d} $$
+
+que sería la parte de $y$ de la ecuación general. Para hallar $x_1$, vamos a
+sustituir este resultado en la ecuación
+[](#eq-temp-diofant-sol-general){.nameref}. Tendríamos
+
+$$ \frac{a}{d}(x_1 - x_0) = \frac{b}{d}\left(y_0 - y_0 + t\frac{a}{d}\right)
+$$
+
+con lo que tenemos
+
+$$ x_1 = x_0 + t \frac{b}{d} $$
+
+Recíprocamente, se tiene que, para todo $t \in \mathbb{Z}$, cada par de valores
+$(x_1, y_1)$ de la forma
+
+$$ y_1 = y_0 - t \frac{a}{d} \quad \text{;} \quad x_1 = x_0 + t \frac{b}{d}
+$$
+
+será una solución particular de la ecuación diofántica lineal. Veamos por
+qué:
+
+$$
+\begin{aligned}{2}
+  ax_1 + by_1   &= a\left(x_0 + t\frac{b}{d}\right) + b\left(y_0 -
+    t\frac{a}{d}\right) = ax_0 + at\frac{b}{d} + by_0 - bt\frac{a}{d} \\
+                &= ax_0 + by_0 = n
+\end{aligned}
+$$
+
+Esa solución $(x_1, y_1)$ en realidad sería una solución genérica, con lo
+que es más adecuado designarla por $(x, y)$.
+:::
+
+
+
+

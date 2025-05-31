@@ -1,0 +1,28 @@
+
+
+/* Formato laptop y desktop */
+@media (width > 740px) {
+
+
+    body {
+        /* width: 840px; */
+        font-size: 115%;
+    }
+
+
+
+    /*
+    img {
+        width: 100%;
+    }
+    */
+
+    figure {
+        transform: scale(1.1);
+        margin: 48px;
+    }
+
+
+
+}
+

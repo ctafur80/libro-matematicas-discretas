@@ -1,0 +1,21 @@
+
+
+#### Propiedad de buena ordenación
+
+::: { .theorem #princ-buena-ord data-label="Propiedad de Buena Ordenación" }
+Todo subconjunto no vacío de números enteros no negativos tiene un primer
+elemento, es decir, tiene un elemento que es menor o igual que todos los
+demás.
+:::
+
+Dicho de forma más simbólica:
+
+$$ \forall A \subseteq \mathbb{Z}^{+} \cup \{0\}, A \neq \emptyset. \:
+\exists m \in A \; : \; \forall k \in A. \; m \leq k $$
+
+En realidad, existen otros enunciados más completos de esta propiedad. TKTK.
+
+Se puede demostrar, pero aquí no lo haremos.
+
+
+

@@ -1,0 +1,375 @@
+
+
+
+Puede consultar \cite{rosen} pág. 102.
+
+Ahora, vamos a ver cómo se calcula el máximo común divisor de dos números.
+La forma que sabemos de la educación primaria es factorizando. Así, por
+ejemplo, para los números 6 y 14, tenemos que
+
+$$ 6 = 2 \cdot 3 $$
+
+\noindent y
+
+$$ 14 = 2 \cdot 7 $$
+
+\noindent con lo que $\gcd(6, 14) = 2$.
+
+Pero, si el número es muy grande, el proceso se hace inasumible en la
+práctica. Existe un algoritmo que lo hace más cómodo. Este tiene su
+justificación en una proposición que aparece en el libro \m{Elementos} de
+Euclides.
+
+Ahora, vamos a ver una proposición que usaremos para poder demostrar la
+existencia del Algoritmo de Euclides. Según esta, el máximo común divisor
+del dividendo y divisor de una división en $\zset$ con resto es el mismo que
+el del divisor y el resto en esa misma operación.
+
+\begin{proposition}[del Máximo Común Divisor del Divisor y el
+  Resto]\label{th-mcd-div-resto}
+  Dados $a, b, q, r \in \zset$, cumpliéndose $a = bq + r$ siendo $0 \leq r <
+  |b|$. Se cumple $\gcd(a, b) = \gcd(b, r)$.
+\end{proposition}
+
+\iffalse
+Sea $g \in \zset$ con $g \geq 0$. Entonces, se cumple $g = \gcd(a, b)$ si y
+solo si $g = \gcd(b, r)$.
+
+Dados $a, b \in \zset$, tenemos, por el teorema de la división en $\zset$
+con resto, que existen $q, r \in \zset$ únicos con $0 \leq r < |b|$ que
+cumplen
+
+$$ a = bq + r $$
+
+\noindent Entonces, se cumple que
+
+$$ \gcd(a, b) = \gcd(b, r) $$
+\fi
+
+En \cite{weissman} la dan algo más general, al no impone la
+restricción de los valores de $r$. Serviría, por tanto, para divisiones
+enteras con resto alternativas, como la mínima, por ejemplo.
+
+\begin{proof}
+  Designaremos por $d$ al $\gcd(a, b)$. Ya que $d = \gcd(a, b)$, se cumple
+  necesariamente que $d \mid a$ y $d \mid b$. Si aislamos a $r$ en la
+  igualdad $a = bq + r$, tenemos que $r = a - bq$. Entonces, como $d \mid a$
+  y $d \mid b$, por las proposiciones \ref{prop-divide-al-multiplo} y
+  \ref{princ-dos-de-tres} se tiene que $d \mid (a - bq)$, o, lo que es lo
+  mismo, $d \mid r$. Con esto hemos demostrado que, si $d = \gcd(a, b)$,
+  entonces, $d$ es un divisor común de $b$ y de $r$.
+
+  Ahora, suponemos que existe un $c \in \zset$ tal que $c \mid b$ y $c \mid
+  r$. Por las mismas proposiciones de antes, se tiene que $c \mid (bq + r)$,
+  que es lo mismo que decir que $c \mid a$, por la ecuación anterior. Por lo
+  tanto, $c$ es también, al igual que $d$, un divisor común de $a$ y de $b$.
+
+  Pero, como por hipótesis hemos fijado la condición $d = \gcd(a, b)$,
+  entonces, al demostrar que $c$ es un divisor común de $a$ y de $b$, tiene
+  que darse necesariamente, por la definición de máximo común divisor, $c
+  \mid d$. A su vez, si analizamos la relación de $c$ y $d$ como divisores
+  de $b$ y $r$, tenemos que, como $c \mid d$ (cosa que acabamos de
+  demostrar), se tendrá que $d = \gcd(b, r)$.
+\end{proof}
+
+\iffalse
+Esta demostración está sacada de \cite{burton}, en la sección
+2.4 \engm{The Euclidean Algorithm}, página 27. Aquí
+\url{https://www.youtube.com/watch?v=rxL6nhYgI3E} hay otra demostración,
+pero tiene un fallo y no sé si fiarme. Además, usa un teorema que no sé
+demostrar. TKTK.
+\fi
+
+Si vamos encadenando esto mismo, tenemos entonces una forma de obtener el
+$\gcd(a, b)$. Esto sería el Algoritmo de Euclides para la división. Está muy
+bien explicado en \cite{texto-uned} en la pág. 21.
+
+Partimos de la sexta de las proposiciones \ref{prop-mcd}, que dice que
+$\gcd(a, b) = \gcd(|a|, |b|)$. Así, podemos suponer, sin pérdida de
+generalidad, que $a \geq b > 0$.
+
+Lo primero será dividir a $a$ por $b$, según la división en $\zset$ con
+resto:
+
+$$ a = bq_1 + r_1 \quad \text{con} \ 0 \leq r_1 < |b| = b $$
+
+Si $r_1 = 0$, entonces $b \mid a$ y, por la cuarta de las propiedades
+\ref{prop-mcd}, se tiene $\gcd(a, b) = b$, y ahí finalizaría el algoritmo al
+tener ya la respuesta que buscábamos. Si, por el contrario, $r_1 \neq 0$,
+procedemos a dividir al dividendo, $b$, entre el resto, $r_1$. Tenemos,
+
+$$ b = r_1q_2 + r_2 \quad \text{con} \ 0 \leq r_2 < |r_1| = r_1 < b $$
+
+Por lo mismo de antes, si $r_2 = 0$, entonces $r_1 = \gcd(b, r_1)$, pero,
+por la proposición \ref{th-mcd-div-resto}, se tiene que $\gcd(a, b) =
+\gcd(b, r_1)$, con lo que se tendrá que $\gcd(a, b) = r_1$.
+
+Si, por el contrario, se tiene que $r_2 \neq 0$, pasamos a dividir a $r_1$
+entre $r_2$.
+
+$$ r_1 = r_2q_3 + r_3 \quad \text{con} \ 0 \leq r_3 < |r_2| = r_2 < r_1 < b
+$$
+
+Si $r_3 = 0$, entonces $r_2 = \gcd(r_1, r_2)$, pero también se tiene que
+$\gcd(r_1, r_2) = \gcd(r_1, b) = \gcd(a, b)$, con lo que se tendrá que
+$\gcd(a, b) = r_2$.
+
+Si, por el contrario, se tiene que $r_3 \neq 0$, pasamos a dividir a $r_2$
+entre $r_3$.
+
+$$ r_2 = r_3q_4 + r_4 \quad \text{con} \ 0 \leq r_4 < |r_3| = r_3 < r_2 <
+r_1 < b $$
+
+\noindent Y así sucesivamente. El proceso continuaría hasta que se tenga un
+resto $r_n = 0$ para algún $n \in \mathbb{N}^{+}$. Pero, ¿no podría darse el
+caso de estar buscando indefinidamente ese resto con valor 0? Si se fija,
+eso no puede suceder ya que, según la condición $0 \leq r_k < |r_{k-1}| =
+r_{k-1}$ que se daría en la iteración $k$-ésima, en cada iteración ese resto
+se acerca al 0, sin detenerse nunca, al tener una desigualdad estricta entre
+$r_k$ y $r_{k-1}$. Por tanto, este algoritmo tiene siempre un número finito
+de iteraciones y, por tanto, un número finito de pasos.
+
+Analizando un caso genérico $n$-ésimo, se puede decir que, cuando en la
+iteración $n$-ésima se obtenga un resto de 0, es decir, $r_n = 0$, se tendrá
+que $\gcd(a, b) = r_{n-1}$. Este se puede obtener, en el resto de la
+penúltima expresión (de división) o, si lo prefiere, del divisor en la
+última.
+
+Esta demostración también puede verla en
+\url{https://www.youtube.com/watch?v=8cikffEcyPI}.
+
+Puede ver en \cite{weissman} al comienzo del capítulo 1, pág. 25
+y siguientes, una explicación muy creativa e intuitiva de lo que significa
+este proceso, el algoritmo de Euclides. Lo que viene a explicar es que el
+máximo común divisor de dos números nos indica a qué números nos podemos
+mover haciendo combinaciones de saltos y a cuáles no. Y, si se fija, esto
+mismo es lo que nos dice la Identidad de Bézout, es decir, con las
+combinaciones lineales enteras $ax + by$ nos podremos mover por los
+distintos valores de los múltiplos de $\gcd(a, b)$. Otro ejemplo curioso
+sobre la aplicación de esta propiedad se encuentra en
+\cite{leighton} sección 9.1.3 Die Hard pág. 344. Está sacado de un
+problema que se les plantea a los protagonistas de la película \m{La Jungla
+de Cristal 3}. TKTK.
+
+En realidad, este algoritmo, como todos, lo normal es implementarlo en
+\engm{software}. No obstante, para esta asignatura tenemos que saber hacerlo
+con lázpiz y papel.
+
+Una implementación en código Python sería la siguiente. TKTK.
+
+\begin{verbatim}
+# Da el máximo común divisor de dos números enteros a y b.
+
+a = 12384
+b = 4720
+
+dividendo = a
+divisor = b
+
+resto = 0
+
+while True:
+
+    cociente = dividendo // divisor
+    resto_ant = resto
+    resto = dividendo % divisor
+
+    # print(f"{dividendo} = {divisor} x {cociente} + {resto}")
+
+    if resto == 0:
+        mcd = resto_ant
+        break
+
+    dividendo = divisor
+    divisor = resto
+
+print()
+print(f"mcd({a}, {b}) = {mcd}")
+\end{verbatim}
+
+Existe también el Algoritmo de Euclides Extendido. En este, además de
+obtener el máximo común divisor, se obtienen los coeficientes de Bézout. Se
+implementaría del modo siguiente en código Python. TKTK.
+
+\begin{proposition}[del Escalado]\label{teor-mcd-multiplos}
+  Dado un $k \in \nset$ siendo $k > 0$. Se cumple que $\gcd(ka, kb) = k \,
+  \gcd(a, b)$.
+\end{proposition}
+
+La demostración siguiente es la que aparece en \cite{texto-uned} pág. 24 y
+en \cite{burton} pág. 29. Hace uso del Algoritmo de Euclides. No sé si
+existirá una demostración que no requiera de dicho proceso iterativo. Si no
+la tienen estos textos, seguramente es que no la haya encontrado nadie aún.
+
+\begin{proof}
+  Básicamente, lo que vamos a hacer es aplicar el Algoritmo de Euclides.
+
+  Nos quedamos con $a > 0$ y $b > 0$, sin pérdida de generalidad, pues
+  $\gcd(a, b) = \gcd(|a|, |b|)$.
+
+  Supongamos primero el caso $b \mid a$. En dicho caso, como sabemos por la
+  proposición TKTK, $\gcd(a, b) = b$. Por tanto,
+
+  $$ k \, \gcd(a, b) = kb $$
+
+  Por otro lado, como consecuencia de $b \mid a$ también se da que $kb \mid
+  ka$, se tiene que
+
+  $$ \gcd(ka, kb) = kb $$
+
+  \noindent y ahí se habría terminado la demostración.
+
+  Caso $b \nmid a$. Se tiene también $kb \nmid ka$ (cosa que es muy fácil
+  demostrar por su condicional contrarrecíproco) y, entonces,
+
+  $$ ka = kbq + r'  \quad \text{con} \ 0 \leq r' < |kb| = kb $$
+
+  \noindent en realidad, $0 < r'$, pero eso da igual.
+
+  Aislando a $r'$ en la expresión, tenemos
+
+  $$ r' = ka - kbq = k(a - bq) $$
+
+  \noindent con lo que $k \mid r'$. Por tanto, existe un $r \in \zset$ tal
+  que $r' = kr$.
+
+  Así, manipulamos las desigualdades:
+
+  $$ 0 \leq kr < kb $$
+
+  \noindent y, por tanto,
+
+  $$ 0 \leq r < b $$
+
+  Así, tenemos
+
+  $$ ka = kbq + kr  \quad \text{con} \ 0 \leq r < b $$
+
+  Ahora, pasaríamos a una nueva iteración del Algoritmo de Euclides.
+  Analizamos primero la hipótesis de que se dé que $kr \mid kb$. En ese
+  caso, $\gcd(kb, kr) = kr$. Veamos por qué.
+
+  Si $kr \mid kb$, se cumple también que $r \mid b$ y, por tanto, $\gcd(b,
+  r) = r$, con lo que $k \, \gcd(b, r) = kr$. Uniendo entonces ambas
+  expresiones, tenemos que $\gcd(kb, kr) = k \, \gcd(b, r)$ y ahí se
+  terminaría la demostración.
+
+  En caso contrario, es decir, $kr \nmid kb$, tendríamos que existen un par
+  de números $q_1, r'' \in \zset$ únicos tales que
+
+  $$ kb = krq_1 + r'' \quad \text{con} \ 0 \leq r'' < |kr| = kr $$
+
+  Entonces, al igual que antes, aislando la $r''$, tenemos
+
+  $$ r'' = kb - krq_1 = k(b - rq_1) $$
+
+  \noindent con lo que $k \mid r''$. Entonces existe un $r_1 \in \zset$ tal
+  que $r'' = k r_1$. Entonces tenemos
+
+  $$ 0 \leq kr_1 < kr $$
+
+  \noindent y, por tanto,
+
+  $$ kb = krq_1 + kr_1 \quad \text{con} \ 0 \leq r_1 < r $$
+
+  Ahora, pasaríamos a una neva iteración del Algoritmo. Si $kr_1 \mid kr$,
+  entonces $\gcd(kr, kr_1) = kr_1$. Por otro lado, si $kr_1 \mid kr$,
+  entonces $r_1 \mid r$ y, por tanto, $\gcd(r, r_1) = r_1$. Uniendo ambas,
+  tenemos que $k \, \gcd(r, r_1) = kr_1 = \gcd(kr, kr_1)$.
+
+  En caso de que $kr_1 \nmid kr$, tenemos que
+
+  $$ kr = kr_1q_2 + r''' \quad \text{con} \ 0 \leq r''' < |kr_1| = kr_1 $$
+
+  Entonces, al igual que antes, aislando la $r'''$, tenemos
+
+  $$ r''' = kr - kr_1q_2 = k(r - r_1q_2) $$
+
+  \noindent con lo que $k \mid r'''$. Entonces existe un $r_2 \in \zset$ tal
+  que $r''' = k r_2$. Entonces tenemos
+
+  $$ 0 \leq kr_2 < kr_1 $$
+
+  \noindent y, por tanto,
+
+  $$ kr_1 = kr_1q_2 + kr_2 \quad \text{con} \ 0 \leq r_2 < r_1 $$
+
+  Ahora, pasaríamos a una neva iteración del Algoritmo. Si $kr_2 \mid kr_1$,
+  entonces $\gcd(kr_1, kr_2) = kr_2$. Por otro lado, si $kr_2 \mid kr_1$,
+  entonces $r_2 \mid r_1$ y, por tanto, $\gcd(r_1, r_2) = r_2$. Uniendo
+  ambas, tenemos que $k \, \gcd(r_1, r_2) = kr_2 = \gcd(kr_1, kr_2)$.
+
+  En caso de que $kr_2 \nmid kr_1$, se procedería como en las iteraciones
+  anteriores. Existirá alguna en la que se termine por obtener un resto
+  $r_{n+1} = 0$, al igual que en la demostración del Algoritmo de Euclides,
+  ya que las desigualdades siguientes son estrictas:
+
+  $$ 0 \leq \cdots < r_2 < r_1 < r $$
+
+  Así, en la última iteración se tendrá
+
+  $$ kr_{n-1} = (kr_n)q_{n+1} + 0 $$
+
+  \noindent Se tiene entonces, por el algoritmo de Euclides, que $kr_n =
+  \gcd(ka, kb)$. Por otro lado, como $r_n = \gcd(a, b)$, se tiene, por
+  tanto, que
+
+  $$ \gcd(ka, kb) = k \, \gcd(a, b) $$
+
+  \noindent tal y como queríamos demostrar.
+
+  Otra demostración, más breve, es haciendo uso del Corolario
+  \ref{id-bezout-2}. Supongamos se tienen $m, n \in \zset$ para los que se
+  tiene la menor combinación lineal positiva de $a$ y $b$, $am + bn$. Se
+  tiene entonces que, para un $k \in \zset$,
+
+  $$ \gcd(a, b) = am + bn $$
+
+  \noindent Multiplicándolo por $k$, se tiene
+
+  $$ k \, \gcd(a, b) = k(am + bn) = kam + kbn = ka(m) + kb(n) = \gcd(ka, kb)
+  $$
+\end{proof}
+
+En realidad, se tiene una generalización del teorema anterior.
+
+\begin{corollary}
+  Se cumple, para cualquier $k \in \zset$,
+
+  $$ \gcd(ka, kb) = |k| \, \gcd(a, b) $$
+\end{corollary}
+
+\begin{proof}
+  Para el caso en el que $k > 0$, se demuestra por el teorema anterior. Para
+  el caso en el que $k < 0$, se tiene ${-k} > 0$ y hacemos lo siguiente:
+
+  $$ \gcd(ka, kb) = \gcd({-ka}, {-kb}) = {-k} \gcd(a, b) = |k|
+  \, \gcd(a, b)$$
+
+  La demostración del caso $k = 0$ es trivial.
+\end{proof}
+
+El corolario siguiente se usará mucho en demostraciones de las secciones
+siguientes.
+
+\begin{corollary}\label{cor-mcd-div-mcd}
+  Dados $a, b \in \zset$ y $g = \gcd(a, b)$ siendo $g \neq 0$. Entonces,
+
+  $$ \gcd(a/g, b/g) = 1 $$
+\end{corollary}
+
+% TODO Quizás se pueda poner que a y b sean distintos de 0 y quitar la
+% excepción para g, pues creo que mcd(a, b) = 0 solo cuando a = b = 0.
+
+\begin{proof}
+  Dividiento entre $g$ en ambas partes de la igualdad $g = \gcd(a, b)$
+  tenemos:
+
+  \begin{alignat*}{2}
+    \frac{g}{g} &= \frac{1}{g}\gcd(a, b) \\
+    1 &= \gcd(a/g, b/g) \\
+  \end{alignat*}
+
+\noindent La última transformación es por una aplicación de la Proposición
+\ref{teor-mcd-multiplos}.
+\end{proof}

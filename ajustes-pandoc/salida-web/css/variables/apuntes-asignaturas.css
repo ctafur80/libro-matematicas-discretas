@@ -1,0 +1,48 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap');
+
+
+
+* {
+
+    /* Fuentes */
+    /* --main-font: "STIXTwoText", serif; */
+    --main-font: "Noto Sans", sans-serif;
+    --main-font-size: 1.1em;
+    --main-font-letter-spacing: 0.03rem;
+
+    --code-font: "JetBrains Mono", monospace;
+    --code-font-size: 0.85em;
+
+    --math-font: "Noto Sans Math", serif;
+
+
+
+
+
+    /* Tema oscuro */
+    /* --main-bg-color: #1e1e1e; */
+    /* --main-fg-color: #b3adad; */
+    /* --boton: rgba(132, 116, 140, 0.95); */
+
+
+    /* Tema claro */
+    /* --main-bg-color: #e0e8df; */
+    --main-bg-color: #fff;
+    --main-fg-color: #343832;
+    --boton: rgba(132, 116, 140, 0.95);
+
+
+
+
+
+
+
+
+
+}
+

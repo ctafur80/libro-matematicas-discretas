@@ -1,0 +1,243 @@
+
+
+
+
+Una referencia en la que está explicado todo lo concerniente al Principio de
+Inducción, en gran detalle, es \cite{idescent-newstead}.
+
+Se podría decir, metafóricamente, que es como el efecto dominó.
+
+El uso del Principio de Inducción es muy potente a la hora de hacer
+demostraciones. Casi parece que estemos haciendo ``trampa'', pues suelen
+resultar muy sencillas y mecánicas de realizar. El principal prroblema con
+el que cuenta es que no nos guía para obtener conocimiento nuevo. Es decir,
+es simplemente para comprobar si es cierto algo que sospechamos, pero la
+intuición de que eso pueda ser cierto la debemos obtener por otros medios.
+Es común ir poniendo ejemplos de casos concretos y, a simple vista, tratar
+de intuir si existe cierta relación entre los resultados obtenidos.
+
+
+
+En la tutoría, el profesor hizo la demostración del Teorema Fundamental de
+la Aritmética mediante el Principio de Inducción Fuerte, cosa que se puede
+consultar también en \cite{proofs-cummings} pág. 166. Dicho teorema se
+demostró, cuando se presentó, en el capítulo \ref{ch-numeros-primos}, de
+otra forma que resulta más complicada.
+
+
+
+
+\begin{theorem}[Principio de Inducción]\label{princ-induccion}
+  El conjunto $S = \{n \in \nset \st P_1 \ \text{y} \ P_2\}$ siendo
+
+  \begin{center}
+    \begin{tabular}{l p{0.8\textwidth}}
+      $P_1$ & $0 \in S$. \\
+      $P_2$ & Para todo $k \in \nset$ se da que, si $k \in S$, entonces
+        $(k+1) \in S$.
+    \end{tabular}
+  \end{center}
+
+  \noindent es igual a $\nset$.
+\end{theorem}
+
+\begin{proof}
+  La demostración la haremos por contradicción.
+
+  Supongamos que existe un subconjunto propio de $\nset$ que satisface $P_1$
+  y $P_2$. A este lo designaremos por $S$. Sea $S'$ su complementario
+  respecto a $\nset$, es decir, $S' = \nset \setminus S$. Ya que $S \neq
+  \nset$, puesto que era un subconjunto propio, se tiene que $S' \neq
+  \emptyset$. Entonces, por la Propiedad \ref{princ-buena-ord}, se tiene que
+  $S'$ tiene un primer elemento. Decidimos designar a este como $a$.
+
+  Ya que, por $P_1$, se tiene que $0 \in S$, entonces necesariamente se da
+  que $a \geq 1$, con lo que $a - 1 \geq 0$. Como $a$ es el elemento menor
+  de $S'$ y $a - 1 < a$, se tiene que $(a - 1) \notin S'$, o, lo que es lo
+  mismo, $(a - 1) \in S$.
+
+  Por otro lado, si se aplica $P_2$ a $a - 1$, se tendrá que, si $(a - 1)
+  \in S$, cosa que hemos demostrado que es cierta, entonces $(a - 1) + 1$,
+  es decir, $a$, pertenece a $S$.
+
+  Esto último se contradice con lo que dijimos al definir al elemento $a$.
+  Por tanto, la hipótesis de partida solo puede ser falsa. Esta era que
+  existe un subconjunto propio de $\nset$ que satisface $P_1$ y $P_2$. Lo
+  contrario será que $S = \nset$, tal y como queríamos demostrar.
+\end{proof}
+
+De este teorema, se deduce que esto no es solo válido para conjuntos, sino
+que sirve para propiedades (predicados). Hay quien lo presenta como un
+corolario de este, y hay quien no lo hace. TKTK.
+
+Hay varias partes de las demostraciones con este método que conviene tener
+claras. Son el caso base, la hipótesis de inducción, la meta de indicción y
+el paso inductivo. Vienen explicadas en \cite{idescent-newstead}.
+
+
+En realidad, aunque el caso base que hayamos usado sea el 0, cosa que hemos
+hecho porque para nosotros los números naturales comienzan en dicho número,
+hay quien considera al 1 como caso base. Da igual, y, de hecho, tal y como
+explicamos a continuación, se puede elegir a cualquier número entero para el
+caso base.
+
+\begin{corollary}[Principio de Inducción con Caso Base Genérico]
+  Dado $b \in \zset$. El conjunto $S = \{n \in \zset \st P_1 \ \mathrm{y} \
+  P_2\}$ siendo
+
+  \begin{center}
+    \begin{tabular}{l p{0.8\textwidth}}
+      $P_1$ & $b \in S$. \\
+      $P_2$ & Para todo $k \in \zset$ con $k \geq b$ se da que, si $k \in
+        S$, entonces $(k+1) \in S$.
+    \end{tabular}
+  \end{center}
+
+  \noindent es igual a $\{n \in \zset \st n \geq b\}$
+\end{corollary}
+
+\begin{proof}
+  Para esta demostración, vamos a auxiliarnos de un conjunto $T$ que tenga
+  una biyección con $S$ pero, al contrario que este, sobre aquel sí se podrá
+  realizar el Principio de Inducción con caso base 0, que es el único que
+  conocemos hasta ahora. Debido a esto, sus elementos deben comenzar en el 0
+  y ser todos los enteros mayores o iguales a este.
+
+  % ¿Hay que tener en cuenta también que T y S tienen una biyección? TKTK.
+
+  Aunque aún no lo hemos demostrado, la intención es que $S$ esté
+  constituido por todos los enteros mayores o iguales que $b$. Por tanto,
+  podríamos establecer una fórmula para transformar los elementos de $S$ en
+  los de $T$. Así, tendríamos que los elementos de $T$, que designaremos por
+  la variable $n$, tendrán la forma $n = r - b$, siendo $r$ los distintos
+  valores de $S$. Así, se tendrá que los elementos de $T$ comienzan por el
+  0, que es el caso base sobre el que aplicaremos el Principio de Inducción
+  que conocemos hasta ahora. Por tanto, $r$ será una función sobre $n$, cosa
+  que designaremos por $r(n)$. La relación entre $n$ y $r$ se podría
+  expresar también de la forma $r = n + b$, que será la que usaremos
+  normalmente.
+
+  Dada esta explicación, es evidente que el conjunto $T$ será
+
+  $$ T = \{n \in \zset \st n + b = r \in S\} $$
+
+  Vamos a analizar el caso base. Por un lado, el 0 es un elemento de $T$,
+  pues, para $n = 0$, se tiene $r(0) = 0 + b = b$, y ese valor, $b$, sabemos
+  por $P_1$ que pertenece a $S$.
+
+  Ahora, vamos a analizar el paso inductivo. Supongamos que se da la
+  hipótesis, es decir, que para un $k \in \zset$ se da que $k \in T$. Por la
+  definición de $T$, se da necesariamente que, si $k \in T$, entonces $k + b
+  \in S$, o, si lo prefiere, $r(k) \in S$.
+
+  Si $k + b \in S$, entonces, aplicando $P_2$, se tendrá que $r(k) + 1 = (k
+  + b) + 1 \in S$. Pero $(k + b) + 1 = (k + 1) + b$, con lo que $r + 1 \in
+  T$.
+
+  Ahora, aplicaremos a $T$ el Principio de Inducción con caso base 0. Por un
+  lado, como vimos al principio, el caso base, $k = 0$, se cumple. Por el
+  otro, el paso inductivo, tal y como acabamos de demostrar, también se
+  cumple. Por tanto, se tiene que $T = \nset$.
+
+  Ahora, veamos la definición de $S$ en base a $T$. Sería
+
+  $$ S = \{r \in \zset \st r - b = n \in T\} $$
+
+  Entonces, puesto que $T = \nset$, se puede decir que
+
+  $$ S = \{r \in \zset \st r \geq b\} $$
+
+  % Habría que hablar de los casos en los que b < 0. TKTK.
+\end{proof}
+
+Al igual que para el caso base 0, existe también un principio equivalente a
+este último pero para propiedades.
+
+
+
+Con estas dos proposiciones, que para muchos son en realidad una sola,
+tenemos ya herramientas para dos propósitos principales: por un lado,
+realizar demostraciones, pero, también, hacer definiciones que contengan
+alguna clase de autorreferencia. Lo normal es que, para el caso de las
+demostraciones, se use el adjetivo \m{inductiva} o se diga \m{por
+inducción}, pero, para las definiciones, se opte por calificarlas de
+\m{recurrentes} o \m{por recursión}. En realidad, se trata de lo mismo, y
+hay quien opta por decir \m{por inducción} para los dos tipos, como se
+explica en \cite{stillwell-elem-maths} pág. 308.
+
+
+
+
+
+\begin{theorem}[Principio de Inducción Fuerte]
+  El conjunto $S = \{n \in \nset \st P_1 \ \text{y} \ P_2\}$ siendo
+
+  \begin{center}
+    \begin{tabular}{l p{0.8\textwidth}}
+      $P_1$ & $0 \in S$. \\
+      $P_2$ & Para todo $n \in \nset$ se da que, si para todo $k \in \nset$
+        con $0 \leq k < n$ se tiene que $k \in S$, entonces $n \in S$.
+    \end{tabular}
+  \end{center}
+
+  \noindent es igual a $\nset$.
+\end{theorem}
+
+Al Principio de Inducción Fuerte también hay quien lo llama Principio de
+Inducción Completa.
+
+\begin{proof}
+  Esta demostración es análoga a la del teorema \ref{princ-induccion}. Se
+  hará también por contradicción.
+
+  Supongamos que existe un subconjunto propio de $\nset$ que satisface $P_1$
+  y $P_2$. A este lo designaremos por $S$. Sea $S'$ su complementario
+  respecto a $\nset$, es decir, $S' = \nset \setminus S$. Ya que $S \neq
+  \nset$, puesto que era un subconjunto propio, se tiene que $S' \neq
+  \emptyset$. Entonces, por la Propiedad \ref{princ-buena-ord}, se tiene que
+  $S'$ tiene un primer elemento. Decidimos designar a este como $a$.
+
+  Ya que, por $P_1$, se tiene que $0 \in S$, entonces necesariamente se da
+  que $a \geq 1$. Todos los números entre 0 y $a - 1$, es decir, $0, 1, 2,
+  3, \ldots, a - 1$, pertenecen a $S$, puesto que $a$ es el elemento menor
+  de $S'$.
+
+  Por otro lado, si se aplica $P_2$ a $0, 1, 2, 3, \ldots, a - 1$, se tendrá
+  que, si todos ellos pertenecen a $S$, cosa que hemos demostrado que es
+  cierta, entonces $a$ pertenece a $S$.
+
+  Esto último se contradice con lo que dijimos al definir al elemento $a$.
+  Por tanto, la hipótesis de partida solo puede ser falsa. Esta era que
+  existe un subconjunto propio de $\nset$ que satisface $P_1$ y $P_2$. Lo
+  contrario será que $S = \nset$, tal y como queríamos demostrar.
+\end{proof}
+
+Tendría también su versión genérica.
+
+\begin{theorem}[Principio de Inducción Fuerte con Caso Base Genérico]
+  Dado $b \in \zset$. El conjunto $S = \{n \in \nset \st P_1 \ \text{y} \
+  P_2\}$ siendo
+
+  \begin{center}
+    \begin{tabular}{l p{0.8\textwidth}}
+      $P_1$ & $b \in S$. \\
+      $P_2$ & Para todo $n \in \nset$ se da que, si para todo $k \in \nset$
+        con $b \leq k < n$ se tiene que $k \in S$, entonces $n \in S$.
+    \end{tabular}
+  \end{center}
+
+  \noindent es igual a $\{n \in \zset \st n \geq b\}$
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+

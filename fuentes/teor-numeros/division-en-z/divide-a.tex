@@ -1,0 +1,495 @@
+
+
+
+\begin{deffinition}[Múltiplo]\label{def-multiplo}
+  Dados $a, k \in \zset$. Al número $a \cdot k$ se le conoce como
+  \m{múltiplo} de $a$.
+\end{deffinition}
+
+Advierta que también se podría decir, en ese caso, que $a \cdot k$ es
+múltiplo de $k$.
+
+A partir de la operación múltiplo, se puede definir la operación ``divide a'',
+que sería su inversa, es decir, la que deshace la acción de esta. Se podría
+decir que un número divide a otro si este último es múltiplo del primero. Más
+bien, se debería haber usado el sintagma ``si y solo si'', ya que son
+definiciones equivalentes. En cualquier caso, aquí se puede ser algo impreciso,
+pues no tiene excesiva relevancia.
+
+\begin{deffinition}[Operador ``divide a'']
+  Dados $a, b \in \zset$, decimos que ``$a$ divide a $b$'', y lo escribimos
+  como $a \mid b$, si y solo si existe algún $d \in \zset$ con el que se
+  cumpla
+
+  $$ b = d \cdot a $$
+\end{deffinition}
+
+\noindent Es decir, si $b$ es múltiplo de $a$, tal y como dijimos.
+
+Advierta que ese $d$ no tiene por qué ser único. Lo opuesto, es decir, si
+para todo $d \in \zset$ se cumple que $b \neq a \cdot d$, se dice que $a$ no
+divide a $b$, cosa que se suele designar como $a \nmid b$.
+
+Existen otras formas de llamar a esto mismo. Si $a \mid b$, también se dice
+que ``$a$ es un factor de $b$'' o que, tal y como ya hemos visto, que ``$b$
+es un múltiplo de $a$''.
+
+Advierta que el operador ``divide a'' es un operador buleano (en inglés,
+\engm{Boolean}); el resultado será, por tanto, \m{verdadero} o \m{falso}. No
+lo confunda con el valor de esa variable que aquí hemos designado por $d$.
+
+\begin{properties}\label{propi-divide-1}
+  Para cuaquier $a \in \zset$, se cumple:
+
+  \begin{enumerate}
+    \item $0 \mid 0$.
+    \item $a \mid 0$. Es decir, todo número $a$ divide a 0.
+    \item Dado $a \neq 0$, se cumple $0 \nmid a$. Es decir, ningún número
+      distinto de 0 es múltiplo de 0.
+    \item $1 \mid a$. Es decir, el 1 divide a todo número.
+    \item $a \mid a$. Es decir, todo número se divide a sí mismo.
+  \end{enumerate}
+\end{properties}
+
+En lo poco que llevamos de capítulo, he tomado dos decisiones que me harán,
+si deseo mantener coherencia en el resto del texto, poner las demás
+definiciones, teoremas, etc. algo distintas a las de textos clásicos como,
+por ejemplo, \cite{burton}. Estoy siguiendo esta regla
+imitando lo que se hace en \cite{weissman}. Concretamente, lo
+que origina todo el cambio es no poner, en la definición del operador
+``divide a'', una excepción excluyendo el caso $a = 0$ y, en estas
+propiedades, admitir que $0 \mid 0$.
+
+Lo que debe tener en cuenta es que, en ciertas situaciones en las que se
+tiene una proposición (en forma de proposición, teorema, lema, etc.) con un
+operador lógico condicional, algunos casos serán vacuamente ciertos
+(\engm{vacuously true}). TKTK.
+
+Independientemente de lo que se diga aquí para este operador, seguramente le
+habrían enseñado en cursos previos que el 0 no divide a ningún número,
+incluido al 0. TKTK. Si está más interesado en la posibilidad de que 0 pueda
+dividir a 0, puede ver el vídeo del siguiente enlace web:
+\url{https://www.youtube.com/watch?v=5WbK9O9JNDk}.
+
+\begin{proof}
+  -
+
+  \begin{enumerate}
+    \item Para todo $q \in \zset$ se cumple $0 = 0q$, con lo que será
+      cierto que $0 \mid 0$.
+
+    \item Se tiene que cumplir $0 = aq$ para algún $q \in \zset$. Si $a =
+      0$, es cierto por ser como el punto anterior. Si $a \neq 0$, tomamos
+      $q = 0$ y se cumple.
+
+    \item Es fácil demostrar que no existe ningún $q \in \zset$ para el que
+      se cumpla $a = 0q$, pues $0q = 0$ para cualquier $q$ y nos queda $a =
+      0$, pero esa posibilidad la hemos excluido.
+
+    \item Se tiene que cumplir $a = q1$. Tomando $q = a$ se cumple.
+
+    \item Se tiene que cumplir $a = qa$. Tomando $q = 1$ se
+      cumple.\qedhere
+    \end{enumerate}
+\end{proof}
+
+Es fácil resolver un ejercicio cuando nos piden comprobar, para un caso que
+sea cierto, si un número divide a otro. Sin embargo, si es un ejericio en el
+que resulta que no es cierto, ¿cómo se comprueba? ¿Se prueba para todos los
+casos? Es imposible, pues habría que probar con infinitos números. Bueno, sí
+que existe una forma. Veámoslo con un ejemplo.
+
+Queremos saber si 2 divide a 5. Por un lado, vamos a ver si se cumple para
+4, en lugar de 5. Se cumple ya que $2 \cdot 2 = 4$. De hecho, en general, se
+tiene siempre que
+
+$$ \text{Para todo $m \in \zset$ con $m \leq 2$}. \quad 2m \leq 4 $$
+
+\noindent Esto se debe a que la función $f(m) = 2m$ con el dominio en
+$\zset$ es una función monótona estrictamente creciente. TKTK.
+
+Por otro lado, se tiene siempre que
+
+$$ \text{Para todo $m \in \zset$ con $m \geq 3$}. \quad 2m \geq 6 $$
+
+\noindent por una razón análoga a la del otro caso.
+
+Así, puesto que $m$ no puede tomar un valor en $\zset$ entre 2 y 3, todos
+los valores de la función $2m$ se irán por encima de 6 o por debajo de 4,
+por lo que nunca podrá ser 5. Por tanto, $2 \nmid 5$.
+
+En lo que respecta a las reglas de prioridad en la notación, por lo que veo,
+parece que en los libros siguen como regla de estilo dar más prioridad al
+operador ``divide a'' que a la multiplicación, pero no así con la suma. Por
+lo que puede ver sin necesidad de usar paréntesis, cosas como $p \mid a
+\cdot b$ o $p \mid a \, b$, para designar que $p$ divide al producto de $a$
+y $b$, pero, si en lugar del producto es la suma, sí se usarán paréntesis,
+como en la expresión $p \mid (a + b)$.
+
+Veamos algunas propiedades más del operador ``divide a''.
+
+\begin{properties}\label{propi-divide-2}
+  Dados $a, b, c \in \zset$, se cumple:
+
+  \begin{enumerate}
+    \item Si $a \mid b$, entonces ${-a} \mid b$. También, $a \mid ({-b})$ y
+      $({-a}) \mid ({-b})$. Debido a esto, todos los factores de un número
+      $b$ arbitrario vienen en pares de la forma ${\pm a}$.
+    \item Si $a \mid b$ y $b \mid c$, entonces $a \mid c$. Esta es la
+      propiedad transitiva del operador ``divide a''.
+    \item Si $a \mid b$ y $b \mid a$, entonces o bien $a = b$ o bien $a =
+      {-b}$.
+  \end{enumerate}
+\end{properties}
+
+La penúltima de estas propiedades es la transitiva, y, la última, es algo
+parecido a la antisimétrica, aunque no llega a serlo, pues se admite que
+también se puede dar la posibilidad $a = {-b}$. Para que sí se dé la
+antisimétrica, podríamos restringirnos a los números naturales, en lugar de
+los enteros. Entonces, con estas dos propiedades, junto con la reflexiva,
+que se vio antes que también se cumple para todo número, se tiene que el
+operador ``divide a'' es una relación de orden, al igual que sucede con el
+operador ``menor o igual que'' (`$\leq$'). Eso sí, al contrario de lo que
+sucede con el operador ``menor o igual que'', el operador ``divide a'' es un
+orden parcial, no total.
+
+\begin{proof}
+  -
+
+  \begin{enumerate}
+    \item Como se da que $a \mid b$, existe un $q \in \zset$ para el que
+
+      $$ b = aq $$
+
+      Entonces,
+
+      $$ b = aq = (a \cdot 1)q = \left[({-a})({-1})\right]q =
+      ({-a})\left[({-1})q\right] = ({-a})({-q}) $$
+
+      \noindent Como ${-q} \in \zset$, se da entonces que ${-a} \mid b$.
+
+      Esto engloba como casos particulares los casos $a = b = 0$, por un
+      lado, y $a = 0$ y $b \neq 0$, por el otro. Se comprueba fácilmente
+      que, pare el primero, se cumple, ya que ${-0} = 0$, y, para el
+      segundo, será vacuamente cierta, ya que $0 \nmid b$.
+
+      Los demás casos de este apartado se hacen de forma similar.
+
+    \item Veamos el caso más general, en el que $a \neq 0$, $b \neq 0$ y $c
+      \neq 0$.
+
+      Si se da $a \mid b$, se tiene un $q_1 \in \zset$ tal que
+
+      $$ b = a q_1 $$
+
+      Del mismo modo, si $b \mid c$, se tiene un $q_2 \in \zset$ tal que
+
+      $$ c = b q_2 $$
+
+      Entonces, sustituyendo,
+
+      $$ c = (a q_1) q_2 = a (q_1 q_2) $$
+
+      Advierta que, al igual que antes, $q_1 q_2 \in \zset$, por lo que se
+      cumplirá necesariamente que $a \mid c$.
+
+      Ahora, habría que analizar los casos en los que aparece algún 0.
+      Serían varios, pero en realidad no entorpecen la versión generalista
+      de esta propiedad ya que son vacuamente verdaderas. Por ejemplo, para
+      el caso con $a \neq 0$, $b = 0$ y $c \neq 0$, el antecedente es falso,
+      pues, si se da $a \mid b$, entonces no puede darse $b \mid c$. No voy
+      a demostrarlo aquí para todos esos casos.
+
+    \item Veamos primero el caso en el que $a \neq 0$ y $b \neq 0$.
+
+      Como $a \mid b$, se tendrá un $q_1 \in \zset$ tal que
+
+      $$ b = a q_1 $$
+
+      Por el otro lado, como $b \mid a$, se tendrá un $q_2 \in \zset$ tal
+      que
+
+      $$ a = b q_2 $$
+
+      Manipulando las expresiones, llegamos a que
+
+      $$ a = a(q_1 q_2) $$
+
+      Por tanto, $q_1 q_2 = 1$. Para que se dé esto, existen solo dos
+      posibilidades: que $q_1 = q_2 = 1$ o bien que $q_1 = q_2 = {-1}$.
+      (Esto quizás requiere de una demostrción. TKTK).
+
+      Luego, simplemente con sustituir el valor de $q_1$ en la ecuación
+      anterior $b = a q_1$, se demuestra que tiene que darse $a = b$ o que
+      $a = {-b}$.
+
+      Para los casos $a \neq 0$, $b = 0$ y $a = 0$, $b \neq 0$, sería
+      vacuamente verdadera. Para el caso $a = b = 0$, se demostraría como
+      los otros casos, siempre y cuando se tenga en cuenta que ${-0} =
+      0$.\qedhere
+  \end{enumerate}
+\end{proof}
+
+Existen muchas otras proposiciones de este tipo que son triviales de
+demostrar y no nos molestaremos en presentar aquí. Si las necesita para
+algún ejercicio, puede deducirlas sobre la marcha. También, si quiere tener
+un listado más amplio de este tipo de proposiciones, puede consultar
+\cite{burton}.
+
+A continuación vamos a dar dos proposiciones que, en combinación, nos dan la
+posibilidad de abarcar un espectro muy amplio de casos para este operador.
+
+Según la primera de estas, si un número divide a otro, entonces también
+dividirá a todos los múltiplos de este.
+
+\begin{proposition}[del Factor del Múltiplo]\label{prop-divide-al-multiplo}
+  Dados $a, b, k \in \zset$. Si $a \mid b$, entonces se cumple $a \mid bk$.
+\end{proposition}
+
+Se demuestra simplemente dándose uno cuenta de que estamos en una situación
+en la que se está haciendo uso de la propiedad transitiva, ya que, por
+definición, $bk$ será múltiplo de $b$.
+
+  \iffalse
+  La demostración es igual de trivial que las anteriores. De hecho, se
+  podría deducir directamente de la propiedad transitiva que acabamos de
+  ver, ya que, por definición, $bk$ será múltiplo de $b$. En cualquier caso,
+  vamos a poner una demostración completa.
+
+  Puesto que se cumple que $a \mid b$, existirá un $d \in \zset$ tal que
+
+  $$ b = ad $$
+
+  Ahora, tomamos un $k \in \zset$ y lo multiplicamos en las dos partes de la
+  igualdad anterior.
+
+  $$ bk = (ad)k = a(dk) $$
+
+  Por la estructura algebraica que manejamos, el producto es una operación
+  interna, con lo que $dk \in \zset$. Por tanto, queda demostrado que $a
+  \mid bk$.
+
+  Se debe comprobar también si se cumple en los casos en los que interviene
+  el 0. Para el caso en que $a = b = 0$, la expersión $a \mid bk$ se
+  reduciría a $0 \mid 0$, que, como vimos, es cierta.
+
+  Si $a \neq 0$, $b \neq 0$ y $k = 0$, la expresión se reduce a $a \mid 0$,
+  que también vimos que era cierta. Lo mismo para el caso $a \neq 0$, $k
+  \neq 0$ y $b = 0$.
+
+  Si $a = 0$ y $b$ y $k$ son distintos de 0, será vacuamente cierta.
+  \fi
+
+Otra proposición importante y con mucho uso de este operador viene a decir
+que, si tenemos dos múltiplos de un número, la suma y la resta de estos
+también serán múltiplos de dicho número. Es decir:
+
+\begin{proposition}
+  Dados $d, x, y \in \zset$. Si $d \mid x$ y $d \mid y$, entonces $d \mid (x
+  + y)$ y $d \mid (x - y)$.
+\end{proposition}
+
+\begin{proof}
+  Se debe a que, en los números enteros, se cumple la propiedad distributiva
+  del producto respecto a la suma.
+
+  La hipótesis implica que $x = md$ e $y = nd$ para algún par de enteros $m,
+  n \in \zset$. Sumando y restando $x$ e $y$, tenemos
+
+  $$ x \pm y = md \pm nd = (m \pm n)d $$
+
+  \noindent con lo que $d \mid (x \pm y)$.
+
+  Habría que estudiar también los casos en los que alguna de las variables
+  vale 0. En todos, sigue siendo cierta la proposición. Sería destacable el
+  caso en que $d = 0$ pero alguno de $x$ e $y$ es distinto de 0. En dicho
+  caso, la proposición sería vacuamente cierta.
+\end{proof}
+
+La proposición anterior se puede exponer de otra forma, que será la que
+usemos con más frecuencia, aunque sigue siendo lo mismo.
+
+\begin{proposition}[del Dos de Tres Para la
+  Divisibilidad]\label{princ-dos-de-tres}
+  Dados $a, b, c \in \zset$ que satisfacen la ecuación $a + b = c$ y dado $d
+  \in \zset$. Si dos de los números del conjunto $\{a, b, c\}$ son múltiplos
+  de $d$, entonces el otro también lo será.
+\end{proposition}
+
+Tal y como expliqué antes, uniendo esta proposición con la
+\ref{prop-divide-al-multiplo} podemos sacar muchas conclusiones sobre la
+operación ``divide a'', en muchos casos. Concretamente, uniendo ambas
+tendríamos que si un número divide, de forma independiente, a los
+coeficientes de una combinación lineal entera (una combinación lineal como
+las que conoce solo que con los coeficientes y las variables en el dominio
+de $\zset$), entonces también dividirá a esta. Pero en realidad no se queda
+ahí, pues también nos permiten explicar el divisor para expresiones más
+complicadas.
+
+Ejercicio. ¿Tiene soluciones enteras la ecuación $7x^2 + 11 = 21y$?
+
+Partamos de un hecho que vimos antes que se cumplía siempre. Si un número
+$a$ divide a otro $b$, entonces también divide a cualquier múltiplo de $b$,
+por ejemplo, expresado como $k \cdot b$.
+
+Volviendo ahora a los datos de este ejercicio, tenemos que, aplicando lo
+anterior, sabemos que tanto $7x^2$ como $21y$ son múltiplos de 7, ya que $21
+= 7 \cdot 3$. Aplicando aquí la Proposición \ref{princ-dos-de-tres}, se
+tiene que 11 ha de ser múltiplo de 7, pero esto sabemos que no es cierto.
+Por tanto, aplicando el condicional contrarrecíproco, se tendrá que la
+ecuación no tiene solución.
+
+Este ejercicio viene en \cite{weissman}, problema 0.34, pág. 17.
+
+Aunque más adelante veremos ecuaciones de este tipo, que las suelen llamar
+ecuaciones diofánticas, en este caso simplemente hemos usado el ingenio con
+nuestros pocos conocimientos hasta ahora de teoría de números para deducir
+que no tiene solución.
+
+La proposición siguiente también se usa en muchas demostraciones.
+
+\begin{proposition}[del Factor y el Menor o Igual]\label{prop-factor-men}
+  Dados $a, b \in \zset$, siempre que no se dé que $a \neq 0$ y $b = 0$. Si
+  $a \mid b$, entonces $|a| \leq |b|$.
+\end{proposition}
+
+\begin{proof}
+  Para el caso con $a = b = 0$, la demostración es trivial, pues $0 \mid 0$
+  y $0 = |0| \geq |0| = 0$. Para el caso con $a = 0$ y $b \neq 0$ es
+  vacuamente verdadera pues $0 \nmid b$, es decir, el antecedente es falso.
+
+  Para el caso con $a \neq 0$ y $b \neq 0$, tenemos que existe un $q \in
+  \zset$ tal que
+
+  $$ b = qa $$
+
+  Además, por las propiedades del valor absoluto, tenemos que
+
+  $$ |b| = |qa| = |q| \cdot |a| $$
+
+  Como $b \neq 0$, también será $q \neq 0$, pues, de lo contrario, se
+  tendría $|b| = |q| \cdot |a| = 0$. Por tanto, $|q| \geq 1$, ya que el
+  valor absoluto es siempre positivo. Uniendo ambas condiciones, tenemos
+
+  $$ |b| = |q| \cdot |a| \geq 1 \cdot |a| = |a| $$
+
+  \iffalse
+  % Desarrollo de la explicación de $|b| = |q| \cdot |a| \geq |a|$.
+
+  Tomamos una variable $m$ a partir de $q$ tal que $m = q - 1$. Entonces,
+  tenemos que
+
+  $$ |b| = |m + 1| \cdot |a| $$
+
+  Por la desigualdad triangular, se tiene que $|m + 1| \leq |m| + |1|$. Por
+  tanto,
+
+  $$ |b| = |m + 1| \cdot |a| \leq (|m| + 1) \, |a| = (|m| \cdot |a|) + |a|
+  $$
+
+  Como $|q| \geq 1$, tal y como dijimos antes, podemos ahora deducir que
+  $|m| \geq 0$, aunque esto sería innecesario. Entonces, $|m| \cdot |a| \geq
+  0$. Y esto es la definición de ``mayor o igual que''. Por tanto, se
+  cumplirá $|b| \geq |a|$.
+  \fi
+
+  Si tiene curiosidad de por qué se excluye el caso para $a \neq 0$ y $b =
+  0$, se debe fijar en que se cumple $a \mid 0$, pero también se cumple $|a|
+  > 0 = |0| = |b|$.
+\end{proof}
+
+Como caso particular, se cumple también que, si $a > 0$ y $b > 0$, entonces,
+si $a \mid b$, se cumple que $a \leq b$.
+
+
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------
+
+
+\iffalse
+El concepto de combinación lineal, que definimos a continuación, sería como
+el de múltiplo pero elevado a un grado mayor de complejidad.
+
+\begin{deffinition}[Combinación lineal entera]
+  Dados $a, b \in \zset$. Se llama combinación lineal entera de $a$ y $b$ a
+  cualquier expresión como la siguiente
+
+  $$ ax + by $$
+
+  \noindent o resultado de esta, para cualesquiera $x, y \in \zset$.
+\end{deffinition}
+
+A las \m{combinaciones lineales enteras} (\engm{integer linear
+combinations}), normalmente, en los textos de teoría de números, se las
+suele llamar simplemente \m{combinaciones lineales}, pues se sobrentiende
+que se trata de enteras.
+
+La proposición siguiente sería una generalización de la propiedad 2 de las
+propiedades \ref{propi-divide-2}, puesto que, tal y como acabamos de
+explicar, el concepto de combinación lineal es como el de múltiplo pero
+elevado a un grado mayor de complejidad. Es una proposición muy importante y
+que tiene mucho uso en todo lo que sigue. Se usará en muchas de las
+demostraciones posteriores de la teoría de números.
+
+Esta viene a decir que si un número divide por separado a otros dos,
+entonces también dividirá a cualquier combinación lineal de ambos.
+
+\begin{proposition}[del Factor de las Combinaciones
+  Lineales]\label{prop-comb-lin}
+  Dados $a, b, c \in \zset$. Si $a \mid b$ y $a \mid c$, entonces $a \mid bx
+  + cy$ para cualesquiera $x, y \in \zset$.
+\end{proposition}
+
+\begin{proof}
+  Como se dan $a \mid b$ y $a \mid c$, existirán $q_1, q_2 \in \zset$ tales
+  que
+
+  \begin{alignat*}{2}
+    b   &= a q_1 \\
+    c   &= a q_2
+  \end{alignat*}
+
+  Entonces,
+
+  $$ bx + cy = a q_1 x + a q_2 y = a(q_1 x + q_2 y) = aq $$
+
+  \noindent siendo $q = q_1 x + q_2 y$. Así, se ve claramente que se cumple
+  entonces que $a \mid bx + cy$.
+
+  En particular, para el caso cuando $a = 0$ será vacuamente verdadera. Para
+  cuando $a \neq 0$ y $b = c = 0$, como la combinación lineal valdrá 0 y
+  todo número divide al 0, también será verdad. Para el caso cuando $a = b =
+  c = 0$, se reducirá a $0 \mid 0$, que, como sabemos es verdad. Todos los
+  casos en los que interviene el 0 son verdad, pero los demás no los
+  demostraré.
+\end{proof}
+\fi
+
+
+
+
+\iffalse
+La siguiente es un caso particular de la proposición anterior.
+
+\begin{proposition}
+  Dados $a, b \in \zset$ con $a > 0$ y $b > 0$. Si $a \mid b$, entonces $a
+  \leq b$.
+\end{proposition}
+
+\begin{proof}
+  Ya que $a > 0$ y $b > 0$, se cumple, por la definición del valor absoluto,
+  que $|a| = a$ y $|b| = b$. Y, como se cumple, por la proposición
+  \ref{prop-factor-men}, $|a| \leq |b|$, se tiene entonces que
+
+  $$ a = |a| \leq |b| = b $$
+\end{proof}
+\fi

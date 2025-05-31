@@ -1,0 +1,228 @@
+
+
+
+
+### Principio de Inclusión-Exclusión
+
+A pesar de su aparente simplicidad, el Principio de Inclusión-Exclusión es
+una herramienta bastante potente del análisis combinatorio.
+
+En su forma más simple, viene a decir que la relación entre el número de
+elementos de la unión y la intersección de dos conjuntos es
+
+$$ \text{card}(A \cup B) = \text{card}(A) + \text{card}(B) - \text{card}(A \cap B) $$
+
+Seguramente se haya dado cuenta de que se trata de una generalización del
+Principio de la Suma, para los casos en los que los conjuntos no son
+disjuntos. De hecho, este resultado surge de forma directa del Principio de
+la Suma y el Principio de la Resta. En realidad, el Principio de
+Inclusión-Exclusión es un resultado de un caso más general.
+
+Vamos a extender esto mismo a un número genérico de $m$ propiedades. Sean
+$P_1, P_2, P_3, \ldots, P_m$ propiedades que hacen referencia a objetos de
+$S$ (no quiere decir que todos cumplan todas estas propiedades), y sea
+
+$$ A_i = \{x \; : \; x \in S \ \text{y} \ x \ \text{cumple la propiedad} \ P_i\}
+$$
+
+para $i = 1, 2, 3, \ldots, m$, el subconjunto de objetos de $S$ que tienen
+la propiedad $P_i$, además de otras, posiblemente.
+
+Entonces, $A_i \cap A_j$ es el subconjunto de objetos de $S$ que cumplen las
+propiedades $P_i$ y $P_j$, y posiblemente otras más. $A_i \cap A_j \cap A_k$
+será el subconjunto de objetos de $S$ que cumplen las propiedades $P_i$,
+$P_j$ y $P_k$, además de otras posiblemente. Y así sucesivamente hasta
+llegar a $A_1 \cap A_2 \cap A_3 \cap \cdots \cap A_m$, que sería el conjunto
+de los objetos de $S$ que cumplen todas las propiedades. Por otra parte, el
+subconjunto de objetos que no cumplen ninguna de las propiedades $P_1, P_2,
+P_3, \ldots, P_m$ será
+
+$$ \overline{A_1} \cap \overline{A_2} \cap \overline{A_3} \cap \cdots \cap
+\overline{A_m} $$
+
+El Principio de Inclusión-Exclusión muestra cómo contar el número de objetos
+en este conjunto al ir contando conjuntos de objetos de acuerdo a
+propiedades que sí cumplen. En cierto modo, se podría decir que este
+principio invierte la forma de contar.
+
+::: theorem
+El número de objetos del conjunto $S$ que no cumplen ninguna de las
+propiedades $P_1, P_2, P_3, \ldots, P_m$ viene dado por la expresión
+alternante siguiente:
+
+$$
+\begin{array}{l}
+  \displaystyle \operatorname{card}\left(\overline{A_1} \cap \overline{A_2}
+    \cap \overline{A_3} \cap \cdots \cap \overline{A_m}\right) = \\[1ex]
+    \displaystyle \quad = \text{card}(S) - \sum \text{card}(A_i) + \sum \card(A_i \cap
+      A_j) \\[1ex]
+    \displaystyle \quad\quad {} - \sum \text{card}(A_i \cap A_j \cap A_k) + \cdots
+      \\[1ex]
+    \displaystyle \quad\quad {} + ({-1})^m \sum \card(A_1 \cap A_2 \cap A_3
+      \cap \cdots \cap A_m) \\[1ex]
+\end{array}
+$$
+
+donde la primera suma es sobre todos los subconjuntos de 1 elemento,
+$\{i\}$, de $1, 2, 3, \ldots, m$, la segunda, de los de 2 elementos, $\{i,
+j\}$, de $1, 2, 3, \ldots, m$, la tercera, de los de 3 elementos, $\{i, j,
+k\}$, de $1, 2, 3, \ldots, m$, y así hasta la suma de todos los subconjuntos
+de $m$ elementos de $1, 2, 3, \ldots, m$, que en este último caso solo
+existe uno.
+:::
+
+Hemos dejado los símbolos de sumatorio sin poner índices de forma
+deliverada, ya que es algo complicado lo que sucede ahí. Para explicarlo,
+vamos a mostrar algunos casos particulares.
+
+Para $m = 3$, se tiene
+
+$$
+\begin{array}{l}
+  \displaystyle \operatorname{card}\left(\overline{A_1} \cap \overline{A_2}
+    \cap \overline{A_3}\right) = \\[1ex]
+    \displaystyle \quad = \text{card}(S) - [\text{card}(A_1) + \text{card}(A_2) + \text{card}(A_3)]
+      \\[1ex]
+      \displaystyle \quad\quad {} + [\text{card}(A_1 \cap A_2) + \card(A_1 \cap
+        A_3) + \text{card}(A_2 \cap A_3)] \\[1ex]
+      \displaystyle \quad\quad {} - \text{card}(A_1 \cap A_2 \cap A_3) \\[1ex]
+\end{array}
+$$
+
+Como ve, se toman los subconjuntos de 2 elementos sin tener en cuenta el
+orden, ya que la intersección de conjuntos cumple la propiedad conmutativa.
+Sucede lo mismo con todos los tipos de subconjuntos.
+
+Si se fija en el número de términos a la derecha del igual, son 8, que es lo
+mismo que $2^3$. Luego veremos por qué es así.
+
+Veamos el caso para $m = 4$.
+
+$$
+\begin{array}{l}
+  \displaystyle \operatorname{card}\left(\overline{A_1} \cap \overline{A_2}
+    \cap \overline{A_3} \cap \overline{A_4}\right) = \\[1ex]
+    \displaystyle \quad = \text{card}(S) - [\text{card}(A_1) + \text{card}(A_2) + \text{card}(A_3) +
+      \text{card}(A_4)] \\[1ex]
+      \displaystyle \quad\quad {} + [\text{card}(A_1 \cap A_2) + \card(A_1 \cap
+        A_3) + \text{card}(A_1 \cap A_4) \\[1ex]
+      \displaystyle \quad\quad {} + \text{card}(A_2 \cap A_3) + \card(A_2 \cap
+        A_4) + \text{card}(A_3 \cap A_4)] \\[1ex]
+      \displaystyle \quad\quad {} - [\text{card}(A_1 \cap A_2 \cap A_3) +
+        \text{card}(A_1 \cap A_2 \cap A_4) \\[1ex]
+      \displaystyle \quad\quad {} + \text{card}(A_1 \cap A_3 \cap A_4) + \card(A_2
+        \cap A_3 \cap A_4)] \\[1ex]
+      \displaystyle \quad\quad {} + \text{card}(A_1 \cap A_2 \cap A_3 \cap A_4)
+        \\[1ex]
+\end{array}
+$$
+
+En este caso hay 16 términos a la derecha. En el caso general, se tienen
+
+$$ \sum_{k=1}^m {m \choose k} = 2^m $$
+
+tal y como explica el Teorema TKTK.
+
+::: proof
+El lado izquierdo de la ecuación cuenta el número de objetos de $S$ que no
+cumplen ninguna de las propiedades. Al igual que como se hizo en el caso
+especial $m = 2$, podemos establecer la validez del a ecuación mostrando que
+que un objeto que no cumple ninguna de las propiedades $P_1, P_2, P_3,
+\ldots, P_m$ hace una contribución neta de 1 al lado derecho, y uno que
+cumpla al menos una de las propiedades realiza una contribución neta de 0.
+
+Consideremos primero un objeto $x$ que no cumpla ninguna de las propiedades.
+Su contribución al lado derecho de la igualdad será
+
+$$ 1 - 0 + 0 - 0 + \cdots + ({-1})^m 0 = 1 $$
+
+puesto que está en $S$ pero no está en ninguno de los otros conjuntos.
+
+Ahora, consideremos un objeto $y$ que cumple exactamente con $n$ de las
+propiedades, siendo $1 \leq n \leq m$. La contribución de $y$ a $\text{card}(S)$
+será 1, ya que $y \in S$. Esto es lo mismo que ${n \choose 0}$.
+
+Su contribución a $\sum \text{card}(A_i)$ es $n$, que es lo mismo que ${n \choose
+1}$ ya que cumple exactamente $n$ de las propiedades y, por tanto, será un
+miembro de $n$ de los subconjuntos $A_1, A_2, A_3, \ldots, A_m$.
+
+La contribución de $y$ a $\sum \text{card}(A_i \cap A_j)$ es ${n \choose 2}$ ya
+que podemos seleccionar de ${n \choose 2}$ formas un par de las propiedades
+que cumple $y$. Debido a esto, $y$ será miembro únicamente de ${n \choose
+2}$ de estos subconjuntos $A_i \cap A_j$.
+
+La contribución de $y$ a $\sum \text{card}(A_i \cap A_j \cap A_k)$ es ${n \choose
+3}$ y así sucesivamente.
+
+Por tanto, la contribución neta de $y$ al lado derecho de la igualdad será
+
+$$ {n \choose 0} - {n \choose 1} + {n \choose 2} - {n \choose 3} + \cdots
+({-1})^m {n \choose m} $$
+
+que es lo mismo que
+
+$$ {n \choose 0} - {n \choose 1} + {n \choose 2} - {n \choose 3} + \cdots
+({-1})^n {n \choose n} $$
+
+ya que $n \leq m$ y ${n \choose k} = 0$ si $k > n$. Debido a que esta última
+expresión es, según la identidad TKTK, igual a 0, la contribución neta de
+$y$ al lado derecho de la igualdad será 0 si $y$ cumple al menos una de las
+propiedades.
+:::
+
+::: corollary
+El número de objetos de un conjunto $S$ que cumplen al menos una de las
+propiedades $P_1, P_2, P_3, \ldots, P_m$ viene dado por
+
+$$
+\begin{array}{l}
+  \displaystyle \text{card}(A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_m) = \\[1ex]
+    \displaystyle \quad = \sum \text{card}(A_i) - \sum \text{card}(A_i \cap A_j) \\[1ex]
+      \displaystyle \quad\quad {} + \sum \text{card}(A_i \cap A_j \cap A_k)
+        \\[1ex]
+      \displaystyle \quad\quad {} + ({-1})^{m+1} \sum \card(A_1 \cap
+        A_2 \cap A_3 \cap \cdots \cap A_m) \\[1ex]
+\end{array}
+$$
+
+donde esas sumas son las mismas que las del teorema anterior.
+:::
+
+::: proof
+El conjunto $A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_m$ está formado por
+todos los objetos en $S$ que poseen al menos una de las propiedades.
+También,
+
+$$ \text{card}(A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_m) = \text{card}(S) -
+\operatorname{card}\left(\overline{A_1 \cup A_2 \cup A_3 \cup \cdots \cup
+A_m}\right) $$
+
+Por las Leyes de De Morgan, se tiene que
+
+$$ \overline{A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_m} = \overline{A_1}
+\cap \overline{A_2} \cap \overline{A_3} \cap \cdots \cap \overline{A_m} $$
+
+y, por tanto,
+
+$$ \text{card}(A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_m) = \text{card}(S) -
+\overline{A_1} \cap \overline{A_2} \cap \overline{A_3} \cap \cdots \cap
+\overline{A_m} $$
+
+Ahora, solo queda combinar esta ecuación con la del teorema anterior y
+tenemos
+
+$$
+\begin{array}{l}
+  \displaystyle \text{card}(A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_m) = \\[1ex]
+    \displaystyle \quad = \sum \text{card}(A_i) - \sum \text{card}(A_i \cap A_j) \\[1ex]
+      \displaystyle \quad\quad {} + \sum \text{card}(A_i \cap A_j \cap A_k)
+        \\[1ex]
+      \displaystyle \quad\quad {} + ({-1})^{m+1} \sum \card(A_1 \cap
+        A_2 \cap A_3 \cap \cdots \cap A_m) \\[1ex]
+\end{array}
+$$
+:::
+
+
+
+

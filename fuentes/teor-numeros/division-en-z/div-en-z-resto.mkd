@@ -1,0 +1,333 @@
+
+
+#### Division en $\mathbb{Z}$ con resto
+
+Esta es la división que aprendió en la educación primaria, solo que ahora
+justificamos por qué funciona.
+
+::: { .theorem #th-div-entera-con-resto data-label="Teorema de la División
+Entera con Resto" }
+Dados $a, b \in \mathbb{Z}$ con $b \neq 0$. Existe un único par de números $q, r,
+\in \mathbb{Z}$ con $0 \leq r < |b|$ tales que
+
+$$ a = b \cdot q + r $$
+:::
+
+Se trata de un teorema de existencia y unicidad.
+
+Lo que viene a decir este teorema es que existe una operación, que llamamos
+división en $\mathbb{Z}$ con resto, de tal forma que podemos expresar TKTK. A
+esta operación también la llaman _división euclidiana_ (_Euclidean
+division_) o TKTK. También lo llaman _algoritmo de Euclides_. TKTK.
+
+A los distintos elementos que aparecen en esta forma de expresar la relación
+entre dos números se les dan los nombres siguientes:
+
+<!--
+$$
+  \begin{array}{ll}
+  a & \text{dividendo o numerador} \\
+  b & \text{divisor o denominador} \\
+  q & \text{cociente} \\
+  r & \text{resto} \\
+  \end{array}
+$$
+-->
+
+<!--
+<table class="tbl-descr-2-cols">
+  <tbody>
+    <tr>
+      <td>$a$</td>
+      <td>_dividendo_ o _numerador_</td>
+    </tr>
+    <tr>
+      <td>$b$</td>
+      <td>_divisor_ o _denominador_</td>
+    </tr>
+    <tr>
+      <td>$q$</td>
+      <td>_cociente_</td>
+    </tr>
+    <tr>
+      <td>$r$</td>
+      <td>_resto_</td>
+    </tr>
+  </tbody>
+</table>
+-->
+
+  ----- ------------------------------------------------
+  $a$   _dividendo_ o _numerador_
+
+  $b$   _divisor_ o _denominador_
+
+  $q$   _cociente_
+
+  $r$   _resto_
+  ----- ------------------------------------------------
+
+Pero, ¿por qué se excluye de la definición el caso en el que el divisor,
+$b$, valga 0? Porque, en ese caso, el intervalo en el que se encuentra $r$
+sería el conjunto vacío, es decir, no tiene sentido decir $0 \leq r < 0$.
+Además, en ese caso el cociente no sería único.
+
+Vamos a ver ahora la demostración del teorema.
+
+::: proof
+La demostración va a ser de tipo constructivo.
+
+Vamos a dividirla en dos casos.
+
+Caso $b > 0$.
+
+Tomamos un valor $q \in \mathbb{Z}$ tal que sea el mayor con el que se cumpla $bq
+\leq a$. Es decir, $bq$ es el mayor múltiplo de $b$ que es menor o igual que
+$a$. Entonces, se da
+
+$$bq \leq a < b(q+1)$$
+
+La desigualdad de la derecha tiene que darse necesariamente porque, si con
+nuestro $q$ no se cumple $a < b(q+1)$, es que lo hemos seleccionado mal. En
+ese caso, tendríamos que haber elegido $q+1$ o algún otro valor superior.
+
+Ahora, defino una variable $r = a - bq$, ya que deseo que se dé $a = bq +
+r$, y resto $bq$ en todas las partes de ambas desigualdades.
+
+$$
+\begin{align*}
+  bq - bq   &\leq a - bq   < b(q+1) - bq = bq + b - bq \\
+  0         &\leq r        < b \\
+  0         &\leq r        < |b|
+\end{align*}
+$$
+
+Se da que $b = |b|$ porque nos encontramos en el caso en el que $b > 0$. Por
+cierto, advierta que la desigualdad $0 \leq a - bq$ es coherente con que,
+tal y como dijimos, $bq$ es el mayor múltiplo de $b$ menor o igual que $a$.
+
+Con esto, hemos demostrado la primera parte, es decir, que existen $q, r \in
+\mathbb{Z}$ tales que $a = bq + r$ con $0 \leq r < |b|$. Ojo, existen uno o
+varios. Es decir, hemos demostrado la existencia; ahora, queda demostrar la
+unicidad.
+
+Para esto, vamos a tratar de hacer una demostración por contradicción.
+Suponemos que lo anterior se cumple para dos pares de $q$ y $r$ distintos
+entre sí. Los designaremos por $q_1$ y $r_1$, y $q_2$ y $r_2$, y suponemos
+que se da, tal y como acabamos de decir, $r_1 \neq r_2$.
+
+Tenemos entonces que
+
+$$
+\begin{alignedat}{2}
+  a &= bq_1 + r_1  & \quad \text{con} \ 0 \leq r_1 < |b| &= b \\
+  a &= bq_2 + r_2  & \quad \text{con} \ 0 \leq r_2 < |b| &= b
+\end{alignedat}
+$$
+
+Vamos a quedarnos, de momento, con las ecuaciones de la izquierda. Si
+restamos ambas expresiones, tenemos
+
+$$
+\begin{align*}
+  a - a       &= b q_1 + r_1 - (b q_2 + r_2) \\
+  0           &= b(q_1 - q_2) + (r_1 - r_2) \\
+  r_2 - r_1   &= b(q_1 - q_2) \tag{*}\label{euclid-ref-1}
+\end{align*}
+$$
+
+Por tanto, tenemos que $b \mid (r_2 - r_1)$, ya que $(q_1 - q_2) \in \mathbb{Z}$.
+Por la Proposición [](#prop-factor-men){.nameref}, se tiene que
+
+$$ |b| \leq |r_2 - r_1| $$
+
+Ahora, nos centraremos en las desigualdades. Ya que se cumplen $0 \leq r_1 <
+|b| = b$ y $0 \leq r_2 < |b| = b$, se dará necesariamente que, en la recta
+real (o entera), la distancia entre $r_1$ y $r_2$ será menor (estrictamente)
+que $b$, que es lo mismo que decir que
+
+$$ |r_2 - r_1| < b = |b| $$
+
+que justamente contradice la conclusión a la que acabábamos de llegar.
+
+Por tanto, al darse esta contradicción, la premisa de la que partimos, que
+era que $r_1 \neq r_2$ será falsa. Por lo tanto, se da que $r_1 = r_2$.
+
+Además, si $r_1 = r_2$, veamos qué sucederá al sustituirlos en la ecuación
+\ref{euclid-ref-1}.
+
+$$ r_2 - r_1 = b(q_1 - q_2) $$
+
+Como $r_1 = r_2$, se tiene
+
+$$ 0 = b(q_1 - q_2) $$
+
+y, como partimos de la premisa de que $b \neq 0$, se tiene que $q_1 - q_2 =
+0$, o, lo que es lo mismo, $q_1 = q_2$.
+
+Así, hemos demostrado que $q$ y $r$ son únicos.
+
+Caso $b < 0$.
+
+Si $b < 0$, entonces, ${-b} > 0$ y podemos aplicar lo que demostramos para
+el caso anterior. Tenemos que existen $q, r \in \mathbb{Z}$ siendo $0 \leq r <
+|{-b}|$, para los que se cumple
+
+$$a = ({-b})q + r$$
+
+Ahora, podemos manipular la expresión anterior.
+
+$$ a = ({-b})q + r = ({-q})b + r \quad \text{con} \ 0 \leq r < |{-b}| = |b|
+$$
+
+con lo que hemos demostrado que existen $({-q}), r \in \mathbb{Z}$ únicos con los
+que se cumple la división en $\mathbb{Z}$ con resto de $a$ entre $b$, siendo $b <
+0$.
+:::
+
+Si no le convence la parte en la que se justifica que $|r_2 - r_1| < |b|$
+por la distancia entre estos, podemos hacerlo alternativamente manipulando
+expresiones. Partimos de
+
+<!-- TODO Corregir el espaciado de lo siguiente. -->
+
+$$
+\begin{array}{r@{}c@{}l}
+  0 &\leq r_1 &\leq |b| \\
+  0 &\leq r_2 &\leq |b|
+\end{array}
+$$
+
+Ahora, operamos $0 \leq r_1$ para llegar a ${-r_1} \leq 0$.
+
+De esto se deduce que
+
+$$ r_2 - r_1 < |b| - r_1 \leq |b| $$
+
+ya que ${-r_1} \leq 0$. Además, se tiene que
+
+$$ |r_1 - r_1| \geq 0 $$
+
+como es evidente. Por tanto, se tiene que
+
+$$ 0 \leq |r_2 - r_1| < |b| $$
+
+Advierta que, tal y como se ve en la primera parte de la demostración, $bq$
+queda siempre por "debajo" de $a$, tanto si se trata de $a \geq 0$ como de
+$a < 0$. Concretamente, a una distancia menor de $|b|$. Así, por ejemplo,
+para los valores $a = {-15}$ y $b = 8$ se descompondrá del modo siguiente:
+
+$$ {-15} = 8 \cdot ({-2}) + 1 = {-16} + 1 \quad \text{con} \ 0 \leq 1 < 8 $$
+
+Es decir, ese $q$ tiene que valer ${-2}$ para que $bq$ quede por "debajo" de
+${-15}$.
+
+Existen otros tipos de divisiones, como, por ejemplo, una en la que el valor
+absoluto del resto sería el mínimo posible. Esta viene explicada en
+[@weissman], pero aquí no la veremos.
+
+Existe otra forma de llamar al resto de este tipo de división. Se trata del
+().
+
+::: { .deffinition #op-modulo }
+Dados $a, b \in \mathbb{Z}$ con $b \neq 0$, definimos el operador módulo, que
+designamos por '$\mathrm{MOD}$', como el resto $r$ que obtenemos al aplicar
+el [](#th-div-entera-con-resto){.nameref}.
+
+$$ a \, \, \operatorname{MOD} \, \, b = r $$
+
+tal que
+
+$$ b = aq + r \quad \text{con} \ 0 \leq r < |b| $$
+:::
+
+Existe otro operador que guarda relación con esta operación y se le conoce
+como el . Lo designaríamos del modo siguiente:
+
+$$ a \equiv r \pmod b $$
+
+En cualquier caso, este operador se estudiará en profundidad en un capítulo
+posterior.
+
+::: properties
+Si tenemos $a, b, c, d, m \in \mathbb{Z}$ con $m \neq 0$ y se da que
+
+$$ a \, \, \operatorname{MOD} \, \, m = c \, \, \operatorname{MOD} \, \, m \quad \text{y} \quad b \, \, \operatorname{MOD} \, \, m = d \, \, \operatorname{MOD} \, \, m $$
+
+entonces:
+
+1.  $(a + b) \, \, \operatorname{MOD} \, \, m = (c + d) \, \, \operatorname{MOD} \, \, m$.
+
+2.  $(a \cdot b) \, \, \operatorname{MOD} \, \, m = (c \cdot d) \, \, \operatorname{MOD} \, \, m$.
+:::
+
+::: proof
+Estas demostraciones son triviales.
+
+1.  Como se cumple $a \, \, \operatorname{MOD} \, \, m = c \, \, \operatorname{MOD} \, \, m$, se tiene que existen $r_1,
+    q_1, q_2 \in \mathbb{Z}$ con $0 \leq r_1 < |m|$ tales que
+
+    $$
+    \begin{align*}
+      a &= mq_1 + r_1 \\
+      c &= mq_2 + r_1
+    \end{align*}
+    $$
+
+    Por otro lado, como se cumple $b \, \, \operatorname{MOD} \, \, m = d \, \, \operatorname{MOD} \, \, m$, se tiene que
+    existen $r_2, q_3, q_4 \in \mathbb{Z}$ con $0 \leq r_2 < |m|$ tal que
+
+    $$
+    \begin{align*}
+      b &= mq_3 + r_2 \\
+      d &= mq_4 + r_2
+    \end{align*}
+    $$
+
+    Tenemos entonces
+
+    $$
+    \begin{align*}
+      a + b &= m(q_1 + q_3) + (r_1 + r_2) \\
+      c + d &= m(q_2 + q_4) + (r_1 + r_2)
+    \end{align*}
+    $$
+
+    Advierta que, ya que $r_1 > 0$ y $r_2 > 0$, se tiene también que
+    $r_1 + r_2 > 0$.
+
+    Ahora, se pueden dar dos situaciones. Por un lado, puede que $r_1 + r_2
+    < m$. En ese caso, por el Teorema TKTK, tenemos que
+
+    $$
+    \begin{align*}
+      a + b &= m(q_1 + q_3) + (r_1 + r_2) \\
+      c + d &= m(q_2 + q_4) + (r_1 + r_2)
+    \end{align*}
+    $$
+
+    serán la divisiones en $\mathbb{Z}$ con resto de $a + b$ y $c + d$,
+    respectivamente, siendo $r_1 + r_2$ el resto de ambos y $q_1 + q_3$ y
+    $q_2 + q_4$ los cocientes respectivos.
+
+    En el caso de que $r_1 + r_2 \geq m$, lo que se hará será tomar un $r_3$
+    que sea tal que $r_3 = r_1 + r_2 - m$. Tenemos entonces
+
+    $$
+    \begin{align*}
+      a + b &= m(q_1 + q_3) + m + r_3 = m(q_1 + q_3 + 1) + r_3 \\
+      c + d &= m(q_2 + q_4) + m + r_3 = m(q_2 + q_4 + 1) + r_3
+    \end{align*}
+    $$
+
+    con $0 \geq r_3 < m$. Advierta que no puede darse $r_1 + r_2 \geq 2m$,
+    ya que $r_1 < m$ y $r_2 < m$. Se tiene entonces que se trata de
+    divisiones en $\mathbb{Z}$ con resto con resto de ambos $r_3$ y $q_1 + q_3$ y
+    $q_2 + q_4$ los cocientes respectivos.
+
+2.  el caso del producto se demuestra de forma análoga.
+:::
+
+
+
+

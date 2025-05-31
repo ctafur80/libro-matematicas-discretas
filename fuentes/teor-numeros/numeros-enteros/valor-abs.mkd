@@ -1,0 +1,57 @@
+
+
+
+#### Valor absoluto
+
+::: deffinition
+Dado un número $n \in \mathbb{Z}$, el de $n$, que designamos como $|n|$, es la
+aplicación $|\ |: \mathbb{Z} \longrightarrow \mathbb{N}$ siguiente:
+
+$$
+  |n| =
+    \left\{
+    \begin{array}{rl}
+      n     & \text{si} \ n \geq 0 \\
+      {-n}  & \text{si} \ n < 0
+    \end{array}
+    \right.
+  $$
+:::
+
+Esta sería la definición estándar, pero existen otras definiciones
+alternativas que quizás sean más interesantes e inspiradoras. Por ejemplo,
+una de estas sería decir que el valor absoluto mide la distancia entre esos
+dos números. ¿La distancia dónde? En la representación que se suele hacer en
+de los números en una recta. Esta definición serviría también para intuir
+otros conceptos análogos al de valor absoluto solo que para más de una
+dimensión.
+
+Algunas propiedades interesantes del valor absoluto son las siguientes.
+
+::: properties
+Dados $a, b \in \mathbb{Z}$.
+
+1.  $|a| = 0$ si y solo si $a = 0$.
+
+2.  $|a \cdot b| = |a| \cdot |b|$.
+
+3.  $|a + b| \leq |a| + |b|$. (Desigualdad triangular.)
+:::
+
+La última de estas tres propiedades es importante y se usa en muchas áreas
+de las matemáticas.
+
+::: proof
+La primera de las propiedades es trivial demostrarlo a partir de la
+definición. La segunda, se puede comprobar para los distintos casos,
+dependiendo de los signos que tomen $a$ y $b$; son 4 posibilidades. Para la
+tercera, se puede aportar intuición gráfica simplemente comprobando que la
+suma de dos de los lados de un triángulo siempre será mayor o igual que la
+del otro, aunque eso no es realmente una demostración pues estaríamos
+probándolo para un caso particular. Una forma de demostrarlo sería
+analizando los posibles casos con los distintos signos de $a$ y $b$ y
+también teniendo en cuenta si $a \leq b$ o al contrario.
+:::
+
+
+

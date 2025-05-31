@@ -1,0 +1,16 @@
+
+* {
+    /* Tema oscuro */
+    /* --main-bg-color: #1e1e1e; */
+    /* --main-fg-color: #b3adad; */
+    /* --boton: rgba(132, 116, 140, 0.95); */
+
+
+    /* Tema claro */
+    /* --main-bg-color: #e0e8df; */
+    --main-bg-color: #fff;
+    --main-fg-color: #343832;
+    --boton: rgba(132, 116, 140, 0.95);
+
+}
+

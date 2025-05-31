@@ -1,0 +1,429 @@
+
+
+
+#### Estructura algebraica de $\mathbb{Z}$
+
+Esta consta, además de los propios números de $\mathbb{Z}$, de dos
+operaciones: la suma, '$+$', y la multiplicación, '$\cdot$' (a veces se
+representa por otra simbología, como '$\times$' o por aposición); me refiero
+a las versiones estándar que seguro que conoce. A esta estructura se la
+denota por $(\mathbb{Z}, +, \cdot)$ (es decir, por una terna ordenada) o,
+también, por $(\mathbb{Z}, +, \times)$; como prefiera.
+
+Por un lado, tenemos que $(\mathbb{Z}, +)$ es un grupo conmutativo, puesto
+que la operación '$+$' será interna para dicho conjunto y, además se
+cumplirán las propiedades asociativa, elemento identidad (que se suele
+representar como '$0$'), elemento inverso y conmutativa. Cuando tenemos en
+cuenta los elementos inversos por la suma, tenemos ya los números negativos,
+con los que aparece la operación resta.
+
+Por el otro, tenemos que $(\mathbb{Z}, \cdot)$, aunque la operación es
+interna para dicho conjunto, y se satisfacen las propiedades asociativa,
+elemento identidad (que se suele representar por '$1$') y conmutativa, no
+llega a ser un grupo, pues no cumple la propiedad del elemento inverso. Es
+decir, si nos dan un $a \in \mathbb{Z}$, es posible que en $\mathbb{Z}$ no
+encontremos un elemento $b$ tal que $a \cdot b = e$, siendo este $e$ el
+elemento identidad del producto, o sea, $1$. De hecho, los únicos elementos
+de $\mathbb{Z}$ que cuentan con elemento inverso son el ${-1}$ y el $1$.
+Evidentemente, se puede "ampliar" esta estructura y obtener otra en la que
+todos los elementos tengan su inverso. El ejemplo clásico sería el de los
+números racionales, pero en esta asignatura apenas se hablará de ellos.
+
+En $(\mathbb{Z}, +, \cdot)$, también se satisface la propiedad distributiva
+del producto respecto a la suma. Es decir, dados $a, b, c \in \mathbb{Z}$,
+se cumplen
+
+$$
+\begin{align*}
+  a(b + c) &= ab + ac \\
+  (b + c)a &= ba + ca \\
+\end{align*}
+$$
+
+Ojo, la distribución de la suma respecto al producto no se cumple. Es decir,
+no podemos poner, en general, algo como $a + (b \cdot c) = (a+b)(a+c)$.
+
+Todo esto nos da, tal y como dijimos, para $(\mathbb{Z}, +, \cdot)$, la
+estructura algebraica de anillo conmutativo unitario. Más concretamente, el
+elemento unidad del producto es el $1$, tal y como dijimos, y no tiene
+divisores de $0$. Esto último hace que, dados $a, b \in \mathbb{Z}$, si $ab
+= 0$, entonces se da necesariamente que $a = 0$, $b = 0$ o ambos. Esta
+última propiedad la usaremos en algunos ejercicios.
+
+Tampoco vamos a demostrar todo en tanto detalle como se hace en una
+asignatura de estructuras algebraicas.
+
+Algunas propiedades interesantes de la estructura $(\mathbb{Z}, +, \cdot)$
+son las siguientes.
+
+::: properties
+Dados $a, b, c \in \mathbb{Z}$.
+
+1. $0 \cdot a = 0$.
+
+2. $a({-b}) = {-ab}$.
+
+3. Dado un $a \neq 0$. Si $ab = ac$, entonces $b = c$. (Propiedad
+   cancelativa.)
+
+4. ${-({-a})} = a$.
+
+5. $({-a})({-b}) = ab$
+:::
+
+::: proof
+Son estas.
+
+1. Partimos de la expresión $0a$, y operamos:
+
+   $$
+   \begin{alignedat}{2}
+     0a      &= (0 + 0)a
+       &&\quad \text{propiedad elemento neutro} \\
+     0a      &= 0a + 0a
+       &&\quad \text{propiedad distributiva} \\
+     0a - 0a &= (0a + 0a) - 0a
+       &&\quad \text{restamos $0a$ en ambas partes} \\
+     0a - 0a &= 0a + (0a - 0a)
+       &&\quad \text{propiedad asociativa de la suma} \\
+     0       &= 0a + (0a - 0a)
+       &&\quad \\
+     0       &= 0a + 0
+       &&\quad \\
+     0       &= 0a
+       &&\quad \text{propiedad elemento neutro}
+   \end{alignedat}
+   $$
+
+
+   <table class="eq-desarrollo">
+     <tr>
+       <td>$0a$</td>
+       <td>$=$</td>
+       <td>$(0 + 0)a$</td>
+       <td>propiedad elemento neutro</td>
+     </tr>
+     <tr>
+       <td></td>
+       <td>$=$</td>
+       <td>$0a + 0a$</td>
+       <td>propiedad distributiva</td>
+     </tr>
+     <tr>
+       <td>$0a - 0a$</td>
+       <td>$=$</td>
+       <td>$(0a + 0a) - 0a$</td>
+       <td>restamos $0a$ en ambas partes</td>
+     </tr>
+     <tr>
+       <td></td>
+       <td>$=$</td>
+       <td>$0a + (0a - 0a)$</td>
+       <td>propiedad asociativa de la suma</td>
+     </tr>
+     <tr>
+       <td>$0$</td>
+       <td>$=$</td>
+       <td>$0a + (0a - 0a)$</td>
+       <td></td>
+     </tr>
+     <tr>
+       <td></td>
+       <td>$=$</td>
+       <td>$0a + 0$</td>
+       <td></td>
+     </tr>
+     <tr>
+       <td></td>
+       <td>$=$</td>
+       <td>$0a$</td>
+       <td>propiedad elemento neutro</td>
+     </tr>
+   </table>
+
+2.  Partimos de la expresión $a({-b}) + ab$, y operamos:
+
+    <!--
+    $$
+    \begin{alignedat}{2}
+      a({-b}) + ab        &= a [({-b}) + b]
+        &&\quad \text{propiedad distributiva} \\
+      a({-b}) + ab        &= a0
+        &&\quad \text{operamos en los corchetes} \\
+      a({-b}) + ab        &= 0
+        &&\quad \text{por la propiedad 1} \\
+      a({-b}) + ab        &= ab - ab
+        &&\quad \text{por la definición de 0} \\
+      [a({-b}) + ab] - ab &= (ab - ab) - ab
+        &&\quad \text{restamos $ab$ en ambos lados} \\
+      a({-b}) + (ab - ab) &= (ab - ab) - ab
+        &&\quad \text{propiedad asociativa} \\
+      a({-b}) + 0         &= 0 - ab
+        &&\quad \text{operamos en los paréntesis} \\
+      a({-b})             &= {-ab}
+        &&\quad \text{definición de elemento neutro} \\
+    \end{alignedat}
+    $$
+    -->
+
+    <table class="eq-desarrollo">
+      <tr>
+        <td>$a({-b}) + ab$</td>
+        <td>$=$</td>
+        <td>$a [({-b}) + b]$</td>
+        <td>propiedad distributiva</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>$=$</td>
+        <td>$a0$</td>
+        <td>operamos en los corchetes</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>$=$</td>
+        <td>$0$</td>
+        <td>por la propiedad 1</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>$=$</td>
+        <td>$ab - ab$</td>
+        <td>por la definición de $0$</td>
+      </tr>
+      <tr>
+        <td>$[a({-b}) + ab] - ab$</td>
+        <td>$=$</td>
+        <td>$(ab - ab) - ab$</td>
+        <td>restamos $ab$ en ambos lados</td>
+      </tr>
+      <tr>
+        <td>$a({-b}) + (ab - ab)$</td>
+        <td>$=$</td>
+        <td>$(ab - ab) - ab$</td>
+        <td>propiedad asociativa</td>
+      </tr>
+      <tr>
+        <td>$a({-b}) + 0$</td>
+        <td>$=$</td>
+        <td>$0 - ab$</td>
+        <td>operamos en los paréntesis</td>
+      </tr>
+      <tr>
+        <td>$a({-b})$</td>
+        <td>$=$</td>
+        <td>${-ab}$</td>
+        <td>definición de elemento neutro</td>
+      </tr>
+    </table>
+
+3.  Partimos de la ecuación $ab = ac$, y operamos:
+
+    <!--
+    $$
+    \begin{alignedat}{2}
+      ab            &= ac
+        &&\quad \\
+      ab - ac       &= ac - ac
+        &&\quad \text{restamos $ac$ en ambas partes} \\
+      ab - ac       &= 0
+        &&\quad \text{hacemos la resta de la derecha} \\
+      a[b + ({-c})] &= 0
+        &&\quad \text{sacamos factor común $a$} \\
+      a(b - c)      &= 0
+        &&\quad \\
+    \end{alignedat}
+    $$
+    -->
+
+    <table class="eq-desarrollo">
+      <tbody>
+        <tr>
+          <td>$ab$</td>
+          <td>$=$</td>
+          <td>$ac$</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>$ab - ac$</td>
+          <td>$=$</td>
+          <td>$ac - ac$</td>
+          <td>restamos $ac$ en ambas partes</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>$0$</td>
+          <td>hacemos la resta de la derecha</td>
+        </tr>
+        <tr>
+          <td>$0$</td>
+          <td>$=$</td>
+          <td>$a[b + ({-c})]$</td>
+          <td>sacamos factor común $a$</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>$a(b - c)$</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    Como se da la condición $a \neq 0$, para que se dé que
+
+    $$ a(b - c) = 0 $$
+
+    no queda otra que $b - c = 0$, o, lo que es lo mismo, $b = c$.
+
+4.  Nos vamos a auxiliar en otra variable $c$ que dependa de $a$.
+    Concretamente, decidimos que la dependencia sea $c = {-a}$. Advierta
+    que, si $a \in \mathbb{Z}$, se tiene que $c \in \mathbb{Z}$. Entonces,
+
+    <!--
+    $$
+    \begin{alignedat}{2}
+      0       &= c - c
+        &&\quad \text{} \\
+      0       &= c + ({-c})
+        &&\quad \text{} \\
+      0       &= ({-a}) + [{-({-a})}]
+        &&\quad \text{cambio de variable: $c = {-a}$} \\
+      0 + a   &= \{({-a}) + [{-({-a})}]\} + a
+        &&\quad \text{sumamos $a$ en ambas partes} \\
+      0 + a   &= \{[{-({-a})}] + ({-a})\} + a
+        &&\quad \text{propiedad conmutativa de la suma} \\
+      0 + a   &= [{-({-a})}] + [({-a}) + a]
+        &&\quad \text{propiedad asociativa de la suma} \\
+      0 + a   &= [{-({-a})}] + 0
+        &&\quad \text{operamos en el paréntesis} \\
+      a   &= [{-({-a})}]
+        &&\quad \text{propiedad elemento neutro, en ambos lados} \\
+    \end{alignedat}
+    $$
+    -->
+
+    <table class="eq-desarrollo">
+      <tbody>
+        <tr>
+          <td>$0$</td>
+          <td>$=$</td>
+          <td>$c - c$</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>$c + ({-c})$</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>$({-a}) + [{-({-a})}]$</td>
+          <td>cambio de variable: $c = {-a}$</td>
+        </tr>
+        <tr>
+          <td>$0 + a$</td>
+          <td>$=$</td>
+          <td>$\{({-a}) + [{-({-a})}]\} + a$</td>
+          <td>sumamos $a$ en ambas partes</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>$\{[{-({-a})}] + ({-a})\} + a$</td>
+          <td>propiedad conmutativa de la suma</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>$[{-({-a})}] + [({-a}) + a]$</td>
+          <td>propiedad asociativa de la suma</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>$[{-({-a})}] + 0$</td>
+          <td>operamos en el paréntesis</td>
+        </tr>
+        <tr>
+          <td>$a$</td>
+          <td>$=$</td>
+          <td>$[{-({-a})}]$</td>
+          <td>propiedad elemento neutro, en ambos lados</td>
+        </tr>
+      </tbody>
+    </table>
+
+5.  Lo haremos con un cambio de variable y haciendo uso de las propiedades 2
+    y 4. Tomemos la variable $c = {-a}$. Evidentemente, se tiene que $c \in
+    \mathbb{Z}$. Entonces,
+
+    <!--
+    $$
+    \begin{alignedat}{2}
+      ({-a})({-b}) &= c({-b})
+        &&\quad \text{cambio de variable: $c = {-a}$} \\
+      ({-a})({-b}) &= {-(cb)}
+        &&\quad \text{por la propiedad 2} \\
+      ({-a})({-b}) &= {-(bc)}
+        &&\quad \text{propiedad conmutativa del producto} \\
+      ({-a})({-b}) &= ({-c})b
+        &&\quad \text{por la propiedad 2} \\
+      ({-a})({-b}) &= ({-({-a})})b
+        &&\quad \text{cambio de variable: $c = {-a}$} \\
+      ({-a})({-b}) &= ab
+        &&\quad \text{por la propiedad 4} \\
+    \end{alignedat}
+    $$
+    -->
+
+    <table class="eq-desarrollo">
+      <tbody>
+        <tr>
+          <td>$({-a})({-b})$</td>
+          <td>$=$</td>
+          <td>$c({-b})$</td>
+          <td>cambio de variable: $c = {-a}$</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>${-(cb)}$</td>
+          <td>por la propiead 2</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>${-(bc)}$</td>
+          <td>propiedad conmutativa del producto</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>$({-c})b$</td>
+          <td>por la propiedad 2</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>$({-({-a})})b$</td>
+          <td>cambio de variable: $c = {-a}$</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>$=$</td>
+          <td>$ab$</td>
+          <td>por la propiedad 4</td>
+        </tr>
+      </tbody>
+    </table>
+:::
+
+
+
+
+
+

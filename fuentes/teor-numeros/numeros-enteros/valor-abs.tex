@@ -1,0 +1,80 @@
+
+
+
+
+\begin{deffinition}[Valor absoluto]
+  Dado un número $n \in \zset$, el \m{valor absoluto} de $n$, que designamos
+  como $|n|$, es la aplicación $|\ |: \zset \longrightarrow \nset$
+  siguiente:
+
+  \begin{equation*}
+    |n| =
+    \left\{
+    \begin{array}{rl}
+      n     & \text{si} \ n \geq 0 \\
+      {-n}  & \text{si} \ n < 0
+    \end{array}
+    \right.
+  \end{equation*}
+\end{deffinition}
+
+Esta sería la definición estándar, pero existen otras definiciones
+alternativas que quizás sean más interesantes e inspiradoras. Por ejemplo,
+una de estas sería decir que el valor absoluto mide la distancia entre esos
+dos números. ¿La distancia dónde? En la representación que se suele hacer en
+de los números en una recta. Esta definición serviría también para intuir
+otros conceptos análogos al de valor absoluto solo que para más de una
+dimensión.
+
+Algunas propiedades interesantes del valor absoluto son las siguientes.
+
+\begin{properties}
+  Dados $a, b \in \zset$.
+
+  \begin{enumerate}
+    \item $|a| = 0$ si y solo si $a = 0$.
+    \item $|a \cdot b| = |a| \cdot |b|$.
+    \item $|a + b| \leq |a| + |b|$. (Desigualdad triangular.)
+  \end{enumerate}
+\end{properties}
+
+La última de estas tres propiedades es importante y se usa en muchas áreas
+de las matemáticas.
+
+\begin{proof}
+  La primera de las propiedades es trivial demostrarlo a partir de la
+  definición. La segunda, se puede comprobar para los distintos casos,
+  dependiendo de los signos que tomen $a$ y $b$; son 4 posibilidades. Para
+  la tercera, se puede aportar intuición gráfica simplemente comprobando que
+  la suma de dos de los lados de un triángulo siempre será mayor o igual que
+  la del otro, aunque eso no es realmente una demostración pues estaríamos
+  probándolo para un caso particular. Una forma de demostrarlo sería
+  analizando los posibles casos con los distintos signos de $a$ y $b$ y
+  también teniendo en cuenta si $a \leq b$ o al contrario.
+\end{proof}
+
+\iffalse
+Ejercicio. Demuestre que, dado un $a \in \zset$ tal que $a < 0$, se cumple,
+tal y como demostramos en el ejercicio de la sección de la resta, que $a <
+{-a}$.
+
+Si $a < 0$, entonces, ${-a} > 0$, y, también, $c = 2({-a}) > 0$.
+
+Tenemos
+
+$$ a = a \cdot 1 = a(2 - 1) = 2a - a = {-a} + 2a $$
+
+Restando $2a$ a ambas partes, tenemos
+
+$$ {-a} = a - 2a = a + 2({-a}) = a + c $$
+
+\noindent siendo $c > 0$, tal y como dijimos.
+
+Entonces, de la definición de valor absoluto aplicado aquí se deduce que $a
+< {-a}$.
+\fi
+
+
+
+
+

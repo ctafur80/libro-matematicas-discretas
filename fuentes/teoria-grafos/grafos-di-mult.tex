@@ -1,0 +1,268 @@
+
+
+
+\begin{deffinition}[Grafo]
+  Se entiende por \m{grafo} (\engm{graph}) a todo par ordenado $(V, E)$
+  siendo los elementos de $E$ conjuntos de dos elementos de $V$.
+\end{deffinition}
+
+A los elementos de $V$ se les llama \m{vértices} (\engm{vertices}; singular,
+\emph{vertex}) y, a los de $E$, \m{aristas} (\engm{edges}). Muchas veces los
+llaman de otras formas. Así, por ejemplo, a los vértices también se les
+llama \m{nodos} (\engm{nodes}), a las aristas, \m{enlaces} (\engm{links}) o
+\m{ramas} (\engm{branches}), y más que no merece la pena mencionar. Muchas
+veces, la terminología depende de la rama de la ciencia o la tecnología a la
+que se aplique. Así sucede, por ejemplo, con la teoría de circuitos, en la
+electrotecnia. Aun así, la teoría de grafos tiene aplicaciones en ámbitos
+muy diversos.
+
+Debe advertir dos propiedades en las que quizás no haya reparado pero que se
+encuentran de forma implícita en la definición anterior. En ambas, lo que es
+determinante es que el concepto de \m{conjunto} tiene ciertas implicaciones
+en oposición a otros como \m{par ordenado} (o, más generalmente, $n$-tupla)
+y \m{multiconjunto}. Por un lado, ya que $E$ es un conjunto, en este no
+puede haber elementos repetidos. Por tanto, entre dos vértices habrá una
+arista o ninguna. Por otro lado, al estar $E$ constituido por conjuntos de
+dos elementos, en estos no pueden aparecer elementos del tipo $\{v_i,
+v_i\}$, pues, al tratarse de conjuntos, colapsarían a $v_i \in V$ y sería un
+conjunto de un elemento, con lo que no puede ser un elemento de $E$.
+
+Si denotamos por $G$ a un grafo, se denotará por $V(G)$ al conjunto de
+vértices del mismo, y $E(G)$, al de aristas.
+
+Dado un grafo $G = (V, E)$. Sean $u$ y $v$ vértices de $G$, es decir, $u, v
+\in V$. Si el par de vértices $u$ y $v$ forman una arista de $G$, es decir,
+$\{u, v\} \in E$, se dice que dichos vértices son \m{adyacentes} y la arista
+se designará por $uv$. En ese caso, a los vértices $u$ y $v$ se les llama
+\m{extremos} de la arista $uv$. A veces puede ver también que a una arista
+$uv \in E$ la designan como $(u, v) \in E$, pero es menos común. Además, en
+todo caso tendría más sentido que fuese $\{u, v\} \in E$, que es la notación
+que se usa para conjuntos de dos elementos.
+
+Los grafos se suelen representar mediante esquemas, pero en realidad, desde
+un punto de vista abstracto y riguroso, TKTK. La representación no es única,
+pues el concepto de medida es distinto al de la geometría. Creo que la
+teoría de grafos pertenece a la topología. Para hacer la representación,
+primero se dibujan los vértices, como puntos, y, luego, se unirán mediante
+segmentos de recta los vértices adyacentes. Se debe hacer en ese orden. Esos
+segmentos serán las aristas.
+
+Ejemplo. El grafo $G$ representado en la figura \ref{grafo-ejemplo-01} tiene
+por conjuntos de vértices y de aristas los siguientes:
+
+\begin{alignat*}{2}
+  V &= \{v_1, v_2, v_3, \ldots, v_7\} \\
+  E &= \{v_1 v_2, v_2 v_3, v_1 v_3, v_1 v_4, v_4 v_7, v_7 v_6, v_6 v_5, v_5
+    v_4, v_5 v_7\}
+\end{alignat*}
+
+\begin{figure}\label{grafo-ejemplo-01}\caption{Grafo}
+  \centering
+  \begin{tikzpicture}[nodes={circle, draw}]
+
+    % Tratar de pasar estas opciones a las del entorno tikzpicture.
+    \node [circle, radius=1pt, fill, label=$v_1$] (v1) at (2,4) {};
+    \node [circle, radius=1pt, fill, label=$v_2$] (v2) at (0,4) {};
+    \node [circle, radius=1pt, fill, label=$v_3$] (v3) at (1,2) {};
+    \node [circle, radius=1pt, fill, label=$v_4$] (v4) at (5,3) {};
+    \node [circle, radius=1pt, fill, label=$v_5$] (v5) at (4,2) {};
+    \node [circle, radius=1pt, fill, label=$v_6$] (v6) at (5,1) {};
+    \node [circle, radius=1pt, fill, label=$v_7$] (v7) at (6,2) {};
+
+    \graph [] {
+      (v1) -- {(v2), (v3), (v4)};
+      (v2) -- (v3);
+      (v4) -- {(v5), (v7)};
+      (v5) -- {(v6), (v7)};
+      (v6) -- (v7);
+    };
+  \end{tikzpicture}
+\end{figure}
+
+Para un grafo $(V, E)$, se denota por $\#V$ al número de vértices y por
+$\#E$ al de aristas.
+
+Se dice que un grafo es finito si el número de vértices que tiene es finito,
+ya que son los vértices los que marcan inicialmente al grafo; las aristas se
+toman sobre los vértices del mismo. En esta asignatura solo se estudiarán
+grafos finitos.
+
+Existen algunas variaciones del concepto de grafo, en las que la definición
+es algo más laxa. Un \m{multigrafo} (\engm{multigraph}) es un grafo que
+puede tener varias aristas entre dos vértices. Esto se logra haciendo que
+$E$ sea un multiconjunto, en lugar de un conjunto.
+
+Otra variación laxa del concepto de \m{grafo} es la de \m{pseudografo}. En
+estos, se permiten aristas cuyos extremos coinciden. En dicho caso, los
+elementos de $E$ serían multiconjuntos de dos elementos.
+
+Advierta la diferencia cuando hemos hablado de multiconjuntos: en los
+multigrafos se permite que $E$ sea un multiconjunto, mientras que, en los
+pseudografos, se permite que los elementos de $E$ sean multiconjuntos.
+
+Otra variación es el \m{grafo dirigido} (\engm{directed graph}; también
+conocido por su contracción \m{digrafo}, \engm{digraph}), que es un grafo
+pero los elementos de $E$ son pares ordenados, en lugar de conjuntos de dos
+elementos. En el esquema del digrafo, ese orden se indica colocando puntas
+de flecha sobre las aristas. En este caso, se llama \m{origen} al primer
+vértice de la arista y \m{destino} al segundo.
+
+Como es evidente, pueden aparecer muchas variaciones que incluyan a varias
+de estas. Por ejemplo, multidigrafos o pseudomultidigrafos.
+
+\begin{deffinition}[Grafos Isomorfos]
+  Sean $(V, E)$ y $(V', E')$ dos grafos y sea $f: V \longrightarrow V'$ una
+  biyyección entre los conjuntos de vértices tal que $uv \in E$ si y solo si
+  $\{f(u), f(v)\} \in E'$. La biyección $f$ es un \m{isomorfismo} de $(E,
+  V)$ a $(E', V')$. Se dice entonces que $(E, V)$ y $(E', V')$ son
+  isomorfos.
+\end{deffinition}
+
+Es decir, para dos grafos isomorfos se podría decir que, al pasar de uno al
+otro, aunque se transformen los vértices no se transforman las aristas de
+estos, o, lo que es lo mismo, la adyacencia de vértices. TKTK.
+
+Pueden existir varios isomorfismos diferentes entre dos grafos isomorfos,
+pero, si dos grafos no son isomorfos, no encontrará un isomorfismo entre
+ellos.
+
+Algo que se puede deducir de la definición anterior es que una condición
+necesaria para que dos grafos sean isomorfos es que tengan el mismo número
+de vértices, pues, si no se da esta condición, no podrá existir una
+biyección entre ambos. TKTK.
+
+\begin{deffinition}[Grado de un Vértice]
+  Se llama \m{grado} (\engm{degree}) de un vértice de un grafo al número de
+  aristas del grafo que tienen a dicho vértice por extremo.
+\end{deffinition}
+
+Quizás, podría pensar que una definición alternativa de \m{grado} de un
+vértice de un grafo sería el número de vértices adyacentes que tiene. El
+problema es que esto no es cierto en los multigrafos.
+
+El grado de un vértice $u$ se suele denotar por $\text{gr}(u)$. También,
+cuando se habla de más de un grafo, se suele poner al designador de este
+como subíndice, para así distinguir a cuál nos referimos. Por ejemplo,
+$\text{gr}_G(u)$. Aunque no es lo usual, hay quien llama al grado de un
+vértice su \m{valencia} (\engm{valence} TKTK).
+
+Los grados de los vértices se conservan por isomorfismo. Demostrar TKTK.
+
+\begin{proposition}
+  Sean $G$ y $G'$ dos grafos y $f$ un isomorfismo entre ambos. Si $u$ es un
+  vértice de $G$, entonces $\text{gr}_G(u) = \text{gr}_{G'}(f(u))$.
+\end{proposition}
+
+\begin{proof}
+  Se debe a que $f$ preserva la adyacencia. Por tanto, para cada $u$ y su
+  vértice correpondiente en la transformación, es decir, $f(u)$, se conserva
+  el grado de los mismos.
+\end{proof}
+
+\begin{theorem}[Primer Teorema de la Teoría de Grafos]
+  Sea $G = (V, E)$ un grafo con $V = \{v_1, v_2, v_3, \ldots, v_p\}$ el
+  conjunto de vértices y $\#E$ su cantidad de aristas. Entonces,
+
+  $$ \sum_{i=1}^p \text{gr}(v_i) = 2 \cdot \#E $$
+
+  \noindent Y, además, todo grafo contiene 0 o un número par de vértices de
+  grado impar.
+\end{theorem}
+
+A este teorema también se le conoce como el lema de los apretones de mano
+(\engm{Handshake lemma} o \engm{Handshaking lemma}).
+
+\begin{proof}
+  Al realizar la suma de los grados de cada vértice, o lo que es lo mismo,
+  la suma de las aristas de las que este es un extremo, cuando estamos
+  contando las de un vértice en concreto, esa misma arista volverá a
+  contarse en algún momento, cuando toque contar la del otro extremo de la
+  misma. Por lo tanto, teniendo en cuenta el cómputo global, toda arista se
+  contará por duplicado, por lo que se tiene
+
+  $$ \sum_{i=1}^p \text{gr}(v_i) = 2 \cdot \#E $$
+
+  Ya hemos demostrado la primera parte. Ahora, vamos a demostrar la segunda.
+
+  Sean, en el grafo de antes, $v_1, v_2, v_3, \ldots, v_t$ los vértices con
+  grado par, y sean $v_{t+1}, v_{t+2}, v_{t+3}, \ldots, v_p$ los de impar.
+  Tenemos entonces, por lo anterior, que
+
+  $$ 2 \cdot \#E = \sum_{i=1}^p \text{gr}(v_i) = \sum_{i=1}^t \text{gr}(v_i)
+  + \sum_{i=t+1}^p \text{gr}(v_i) $$
+
+  Teniendo en cuenta que la suma de los vértices de grado par tiene que ser
+  necesariamente par ya que es una suma de números pares, se tiene que la de
+  los vértices de grado impar tiene que ser necesariamente par, ya que es
+  una resta de dos números pares:
+
+  $$ \sum_{i=t+1}^p \text{gr}(v_i) = 2 \cdot \#E - \sum_{i=1}^t
+  \text{gr}(v_i) $$
+\end{proof}
+
+Quizás, esto se pueda separar en un teorema y un corolario. TKTK.
+
+\begin{deffinition}[Subgrafo]
+  Sea $G = (V, E)$ un grafo. Un \m{subgrafo} (\engm{subgraph}) de $G$ es
+  cualquier grafo $H = (V(H), E(H))$ tal que $V(H) \subseteq V$ y $E(H)
+  \subseteq E$.
+\end{deffinition}
+
+Se podría decir que un subgrafo se genera al tomar un grafo y ``borrar'' o
+eliminar algunas aristas y vértices de este. Lo que hay que tener en cuenta
+es que, si se elimina un vértice, se deben eliminar todas las aristas de las
+que este es un extremo, pues no puede haber aristas algún vértice. Si es
+posible la existencia de vértices aislados, es decir, sin ser extremo de
+ninguna arista.
+
+Como consecuencia de la definición de \m{subgrafo}, se tiene que, si $H$ es
+un subgrafo de $G$, para todo $v_i \in V(H) \subseteq V(G)$ se tiene
+
+$$ \text{gr}_H(v_i) \leq \text{gr}_G(v_i) $$
+
+Creo que de esto podría haber una demostración. TKTK.
+
+\begin{deffinition}[Grafo Regular]
+  Un grafo se dice \m{regular} (\engm{regular}) si todos sus vértices tienen
+  el mismo grado. Si dicho grado es $k \in \nset$, se dice que dicho grafo
+  es $k$-regular.
+\end{deffinition}
+
+Como es evidente, la $k$-regularidad de un grafo se conserva por
+isomorfismo.
+
+\begin{deffinition}[Grafo Completo]
+  Un grafo en el que todo par de vértices son extremos de alguna arista se
+  llama \m{grafo completo} (\engm{complete graph} TKTK).
+\end{deffinition}
+
+Es decir, un grafo completo es, a partir del conjunto de vértices, el grafo
+con mayor número de aristas que podemos formar. O, dicho de otra forma: para
+cualquier vértice, todos los demás son sus adyacentes.
+
+\begin{proposition}
+  Dos grafos completos con el mismo número de vértices son isomorfos.
+\end{proposition}
+
+\begin{proof}
+  Al tener ambos el mismo número de vértices, se tendrá una biyección. Es
+  fácil entonces establecer una biyección entre ambos. TKTK.
+\end{proof}
+
+Al grafo completo con $n$ vértices se le designa por $K_n$. O quizás se
+refiere al conjunto de estos TKTK.
+
+
+
+
+
+% TODO Ver si explica algo el libro sobre los grafos regulares.
+
+
+
+
+
+
+
+
+

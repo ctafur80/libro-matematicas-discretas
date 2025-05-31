@@ -1,0 +1,108 @@
+
+
+Se explica en \cite{rosen} sección 13.2, pág. 530, y en
+\cite{burton} seccion 12.2, pág. 252.
+
+
+
+
+
+
+Primero, se demostrará que TKTK.
+
+En realidad, al demostrar que la ecuación diofántica
+
+$$ x^4 + y^4 = z^2 $$
+
+\noindent no tiene soluciones distintas de 0, estamos estudiando un caso más
+general que
+
+$$ x^4 + y^4 = z^4 $$
+
+\noindent con lo que este quedará también demostrado.
+
+La técnica que se usará será por contradicción. Más concretamente, se usará
+una cosa llamada ``descenso infinito'' (\engm{infinite descent}) que
+consiste en TKTK.
+
+\begin{theorem}
+  La ecuación diofántica
+
+  $$ x^4 + y^4 = z^2 $$
+
+  \noindent no tienen soluciones enteras distintas de 0.
+\end{theorem}
+
+\begin{proof}
+  Lo vamos a demostrar por contradicción. Concretamente, usarmos una cosa
+  que llaman ``descenso infinito'' (\engm{infinite descent}). TKTK.
+
+  Vamos a centrarnos únicamente en analizar las soluciones positivas, es
+  decir, $x, y, z \in \nset^{+}$, ya que las otras se obtienen a partir de
+  estas, ya que todos los exponentes son pares.
+
+  Lo primero de lo que nos damos cuenta es que, en las posibles soluciones,
+  se da que $\gcd(x, y) = 1$. Para ver por qué, llamemos $d$ al $\gcd(x,
+  y)$. Existen entonces $x_1, y_1 \in \nset^{+}$ tales que $x = dx_1$ y $y =
+  dy_1$. Para estos valores, se cumple $\gcd(x_1, y_1) = \gcd(x/d, y/d) =
+  1$, por el Corolario \ref{cor-mcd-div-mcd}.
+
+  Puesto que $x^4 + y^4 = z^2$, se tiene que
+
+  \begin{alignat*}{2}
+    (dx_1)^4 + (dy_1)^4 &= z^2 \\
+    d^4(x_1^4 + y_1^4)  &= z^2
+  \end{alignat*}
+
+  \noindent Por tanto, $d^4 \mid z^2$. De esto se deduce TKTK que $d^2 \mid
+  z$, por lo que existirá un $z_1 \in \nset^{+}$ tal que $z = d^2 z_1$. Por
+  tanto, sustituyendo en la ecuación anterior, tenemos
+
+  $$ d^4(x_1^4 + y_1^4) = (d^2 z_1)^2 = d^4 z_1^2 $$
+
+  \noindent de modo que
+
+  $$ x_1^4 + y_1^4 = z_1^2 $$
+
+  \noindent que es una solución con $x_1, y_1, z_1 \in \nset^{+}$ con
+  $\gcd(x_1, y_1) = 1$, tal y como mostramos antes.
+
+  Suponga entonces que $x = x_0$, $y = y_0$ y $z = z_0$ siendo $x_0, y_0,
+  z_0 \in \nset^{+}$ con $\gcd(x_0, y_0) = 1$ es otra solución de $x^4 + y^4
+  = z^2$. Mostraremos a continuación que existe otra solución de enteros
+  positivos $x = x_1$, $y = y_1$ y $z = z_1$ siendo $x_1, y_1, z_1 \in
+  \nset^{+}$ con $\gcd(x_1, y_1) = 1$ tal que $z_1 < z_0$.
+
+  Puesto que tenemos
+
+  $$ x_0^4 + y_0^4 = z_0^2 $$
+
+  \noindent también tenemos
+
+  $$ (x_0^2)^2 + (y_0^2)^2 = z_0^2$$
+
+  \noindent de forma que $(x_0^2, y_0^2, z_0)$ es una terna pitagórica, ya
+  que es solución de la ecuación pitagórica anterior. Además, tiene que
+  darse necesariamente que $\gcd(x_0^2, y_0^2) = 1$, ya que, si $p$ es un
+  número primo tal que $p \mid x_0^2$ y $p \mid y_0^2$, entonces se da que
+  $p \mid x_0$ y $p \mid y_0$, cosa que contradice que $\gcd(x_0, y_0) = 1$.
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{proof}

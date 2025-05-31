@@ -1,0 +1,240 @@
+
+
+
+Viene en \cite{burton} capítulo 4, pág. 61.
+
+Las relaciones de congruencia son de gran utilidad para estudiar la
+divisibilidad en $\zset$. En el fondo, es lo mismo que la aritmética
+modular.
+
+\begin{deffinition}
+  Dados $a, b \in \zset$ y $m \in \nset^{+}$. Se dice que $a$ y $b$ son
+  \m{congruentes} (\engm{congruents}) módulo $m$, y se escribe $a \equiv b
+  \pmod m$, si y solo si $m \mid (a - b)$. En caso contrario, se dice que
+  son \m{incongruentes} (\engm{incongruents}) módulo $m$.
+\end{deffinition}
+
+En este caso, al número $m$ se le llama \m{módulo} (\engm{module}) de la
+congruencia.
+
+Evidentemente, dos números cualesquiera son congruentes módulo 1, aunque la
+congruencia módulo 1 en realidad no tiene ninguna relevancia ni es práctica
+para ningún fin. Dos números serán congruentes módulo 2 cuando tienen la
+misma paridad, es decir, si ambos son pares o bien ambos son impares.
+
+Si hacemos la división en $\zset$ con resto de un número $a \in \zset$ entre
+un número $m \in \nset^{+}$, tenemos que existen $q, r \in \zset$ con $0
+\leq r < m$ para los que
+
+$$ a = mq + r $$
+
+\noindent De aquí, reordenando términos, tenemos $a - r = mq$, con lo que $a
+\equiv r \pmod m$. Puesto que la variable $r$ puede tomar los valores
+enteros entre $0 \leq r < m$, podemos afirmar que, en general, cualquier $a
+\in \zset$ es congruente módulo $m$ con uno y solo uno de los valores $0, 1,
+2, 3, \ldots, m-1$, cosa que se justifica por el mismo Teorema que justifica
+la existencia de la división en $\zset$ con resto. En particular, se da que
+$a \equiv 0 \pmod m$ si y solo si $m \mid a$.
+
+A ese $r$ entre 0 y $m-1$ se le conoce como \m{menor residuo no megativo}
+módulo $m$ (\engm{least nonnegative residue module $m$}), y al conjunto de
+los $m$ enteros $0, 1, 2, 3, \ldots, m-1$, los \m{menores residuos no
+negativos} módulo $m$ (\engm{least nonnegative residues modulo $m$}).
+
+Por lo general, una colección de enteros $a_1, a_2, a_3, \ldots, a_m$ se
+dice que es un \m{conjunto (o sistema) completo de residuos} módulo $m$ si
+todo entero es congruente módulo $m$ a uno y solo uno de los $a_i$, siendo
+$1 \leq i \leq m$. Dicho de otro modo, los elementos de $a_1, a_2, a_3,
+\ldots, a_m$ son congruentes respectivamente con los elementos de alguna
+permutación de los menores residuos no negativos módulo $m$, es decir, de
+$0, 1, 2, 3, \ldots, m-1$.
+
+También se podría decir que un conjunto de números enteros no forman un
+conjunto completo de residuos módulo $m$ si y solo si no hay dos de estos
+que sean congruentes módulo $m$.
+
+El teorema siguiente proporciona una caracterización útil de la congruencia
+módulo $m$ en términos del resto de la división por $m$.
+
+\begin{theorem}[de la Caracterización de la Congruencia]
+  Dados $a, b \in \zset$ y $m \in \nset^{+}$. Entonces, $a \equiv b \pmod m$
+  si y solo si al dividir tanto a $a$ como a $b$ por $m$, se obtiene el
+  mismo resto.
+\end{theorem}
+
+\begin{proof}
+  Por un lado, puesto que $m \mid (a - b)$, tenemos que existirá algún $k
+  \in \zset$ para el que $a = b + km$. Podemos hacer la división entera con
+  resto de $b$ entre $m$ y tendremos
+
+  $$ b = qm + r $$
+
+  \noindent para algún par de $q, r \in \zset$ con $0 \leq r < m$. Uniendo
+  ambas ecuaciones,
+
+  $$ a = b + km = (qm + r) + km = (q + k)m + r $$
+
+  \noindent con lo que $a$ y $b$ tienen el mismo resto, $r$.
+
+  Por otro lado, suponga que podemos escribir $a = q_1 m + r$ y $b = q_2 m +
+  r$, para $q_1, q_2, r \in \zset$, siendo, siendo $0 \leq r < m$. Entonces,
+
+  $$ a - b = (q_1 m + r) - (q_2 m + r) = (q_1 - q_2)m $$
+
+  \noindent por lo que $m \mid (a - b)$.
+\end{proof}
+
+La congruencia se puede ver como una forma generalizada de la igualdad, en
+el sentido de que su comportamiento con respecto a la suma y la
+multiplicación es reminiscente a la igualdad ordinaria. En el teorema
+siguiente se muestran algunas de las propiedades elementales de la igualdad
+que se trasladan a las congruencias.
+
+\begin{theorem}
+  Dados $a, b, c, d \in \zset$ y $m \in \nset^{+}$. Se tiene
+
+  \begin{enumerate}
+    \item $a \equiv a \pmod m$. Propiedad reflexiva.
+    \item Si $a \equiv b \pmod m$, entonces $b \equiv a \pmod m$. Propiedad
+      simétrica.
+    \item Si $a \equiv b \pmod m$ y $b \equiv c \pmod m$, entonces $a \equiv
+      c \pmod m$. Propiedad transitiva.
+    \item Si $a \equiv b \pmod m$ y $c \equiv d \pmod m$, entonces $a+c
+      \equiv b+d \pmod m$ y $ac \equiv bd \pmod m$.
+    \item Si $a \equiv b \pmod m$, entonces $a+c \equiv b+c \pmod m$ y $ac
+      \equiv bc \pmod m$.
+    \item Dado $k \in \nset^{+}$. Si $a \equiv b \pmod m$, entonces $a^k
+      \equiv b^k \pmod m$.
+  \end{enumerate}
+\end{theorem}
+
+Estas propiedades son muy útiles para operar con las congruencias, como
+veremos luego, con lo que conviene aprendérselas de memoria. Ahora, veamos
+sus demostraciones.
+
+\begin{proof}
+  -
+
+  \begin{enumerate}
+    \item Para cualquier $a \in \zset$, tenemos que $a - a = 0\cdot m$.
+
+    \item Si $a \equiv b \pmod m$, entonces existe un $k \in \zset$ para el
+      que $a - b = km$. Por tanto, $b - a = {-(km)} = ({-k})m$ y, como ${-k}
+      \in \zset$, se tiene que $b \equiv a \pmod m$.
+
+    \item Suponga que $a \equiv b \pmod m$ y $b \equiv c \pmod m$. Entonces,
+      existen $h, k \in \zset$ para los que se cumple
+
+      \begin{alignat*}{2}
+        a - b &= hm \\
+        b - c &= km
+      \end{alignat*}
+
+      \noindent Sumándolas, tenemos
+
+      \begin{alignat*}{2}
+        (a - b) + (b - c)   &= hm + km \\
+        a - c               &= (h + k)m \\
+      \end{alignat*}
+
+      \noindent que es lo mismo que $a \equiv c \pmod m$.
+
+    \item Del mismo modo que antes, si $a \equiv b \pmod m$ y $c \equiv d
+      \pmod m$, entonces existirán $k_1, k_2 \in \zset$ para los que
+
+      \begin{alignat*}{2}
+        a - b   &= k_1 m \\
+        c - d   &= k_2 m
+      \end{alignat*}
+
+      \noindent Sumándolas, tenemos
+
+      \begin{alignat*}{2}
+        (a - b) + (c - d)   &= k_1 m + k_2 m \\
+        (a + c) - (b + d)   &= (k_1 + k_2)m
+      \end{alignat*}
+
+      \noindent que es lo mismo que $a + c \equiv b + d \pmod m$.
+
+      Para la segunda afirmación, se tiene que
+
+      $$ ac = (b + k_1 m)(d + k_2 m) = bd + (bk_2 + dk_1 + k_1 k_2 m)m $$
+
+      \noindent que es lo mismo que decir que $ac \equiv bd \pmod m$.
+
+    \item Se demuestra por la anterior teniendo en cuenta que $c \equiv c
+      \pmod m$, para todo $c \in \zset$.
+
+    \item Esta la demostraremos por inducción. De la propiedad 4, sabemos
+      que si se diese la hipótesis de inducción, es decir, $a \equiv b \pmod
+      m$ y $a^k \equiv b^k \pmod m$, se daría que $a \, a^k \equiv b \, b^k
+      \pmod m$, que sería lo mismo que $a^{k+1} \equiv b^{k+1} \pmod m$, que
+      sería la meta de inducción.
+
+      % Pregunta. No habría que ver si se da el caso base?
+
+  \end{enumerate}
+\end{proof}
+
+En el libro aparece otra. Como la 5.ta pero con división en lugar de
+multiplicación.
+
+Advierta que, concretamente, se cumplen las propiedades reflexiva, simétrica
+y transitiva. Por lo tanto, la congruencia es una relación de equivalencia.
+
+Tal y como hemos visto, si $a \equiv b \pmod m$, entonces se dará que $ac
+\equiv bc \pmod m$, para todo $c \in \zset$. Sin embargo, lo contrario no
+tiene por qué darse. Bastaría con dar un contraejemplo; por ejemplo, se da
+$2 \cdot 4 \equiv 2 \cdot 1 \pmod 6$, pero $4 \not\equiv 1 \pmod 6$. Lo que
+sí podemos afirmar a este respecto es lo que explica el teorema siguiente.
+
+\begin{theorem}
+  Dados $a, b, c \in \zset$ y $m \in \nset^{+}$. Si $ca \equiv cb \pmod m$,
+  entonces $a \equiv b \pmod {m/d}$, siendo $d = \gcd(c, m)$.
+\end{theorem}
+
+\begin{proof}
+  Por hipótesis, podemos escribir
+
+  $$ c(a - b) = ca - cb = km $$
+
+  \noindent para algún $k \in \zset$. Sabiendo que $d = \gcd(c, m)$,
+  entonces, por el Corolario \ref{cor-mcd-div-mcd}, existirán $r, s \in
+  \zset$ primos relativos para los que $c = dr$ y $m = ds$. Cuando
+  sustituimos estos valores en la ecuación anterior y cancelamos el factor
+  común $d$, tenemos
+
+  $$ r(a - b) = ks $$
+
+  \noindent Por tanto, $s \mid r(a - b)$ y $\gcd(r, s) = 1$. Por el Lema
+  \ref{th-lema-euclides}, tenemos $s \mid (a - b)$, que es lo mismo que
+  decir que $a \equiv b \pmod s$, o sea, $a \equiv b \pmod {m/d}$.
+\end{proof}
+
+\begin{corollary}
+  Dados $a, b, c \in \zset$ y $m \in \nset^{+}$. Si $ca \equiv cb \pmod m$ y
+  $\gcd(c, m) = 1$, entonces $a \equiv b \pmod m$.
+\end{corollary}
+
+\begin{corollary}
+  Dados $a, b, c \in \zset$ y $p$ un número primo. Si $ca \equiv cb \pmod p$
+  y $p \nmid c$, entonces $a \equiv b \pmod p$.
+\end{corollary}
+
+\begin{proof}
+  La condición de que $p$ sea primo y $p \nmid c$ hacen que $\gcd(c, p) =
+  1$, y ya sería el mismo caso que el del corolario anterior.
+\end{proof}
+
+Algo curioso con las congruencias, y que contrasta con el comportamiento de
+la igualdad, es que se puede tener 0 como resultado multiplicando dos
+números que no son congruentes con 0. Así, por ejemplo, se tiene que $4
+\cdot 3 \equiv 0 \pmod {12}$ siendo $4 \not\equiv 0 \pmod {12}$ y $3
+\not\equiv 0 \pmod {12}$.
+
+
+
+
+
+
+\section{Representación binaria y decimal de números enteros}

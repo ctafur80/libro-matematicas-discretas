@@ -1,0 +1,559 @@
+
+
+
+
+### Técnicas básicas
+
+
+
+
+#### Introducción
+
+Aquí, se presentan varios principios o reglas básicas de las que se deducen
+luego varias fórmulas para casos más particulares; también las llamo
+"técnicas 'enlatadas'". de combinatoria, que se presentan en el capítulo
+siguiente. En cualquier caso, los principios de este capítulo son la base de
+todo y conviene recordarlos. De hecho, son sencillos de recordar y de
+demostrar. Si los recuerda, podrá deducir por usted mismo esas técnicas
+"enlatadas" del capítulo siguiente. Además, habrá veces en las que se
+encuentre con un ejercicio que requiera del uso de estas técnicas básicas;
+es decir, cuya resolución no tiene una forma abreviada.
+
+Por mi parte, he incluido algunos principios que no se presentan en
+[@bujalance-costa] pero sí aparecen en [@brualdi], como el del
+complementario, por ejemplo. Al fin y al cabo son sencillos y vienen muy
+bien para resolver ejercicios. Incluso se usan en algunas demostraciones
+posteriores.
+
+Antes de comenzar a enunciar estos principios, me gustaría recordar un
+concepto que seguramente ya conozca pero que no está de más presentar
+formalmente.
+
+::: { .deffinition #def-particion-1 data-label="Definicíón de Partición de
+un Conjunto" }
+Dado un conjunto $S$, una _partición_ (_partition_) de $S$ es una colección
+$S_1, S_2, S_3, \ldots, S_m$ de subconjuntos de $S$ tales que cada elemento
+de $S$ se encuentre en uno y solo uno de esos subconjuntos.
+:::
+
+Puede encontrar una definición de _partición_ que me gusta más en [@newstead
+p. 200].
+
+Se podría dar una definición alternativa, más simbólica, que es más probable
+que sea la que conozca.
+
+::: { .deffinition #def-particion-2 data-label="Definición (alternativa) de
+Partición de un Conjunto" }
+Una partición de un conjunto $S$ es una colección de conjuntos $S_1, S_2,
+S_3, \ldots, S_m$ para los que se cumplen las propiedades
+
+$$
+\begin{align*}
+  S &= S_1 \cup S_2 \cup S_3 \cup \cdots \cup S_m \\
+  S_i \cap S_j &= \emptyset \ \text{para todos} \ i, j \in \mathbb{N} \
+    \text{siendo} \ 1 \leq i \leq m, 1 \leq j \leq m, i \neq j
+\end{align*}
+$$
+:::
+
+
+
+
+
+#### Algunos principios
+
+El principio siguiente viene a decir que, dada una partición de un conjunto,
+el cardinal de dicho conjunto es igual a la suma de todas las partes de
+esta.
+
+::: { .theorem #princ-suma data-label="Teorema Principio de la Suma" }
+Dados $A_1, A_2, A_3, \ldots, A_n$ conjuntos finitos tales que para todo $i,
+j \in \mathbb{N}$ con $1 \leq i \leq n$, $1 \leq j \leq n$ e $i \neq j$ se da
+$A_i \cap A_j = \emptyset$, se cumple
+
+$$ \operatorname{card}\left(\bigcup_{i=1}^n A_i\right) = \sum_{i=1}^n
+\text{card}(A_i) $$
+:::
+
+Por razones evidentes, también lo llaman Principio de la Adición.
+
+Aunque algunos de esos conjuntos pueden ser vacíos, en la práctica, a esos
+no los consideramos, tal y como verá en los ejercicios. Es decir, no sería
+un impedimento que algunas de las partes sean conjuntos vacíos, aunque
+también es cierto que, si se trata de un conjunto vacío, no se considera en
+la partición.
+
+¿Pero qué sucedería en el caso general, es decir, si esos conjuntos no son
+disjuntos dos a dos? Eso se estudia en el capítulo
+[](#ch-princ-incl-excl){.nameref}.
+
+Tal y como veremos con los ejercicios y problemas que hagamos luego, estos
+conjuntos pueden representar a agrupaciones de cosas, pero, a veces, a una
+misma cosa en un instante de tiempo diferente.
+
+Algo que se debe tener en cuenta es que, tal y como se ve en el enunciado
+del principio, se debe hacer una partición de un conjunto. Esa partición no
+puede ser cualquiera. Aquí es donde entra en juego la astucia de quien
+resuelve el ejercicio o problema. Se podría hacer una partición en la que
+cada parte contuviese únicamente a un elemento del conjunto original, pero
+eso no aportaría nada ya que contar esas particiones sería igual que contar
+los elementos del conjunto original uno a uno. Tal y como se explica en
+[@brualdi p. 28], hay que particionar al conjunto original en un número no
+demasiado grande de particiones.
+
+::: proof
+La demostración la haremos por inducción.
+
+Primero, veamos el caso base, que lo haremos para $n = 2$. Suponemos los dos
+conjuntos siguientes:
+
+$$
+\begin{align*}
+  A_1 &= \{a_1, a_2, a_3, \ldots, a_m\} \\
+  A_2 &= \{b_1, b_2, b_3, \ldots, b_p\}
+\end{align*}
+$$
+
+que, evidentemente, tienen los tamaños $\text{card}(A_1) = m$ y $\text{card}(A_2) = p$.
+Si son disjuntos, es decir, $A_1 \cap A_2 = \emptyset$, el conjunto unión de
+estos dos será
+
+$$ A_1 \cup A_2 = \{a_1, a_2, a_3, \ldots, a_m, b_1, b_2, b_3, \ldots, b_p\}
+$$
+
+ya que no había ningún elemento repetido. Por tanto, se tiene que
+
+$$ \text{card}(A_1 \cup A_2) = m + p = \text{card}(A_1) + \text{card}(A_2) $$
+
+Por tanto, para este caso se cumpliría.
+
+Ahora, vamos al paso inductivo. Por hipótesis de inducción, se cumple para
+el caso del conjunto de $n$ elementos:
+
+$$ \text{card}\left(\bigcup_{i=1}^n A_i\right) = \sum_{i=1}^n \text{card}(A_i) $$
+
+y debemos comprobar que se cumple también para el caso de $n+1$ elementos.
+
+Por la propiedad asociativa de la unión de conjuntos se tiene:
+
+$$ \bigcup_{i=1}^{n+1} A_i = \left(\bigcup_{i=1}^{n} A_i \right) \cup
+A_{n+1} $$
+
+Como, por hipótesis, se cumple para todo $i \in \mathbb{N}$ siendo $1 \leq i \leq
+n$ que $A_i \cap A_{n+1} = \emptyset$, se tiene también, como sabemos por la
+teoría de conjuntos, que
+
+$$ \emptyset = \bigcup_{i=1}^n \emptyset = \bigcup_{i=1}^n \left(A_{n+1}
+\cap A_i\right) = A_{n+1} \cap\left( \bigcup_{i=1}^n A_i \right) $$
+
+Gracias a esto, podemos aplicar a la penúltima identidad lo que obtuvimos
+para el caso base, es decir, para $n = 2$. Tenemos
+
+$$
+\begin{align*}
+  \operatorname{card}\left(\bigcup_{i=1}^{n+1} A_i\right)
+    &= \operatorname{card}\left(\bigcup_{i=1}^n A_i\right) +
+      \text{card}(A_{n+1}) \\
+    &= \text{card}(A_{n+1}) + \sum_{i=1}^n \text{card}(A_i) \\
+    &= \sum_{i=1}^{n+1} \text{card}(A_i)
+\end{align*}
+$$
+
+La penúltima igualdad se justifica por la hipótesis de inducción.
+:::
+
+Ahora, vamos a ver el Principio del Producto. Lo analizaremos primero para
+el caso de dos conjuntos únicamente. Después, lo generalizaremos.
+
+::: { .theorem #teor-princ-producto data-label="Teorema Principio del
+Producto" }
+Dados dos conjuntos finitos $A$ y $B$, el cardinal del producto cartesiano
+$A \times B$ es el producto de sus cardinales respectivos. Es decir,
+
+$$ \text{card}(A \times B) = \text{card}(A) \cdot \text{card}(B) $$
+:::
+
+Si se fija, esto no es más que una consecuencia del Principio de la Suma.
+Supongamos que el conjunto $A$ está constituido por los elementos $a_1, a_2,
+a_3, \ldots, a_p$ y, $B$, por $b_1, b_2, b_3, \ldots, b_q$. Como es
+evidente, se tiene que $\text{card}(A) = p$ y $\text{card}(B) = q$. Particionamos
+entonces a $A \times B$ en $S_1, S_2, S_3, \ldots, S_p$, siendo $S_i$ el
+conjunto de pares ordenados con primer elemento $a_i$, para un $i \in \mathbb{N}$
+siendo $1 \leq i \leq p$. Por tanto, el tamaño de cada $S_i$ es $q$.
+
+Aplicando entonces el Principio de la Suma, se tiene
+
+$$
+\begin{align*}
+  \text{card}(A \times B)
+    &= \text{card}(S_1) + \text{card}(S_2) + \text{card}(S_3) + \cdots + \text{card}(S_p) \\
+    &= q + q + q + \dots + q = p \cdot q
+\end{align*}
+$$
+
+La última igualdad se justifica por el hecho de que, para los números
+naturales, la multiplicación por un número $p \in \mathbb{N}$ es lo mismo que la
+suma repetida $p$ veces.
+
+Conviene aquí consultar esta sección por [@brualdi] ya que pone varios
+ejercicios muy básicos pero que vienen muy bien para comprender el tipo de
+razonamiento que se debe seguir en los ejercicios en los que se aplican
+estos principios. Sin embargo, en [@bujalance-costa] avanzan de un modo
+bastante más rápido y puede resultar complicado para quien no tenga cierta
+base.
+
+La diferencia principal entre el Principio de la Suma y el del Producto está
+en que, en el primero, se hace una sola selección o forma de aparecer,
+mientras que en el otro se hacen varias selecciones independientes. Esas
+selecciones podrían hacerse en secuencia o simultáneamente, dependiendo del
+ejercicio o problema en particular.
+
+Ahora, vamos a ver el principio anterior pero para el caso generalizado
+finito.
+
+::: { .theorem #teor-princ-prod-general data-label="Teorema Principio del
+Producto Generalizado" }
+Sea $A_1, A_2, A_3, \ldots, A_n$ una colección de conjuntos finitos. Se
+cumple
+
+$$ \text{card}(A_1 \times A_2 \times A_3 \times \cdots \times A_n) = \prod_{i=1}^n
+\text{card}(A_i) $$
+:::
+
+Advierta que este principio, al contrario de lo que sucede en el Teorema
+[](#princ-suma){.nameref}, no se requiere que los conjuntos sean disjuntos
+dos a dos.
+
+::: proof
+Se demostrará por inducción.
+
+El caso base será $n = 2$. Veamos primero la definición del producto
+cartesiano de dos conjuntos.
+
+$$ A_1 \times A_2 = \{(a, b) \; : \; a \in A_1 \ \text{y} \ b \in A_2\} $$
+
+Tenemos los conjuntos
+
+$$
+\begin{align*}
+  A_1 &= \{a_1, a_2, a_3, \ldots, a_m\} \\
+  A_2 &= \{b_1, b_2, b_3, \ldots, b_p\}
+\end{align*}
+$$
+
+con $\text{card}(A_1) = m$ y $\text{card}(A_2) = p$. Para cada $i \in \mathbb{N}$ siendo $1
+\leq i \leq m$ se tienen $p$ pares ordenados:
+
+$$ (a_i, b_1), (a_i, b_2), (a_i, b_3), \ldots, (a_i, b_p) $$
+
+Esto se tiene para cada uno de los $m$ elementos $a_i$. Por tanto, en total
+existirán $m \cdot p$ pares ordenados, que es lo mismo que $\text{card}(A_1) \cdot
+\text{card}(A_2)$. Por tanto, se tiene que
+
+$$ \text{card}(A_1 \times A_2) = \text{card}(A_1) \cdot \text{card}(A_2) $$
+
+con lo que queda demostrado que se cumple para el caso base $n = 2$.
+
+Veamos ahora el paso inductivo. Suponemos como hipótesis de inducción que se
+cumple para un caso genérico $n > 2$:
+
+$$ \text{card}(A_1 \times A_2 \times A_3 \times \cdots \times A_n) = \prod_{i=1}^n
+\text{card}(A_i) $$
+
+Veamos ahora si se cumple para $n+1$. Por la propiedad asociativa del
+producto cartesiano, se tiene
+
+$$ A_1 \times A_2 \times A_3 \times \cdots \times A_n \times A_{n+1} = (A_1
+\times A_2 \times A_3 \times \cdots \times A_n) \times A_{n+1} $$
+
+Por tanto, aplicando a esto lo que demostramos en el caso base, es decir,
+como si fuese $n = 2$, tenemos
+
+$$
+\begin{align*}
+  \text{card}(A_1 \times A_2 \times A_3 \times \cdots \times A_n \times A_{n+1})
+    &= \text{card}( (A_1 \times A_2 \times A_3 \times \cdots \times A_n) \times
+      A_{n+1}) \\
+    &= \text{card}(A_1 \times A_2 \times A_3 \times \cdots \times A_n) \cdot
+      \text{card}(A_{n+1}) \\
+    &= \text{card}(A_{n+1}) \cdot \prod_{i=1}^n \text{card}(A_i) \\
+    &= \prod_{i=1}^{n+1} \text{card}(A_i)
+\end{align*}
+$$
+
+La penúltima igualdad se justifica por la hipótesis de inducción y la última
+por la propiedad asociativa del producto de números naturales.
+:::
+
+::: exercise
+¿Cuántos números naturales $n$ existen entre 5000 y 10000, ambos incluidos,
+teniendo todos sus dígitos diferentes?
+
+El número 10000 nos entorpece en cierta medida la forma de abordar el
+problema por combinatoria, ya que tiene 5 dígitos, mientras que todos los
+demás son números de 4 dígitos. La solución es muy sencilla: contarlo a
+parte. Como dicho número no cumple la condición pues 10000 tiene dígitos
+repetidos, ni siquiera tenemos que contar nada aparte. Por tanto, el
+problema lo podemos reformular diciendo que se debe hallar el número de
+números naturales sin dígitos repetidos entre 5000 y 9999. Ahora, todos son
+de 4 dígitos, lo cual nos resulta mucho más cómodo.
+
+Ahora, hay que usar la astucia para seleccionar un orden a la hora de
+abordar por combinatoria el ejercicio. Esto nos hará que la resolución sea
+más breve. Vamos a usar el Principio del Producto, comenzando por las
+unidades de millar. Estas pueden tomar un número entre 5 y 9, ambos
+incluidos. Se tienen 5 posibilidades. Una vez seleccionado ese dígito,
+seleccionaríamos las centenas. Como no se puede repetir el dígito que hemos
+usado, habrá 9 posibilidades, que es una menos que las 10 que hay entre 0 y
+9 incluyendo a ambos. Para las decenas, habría 8 y, para las unidades, 7.
+Por tanto, por el Principio del Producto, se tendría que el resultado al
+ejercicio es
+
+$$ 5 \cdot 9 \cdot 8 \cdot 7 = 2520 $$
+
+De haber elegido otro orden de los dígitos para aplicar el Principio del
+Producto, habría que dividor el problema en dos casos, lo cual es más
+engorroso que lo que acabamos de hacer. Concretamente, suponga que comienza
+por las unidades. En ese caso, el dígito que se selecciona puede afectar a
+la cuenta de las unidades de millar, pues, si es un número entre 0 y 4, no
+le "quita" una posibilidad, pero, si está entre 5 y 9, sí. Por tanto, lo que
+habría que hacer es dividir el conteo en dos casos. TKTK.
+
+En este última forma de resolver el problema, al contrario que en la
+primera, se debe recurrir al uso del Principio de la Suma. Si es posible, es
+mejor ahorrárselo y así evitar recurrir a analizar la casuistica.
+
+En cualquier caso, advierta que ambas resoluciones dan lugar a una misma
+solución, por lo que, aunque la forma de abordar el problema contenga un
+componente de subjetividad, el resultado es objetivo.
+:::
+
+Esto se explica en [@brualdi p. 33]. Eso, si es que se puede, pues hay veces
+en las que no se puede. En cualquier caso, lo que se debe probar es a contar
+primero las elecciones más restrictivas.
+
+::: { .theorem #teor-princ-resta data-label="Teorema Principio de la Resta"
+}
+Dado un conjunto $U$ y un subconjunto de este, $A \subseteq U$. Sea
+
+$$ \overline{A} = U \setminus A = \{x \in U \; : \; x \not\in A\} $$
+
+el complementario de $A$ respecto de $U$. Se tiene que
+
+$$ \text{card}(A) = \text{card}(U) - \text{card}(\overline{A}) $$
+:::
+
+Ese conjunto $U$ suele ser un conjunto que surge de forma natural como el
+conjunto de todos los objetos que se están considerando en el ejercicio o
+problema. A un conjunto de este tipo se le suele llamar _conjunto universal_
+(_universal set_).
+
+En cuanto a la demostración, es muy sencilla. Basta con darse cuenta de que
+esto es una aplicación directa del Principio de la Suma en el que estamos
+contando el tamaño de $U$ a partir de la partición formada por un
+subconjunto cualquiera $A$ de $U$ y del complementario de este respecto a
+$U$, es decir, $\overline{A} = U \setminus A$. Una vez hecho esto, solo hay
+que manipular la expresión algebraica para aislar a $\text{card}(A)$.
+
+Este principio es muy útil cuando es más fácil contar el número de objetos
+en $U$ y $\overline{A}$ que en $A$.
+
+::: { .theorem #teor-princ-division data-label="Teorema Principio de la
+División" }
+Sea $S$ un conjunto finito sobre el que existe una partición tal que cada
+una de las partes tiene el mismo número de elementos. El número de partes $k
+\in \mathbb{N}$ en la partición será, necesariamente,
+
+$$ k = \frac{\text{card}(S)}{\text{número de objetos en cada parte}} $$
+:::
+
+Es evidentemente una consecuencia directa del Principio de la Suma, para los
+casos en los que la partición está formada por conjuntos del mismo tamaño.
+
+Aunque sea evidente, seguramente sea más fácil de comprender haciendo la
+multiplicación, en lugar que la división. Es lo mismo que sucede en teoría
+de números con los conceptos de _factor_ y _múltiplo_.
+
+El teorema siguiente se usa muy a menudo también y puede usarse para
+resolver algunos problemas muy creativos. Aunque lo llamamos Principio de
+Distribución, es más conocido como Principio del Palomar (), porque se suele
+explicar mediante un problema sobre un palomar. También, se le conoce como
+el Principio del Cajón de Dirichlet.
+
+::: { .theorem #princ-distribucion data-label="Teorema Principio de la
+Distribución" }
+Dados $m, n, p \in \mathbb{N}^{+}$. Para cualquier distribución de $n \cdot p +
+m$ elementos en $n$ conjuntos habrá al menos un conjunto con $p + 1$
+elementos.
+:::
+
+Como se le suele conocer más como el Principio del Palomar, normalmente se
+habla de cajas en lugar de conjuntos y de objetos en lugar de elementos.
+Bueno, imagino que a estas alturas tendrá cierta práctica con el
+razonamiento abstracto y no se liará porque yo lo llame de otro modo.
+
+Aunque es bastante evidente, tiene una demostración.
+
+::: proof
+De entre todas las distribuciones posibles que se podrían hacer, con la que
+más nos acercaríamos a que no se cumpliera esta proposición sería en la que
+los primeros $np$ elementos que tomemos los repartamos de forma homogénea en
+los $n$ conjuntos. En ese caso, cada conjunto tendría $p$ elementos.
+
+Pero hay que añadir $m \in \mathbb{N}$ elementos siendo $m > 0$, entre todos esos
+$n$ conjuntos, con lo que al menos uno de estos $n$ conjuntos tendrá $p+1$
+elementos.
+:::
+
+El corolario siguiente, aun siendo una consecuencia directa del Principio de
+la Distribución, es muy útil para resolver ciertos problemas.
+
+::: { .corollary data-label="Corolario" }
+Dados $m_1, m_2, m_3, \ldots, m_i, \ldots m_n \in \mathbb{N}^{+}$, siendo un
+índice $i \in \mathbb{N}$ con $1 \leq i \leq n$. Si se cumple
+
+$$ \frac{1}{n} \sum_{i=1}^n m_i > p $$
+
+se tiene que $m_i > p$ para algún $i$.
+:::
+
+::: proof
+La primera de las desigualdades se puede escribir de este otro modo:
+
+$$ \sum_{i=1}^n m_i > np $$
+
+Por la definición de la relación "mayor que", esto es lo mismo que decir
+que, para un $k \in \mathbb{N}$ siendo $k > 0$,
+
+$$ \sum_{i=1}^n m_i = np + k $$
+
+y, esto, según el Teorema [](#princ-distribucion){.nameref}, hace que entre
+los $n$ números $m_i$ exista al menos uno tal que $m_i > p$.
+:::
+
+::: exercise
+Dado el conjunto de números naturales $A = \{1, 2, 3, \ldots, 40\}$,
+demuestre que cualquier subconjunto sin remplazo de 21 elementos del mismo
+posee 2 que son uno divisor del otro.
+
+Vamos a crear 20 cajas imaginarias para luego distribuir una selección
+cualquiera de 21 elementos de A en estas. Vamos a crear una regla para
+introducir los números en las cajas según la cual cualquier par de elementos
+en una misma caja serán necesariamente uno divisor del otro.
+
+Una vez hecho esto, se podrá aplicar el Principio de la Distribución para
+demostrar que para cualquier distribucion de esos 21 números en las 20 cajas
+al menos habrá una caja con más de un elemento. No nos preocupa si los
+elementos de una caja son divisibles por los de otra, pues basta con lo
+anterior para la demostración que deseamos hacer.
+
+¿Pero cómo es esa forma de asignar elementos a las cajas?
+
+Vamos a llamar $n$ a un elemento genérico de los 21 seleccionados de $A$.
+Por tanto, $n \in \mathbb{N}$ y, también, $1 \leq n \leq 40$.
+
+Descomponemos a $n$ en factores primos y hacemos dos agrupaciones de su
+descomposición. Por un lado, se tiene el factor $2^k$ para algún $k \in
+\mathbb{N}$, que se deja tal y como está en la descomposición canónica en
+factores primos. Por el otro, se tiene al factor $m$, que es el producto de
+todos los demás factores de dicha descomposición canónica. Al ser $m$ un
+producto de números primos distintos de 2, será un producto de números
+impares y, por tanto, será también un número impar.
+
+Así, se tiene que, para cualquier $n \in A$,
+
+$$ n = 2^k \cdot m $$
+
+Advierta que, como el menor factor $2^k$ es $2^0 = 1$ y $1 \leq n \leq 40$,
+se tiene que $1 \leq m \leq 39$. Es decir, $m$ son todos los números impares
+entre 1 y 39.
+
+Veamos algunos casos particulares. Si $n$ es una potencia de 2, irá entonces
+en la caja 1, ya que tendríamos que $m = 1$. En caso contrario, irá en una
+de las demás cajas, al ser $m \neq 1$. Por ejemplo,
+
+<!--
+$$
+\begin{array}{lll}
+  24 &= 2^3 \cdot 3     & \text{Número} \ 24 \ \text{caja} \ 3 \\
+  25 &= 2^0 \cdot 25    & \text{Número} \ 25 \ \text{caja} \ 25 \\
+  39 &= 2^0 \cdot 39    & \text{Número} \ 39 \ \text{caja} \ 39 \\
+  40 &= 2^3 \cdot 5     & \text{Número} \ 40 \ \text{caja} \ 5
+\end{array}
+$$
+-->
+
+  --------------------  ------- --- ----- ---
+  $24 = 2^3 \cdot 3$    Número  24  caja  3
+  $25 = 2^0 \cdot 25$   Número  25  caja  25
+  $39 = 2^0 \cdot 39$   Número  39  caja  39
+  $40 = 2^3 \cdot 5$    Número  40  caja  5
+  --------------------  ------- --- ----- ---
+
+Lo que queda por demostrar es que, para cualquier caja, los elementos en su
+interior son uno divisor del otro, tal y como mencionamos. Supongamos que,
+en la caja $m$ se han introducido los números $n_1$ y $n_2$. Tendríamos que
+
+$$ n_1 = 2^k \cdot m \quad \text{y} \quad n_2 = 2^l \cdot m $$
+
+para algún par de números $k, l \in \mathbb{N}$. También, podemos asumir que
+$k > l$, sin pérdida de generalidad. Advierta que, si $k$ y $l$ fuesen
+iguales, se trataría de $n_1 = n_2$, con lo que ese caso no se contempla y,
+por tanto, han de ser distintos necesariamente. Entonces, se cumple
+
+$$ \frac{n_1}{n_2} = \frac{2^k \cdot m}{2^l \cdot m} = 2^{k-l} $$
+
+siendo $k - l \in \mathbb{N}$ y $k - l > 0$, por lo que $n_2 \mid n_1$.
+:::
+
+Otro ejercicio que se usa luego como base de otros es el siguiente. Está
+también en [@brualdi p. 71].
+
+Demuestre que, dada una sucesión de números enteros $a_1, a_2, a_3, \ldots,
+a_m$, existe un tramo de esta tal que la suma de los elementos del tramo sea
+un múltiplo del número de elementos de la sucesión.
+
+Se puede expresar también de un modo más simbólico, para evitar las posibles
+ambigüedades. Dada una sucesión de $m$ números enteros $a_1, a_2, a_3,
+\ldots, a_m$ existen dos enteros $k$ y $l$ con $0 \leq k < l \leq m$ tales
+que $a_{k+1} + a_{k+1} + \cdots + a_l$ es múltiplo de $m$.
+
+Consideremos las sumas de los $m$ tramos comenzando desde el 1.
+
+$$ a_1, a_1 + a_2, a_1 + a_2 + a_3, \ldots, a_1 + a_2 + a_3 + \cdots + a_m
+$$
+
+Si alguna de estas sumas es múltiplo de $m$, entonces se cumple lo que
+deseábamos.
+
+Vayámonos al caso más desfavorable. Supongamos que cada una de estas sumas
+tiene un resto distinto de 0, cuando se la divide entre $m$. Por tanto,
+dicho resto será uno de los elementos siguientes: $1, 2, 3, \ldots, m-1$.
+Como tenemos $m$ sumas, por aplicación del Principio del Palomar tendremos
+entonces que dos de esas sumas tendrán un mismo resto en esa división entre
+$m$.
+
+Supongamos que esas dos sumas con el mismo resto se dan para los índices $k$
+y $l$, con $k \neq l$, siendo, sin pérdida de generalidad, $k < l$. Se
+tiene, entonces,
+
+$$
+\begin{align*}
+  a_1 + a_2 + a_3 + \cdots + a_k = bm + r \\
+  a_1 + a_2 + a_3 + \cdots + a_l = cm + r \\
+\end{align*}
+$$
+
+para algun par de $b, r \in \mathbb{Z}$. Si los restamos, tenemos
+
+$$ a_{k+1} + a_{k+2} + a_{k-3} + \cdots + a_l = (c - b)m $$
+
+con lo que queda demostrado que $a_{k+1} + a_{k+2} + a_{k-3} + \cdots + a_l$
+es múltiplo de $m$.
+
+En los problemas del libro de problemas, en el 4 hace uso de algo que se ve
+en la sección siguiente. Usa combinaciones de 8 elementos tomados de 2 en 2
+para calcular el número de partidos que se juegan en el torneo. Son 28.
+
+
+

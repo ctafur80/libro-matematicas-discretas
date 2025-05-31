@@ -1,0 +1,89 @@
+
+
+
+
+
+Hay que aclarar que, en lo que respecta a la teoría de números, la que se
+toca en esta asignatura es la \m{elemental} (\engm{elementary}), adjetivo
+que se da para especificar que puede seguirla casi cualquiera, al casi no
+tener requisitos; basta con conocimientos de matemáticas de educación
+primaria. Curiosamente, en la educación secundaria no se toca nada de esto.
+La no elemental puede hacer uso de nociones de álgebra abstracta, de
+análisis de variable compleja, o de otras áreas. Como puede imaginar, son
+asignaturas avanzadas. Cada una de estas suele tener su propio adjetivo. Por
+ejemplo, teoría de números algebraica, entre otras.
+
+Debido a esto, no abundan los libros sobre la teoría de números elemental.
+Uno que se puede considerar un clásico es \cite{burton}. Es un libro muy
+antiguo, aunque se ha seguido editando y han ido actualizando algunos de sus
+contenidos. Es también bastante críptico, pero puede servir para comprender
+bien la asignatura. Otro que le gusta mucho a la gente es \cite{rosen}, y me
+parece que explica mejor las cosas, aunque es un libro que se centra mucho
+en las aplicaciones de esta materia; principalmente, en la criptografía.
+Rosen es autor también de un libro muy popular sobre matemáticas discretas.
+Otro que es un clásico, pero que creo que es algo más avanzado, es
+\cite{theory-of-numbers-niven}, pero es difícil de encontrar actualmente.
+
+Un libro de reciente aparición que también toca la teoría de números
+elemental es \cite{weissman}. Toca la mayoría de los temas de
+teoría de números de la asignatura, pero es algo distinto y creo que toca
+menos cosas que los anteriores. El punto fuerte de este es que tiene
+muchísimos gráficos muy bien hechos y que resultan de gran ayuda para
+comprender las explicaciones. También, he notado que la notación que usa es
+algo innovadora, es decir, difiere algo de las que se suelen ver en esta
+materia, pero creo que es bastante acertada.
+
+La mayoría de los libros de esta materia están constantemente, en todas las
+definiciones, proposiciones, propiedades, etc., haciendo excepciones sobre
+el rango de validez de las variables, es decir, excluyendo de estas algunos
+casos particulares. Concretamente, en casos que involucran al 0. Se debe a
+la decisión de excluir al 0 en el operando de la izquierda en la definición
+del operador ``divide a'' (sección \ref{op-divide-a}). Es decir, encontrará
+que casi siempre dicen algo así como ``$a \neq 0$ tal que $a \mid b$''. En
+cualquier caso, esto tampoco evita que en muchas ocasiones aparezcan estas
+``verrugas''.
+
+Esta decisión es la que se ha tomado tradicionalmente en la teoría de
+números, pero últimamente hay quien opta por no seguirla. Es el caso de
+\cite{weissman} pág. 15. También, quizás influenciado por el
+anterior, se sigue esta regla en \cite{comb-num-th-mileti} sección 1.5
+Divisivility. En estos, las definiciones son más amplias y, por ejemplo, en
+lugar de poner ``$a \neq 0$ en $a \mid b$'' dicen simplemente ``$a \mid
+b$''. Si lo piensa, no hay ningún problema en que sea así. Simplemente, para
+un $b \neq 0$ sucederá siempre que $0 \nmid b$, lo cual no afectaría a la
+validez de la proposición.
+
+Estas definiciones, proposiciones, etc. amplias, sin especificar los casos
+conflictivos que involucran al 0, hacen uso de lo que suelo llamar un caso
+\m{vacuamente verdadero} (\engm{vacuously true}), que no es más que, en una
+proposición lógica que tiene un condicional (normalmente, representado por
+`$\longrightarrow$' o `$\Longrightarrow$'), si el antecedente es falso, el
+consecuente será automáticamente cierto, independientemente del valor de
+verdad de la otra proposición. Es lo que sucede, por ejemplo, en la
+proposición \ref{prop-divide-al-multiplo}, así como en muchas otras del
+texto.
+
+Pero, ¿qué sucede para $0 \mid 0$? Quizás le ``chirríe'' ver que admitimos
+que $0 \mid 0$ es cierto, pues a usted le enseñaron en sus cursos anteriores
+de matemáticas que el 0 no divide a ningún número, o que, como dicen en las
+asignaturas de cálculo, 0 dividido entre 0 es una indeterminación. Sin
+embargo, si nos ceñimos a la definición del operador anterior, sí sería
+cierto. TKTK.
+
+Otra razón que me hace considerar que $0 \mid 0$ es que, como se verá en la
+sección donde se presenta el máximo común divisor, se ha de admitir que el
+máximo común divisor de 0 y 0 es 0. Si se excluye la posibilidad de $0 \mid
+0$, esto lo veo como un ``parche'' o ``verruga'' a la teoría. Sin embargo,
+en caso de admitirlo, es algo que se deduce fácilmente.
+
+En esta asignatura, al principio, parece imposible hacer muchos de los
+ejercicios. En realidad, se suelen basar en tener un bagaje de conocimientos
+de hechos sobre los números enteros. Por ejemplo, cosas como que un número
+par por uno impar da uno par, propiedades sobre el operador ``divide a'', y
+cosas así. Es conveniente, antes de ponerse a hacer ejercicios difíciles,
+hacer por uno mismo una gran cantidad de esas demostraciones de propiedades
+sencillas. Muchas de estas aparecen en los libros sobre demostraciones,
+como, por ejemplo en \cite{proofs-cummings}.
+
+
+

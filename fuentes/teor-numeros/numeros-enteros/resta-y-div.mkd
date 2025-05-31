@@ -1,0 +1,45 @@
+
+
+#### Resta y división
+
+Es interesante también preguntarse por las operaciones de suma y producto
+pero con los inversos respectivos para estas operaciones. Estas son,
+respectivamente, la resta y la división.
+
+Al tratarse de números enteros, conjunto que incluye, además de los
+positivos, al $0$ y los negativos, se tiene la operación resta, que es en
+realidad una consecuencia de la suma en $\mathbb{Z}$.
+
+::: { .deffinition #def-op-resta data-label="Operador Resta" }
+Dados $a, b \in \mathbb{Z}$. La operación $a$ menos $b$, que simbólicamente
+denotamos como $a - b$, es el número $d \in \mathbb{Z}$ con el que se cumple $a =
+b + d$.
+:::
+
+A la operación resta también se la conoce como .
+
+Advierta que la operación resta no es conmutativa, aunque si consideramos a
+dicha operación como la suma del inverso aditivo para un número, sí lo sería
+TKTK.
+
+Sin embargo, la división se expresará en esta asignatura de un modo algo
+distinto a lo que vendría usando en la educación secundaria. Vamos a retomar
+la división que usaba en la educación primaria, la división en $\mathbb{Z}$ con
+resto, operación que definiremos en el capítulo [sobre la división
+entera](#ch-division-entera).
+
+Basta con que de momento sepa que nos autolimitamos a los números enteros;
+por tanto, es como si no supiéramos de la existencia de los racionales,
+$\mathbb{Q}$, ni de los reales, $\mathbb{R}$.
+
+Como ve, en esta asignatura nos estamos restringiendo a nosotros mismos
+respecto a la estructura que manejamos. Venimos de usar estructuras más
+permisivas, como la del cuerpo de los números reales, que es lo que se suele
+manejar en las matemáticas de la educación secundaria. Lo hacemos porque los
+números enteros, aunque sean más simples, guardan secretos que es
+interesante conocer, además de que se pueden aplicar en el mundo real.
+
+Prioridad de operaciones. TKTK
+
+
+

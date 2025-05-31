@@ -1,0 +1,67 @@
+
+
+## Introducción {.unnumbered}
+
+Esta asignatura consta de tres partes, cada una de las cuales se podría
+estudiar en mayor profundidad en una asignatura propia. Son: teoría de
+números, teoría de grafos y combinatoria.
+
+Es una asignatura que, aunque los tutores dicen que no es difícil, a mí me
+está costando. Al menos, a la vista de los ejercicios que aparecen en el
+libro oficial y otros que he consultado, parece que muchos de los ejercicios
+requieren de bastante ingenio para resolverlos. Quizás, con el tiempo uno se
+vaya acostumbrando y le terminen por parecer fáciles.
+
+El libro que se sigue en la asignatura es [@bujalance-costa], creado por
+profesores de la UNED. Personalmente, es un libro que no me gusta, por
+varias razones. Es un libro que da bastante poco conexto y a veces cuesta
+entender partes de demostraciones. Además, este libro es, en lo que respecta
+a la parte de teoría de números, un plagio de [@burton], un clásico en esta
+materia. Es fácil comprobar que tiene partes "calcadas" de este. Por tanto,
+creo que, si se puede, es mejor tratar de seguir las distintas secciones de
+esta parte por este último. Aunque se dispongan en otro orden, todo lo que
+aparece en [@bujalance-costa] se encuentra explicado tambíen en [@burton].
+Además, en este último hay muchas otras cosas que no se explican en el otro,
+con lo que quizás sea un libro que merezca la pena comprar, pues es posible
+que sirva para cursos más avanzados de esta materia.
+
+Encontré una [web][web-soluciones-burton] en la que tienen colgadas las
+soluciones a todos los ejercicios de este.
+
+[web-soluciones-burton]: http://www.americanriver.com/mathematics/elementary_number_theory.html
+
+Alternativamente, se podría optar por usar [@rosen-number-th] como sustituto o
+complemento del libro oficial. Está bastante bien y es algo más moderno que
+[@burton]. También, puede encontrar el libro con las soluciones a los
+ejercicios de [@rosen-number-th].
+
+Otra cosa que no me gusta del libro oficial es que no está maquetado con la
+tecnología TeX, al contrario de lo que sucede hoy en día con la abrumadora
+mayoría de textos de matemáticas.
+
+Un libro que toca casi todos estos temas, pero de un modo algo más moderno,
+es [@weissman], que está muy bien, aunque existen algunas partes del temario
+que no se encuentran en este.
+
+En lo que respecta a la parte de la teoría de grafos, TKTK.
+
+En lo que respecta a la parte de combinatoria, está muy bien [@chuan-chong].
+TKTK.
+
+También, he estado haciéndome mis propios apuntes, pues hay cosas que las
+hago de un modo más moderno, como se explican en [@weissman], que es un
+libro que me encanta pero que difiere en ciertas partes a la forma en que se
+presentan los contenidos en el libro oficial que seguimos. En cualquier
+caso, la elaboración de unos apuntes de gran calidad consume mucho tiempo y
+ese es tiempo que se pierde innecesariamente en detrimento de otras opciones
+como hacer más ejercicios sobre esta misma materia. Por tanto, siempre que
+pueda, usaré alguna fuente que me sirva como alternativa a
+[@bujalance-costa]. Espero encontrar alguna para la parte de la teoría de
+grafos. Para la parte de combinatoria, creo que podría usar [@chuan-chong],
+pues me parece muy bueno.
+
+
+
+
+
+

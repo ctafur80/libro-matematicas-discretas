@@ -1,0 +1,138 @@
+
+
+Viene bien explicado en \cite{rosen} sección 3.6, pág. 130.
+
+Supongamos un número $n \in \nset$ impar y compuesto. Por el Teorema
+\ref{th-sol-gral-ec-diof-cuad} se tendrá que existen $a, b \in \zset$ tales
+que $n = a \, b$ con los que se cumple
+
+$$ n = \left( \frac{a + b}{2} \right)^2 - \left( \frac{a - b}{2} \right)^2
+$$
+
+
+
+
+
+
+Si un número $n \in \nset$ con $n > 0$ impar es compuesto, existen $a, b \in
+\zset$ impares con $1 < a < n$ y $1 < b < n$ para los que $n = ab$. Esto se
+debe a que la única multiplicación que nos da impar es impar por impar. Las
+demás posibilidades dan un número par. Por lo tanto, tanto $a$ como $b$ son
+impares.
+
+Podemos suponer también que $a \geq b > 1$, sin pérdida de generalidad. Si
+alguno fuese uno, el resultado sería que $n$ es primo, pues la factorización
+sería $n = a$ o $n = b$.
+
+Si se fija, por el Teorema \ref{th-sol-gral-ec-diof-cuad}, estudiar si es
+compuesto un número $n$ natural impar mayor que 1 se puede reducir a tartar
+de resolver la ecuación diofántica $x^2 - y^2 = n$. Aquí, optaremos por
+presentarla, normalmente, en la forma
+
+$$ y^2 = x^2 - n $$
+
+Lo que haremos será ir probando con los distintos valores de $x$ y comprobar
+si se tiene un $y$ que haga que se cumpla la ecuación. Dicho de otra forma,
+probar con valores de $x$ si $x^2 - n$ es un cuadrado perfecto. Es una forma
+de hacerlo ``por fuerza bruta'', pero, al movernos en los números enteros,
+no es un problema.
+
+Pero no hay que partir desde el 1. Ya que, necesariamente, $y^2 \geq 0$,
+partiremos desde un número $x$ tal que $x^2 \geq n$. Al primer número que
+cumpla esto vamos a designarlo por la variable $q$, que en realidad depende
+de $x$.
+
+Así, empezamos por analizar si $q^2 - n$ es un cuadrado perfecto. En caso de
+que lo sea, podríamos afirmar que $n$ es compuesto y terminaría el
+algoritmo. Si lo desea, puede hallar esos dos factores que lo forman, aunque
+no es necesario para nuestro propósito. Si, por el contrario, $q^2 - n$ no
+fuese un cuadrado perfecto, se pasaría a analizar el siguiente, es decir,
+$(q+1)^2 - n$. Y así sucesivamente.
+
+Este proceso no es infinito, ya que, cuando llegamos al valor de $q$ tal que
+
+$$ q = \frac{n + 1}{2} $$
+
+\noindent como
+
+$$ \left( \frac{n + 1}{2} \right)^2 - n = \frac{n^2 + 2n + 1 - 4n}{4} =
+\left( \frac{n - 1}{2} \right)^2 $$
+
+\noindent tendríamos que $y^2$ sería un cuadrado perfecto. Si sustituimos
+entonces estos valores de $x$ e $y$ en las ecuaciones del Teorema
+\ref{th-sol-gral-ec-diof-cuad}, tenemos que $a = n$ y $b = 1$, pero, en ese
+caso, $n$ ya no podrá ser compuesto, sino primo, y terminaría el algoritmo.
+
+Así, los únicos valores que analizará el algoritmo serán los números $m \in
+\nset$ comprendidos entre
+
+$$ q \leq m < \frac{n + 1}{2} $$
+
+\noindent siendo $q \in \zset$ el primer número tal que $q^2 \geq n$.
+
+En resumen. En caso de que no se encuentre ningún número $m$ en dicho rango
+tal que $m^2 - n$ sea un cuadrado perfecto, se puede afirmar que $n$ es un
+número primo. En caso contrario, se puede afirmar que existen $a, b \in
+\zset$ tales que se cumple $n = a \, b$, y podemos hallar estos valores del
+modo siguiente:
+
+$$ x = m = \frac{a + b}{2} \quad \text{;} \quad y = \sqrt{m^2 - n} = \frac{a
+- b}{2} $$
+
+% Implementarlo en código Python. TODO.
+
+Una implementación de este algoritmo en código Python sería la siguiente:
+
+\begin{verbatim}
+# Comprueba si el número dado es primo, por medio del algoritmo de factorización de Fermat.
+
+import sys
+import math
+
+
+def obten_q(n):
+    q = 1
+    while q * q < n:
+        q = q + 1
+
+    return q
+
+
+# num = 22733
+num = int(sys.argv[1])
+
+
+# Comprueba si se trata de un número válido para este algoritmo.
+# TODO. También se podría hacer con una afirmación assert.
+if num <= 1:
+    print("El número introducido no es válido para usar el algoritmo de Fermat ya que "
+          "no se trata de un número mayor que 1.")
+    exit()
+
+elif num % 2 == 0:
+    print("El número introducido no es válido para usar el algoritmo de Fermat ya que "
+          "no se trata de un número impar.")
+    exit()
+
+
+
+q = obten_q(num)
+m = q
+
+while m < (num + 1)/2:
+    if math.sqrt(m*m - num) % 1 == 0:
+        x = m
+        y = int(math.sqrt(m*m - num))
+        a = x + y
+        b = x - y
+
+        print(f"El número {num} es compuesto, pues se tiene que {num} = {a} x {b}.")
+        exit()
+
+    m = m + 1
+
+
+
+print(f"El número {num} es primo.")
+exit()
+\end{verbatim}

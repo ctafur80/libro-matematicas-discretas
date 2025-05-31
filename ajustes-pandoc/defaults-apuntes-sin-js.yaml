@@ -1,0 +1,97 @@
+
+
+# Archivo de defaults para manuales y otra documentación relacionada con las ciencias de
+# la computación.
+
+
+
+from: markdown+raw_tex
+to: html
+
+# Lo activo cuando deseo verlo también en otros dispositivos, aunque MathJax no funciona
+# bien en los navegadores de móvil.
+# embed-resources: true
+
+standalone: true
+
+# toc: true
+
+number-sections: false
+
+# Aunque lo incluya aquí, tengo que añadirlo en el comando `pandoc`.
+cite-method: citeproc
+
+verbosity: INFO
+log-file: log.json
+
+table-of-contents: true
+toc-depth: 4
+
+section-divs: true
+# strip-empty-paragraphs: false
+
+# eol: lf # lf, crlf, or native
+# strip-comments: false
+# ascii: true
+# default-image-extension: ".png"
+
+# El conversor de TeX a MathML no está muy maduro aún.
+html-math-method:
+  method: mathml
+
+# email-obfuscation: javascript
+
+tab-stop: 4
+preserve-tabs: true
+
+reference-links: true
+reference-location: document
+markdown-headings: atx
+
+resource-path:
+  - figuras
+#   - .
+#   - ${.}
+#   - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/html
+#   - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css
+#   - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/javascript
+
+
+html-q-tags: true
+
+css:
+  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/variables.css
+  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/base-mobile-first.css
+  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/tablas.css
+  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/codigo.css
+  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/matematicas.css
+  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/desktop.css
+
+
+highlight-style: ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/resaltado-codigo/zf-darker.theme
+
+
+fail-if-warnings: false
+dump-args: false
+ignore-args: false
+trace: false
+
+# Las secciones comienzan en `##`.
+shift-heading-level-by: -1
+
+track-changes: accept
+
+
+# Ajustes para la web de salida.
+# include-before-body: ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/html/elemento-breadcrumbs.html
+# include-after-body: ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/html/etiqueta-final-main.html
+# include-in-header:
+  # - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/html/elemento-nav.html
+  # - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/html/elemento-boton-nav-bar.html
+  # - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/html/carga-breadcrumbs.html
+  # - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/html/carga-nav-bar.html
+  # - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/html/nameref.html
+  # - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/html/carga-ajustes-mathjax.html
+
+
+

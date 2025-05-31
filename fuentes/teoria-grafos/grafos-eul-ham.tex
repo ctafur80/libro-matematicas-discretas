@@ -1,0 +1,172 @@
+
+
+
+
+\begin{deffinition}[Camino]
+  Un \m{camino} (\engm{path}) en un grafo o un multigrafo es una sucesión
+  finita de vértices y aristas del mismo alternándose, siendo, además, los
+  extremos de cada arista los vértices adyacentes en dicha sucesión.
+\end{deffinition}
+
+Es decir, sería algo así:
+
+$$ v_0, v_0v_1, v_1, v_1v_2, \ldots, v_{n-1}, v_{n-1}v_n, v_n $$
+
+A los vértices primero y último de la sucesión se les llama \m{extremos} del
+camino. Es decir, a $v_0$ y $v_n$, respectivamente. También se dice que un
+camino \m{conecta} o \m{va de} $v_0$ a $v_n$ (en realidad, también de $v_n$
+a $v_0$, ya que no se trata de un grafo dirigido).
+
+La \m{longitud} (\engm{length}) de un camino es el número de aristas que
+contiene en la secuencia.
+
+Un camino se dice que es \m{cerrado} (\engm{closed}) si sus extremos
+coinciden, es decir, $v_0 = v_n$.
+
+En un grafo, pero no así en un multigrafo, un camino puede ser especificado
+de una forma abreviada que consiste únicamente en la sucesión de los
+vértices. Es decir, $v_0, v_1, v_2, \ldots, v_{n-1}, v_n$.
+
+Un \m{circuito} (\engm{circuit}) es un camino cerrado que no repite aristas.
+
+Un camino será \m{simple} si en la sucesión de vértices no hay ninguno
+repetido.
+
+Un \m{ciclo} es un camino cerrado donde el único vértice repetido es el
+primero, que es igual al último. Además, en el caso de caminos de longitud
+2, solo se consideran ciclos a aquellos caminos cerrados en multigrafos que
+no repiten aristas. Como es evidente, en un camino en el que no se repitan
+vértices, tampoco se repetirán las aristas. Por tanto, todo ciclo es también
+un circuito.
+
+\begin{theorem}
+  Si en un grafo existe un camino que conecta dos vértices distintos,
+  entonces existe un camino simple cuyos extremos son esos dos vértices.
+\end{theorem}
+
+\begin{proof}
+  TKTK.
+
+
+
+
+
+
+
+
+\end{proof}
+
+Existen grafos donde para cada par de vértices existe un camino cuyos
+extremos son estos vértices y otros donde es imposible encontrar un camino
+así.
+
+\begin{deffinition}[Grafo conexo]
+  Un grafo es \m{conexo} si para cada par de vértices existe un camino para
+  el que estos son sus extremos. En caso contrario, se dice que el grafo es
+  \m{desconexo}.
+\end{deffinition}
+
+\begin{deffinition}[Camino euleriano]
+  Un camino euleriano de un grafo es un camino de este que contiene todas
+  las aristas del grafo apareciendo cada una de ellas exactamente una vez.
+\end{deffinition}
+
+Si ese camino es, además, cerrado, será entonces un circuito, ya que no se
+pueden repetir aristas. En ese caso se tendría un \m{circuito euleriano}.
+
+Advierta que lo que sí se permite es que se repitan vértices en el camino,
+por lo que no tiene por qué ser un camino simple ni un ciclo.
+
+La definición de \m{camino euleriano} viene del famoso problema de los
+puentes de Königsberg, que abordó Euler y dio lugar al nacimiento de la
+teoría de grafos. El problema consiste en tratar de encontrar una ruta (un
+camino) en dicha ciudad que recorriera los siete puentes (aristas) cruzando
+cada uno de ellos una única vez. Hay otras formas alternativas de enunciar
+el problema. Por ejemplo, averigüe cómo dibujar, sin levantar el lapiz ni
+repasar líneas, una ruta que atraviese todos los puentes.
+
+A un grafo que admite un circuito euleriano se le califica de \m{grafo
+euleriano}. En realidad, en otras fuentes dicen que será el que admita un
+camino euleriano. TKTK.
+
+Euler encontró una caracterización de los grafos eulerianos en términos de
+los grados de los vértices. Resolvió el problema más general que la pregunta
+sobre los caminos sobre los puentes de Königsberg.
+
+\begin{lemma}[de los Grados de los Vértices en un Grafo
+  Euleriano]\label{lema-g-eul-grado-par}
+  En un grafo euleriano todos sus vértices tienen grado par.
+\end{lemma}
+
+\begin{proof}
+  Que sea un grafo euleriano quiere decir que tiene un circuito euleriano.
+
+  Fijémonos en un vértice cualquiera de dicho circuito que no sea un extremo
+  del mismo. Cada arista adyacente a dicho vértice conecta a este con otros
+  dos vértices, ya que no es un multigrafo, con lo que aporta 2 unidades al
+  grado de dicho vértice.
+
+  Ahora, toca analizar los extremos del circuito. Al tratarse de un
+  circuito, ambos extremos serán el mismo vértice, por lo que se comportará,
+  a este respecto, como los demás vértices. Por tanto, se aportarán dos
+  unidades al grado de dicho vértice.
+
+  En todos los casos, todas las aportaciones son números pares, como hemos
+  demostrado, con lo que todo vértice tendrá grado par.
+\end{proof}
+
+\begin{lemma}[de los Grados de los Vértices en un Grafo
+  Euleriano]\label{lema-camino-eul-grado-par}
+  En un grafo que contenga un camino euleriano se da que o bien todo vértice
+  tiene grado par o bien dos de los vértices tienen gado impar.
+
+  % TODO Creo que también tiene que ser conexo. Mirarlo en el libro.
+\end{lemma}
+
+\begin{proof}
+  TKTK.
+\end{proof}
+
+El Lema \ref{lema-camino-eul-grado-par} es una condición necesaria para que
+un grafo sea euleriano. Puesto que el grafo de los puentes de Königsberg
+tiene más de dos vértices con grado impar, se deduce que es un problema que
+no tiene solución.
+
+\begin{theorem}
+  Un gafo conexo es euleriano si y solo si cada vértice tiene grado par.
+\end{theorem}
+
+Antes de demostrar el teorema, vamos a ver un lema.
+
+\begin{lemma}
+  Sea $H$ un grafo tal que todo vértice de $H$ tiene grado par. Si $u$ y $v$
+  son dos vértices de $H$ que son adyacentes, entonces existe un circuito
+  $g$ que contiene a la arista $uv$.
+\end{lemma}
+
+\begin{proof}
+  
+
+
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

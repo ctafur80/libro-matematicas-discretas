@@ -1,0 +1,399 @@
+
+
+
+\documentclass[10pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{multicol}
+
+\usepackage{enumitem}
+
+
+\usepackage{xcolor}
+\usepackage{graphics}
+
+\pagecolor[HTML]{1e1e1e}
+%\pagecolor[rgb]{0,0,0}
+% \color[HTML]{ced5e0}% fandango
+\color{gray!50}% fandango
+
+
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{3d} % Biblioteca para gráficos en 3D
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{patterns}
+
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.18} % Asegura compatibilidad con PGFPlots reciente
+
+\geometry{a4paper, margin=1in}
+
+
+\usepackage[%
+  breaklinks=true,
+  colorlinks=false,
+  % colorlinks=true,
+  % linkcolor=color-link,
+  % urlcolor=color-url,
+  % hyperfootnotes=true
+  citecolor=black,
+  filecolor=magenta,
+  hidelinks
+]{hyperref}
+
+
+
+\usepackage{array}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\decimalpoint
+
+
+
+
+
+
+% Énfasis fuerte (en negrita)
+\newcommand{\semph}[1]{\textbf{#1}}
+
+
+
+
+
+
+
+
+% Columnas personalizadas de entorno array. Se requiere del paquete array.
+
+% Columnas de matemáticas
+\newcolumntype{L}{>{\displaystyle}l}
+\newcolumntype{C}{>{\displaystyle}c}
+
+% Columna de texto normal
+% \newcolumntype{T}{>{\raggedright\arraybackslash}p{0.5\textwidth}}
+\newcolumntype{T}{>{\raggedleft\arraybackslash}p{0.5\textwidth}}
+
+
+
+
+
+
+
+% Entornos
+% ----------------------------------------------------------------
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposición}
+
+\newtheorem{deffinition}{Definición}[section]
+
+\newtheorem{properties}{Propiedades}[section]
+
+\newtheorem{exercise}[theorem]{Ejercicio}
+\newtheorem{example}[theorem]{Ejemplo}
+
+
+
+
+% Conjuntos numéricos
+\newcommand{\nset}{\mathbb{N}}
+\newcommand{\zset}{\mathbb{Z}}
+\newcommand{\qset}{\mathbb{Q}}
+\newcommand{\rset}{\mathbb{R}}
+\newcommand{\cset}{\mathbb{C}}
+
+
+\newcommand{\st}{\ :\ } % tal que... (such that)
+\newcommand{\imset}[1]{\text{Im}(#1)} % Conjunto imagen de una función/aplicación. Im()
+
+
+\newcommand{\card}[1]{\mathrm{card}{#1}} % cardinal de un conjunto
+\newcommand{\powset}[1]{\mathcal{P}{#1}} % conjunto de las partes de un conjunto
+
+
+
+\newcommand{\contrad}{\textbf{0}}
+\newcommand{\tautol}{\textbf{1}}
+
+
+
+
+% Relaciones
+\newcommand{\rrel}{\mathcal{R}}
+\newcommand{\srel}{\mathcal{S}}
+\newcommand{\grel}{\mathcal{G}}
+\newcommand{\erel}{\mathcal{E}}
+
+
+
+\newcommand{\mmax}[1]{\text{máx}{#1}} % máximo de un conjunto
+\newcommand{\mmin}[1]{\text{mín}{#1}} % mínimo de un conjunto
+\newcommand{\msup}[1]{\text{sup}{#1}} % supremo de un conjunto
+\newcommand{\minf}[1]{\text{ínf}{#1}} % ínfimo de un conjunto
+
+
+\newcommand{\mmaxL}[1]{\text{máx}_L{#1}}
+\newcommand{\mminL}[1]{\text{mín}_L{#1}}
+\newcommand{\mmaxP}[1]{\text{máx}_P{#1}}
+\newcommand{\mminP}[1]{\text{mín}_P{#1}}
+\newcommand{\msupL}[1]{\text{sup}_L{#1}}
+\newcommand{\minfL}[1]{\text{ínf}_L{#1}}
+\newcommand{\msupP}[1]{\text{sup}_P{#1}}
+\newcommand{\minfP}[1]{\text{ínf}_P{#1}}
+
+
+
+
+
+
+
+
+\title{Apuntes de Lenguaje Matemático, Conjuntos y Números}
+
+\author{Carlos E.~Tafur Egido}
+\date{2025-01-08}
+
+
+
+
+\begin{document}
+
+
+
+
+
+\maketitle
+\tableofcontents
+
+
+
+
+
+
+
+\chapter{Lógica de proposiciones}%
+\label{ch:logica-prop}
+
+
+  \section{Introducción a la lógica}
+  \input{./fuentes/logica-proposiciones/introd-logica.tex}
+
+
+  \section{Primeros pasos}
+  \input{./fuentes/logica-proposiciones/primeros-pasos.tex}
+
+
+  \section{Operadores básicos}
+  \input{./fuentes/logica-proposiciones/operadores-logicos.tex}
+
+
+  \section{Construcción de proposiciones}
+  \input{./fuentes/logica-proposiciones/constr-nuevas-prop.tex}
+
+
+  \section{Reglas de la lógica}
+  \input{./fuentes/logica-proposiciones/reglas-logica.tex}
+
+
+  \section{Validación de proposiciones}
+  \input{./fuentes/logica-proposiciones/validacion-prop.tex}
+
+
+  \section{Forma clausulada de proposiciones}
+  \input{./fuentes/logica-proposiciones/forma-clausulada.tex}
+
+
+  \section{Comentarios}
+
+    \subsection{Sistemas formales}
+    \input{./fuentes/logica-proposiciones/sistemas-formales.tex}
+
+    \subsection{Sistema axiomático de Whitehead y Russell}
+    \input{./fuentes/logica-proposiciones/comentarios/sist-axiomatico-russell.tex}
+
+    \subsection{Presentación de resultados en matemáticas}
+    \input{./fuentes/logica-proposiciones/comentarios/prop-teoremas.tex}
+
+    \subsection{Métodos de demostración}
+    \input{./fuentes/logica-proposiciones/comentarios/metodos-demostracion.tex}
+
+
+
+
+
+
+
+
+\chapter{Lógica de predicados y teoría de conjuntos}%
+\label{ch:conjuntos}
+
+
+  \section{Introducción}
+  \input{./fuentes/conjuntos/intro.tex}
+
+
+  \section{Conjuntos}
+  \input{./fuentes/conjuntos/ideas-conjuntos-pred.tex}
+
+
+  \section{Predicados}
+  \input{./fuentes/conjuntos/ideas-conjuntos-pred/predicados.tex}
+
+
+  \section{Cuantificadores}
+  \input{./fuentes/conjuntos/ideas-conjuntos-pred/cuantificadores.tex}
+
+
+  \section{Complemento y partes}
+  \input{./fuentes/conjuntos/ideas-conjuntos-pred/compl-partes.tex}
+
+
+  \section{Operaciones}
+
+    \subsection{Unión}
+    \input{./fuentes/conjuntos/operaciones/union.tex}
+
+    \subsection{Intersección}
+    \input{./fuentes/conjuntos/operaciones/interseccion.tex}
+
+
+  \section{Álgebra de conjuntos}
+  \input{./fuentes/conjuntos/algebra.tex}
+
+
+  \section{Producto}
+  \input{./fuentes/conjuntos/producto-cartesiano.tex}
+
+
+  \section{Comentarios}
+  \input{./fuentes/conjuntos/comentarios.tex}
+
+    \subsection{Sobre el método de inducción}
+    \input{./fuentes/conjuntos/comentarios/metodo-induccion.tex}
+
+    \subsection{Sobre la teoría de conjuntos}
+    \input{./fuentes/conjuntos/comentarios/teoria-conjuntos.tex}
+
+
+
+\chapter{Relaciones}%
+\label{ch:relaciones}
+\input{./fuentes/relaciones.tex}
+
+
+  \section{Introducción}
+  \input{./fuentes/relaciones/introd.tex}
+
+
+  \section{Propiedades básicas de una relación}
+  \input{./fuentes/relaciones/propiedades-basicas-rel.tex}
+
+
+  \section{Relación de equivalencia}
+  \input{./fuentes/relaciones/rel-equivalencia.tex}
+
+
+  \section{Relación de orden}
+  \input{./fuentes/relaciones/rel-orden.tex}
+
+
+
+
+\chapter{Aplicaciones}%
+\label{ch:aplicaciones}
+
+
+  \section{Introducción}
+  \input{./fuentes/aplicaciones/introd.tex}
+
+
+  \section{Equipotencia de conjuntos}\label{sec:equipotencia-conjuntos}
+  \input{./fuentes/aplicaciones/equipotencia.tex}
+
+
+
+
+
+\chapter{Operaciones internas y estructuras algebraicas}%
+\label{ch:op_internas}
+
+
+  \section{Introducción}
+  \input{./fuentes/op-internas-estructuras/intro.tex}
+
+
+  \section{Operaciones internas}
+  \input{./fuentes/op-internas-estructuras/op-internas.tex}
+
+    \subsection{Propiedades}
+    \input{./fuentes/op-internas-estructuras/op-internas/propiedades.tex}
+
+
+  \section{Grupos}
+  \input{./fuentes/op-internas-estructuras/grupos.tex}
+
+
+  \section{Anillos}
+  \input{./fuentes/op-internas-estructuras/anillos.tex}
+
+
+  \section{Cuerpos}
+  \input{./fuentes/op-internas-estructuras/cuerpos.tex}
+
+
+  \section{Orden y operaciones}
+  \input{./fuentes/op-internas-estructuras/orden-operaciones.tex}
+
+
+  \section{Homomorfismos}
+  \input{./fuentes/op-internas-estructuras/homomorfismos.tex}
+
+
+
+
+
+\chapter{Números naturales}%
+\label{ch:naturales}
+
+
+  \section{Introducción}
+  \input{./fuentes/naturales/intro.tex}
+
+
+  \section{Los números naturales}
+  \input{./fuentes/naturales/numeros-naturales.tex}
+
+
+  \section{Conjuntos finitos}
+  \input{./fuentes/naturales/conjuntos-finitos.tex}
+
+
+  \section{Conjuntos infinitos}
+  \input{./fuentes/naturales/conjuntos-infinitos.tex}
+
+
+
+
+
+\chapter{Números enteros}%
+\label{ch:enteros}
+
+
+
+
+
+
+
+
+\input{./bibliografia.tex}
+
+
+
+\end{document}
+
+
+

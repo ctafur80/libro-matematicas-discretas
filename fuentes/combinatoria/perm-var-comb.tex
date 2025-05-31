@@ -1,0 +1,767 @@
+
+
+
+
+\section{Introducción}
+
+En esta sección, se presentan varias fórmulas para ciertos tipos de
+disposiciones que suelen aparecer. Sería como ciertas reglas ``enlatadas''
+para ahorrarnos el uso de los principios del capítulo anterior; para usar un
+atajo en la resolución. En cualquier caso, hay situaciones en las que no se
+puede usar ninguna de estas reglas, con lo que conviene no perder de vista
+el contenido de la sección anterior. De hecho, hay gente con bastante
+soltura en combinatoria que deducen por sí mismos estas reglas cada vez que
+las van a usar. Esto tampoco es una heroicidad, ya que se deducen fácilmente
+a partir de los principios de la sección anterior.
+
+Sobre los conceptos presntados en esta sección, existe cierta confusión en
+la terminología. Personalmente, me adaptaré a la terminología en inglés y
+seguiré la de \cite{brualdi}. En esta, llaman permutaciones
+(\emph{permutations}) a las disposiciones en las que el orden es relevante,
+incluyendo aquí a las permutaciones totales y a las parciales, es decir,
+también llamaré \emph{permutaciones} a lo que en español suelen llamar
+\emph{variaciones}, tal y como explico en la sección sobre la terminología de
+esta parte.
+
+Cuando el orden no es relevante, se tienen las combinaciones
+(\emph{combinations}).
+
+Además, se tienen algunas variantes dentro de estas, como, por ejemplo, las
+permutaciones circulares. TKTK.
+
+Todas estas en realidad no son más que las fórmulas que aparecerán según el
+tipo de objeto matemático con el que representamos la situación. Tal y como
+se explica en \cite{brualdi}, las permutaciones se usan cuando usamos listas
+(también llamadas tuplas o sucesiones finitas), mientras que las
+combinaciones se usan para conjuntos y multiconjuntos.
+
+
+
+
+
+
+\section{Permutaciones y combinaciones}
+
+\begin{deffinition}[Permutación Total]
+  Sea $A$ un conjunto no vacío. Una \emph{permutación} (\emph{permutation}) de
+  $A$ es una biyección de $A$ en $A$.
+\end{deffinition}
+
+Aclaramos que se dirá que dos permutaciones son diferentes cuando esas
+biyecciones sean distintas.
+
+Normalmente, se las llama \emph{permutaciones} (\emph{permutations}), sin
+especificar más, pero, como puede haber confusión con el otro tipo de
+permutaciones, a veces se las llama \emph{permutaciones totales} (\emph{total
+permutations}).
+
+Normalmente, la forma de presentar esa biyección es en la forma siguiente.
+Suponga que tiene el conjunto
+
+$$ A = \{a_1, a_2, a_3, \ldots, a_n\} $$
+
+\noindent La permutación sería la aplicación biyectiva
+
+\begin{equation*}
+  \begin{array}{ll}
+    \sigma: & A     \longrightarrow   A \\
+            & a_i   \longmapsto       \sigma(a_i)
+  \end{array}
+\end{equation*}
+
+\noindent siendo el índice $i \in \nset$ tal que $1 \leq i \leq n$. La
+premutación se suele representar como
+
+\begin{equation*}
+  \sigma =
+  \left(
+  \begin{array}{ccccc}
+      a_1         & a_2         & a_3         & \cdots  & a_n \\
+      \sigma(a_1) & \sigma(a_2) & \sigma(a_3) & \cdots  & \sigma(a_n)
+  \end{array}
+  \right)
+\end{equation*}
+
+\noindent Se presentaría como una matriz de dos filas, estando en la primera
+los elementos originales y, en la de debajo, sus elementos transformados
+correspondientes.
+
+Puesto que las permutaciones de $A$ son biyecciones de $A$ en $A$, tiene
+sentido efectuar la composición de dos permutaciones consideradas como
+aplicaciones. Llamaremos a esta operación \emph{producto} (\emph{product}) de
+permutaciones.
+
+\begin{deffinition}[Producto de Permutaciones]
+  Sean $\sigma_1$ y $\sigma_2$ dos permutaciones del conjunto $A$.
+  Llamaremos \emph{producto} (\emph{product}) de $\sigma_1$ y $\sigma_2$ y lo
+  designaremos como $\sigma_2 \sigma_1$ a la permutación $\sigma$ de $A$ tal
+  que
+
+  \begin{equation*}
+    \begin{array}{ll}
+      \sigma = \sigma_2 \sigma_1:
+        & A   \longrightarrow A \\
+        & a   \longmapsto     \sigma(a) = \sigma_2\sigma_1(a) =
+          \sigma_2(\sigma_1(a))
+    \end{array}
+  \end{equation*}
+\end{deffinition}
+
+El conjunto de todas las permutaciones de un conjunto $A$ con la operación
+producto (es decir, esta operación, que es la composición) tiene estructura
+algebraica de grupo y se denomina \emph{grupo simétrico} de $A$. Se designa
+habitualmente por $S_A$. Se estudia bastante en el álgebra abstracta este
+grupo.
+
+Como particularidad, si $A = \{1, 2, 3, \ldots, n\}$  para $n \in
+\nset^{+}$, al grupo simétrico se le designará normalmente por $S_n$.
+
+\begin{theorem}
+  Sean dos conjuntos $A$ y $B$ con el mismo número $n \in \nset^{+}$ de
+  elementos. El número de biyecciones distintas de $A$ a $B$ es $n \cdot
+  (n-1) \cdot (n-2) \cdots \cdot 2 \cdot 1$.
+\end{theorem}
+
+\begin{proof}
+  Sean $A = \{a_1, a_2, a_3, \ldots, a_n\}$ y $B = \{b_1, b_2, b_3, \ldots,
+  b_n\}$. Para construir una biyección $f: A \longrightarrow B$, debemos
+  indicar la imagen de cada $a_i \in A$. Recuerde que, para que la relación
+  sea una aplicación, cada elemento de $A$ ha de estar relacionado con
+  exactamente uno de $B$.
+
+  Consideremos el primer elemento $a_1$ de $A$, aunque podríamos haber
+  seguido cualquier otro orden. Podemos tomar como $f(a_1)$ a cualquiera de
+  los $n$ elementos de $B$. Una vez fijado $f(a_1)$, como la aplicación es
+  una biyección y, por tanto, es inyectiva, disponemos de de $n-1$ elementos
+  distintos en $B$ para la imagen del siguiente elemento de $A$, que, con el
+  orden que estamos siguiendo, se trata de $a_2$. Continuando el proceso,
+  tendremos dos elementos para la imagen de $a_{n-1}$ y uno solo para la
+  imagen de $a_n$. Por el Principio del Producto, el número total de
+  biyecciones distintas entre $A$ y $B$ será
+
+  $$ n \cdot (n-1) \cdot (n-2) \cdot \cdots \cdot 2 \cdot 1 $$
+\end{proof}
+
+A la función que produce el producto de los $n \in \nset^{+}$ primeros
+números naturales positivos se le conoce como el \emph{factorial}
+(\emph{factorial}) de $n$, y se designa por $n!$. Es algo extraño que se use
+un signo de exclamación para representar a una función, pero esa es la
+costumbre en este caso.
+
+Por convenio, se toma $0! = 1$. Esto facilita algunos casos extraños. No
+tiene sentido tratar de hallar el factorial de un número negativo ni de uno
+con parte fraccionaria. A veces, el factorial se define en forma recursiva.
+Dicha definición sería la siguiente:
+
+\begin{equation*}
+  n! = \left\{
+  \begin{array}{ll}
+    1               & \text{si} \ n = 0 \\
+    (n - 1)! \, n   & \text{si} \ n \neq 0
+  \end{array}
+  \right.
+\end{equation*}
+
+\noindent cosa que se deduce muy fácilmente a partir de su forma explícita.
+Como es evidente por la definición de \emph{permutación}, para el teorema
+anterior, si se da que $A = B$, se tiene que las biyecciones son
+permutaciones de $A$. Se tiene, por tanto, el corolario siguiente:
+
+\begin{corollary}
+  El número de permutaciones de un conjunto de $n \in \nset^{+}$ elementos,
+  que designaremos por $P(n)$, es $n!$. Así, $\card(S_n) = n!$.
+\end{corollary}
+
+Ahora, nos podríamos plantear generalizar el concepto de permutación. A esto
+aquí lo llamaremos \emph{permutación} de orden $k$ de un conjunto o una
+$k$-permutación del conjunto $A$. En español, tal y como dijimos, es más
+común llamarlo \emph{variación}. En inglés, lo llaman $k$\emph{-permutation}.
+Se podría decir, si se quiere ser explícito, \emph{permutación parcial}
+(\emph{partial permutation}). En ese caso, las que vimos antes serían,
+entonces, \emph{permutaciones totales} (\emph{total permutations}). Si lo
+piensa, representan simplemente a \emph{listas} (\emph{lists}), también
+llamadas \emph{tuplas} (\emph{tuples}) o, si lo prefiere, sucesiones finitas
+(\emph{finite sequences}), por lo que no encuentro una razón por la que no
+pudiesen recibir estos últimos nombres.
+
+A este respecto, conviene recordar una frase célebre del matemático Henri
+Poincare:
+
+\begin{quote}
+  Las matemáticas consisten en llamar con el mismo nombre a cosas
+  diferentes.
+\end{quote}
+
+\begin{deffinition}[Permutación Parcial]
+  Sea $A$ un conjunto finito con $n \in \nset^{+}$ elementos y un número $r
+  \in \nset^{+}$ tal que $r \leq n$. Una \emph{permutacion parcial}
+  (\emph{partial permutation}) de orden $r$ de $A$ es cualquier lista
+  ordenada $(a_1, a_2, a_3, \ldots, a_r)$ de $r$ elementos de $A$ distintos
+  entre sí.
+\end{deffinition}
+
+Como consecuencia de esta definición, diremos que dos permutaciones son
+diferentes si algún elemento de una de las dos listas no se encuentra en la
+otra o bien si las dos listas contienen los mismos elementos pero no
+exactamente en el mismo orden.
+
+Normalmente, lo de \emph{parcial} o \emph{total} se deja sin especificar y se
+sobrendiende por el orden $r$ y el número $n$. Será total si $r = n$ y
+parcial en caso contrario.
+
+Advierta que se trata de elementos distintos. Existen también permutaciones
+en las que se permite la repetición de elementos, como veremos luego.
+
+Si se fija, esto no es más que las listas de $r$ elementos no repetidos que
+se pueden formar a partir de un conjunto de $n$ elementos. Por tanto, si lo
+prefiere, puede llamarlas \emph{listas sin repetición}. Quizás, se podría
+hablar de sublistas sin repetición de $r$ elementos TKTK.
+
+Designaremos el número de permutaciones de orden $r$ del conjunto $A$ con $n$
+elementos como $V(n, r)$, aunque hay quienes usan otras formas de
+designarlo, como $V_n^r$ o, en inglés, $P(n, r)$ o $P_r^n$. También se dice
+``permutaciones de $n$ elementos tomados de $r$ en $r$'', en lugar de decir
+``permutaciones de $n$ elementos de orden $r$''.
+
+Si $(a_1, a_2, a_3, \ldots, a_r)$ es una permutación de orden $r$ de $A$,
+entonces podemos asociarle la aplicación inyectiva
+
+\begin{equation*}
+  \begin{array}{lrcl}
+    \sigma:   & \{1, 2, 3, \ldots, r\}  & \longrightarrow & A     \\
+              & i                       & \longmapsto     & a_i = \sigma(i)
+  \end{array}
+\end{equation*}
+
+\noindent siendo $i \in \nset$ con $1 \leq i \leq r$. Será inyectiva porque
+no se permite la repetición de elementos. También, a toda aplicación
+inyectiva
+
+$$ \sigma: \{1, 2, 3, \ldots, r\} \longrightarrow A $$
+
+\noindent le podemos asignar la permutación $(\sigma(1), \sigma(2),
+\sigma(3), \ldots, \sigma(r))$ de $r$ elementos no repetidos de un conjunto
+$A$.
+
+En realidad, ya que, como hemos explicado, se trata de listas, y estas se
+definen a partir de aplicaciones TKTK. Por lo tanto, la razón de que se
+cumplan ambas cosas es que en realidad todo viene de lo mismo: de la
+definición de las listas como un tipo de aplicación inyectiva.
+
+Por lo tanto, es equivalente definir una permutación de $A$ de orden $r$
+tanto como una lista ordenada $(a_1, a_2, a_3, \ldots, a_r)$ de elementos no
+repetidos de $A$ como una aplicación inyectiva del tipo
+
+$$ \sigma: \{1, 2, 3, \ldots, r\} \longrightarrow A $$
+
+\noindent Por esto, se tiene que las permutaciones (totales) del conjunto
+$A$ pueden ser consideradas un caso particular de permutaciones (parciales)
+de orden $r$ de $A$. Concretamente, las permutaciones (parciales) de $A$ de
+orden $\card(A)$; con los valores de estos ejemplos, sería $r = n$.
+
+\begin{theorem}
+  Sean $A$ y $B$ dos conjuntos no vacíos con $\card(A) = r$, $\card(B) = n$
+  y $r \leq n$. El número de aplicaciones inyectivas de $A$ a $B$ es
+
+  $$ n(n - 1)(n - 2) \cdots (n - r + 1) $$
+
+  \noindent o, lo que es lo mismo,
+
+  $$ \frac{n!}{(n - r)!} $$
+\end{theorem}
+
+\begin{proof}
+  Sean $A = \{a_1, a_2, a_3, \ldots, a_r\}$ y $B = \{b_1, b_2, b_3, \ldots,
+  b_n\}$ para $r, n \in \nset^{+}$ siendo $1 \leq r \leq n$. Veamos las
+  posibilidades para formar una aplicación inyectiva de $A$ a $B$.
+
+  Para la imagen de $a_1$ disponemos de $n$ elementos diferentes de $B$,
+  aunque se podría haber seguido otro orden y no empezar por $a_1$. Una vez
+  elegida esta imagen, disponemos de $n - 1$ elementos diferentes de $B$
+  para usar como imagen de $a_2$, pues, al ser inyectiva, dos elementos
+  distintos de $A$ no pueden tener una misma imagen en $B$. Continuando con
+  este proceso, si se fija, para un caso genérico en el que tengamos el
+  elemento $a_i$ de $A$, se tendrán $n - (i - 1)$ posibilidades de elección
+  de la imagen en $B$. 
+
+  Así, llegamos a los últimos elementos a los que asignar una imagen.
+  Llegamos al elemento $a_r$, para el que disponemos de $n - (r - 1)$
+  elementos distintos de $B$, o, lo que es lo mismo, $n - r + 1$.
+
+  Por el Principio del Producto, podemos formar
+
+  $$ n(n - 1)(n - 2) \cdots (n - r + 1) $$
+
+  \noindent aplicaciones inyectivas de $A$ a $B$ diferentes. Si se fija, esa
+  fórmula se puede expresar también como
+
+  $$ \frac{n!}{(n - r)!} $$
+\end{proof}
+
+Aunque
+
+$$ n(n - 1)(n - 2) \cdots (n - r + 1) $$
+
+\noindent y
+
+$$ \frac{n!}{(n - r)!} $$
+
+\noindent sean lo mismo, a la hora de calcular con valores concretos, puede
+que la segunda forma le sea imposible ya que no tiene medios para calcular
+un número tan enormemente grande, si $n$ es bastante grande. Como es
+evidente, puede cancelar factores y volverá a la primera de las formas de
+presentarla, con lo que quizás sí pueda hacer el cálculo.
+
+\begin{corollary}
+  Sean $A$ un conjunto finito con $n$ elementos siendo $n \in \nset^{+}$, y
+  un número $r \in \nset^{+}$ tal que $r \leq n$. Entonces el número de
+  permutaciones de orden $r$ de $A$, $P(n, r)$, es
+
+  $$ P(n, r) = \frac{n!}{(n - r)!} $$
+\end{corollary}
+
+\begin{deffinition}[Permutaciones con Repetición]
+  Sea $a_1, a_2, a_3, \ldots, a_r$ un conjunto de $r$ elementos de un
+  conjunto $A$ finito de $n \in \nset^{+}$ elementos. Una \emph{permutación con
+  repetición} de orden $r$ de $A$ es cualquiera de las posibles listas
+  ordenadas $(a_1, a_2, a_3, \ldots, a_r)$ de tamaño $r$ de elementos de $A$
+  en la que se permite la repetición de elementos.
+\end{deffinition}
+
+Como consecuencia de la definición anterior, diremos que dos permutaciones
+con repetición son diferentes si algún elemento de una de las dos listas no
+se encuentra en la otra o bien si las dos listas contienen los mismos
+elementos en un orden diferente.
+
+Como es evidente, se trata de permutaciones parciales con repetición de $n$
+elementos de orden $r$. El caso de las permutaciones totales con repetición
+sería también un caso particular de estas; concretamente, en el que $r = n$.
+
+Designaremos al número de permutaciones con repetición de orden $r$ del
+conjunto $A$ con $n$ elementos por $PR(n, r)$, pero puede tomar otras muchas
+designaciones. Si las llama \emph{permutaciones}, se designaría por $PR(n, r)$.
+
+Además, existe otra forma de llamar a las permutaciones con repetición de $n$
+elementos de orden $r$. Verá que también se dice ``permutaciones con
+repetición de $n$ elementos de $r$ en $r$''.
+
+Advierta que aquí, al contrario de las permutaciones (sin repetición), no
+imponemos la restricción de que el orden sea menor o igual que el tamaño del
+conjunto sobre el que se toman estas, ya que no es necesario imponer esa
+restricción.
+
+Si $(a_1, a_2, a_3, \ldots, a_r)$ es una permutación con repetición de orden
+$r$ de $A$, siendo $r \in \nset^{+}$, entonces podemos asociarle la
+aplicación
+
+\begin{equation*}
+  \begin{array}{lrcl}
+    \sigma:   & \{1, 2, 3, \ldots, r\}  & \longrightarrow & A     \\
+              & i                       & \longmapsto     & \sigma(i) = a_i
+  \end{array}
+\end{equation*}
+
+\noindent para $i \in \nset^{+}$ tal que $1 \leq i \leq r$. Y viceversa, es
+decir, a cada aplicación $\sigma: \{1, 2, 3, \ldots, r\} \longrightarrow A$
+le podemos asociar la permutación con repetición de orden $r$, $(\sigma(1),
+\sigma(2), \sigma(3), \ldots, \sigma(r))$.
+
+Por lo tanto, una permutación con repetición de orden $r$ de $A$ se puede
+definir tanto como una lista de longitud $r$ de elementos de $A$ como por
+una aplicación como la que acabamos de ver. De hecho, en realidad, siendo
+rigurosos, esa aplicación es la definición del concepto de \emph{lista} o
+$n$\emph{-tupla}; en este caso, $r$-tupla, pues es de tamaño $r$.
+
+Una curiosidad de la que quizás se haya dado cuenta en algún ejercicio es
+que $P(n, n-1) = P(n, n)$. Esto, si lo analizamos desde la combinatoria,
+tiene sentido claramente, pues al hacer $n-1$ ordenaciones de $n$ elementos
+siempre estoy dejando uno fuera. Por tanto, si hiciese $n$ ordenaciones de
+$n$ elementos, serían las mismas que antes solo que poniendo ese elemento
+que sobraba, pero el número de permutaciones (parciales o totales) en este
+caso sería el mismo. Por ejemplo, esto se ve en los dos primeros ejemplos de
+la página 36 de \cite{brualdi}.
+
+\begin{deffinition}
+  Sean $A$ y $B$ dos conjuntos no vacíos con $\card(A) = r$ y $\card(B) =
+  n$. Entonces el número de aplicaciones con conjunto inicial $A$ y conjunto
+  final $B$ es
+
+  $$ n^r $$
+\end{deffinition}
+
+\begin{proof}
+  Como vemos, se trataría de ver el número de aplicaiones, sin más
+  restricciones. Al contrario de antes, esta no tiene por qué ser inyectiva.
+
+  Sean $A = \{a_1, a_2, a_3, \ldots, a_r\}$ y $B = \{b_1, b_2, b_3, \ldots,
+  b_n\}$ siendo $r \geq 1$. Para la imagen de $a_1$, disponemos de $n$
+  elementos diferentes de $B$. Una vez elegida esta imagen, seguimos
+  disponiendo de $n$ elementos para la imagen de $a_2$, y así sucesivamente.
+  Luego, por el Principio del Producto, podemos formar
+
+  $$ \prod_{i=1}^r n = n^r $$
+
+  \noindent aplicaciones $f: A \longrightarrow B$.
+\end{proof}
+
+\begin{corollary}
+  Sea $A$ un conjunto finito con $n \in \nset^{+}$ elementos y un número $r
+  \in \nset^{+}$. El número de permutaciones con repetición de orden $r$ de
+  $A$ es
+
+  $$ PR(n, r) = n^r $$
+\end{corollary}
+
+Antes de seguir, veamos un ejemplo muy típico. El número de ``palabras''
+diferentes de longitud 8 que se pueden formar en código binario, es decir,
+código basado en un alfabeto de solo dos símbolos diferentes, que suelen ser
+$\{0, 1\}$, vendría dado por las permutaciones con repetición de 2 elementos
+de orden 8, que son
+
+$$ PR(2, 8) = 2^8 = 256 $$
+
+\noindent Advierta que, en este caso, $r > n$, lo cual no es ningún problema
+cuando se trata de permutaciones con repetición.
+
+Como seguramente sepa, la información que manejan internamente los
+computadores se encuentra codificada en código binario. A los dígitos de
+este código seles conoce como \emph{bit}, que es la acortación del sintagma
+\emph{binary digit}, es decir, \emph{dígito binario}. Se les suele representar
+por una \emph{b} minúscula: b. Las agrupaciones de palabras de 8 bits cobran
+una relevancia especial en los computadores y suelen recibir en la
+actualidad el nombre de \emph{byte},\footnotemark y se suelen representar
+por una \emph{b} mayúscula: B.
+
+\footnotetext{aunque quizás sea más correcto llamarlas \emph{octetos}, pues en
+otras épocas el \emph{byte} tuvo otros tamaños distintos al que tiene ahora}
+
+\begin{deffinition}[Combinación]
+  Sean $A$ un conjunto finito con $n \in \nset^{+}$ elementos y un número $r
+  \in \nset^{+}$ tal que $r \leq n$. Una \emph{combinación}
+  (\emph{combination}) de $A$ de orden $r$ es un subconjunto de $A$ con $r$
+  elementos.
+
+  Como conjunto que es la combinación, no cuenta con elementos repetidos y
+  el orden de sus elementos es indiferente, es decir, dos permutaciones de
+  una combinación representarían a la misma combinación.
+
+  Diremos, por tanto, que dos combinaciones son diferentes si algún elemento
+  de una lista no se encuentra en la otra.
+\end{deffinition}
+
+Designaremos al número de combinaciones de $n$ elementos de orden $r$ por
+$C(n, r)$, o, también, por
+
+$$ {n \choose r} $$
+
+\noindent A esta última expresión se la conoce como \emph{coeficiente binómico}
+(\emph{binomial coefficient}) o, también, como \emph{número combinatorio}
+(\emph{combinatorial number}).
+
+También, verá que hay quien dice ``número de combinaciones de $n$ elementos
+tomados de $r$ en $r$'', en lugar de ``[\ldots] de orden $r$''.
+
+Algo de lo que es fácil darse cuenta es de que, tal y como se muestra en el
+ejemplo 3-2.27, se puede establecer una fórmula para calcular las
+combinaciones de $n$ elementos de orden $r$. Así, si, por ejemplo, tenemos
+el conjunto
+
+$$ S = \{1, 2, 3, 4\} $$
+
+\noindent se puede ver, por fuerza bruta, que las combinaciones de orden 3
+sobre ese conjunto son 4. Si a cada una de esas combinaciones les calculamos
+sus permutaciones, vemos que son $P(3) = 3! = 6$. Aplicando el Principio del
+Producto, dicha multiplicación nos dará las permutaciones de 4 elementos de
+orden 3, es decir, $P(4, 3)$. Esa es la fórmula que podemos establecer y que
+luego veremos para el caso general:
+
+$$ C(4, 3) \cdot P(3) = P(4, 3) $$
+
+\noindent o, lo que es lo mismo,
+
+$$ C(4, 3) = \frac{P(4, 3)}{P(3)} $$
+
+\begin{theorem}
+  Para todo $n, r \in \nset^{+}$ siendo $1 \leq r \leq n$, se cumple
+
+  $$ P(n, r) = P(r) \cdot C(n, r) $$
+
+  \noindent Por lo tanto,
+
+  $$ C(n, r) = \frac{P(n, r)}{P(r)} $$
+
+  \noindent o, lo que es lo mismo
+
+  $$ C(n, r) = \frac{n!}{(n-r)! \, r!} $$
+\end{theorem}
+
+\begin{proof}
+  Tenemos que $C(n, r)$ es el número de formas de eleccionar $r$ objetos de
+  un conjunto de $n$ objetos sin tener en cuenta el orden. Cada una de estas
+  combinaciones se puede ordenar de $P(r) = r!$ formas diferentes, si ahora
+  sí se desea tener en cuenta el orden. Por tanto, por el Principio del
+  Producto, se tiene
+
+  $$ P(n, r) = r! \, C(n, r) $$
+
+  \noindent y, de aquí,
+
+  $$ C(n, r) = \frac{P(n, r)}{P(r)} = \frac{n!}{(n-r)! \, r!} $$
+\end{proof}
+
+Respecto a los coeficientes binómicos, se dan ciertos casos particulares que
+conviene conocer. Así, se tiene que
+
+$$ {n \choose 0} = 1 $$
+
+Se puede demostrar simplemente sustituyendo la expresión por la fracción y
+teniendo en cuenta que, tal y como dijimos, se tiene que $0! = 1$.
+
+Para todos estos casos particulares que veamos, recuerde que el coeficiente
+binómico refleja las combinaciones. Así, para el caso anterior, se podría
+expresar como que $C(n, 0) = 1$, y sobre esto también se podría hacer una
+demostraación combinatoria. En esta, tendría que pensar en que existe una
+única forma de seleccionar 0 elementos de un conjunto de $n$.
+
+Otro caso particular interesante es
+
+$$ {n \choose n} = 1 $$
+
+Al igual que antes, se podría demostrar tanto por su expresión algebraica
+como mediante una demostración combinatoria. Esta consistiría en pensar que
+solo existe un subconjunto de $n$ elementos de un conjunto de $n$ elementos.
+
+Algo en lo que debemos fijarnos también es lo siguiente:
+
+$$ {n \choose k} = 0 \ \text{si} \ k >n $$
+
+\noindent ya que no tiene sentido tomar un factorial de un número negativo.
+En cuanto a la demostración combinatoria, podría pensar que existen 0
+subconjuntos de $k$ elementos en un conjunto de $n$ elementos si $k > n$.
+Otra forma de demostrarlo sería fijarse que, en el desarrollo de la
+expresión,
+
+$$ {n \choose k} = \frac{n!}{(n-k)! k!} = n(n-1)(n-2) \cdots (n - k + 1)
+\quad \text{para} \ k > n $$
+
+\noindent al darse la condición $k > n$, en algún momento se tendrá uno de
+esos factores que valga 0, y, como sabe, basta con que uno de los factores
+valga 0 para que el producto sea 0.
+
+Quizás, se podría considerar que estamos modelando el mundo y lo más
+conveniente sería decidir estos resultados para estos casos.
+
+En el capítulo siguiente sen ve en mayor profundidad las propiedades de los
+coeficientes binómicos.
+
+
+
+
+Hay otros casos de particular importancia sobre los coeficientes binómicos.
+TKTK.
+
+Si se fija, estamos usando dos designadores para lo mismo. Tanto $C(n, r)$
+como
+
+$$ {n \choose r} $$
+
+\noindent indican exactamente lo mismo, de ahí que haya textos en los que
+prescinden de la primera de estas notaciones.
+
+El ejemplo 3-2.29, que consiste en demostrar que el número de subconjuntos
+de un conjunto $A$ arbitrario viene dado por la igualdad
+
+$$ \card(\powset(A)) = 2^{\card(A)} $$
+
+\noindent se podría explicar ahora de una forma algo más elegante, sin
+necesidad de recurrir cosas que se vieron antes.
+
+Cada $C(n, r)$ indica también los subconjuntos de tamaño $r$ en un conjunto
+de $n$ elementos. Por tanto, aplicando el Principio de la Suma, el sumatorio
+indicará $\card(\powset(A))$, si $A$ es el conjunto de tamaño $n$:
+$\card(A)$.
+
+Esto se puede ver también desde el punto de vista de las permutaciones con
+repetición, como si se tratase de un código binario. Suponga que
+
+$$ A = \{a_1, a_2, a_3, \ldots, a_n\} $$
+
+Para todo elemento $a_i$ de $A$, creamos un código binario que se
+corresponde, en una aplicación biyectiva, con un subconjunto de $A$. Por
+ejemplo, el subconjunto $\{a_1, a_2\}$ se correspondería con el código
+11000\ldots 0. Así, bastaría con calcular las permutaciones con repetición
+de $n$ elementos de orden 2, es decir,
+
+$$ PR(n, 2) = 2^n $$
+
+\begin{deffinition}[Combinaciones con Repeticiones Sin Restricciones]
+  Sean $A$ un conjunto finito con $n \in \nset^{+}$ elementos y un número $r
+  \in \nset^{+}$. Una \emph{combinación con repetición} de orden $r$ de $A$ es
+  un multiconjunto (\emph{multiset}) de $r$ elementos de $A$.
+
+  Como multiconjunto que es, el orden no es relevante pero la multiplicidad
+  de sus elementos sí. Es decir, diremos que dos combinaciones con
+  repetición son diferentes si algún elemento de una de las dos listas no se
+  encuentra en la otra o si uno aparece repetido más veces en un
+  multiconjunto que en el otro.
+\end{deffinition}
+
+Designaremos al número de combinaciones con repetición de orden $r$ del
+conjunto $A$ de tamaño $n$ por $CR(n, r)$. También se dice ``combinaciones
+con repetición de $n$ elementos tomados de $r$ en $r$''.
+
+Como veremos, el problema de encontrar el número de combinaciones con
+repetición de orden $r$ de un conjunto $A$ de $n$ elementos es equivalente
+al problema de encontrar el número de soluciones naturales de la ecuación
+diofántica
+
+$$ x_1 + x_2 + x_3 + \cdots + x_n = r $$
+
+\noindent Puesto que se trata, tal y como hemos dicho, de una ecuación con
+soluciones naturales, esta podrá adoptar dos formas. La anterior, que es la
+comprimida, y su forma expandida, en la que se tiene una suma de unos:
+
+$$ \underbrace{1 + 1 + \cdots + 1}_\text{$x_1$ veces} + \underbrace{1 + 1 +
+\cdots + 1}_\text{$x_2$ veces} + \cdots + \underbrace{1 + 1 + \cdots +
+1}_\text{$x_n$ veces} = r $$
+
+\noindent siendo $x_i \in \nset^{+}$ para todo $i \in \nset$ tal que $1 \leq
+i \leq n$. Si se fija, ambas expresiones representan a la misma ecuación.
+
+Por tanto, el multiconjunto $\{x_1, x_2, x_3, \ldots, x_n\}$ será una
+solución de la ecuación
+
+$$ x_1 + x_2 + x_3 + \cdots + x_n = r $$
+
+\noindent Y viceversa. La solución natural de esta ecuación es el
+multiconjunto $\{x_1, x_2, x_3, \ldots, x_n\}$.
+
+\begin{theorem}
+  Dados $k, n \in \nset^{+}$. El número de soluciones naturales de la
+  ecuación
+
+  $$ x_1 + x_2 + x_3 + \cdots + x_n = k $$
+
+  \noindent es $C(n + k - 1, k)$.
+\end{theorem}
+
+\begin{proof}
+  Lo que se hará para demostrarlo es usar una cadena de $k$ unos a la que
+  dividiremos con $n - 1$ barras. Una vez hecho esto, haremos uso de nuestro
+  conocimiento de las combinaciones para calcular el número de situaciones
+  posibles que se pueden presentar.
+
+  Si se fija, todas las posibilidades que obtenemos así marcarán todas las
+  soluciones de la ecuación, ya que todos esos unos suman $k$ y las barras
+  marcan las agrupaciones en las distintas variables $x_i$ para $i \in
+  \nset^{+}$ siendo $1 \leq i \leq n$. Y, recíprocamente, toda solución de
+  la ecuación se puede representar de esa forma como cadena de $k$ unos
+  agrupados con $n - 1$ barras, o, lo que es lo mismo, en $n$ agrupaciones.
+
+  Como caso particular, advierta que dos o mas barras pueden aparecer
+  juntas. Esto está permitido. Simplemente, marcaría que TKTK.
+
+  Consideramos el conjunto de los $k$ unos y las $n-1$ barras como un todo.
+  Este tiene $k + (n - 1)$ elementos. Por tanto, la solución sería hallar
+  las distintas formas de poner esas $n-1$ fronteras entre todos los $k + (n
+  - 1)$ elementos. En esas disposiciones no influye el orden ya que se
+  cumple la propiedad conmutativa de la suma. Además, se admiten
+  repeticiones, es decir, que dos o más barras puedan estar juntas. Por
+  tanto, se trata de combinaciones (sin repetición) de $k + (n - 1)$
+  elementos de orden $n-1$. Eso es $C(n + k - 1, n-1)$, o, lo que es lo
+  mismo,
+
+  $$ {n + k - 1 \choose n-1} $$
+
+  Se podría haber visto desde otro punto de vista. Sobre el mismo conjunto
+  de antes, con $k + (n-1)$ elementos, se toman las distintas disposiciones
+  de $k$ elementos, es decir, de $k$ unos. Esto nos daría $C(n + k - 1, k)$,
+  o, lo que es lo mismo,
+
+  $$ {n + k - 1 \choose k} $$
+
+  \noindent que da el mismo resultado que la expresión anterior. Esto es un
+  resultado general de los coeficientes binómicos y se justificará en la
+  sección siguiente.
+\end{proof}
+
+Lo que aquí llamamo \emph{combinaciones con repetición} en realidad son un caso
+particular de estas. Concretamente, en las que las repeticiones no tienen
+restricción, o que son infinitas, se podría decir, aunque siempre están
+limitadas por el número total de TKTK. Se tienen, por tanto, también las
+combinaciones con repetición con un esquema determinado de repeticiones, que
+es lo que se ve en el capítulo siguiente en la sección de coeficientes
+multinómicos. Esto, en \cite{brualdi} no se explica tan adelante y la
+demostración de la fórmula de las combinaciones con repetición sin
+restricciones hace uso de la otra, es decir, de la de las combinaciones con
+repetición siguiendo un esquema de repetición; concretamente, en la pág. 52.
+
+\begin{corollary}
+  El número de combinaciones con repetición de orden $k$ de un conjunto de
+  $n$ elementos es
+
+  $$ CR(n, k) = C(n + k - 1, k) $$
+
+  \noindent o, lo que es lo mismo,
+
+  $$ {n + k - 1 \choose k} $$
+\end{corollary}
+
+\begin{deffinition}[Permutación Circular]
+  Una \emph{permutación circular} (\emph{circular permutation}) de $n$ objetos
+  de orden $r$ con $r \leq n$, cosa que designamos por $Q(n, r)$ o $Q_r^n$,
+  es lo mismo que una permutación de $n$ elementos de orden $r$ solo que se
+  consideran como una misma disposición a dos permutaciones tales que una
+  sea una traslación de los elementos de la otra en alguno de los dos
+  sentidos, de cualquier magnitud, considerando el pliegue (\emph{folding})
+  de los elementos, es decir, si se sale de las posiciones, se vuelve por el
+  otro extremo.
+\end{deffinition}
+
+Por tanto, se trata de algo muy parecido a las permutaciones.
+
+Por eso creo que el llamarlas \emph{permutaciones} está mal. Es como si ahora
+hubieran cambiado la terminología y pasasen a usar la equivalente al inglés,
+llamando \emph{permutación} de $n$ elementos de orden $r$ a lo que llamaban
+\emph{variación} de $n$ elementos de orden $r$.
+
+Muchas veces, para expresar este concepto, se hace alusión a la disposición
+de los elementos en una circunferencia y a rotaciones, pero estos no tienen
+nada intrínseco con forma de circunferencia. Simplemente, es una forma
+sencilla de explicarlo.
+
+Se tiene una fórmula para $Q(n, r)$ que se puede obtener fácilmente. Basta
+con tener en cuenta que si, para cada una de estas disposiciones, la
+multiplico por los distintos puntos de partida de las posibles traslaciones,
+es decir, por $r$, tengo el número de permutaciones de $n$ elementos de
+orden $r$. Por tanto,
+
+\begin{theorem}
+  El número de permutaciones circulares de $n$ objetos distintos de orden
+  $r$ siendo $r \leq n$, $Q(n, r)$, es
+
+  $$ Q(n, r) = \frac{P(n, r)}{r} = C(n, r) \cdot (r-1)! $$
+\end{theorem}
+
+La demostración de la fórmula para las permutaciones la hicimos antes. La de
+las combinaciones se deduce simplemente operando.
+
+$$ Q(n, r) = \frac{P(n, r)}{r} = \frac{n!}{(n-r)! r} = \frac{n!}{(n-r)! r!}
+\, (r-1)! = {n \choose r} \cdot (r-1)! = C(n, r) \cdot (r-1)! $$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

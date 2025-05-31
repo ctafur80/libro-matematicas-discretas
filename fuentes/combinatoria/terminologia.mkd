@@ -1,0 +1,164 @@
+
+
+
+
+### Terminología
+
+Una palabra que aparece mucho en la combinatoria es _disposiciones_
+(_arrangements_), así como _situaciones_, _posibilidades_, etc. Puede que no
+sean cosas que veamos, sino posibilidades en distintos instantes de tiempo.
+TKTK.
+
+A lo largo de toda la parte de combinatoria, hablaremos de _repetición_
+(_repetition_), pero esto sería también válido para las situaciones en las
+que se incluya el _remplazo_ (_replacement_) en las reglas TKTK.
+
+En lo que respecta a la terminología del capítulo 2, sobre los conceptos de
+permutaciones, combinaciones, etc., sobre la terminología hay algo de
+discrepancia entre los distintos textos y entre el inglés y el español. Así,
+por ejemplo, a las $k$-_permutations_ (también llamadas _partial
+permutations_) las llamamos _variaciones_, pero también hay gente que en
+español las llama _permutaciones_.
+
+Algo que está bastante claro es que se sigue casi siempre la regla de, si no
+se les acompaña de "con repetición", o algo similar, por ejemplo, "con
+remplazo", se supone que se trata de permutaciones, combinaciones, etc. sin
+repetición, o sin remplazo, si lo prefiere.
+
+Otra particularidad de la terminología es que muchas veces se deja al
+contexto que termine por determinar al concepto al que nos referimos
+exactamente. Así, si hablan de _permutations_, si el número de elementos y
+el orden son iguales, nos referiremos a _permutations_ realmente, cosa que
+hay quien llama _total permutations_. Sin embargo, si por el contexto se
+tiene que el orden es un valor $k$ que es menor que el tamaño del conjunto
+del que se toman, serán lo que se designa como $k$-_permutations_. A estas
+últimas también hay quien las llama _partial permutations_. Por cierto, en
+este caso, al no especificar, serían sin repetición, tal y como dijimos
+antes.
+
+En cuanto a las diferencias entre el español y el inglés, lo más común es
+ver que a las _partial permutations_ las llamemos _variaciones_, y, a las
+_total permutations_, _permutaciones_.
+
+Aunque esta es la terminología con más aceptación en español, me gusta más
+hacerla más cercana al inglés, y llamo _permutaciones_ tanto a las
+variaciones como a las permutaciones. De hecho, creo que existe cierta
+incoherencia en la terminología en español, pues, por ejemplo, a las
+_circular permutations_ de un tamaño $k$ menor que el tamaño del conjunto
+del que se toman las llamamos _permutaciones circulares_ en lugar de
+_variaciones circulares_.
+
+En cualquier caso, creo que sería posible actualizar y simplificar la
+terminología, en base a los objetos matemáticos de los que surgen estos
+conceptos. Es decir, se podría usar una terminología muy minimalista
+haciendo uso de conceptos que ya conocemos de otras áreas de las
+matemáticas.
+
+Se me ocurre la siguiente terminología alternativa, tal y como se muestra en
+la tabla siguiente:
+
+::: landscape
+```{=html}
+<table class="tbl-2">
+  <caption>Propuesta de terminología alternativa para combinatoria</caption>
+  <thead>
+    <tr>
+      <th>Terminología nueva</th>
+      <th>Term. clásica inglés</th>
+      <th>Term. clásica español</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lista</td>
+      <td><em>permutation with repetition (o total permutation with repetition)</em></td>
+      <td>permutación total con repetición</td>
+    </tr>
+    <tr>
+      <td>sublista sin repeticiones</td>
+      <td>$k$-permutation (o partial permutation)</em></td>
+      <td>variaciones (o permutación parcial)</td>
+    </tr>
+    <tr>
+      <td>sublista sin restricciones</td>
+      <td>$k$-permutation with repetition (o partial permutation with repetition)</em></td>
+      <td>variación con repetición (o permutación parcial con repetición)</td>
+    </tr>
+    <tr>
+      <td>sublista con un esquema de repeticiones</td>
+      <td>$k$-permutation with TKTK (TK)</em></td>
+      <td>variación con repetición con esquema TKTK (o permutación parcial con repetición TKTK)</td>
+    </tr>
+    <tr>
+      <td>sublista circular sin repetición</td>
+      <td><em>circular $k$-permutation</em></td>
+      <td>permutación circular</td>
+    </tr>
+    <tr>
+      <td>subconjunto</td>
+      <td><em>combination</em></td>
+      <td>combinación (sin repetición)</td>
+    </tr>
+    <tr>
+      <td>submulticonjunto (sin restricciones)</td>
+      <td><em>combination with repetition</em></td>
+      <td>combinación con repetición</td>
+    </tr>
+    <tr>
+      <td>submulticonjunto con un esquema de repeticiones</td>
+      <td><em>combination with repetitions TKTK</em></td>
+      <td>combinación con repetición TKTK</td>
+    </tr>
+  </tbody>
+</table>
+```
+[]{#tbl:term-nueva label="tbl:term-nueva"}
+:::
+
+Al contrario de lo que sucede con el concepto de _lista_ (es decir,
+permutaciones totales, en la terminología antigua), el concepto de
+_conjunto_ no merece la pena analizarlo, pues solo hay una forma de disponer
+un conjunto basándonos en este mismo.
+
+Entre los ejercicios de combinatoria, es bastante común que le pregunten por
+el número de números distintos que se pueden formar siguiendo ciertas
+reglas. A veces, la terminología que usan es equivocada. Por ejemplo, he
+encontrado que llaman _cifra_ (_figure_) a lo que deberían llamar _dígito_
+(_digit_).
+
+Me gustaría aclarar la terminología a este respecto. Un _número_ (_number_)
+es un concepto que TKTK.
+
+Una representación de un número ---que, por cierto, no tiene por qué ser
+única, tal y como sucede, por ejemplo, con los números racionales--- es un
+_numeral_ (_numeral_) o _cifra_ (_figure_). Los sistemas numerales son
+códigos en los que se tienen "palabras" que serían los numerales. Los
+símbolos que constituyen esas palabras son los _dígitos_ (_digits_). Así,
+por ejemplo, en el número 15 se tienen los dígitos 1 y 5.
+
+El sistema numeral estándar que solemos usar y que le han enseñado en la
+educación primaria es el TKTK. Alcanzó popularidad en Occidente cuando lo
+introdujo Leonardo de Pisa, más conocido como Fibonacci, TKTK.
+
+Se trata de un sistema de numeración posicional ponderado. Más
+concretamente, usa una ponderación polinomial.
+
+Aunque se suele decir que es un sistema en base 10, en realidad con esto no
+estoy diciendo nada, ya que para cualquier otro sistema numeral también
+escribiría que es "en base 10", al no quedar claro a qué base nos referimos.
+Así, por ejemplo, si la base sería el 6 en nuestro sistema numeral estándar,
+al decirlo en un sistema en dicha base, también diríamos que se trataría de
+un sistema en base 10. La única forma que se me ocurre de comunicar esa base
+es pronunciándola en un sistema que no sea posicional. Por ejemplo, en el
+que se conoce como sistema unario. Haciendo uso de este, podríamos decir que
+la base del sistema de numeración estándar en el mundo es
+
+$$ 1111111111 $$
+
+Una regla que usamos por comodidad es asumir que, cuando hablamos de
+intervalos o números comprendidos entre otros dos dados, si no se especifica
+lo contrario, se asumirá que los de los extremos se incluyen.
+
+
+
+

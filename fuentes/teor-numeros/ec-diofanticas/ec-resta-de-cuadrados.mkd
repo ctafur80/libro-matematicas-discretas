@@ -1,0 +1,139 @@
+
+
+
+#### Ecuación resta de cuadrados
+
+Viene explicado en [@burton] sección 5.4, pág. 97, y lo llama el método de
+factorización de Fermat-Kraitchik.
+
+Ahora, vamos a analizar la ecuación diofántica $x^2 - y^2 = n$ con $n \in
+\mathbb{N}$ con $n > 0$.
+
+::: { .theorem #th-sol-gral-ec-diof-cuad label="Teorema de la Solución
+General de la Ecuación Resta de Cuadrados"}
+Dado $n \in \mathbb{N}^{+}$. La solución general de la ecuación $x^2 - y^2 = n$,
+para $x, y \in \mathbb{Z}$, es
+
+$$ x = \frac{a + b}{2} \quad \text{;} \quad y = \frac{a - b}{2} $$
+
+para todos los $a, b \in \mathbb{Z}$ con $a \equiv b \pmod 2$ y tales que $n = a
+\cdot b$.
+:::
+
+::: proof
+Primero demostremos que si $n$ se puede factorizar como dos números $a, b
+\in \mathbb{Z}$ teniendo ambos la misma paridad, entonces todo par de números con
+la forma
+
+$$ x = \frac{a + b}{2} \quad \text{;} \quad y = \frac{a - b}{2} $$
+
+es solución de la ecuación.
+
+Partimos de la ecuación diofántica:
+
+$$ n = x^2 - y^2 $$
+
+Esto podemos manipularlo del mismo modo a como se hace en el álgebra de los
+números reales:
+
+$$ n = x^2 - y^2 = (x + y)(x - y) $$
+
+Vamos a demostrar ahora que esos dos factores de la derecha tienen la misma
+paridad. Partimos de la expresión $x + y$:
+
+$$
+\begin{aligned}{2}
+  x + y           &= x + y \\
+  x + y - y       &= x + y - y \\
+  x + y - y + y   &= x + y - y + y = x - y + y + y \\
+  x + y           &= (x - y) + 2y
+\end{aligned}
+$$
+
+Como sabemos, la suma de un número par más uno par será un número par y, por
+otro lado, la suma de un número impar más uno par da uno impar. Así, en la
+ecuación anterior, ese $2y$ no afecta a la paridad, por lo que $x + y$ y $x
+y$ tienen necesariamente la misma paridad. Así, hemos encontrado dos números
+de la misma paridad que multiplicados dan $n$.
+
+Ahora, pasaremos a llamar $a$ y $b$, respectivamente, a estos factores de
+$n$.
+
+$$
+\begin{aligned}{2}
+  x + y &= a \\
+  x - y &= b
+\end{aligned}
+$$
+
+Manipulando este sistema de ecuaciones, para obtener $x$ e $y$ en función de
+$a$ y $b$, tenemos
+
+$$
+\begin{aligned}{2}
+  (x + y) + (x - y)   &= a + b \\
+  x + x + y - y       &= a + b \\
+  2x                  &= a + b
+\end{aligned}
+$$
+
+y
+
+$$
+\begin{aligned}{2}
+  (x + y) - (x - y)   &= a - b \\
+  x + y - x + y       &= a - b \\
+  2y                  &= a - b
+\end{aligned}
+$$
+
+con lo que llegamos a que
+
+$$ x = \frac{a + b}{2} \quad \text{;} \quad y = \frac{a - b}{2} $$
+
+que es la forma general de la solución a esta ecuación diofántica.
+
+Ahora, demostraremos la implicación en el otro sentido. Partimos de que
+
+$$ x = \frac{a + b}{2} \quad \text{;} \quad y = \frac{a - b}{2} $$
+
+con $a, b \in \mathbb{Z}$ con paridad distinta es la solución general de esta
+ecuación diofántica y debemos demostrar que entonces $n$ es un producto de
+$a$ por $b$. Simplemente, hay que sustituir.
+
+$$
+\begin{aligned}{2}
+  n &= x^2 - y^2 = \left( \frac{a + b}{2} \right)^2 - \left( \frac{a -
+    b}{2} \right)^2 = \frac{(a + b)^2 - (a - b)^2}{4} \\
+    &= \frac{a^2 +2ab + b^2 - (a^2 - 2ab + b^2)}{4} = \frac{4ab}{4} = ab
+\end{aligned}
+$$
+:::
+
+algo que está implícito es que $a$ y $b$ son menores que $n$. Es evidente
+TKTK.
+
+Si se fija, curiosamente, esta solución general (de grado 2) es más sencilla
+que en el caso de la ecuación diofántica lineal (también llamada "de grado
+1").
+
+En este tipo de ecuación, el problema se encontrará en que $n$ sea un número
+muy grande. En ese caso, resultará complicado comprobar si ese número será
+posible factorizarlo.
+
+Lo que sí que sabemos es que, si $n$ es par, entonces sí se podrá factorizar
+como 2 por otro número. El problema está entonces en que $n$ sea impar. Para
+el caso en que $n$ sea impar, el resultaado siguiente nos va a proporcionar
+un algoritmo para determinar si $n = a \, b$ con $a$ y $b$ con la misma
+paridad, que en este caso sería impar. A este algoritmo se le conoce como el
+Algoritmo de Fermat.
+
+Además, a dicho algoritmo también se le puede dar el uso de comprobar si un
+número es compuesto o primo. Advierta que se hace para números impares,
+pues, si un número es par y no es 2, será compuesto necesariamente. Es más
+eficiente que la Criba de Eratóstenes.
+
+
+
+
+

@@ -1,0 +1,182 @@
+
+
+
+Una palabra que aparece mucho en la combinatoria es \emph{disposiciones}
+(\emph{arrangements}), así como \emph{situaciones}, \emph{posibilidades}, etc.
+Puede que no sean cosas que veamos, sino posibilidades en distintos
+instantes de tiempo. TKTK.
+
+A lo largo de toda la parte de combinatoria, hablaremos de \emph{repetición}
+(\emph{repetition}), pero esto sería también válido para las situaciones en
+las que se incluya el \emph{remplazo} (\emph{replacement}) en las reglas TKTK.
+
+En lo que respecta a la terminología del capítulo 2, sobre los conceptos de
+permutaciones, combinaciones, etc., sobre la terminología hay algo de
+discrepancia entre los distintos textos y entre el inglés y el español. Así,
+por ejemplo, a las $k$-\emph{permutations} \emph{partial permutations} las
+llamamos \emph{variaciones}, pero también hay gente que en español las llama
+\emph{permutaciones}.
+
+Algo que está bastante claro es que se sigue casi siempre la regla de, si no
+se les acompaña de ``con repetición'', o algo similar, por ejemplo, ``con
+remplazo'', se supone que se trata de permutaciones, combinaciones, etc. sin
+repetición, o sin remplazo, si lo prefiere. 
+
+Otra particularidad de la terminología es que muchas veces se deja al
+contexto que termine por determinar al concepto al que nos referimos
+exactamente. Así, si hablan de \emph{permutations}, si el número de
+elementos y el orden son iguales, nos referiremos a \emph{permutations}
+realmente, cosa que hay quien llama \emph{total permutations}. Sin embargo,
+si por el contexto se tiene que el orden es un valor $k$ que es menor que el
+tamaño del conjunto del que se toman, serán lo que se designa como
+$k$-\emph{permutations}. A estas últimas también hay quien las llama
+\emph{partial permutations}. Por cierto, en este caso, al no especificar,
+serían sin repetición, tal y como dijimos antes.
+
+En cuanto a las diferencias entre el español y el inglés, lo más común es
+ver que a las \emph{partial permutations} las llamemos \emph{variaciones}, y, a
+las \emph{total permutations}, \emph{permutaciones}.
+
+Aunque esta es la terminología con más aceptación en español, me gusta más
+hacerla más cercana al inglés, y llamo \emph{permutaciones} tanto a las
+variaciones como a las permutaciones. De hecho, creo que existe cierta
+incoherencia en la terminología en español, pues, por ejemplo, a las
+\emph{circular permutations} de un tamaño $k$ menor que el tamaño del
+conjunto del que se toman las llamamos \emph{permutaciones circulares} en lugar
+de \emph{variaciones circulares}.
+
+
+
+
+
+
+
+
+
+% -------------------------------------
+
+En cualquier caso, creo que sería posible actualizar y simplificar la
+terminología, en base a los objetos matemáticos de los que surgen estos
+conceptos. Es decir, se podría usar una terminología muy minimalista
+haciendo uso de conceptos que ya conocemos de otras áreas de las
+matemáticas.
+
+Se me ocurre la siguiente terminología alternativa, tal y como se muestra en
+la tabla \ref{tbl:term-nueva}.
+
+\begin{landscape}
+\begin{figure}%
+  \caption{Propuesta de terminología alternativa para combinatoria}%
+  \begin{center}
+    \begin{tabular}[t]{| p{16em} | p{16em} | p{16em} |}
+      \hline
+      \multicolumn{1}{|c}{\textbf{Terminología nueva}} &
+      \multicolumn{1}{|c}{\textbf{Term. clásica inglés}} &
+      \multicolumn{1}{|c|}{\textbf{Term. clásica español}} \\
+      \hline\hline
+      lista &
+      \emph{permutation with repetition (o total permutation with repetition)} &
+      permutación total con repetición \\
+      \hline
+      sublista sin repeticiones &
+      \emph{$k$- permutation (o partial permutation)} &
+      variaciones (o permutación parcial) \\
+      \hline
+      sublista sin restricciones &
+      \emph{$k$-permutation with repetition (o partial permutation with repetition)} &
+      variación con repetición (o permutación parcial con repetición) \\
+      \hline
+      sublista con un esquema de repeticiones &
+      \emph{$k$-permutation with TKTK (TK)} &
+      variación con repetición con esquema TKTK (o permutación parcial con repetición TKTK) \\
+      \hline
+      sublista circular sin repetición &
+      \emph{circular $k$-permutation} &
+      permutación circular \\
+      \hline
+      \hline
+      subconjunto &
+      \emph{combination} &
+      combinación (sin repetición) \\
+      \hline
+      submulticonjunto (sin restricciones) &
+      \emph{combination with repetition} &
+      combinación con repetición \\
+      \hline
+      submulticonjunto con un esquema de repeticiones &
+      \emph{combination with repetitions TKTK} &
+      combinación con repetición TKTK \\
+      \hline
+    \end{tabular}%
+  \end{center}
+\end{figure}%
+\label{tbl:term-nueva}
+\end{landscape}
+
+Al contrario de lo que sucede con el concepto de \emph{lista} (es decir,
+permutaciones totales, en la terminología antigua), el concepto de
+\emph{conjunto} no merece la pena analizarlo, pues solo hay una forma de
+disponer un conjunto basándonos en este mismo.
+
+
+
+
+
+
+% ------------------------------------------
+
+Entre los ejercicios de combinatoria, es bastante común que le pregunten por
+el número de números distintos que se pueden formar siguiendo ciertas
+reglas. A veces, la terminología que usan es equivocada. Por ejemplo, he
+encontrado que llaman \emph{cifra} (\emph{figure}) a lo que deberían llamar \emph{dígito}
+(\emph{digit}).
+
+Me gustaría aclarar la terminología a este respecto. Un \emph{número}
+(\emph{number}) es un concepto que TKTK.
+
+Una representación de un número ---que, por cierto, no tiene por qué ser
+única, tal y como sucede, por ejemplo, con los números racionales--- es un
+\emph{numeral} (\emph{numeral}) o \emph{cifra} (\emph{figure}). Los sistemas
+numerales son códigos en los que se tienen ``palabras'' que serían los
+numerales. Los símbolos que constituyen esas palabras son los \emph{dígitos}
+(\emph{digits}). Así, por ejemplo, en el número 15 se tienen los dígitos 1 y
+5.
+
+El sistema numeral estándar que solemos usar y que le han enseñado en la
+educación primaria es el TKTK. Alcanzó popularidad en Occidente cuando lo
+introdujo Leonardo de Pisa, más conocido como Fibonacci, TKTK.
+
+Se trata de un sistema de numeración posicional ponderado. Más
+concretamente, usa una ponderación polinomial.
+
+Aunque se suele decir que es un sistema en base 10, en realidad con esto no
+estoy diciendo nada, ya que para cualquier otro sistema numeral también
+escribiría que es ``en base 10'', al no quedar claro a qué base nos
+referimos. Así, por ejemplo, si la base sería el 6 en nuestro sistema
+numeral estándar, al decirlo en un sistema en dicha base, también diríamos
+que se trataría de un sistema en base 10. La única forma que se me ocurre de
+comunicar esa base es pronunciándola en un sistema que no sea posicional.
+Por ejemplo, en el que se conoce como sistema unario. Haciendo uso de este,
+podríamos decir que la base del sistema de numeración estándar en el mundo
+es
+
+$$ 1111111111 $$
+
+
+
+
+% ------------------------------------------
+
+
+
+Una regla que usamos por comodidad es asumir que, cuando hablamos de
+intervalos o números comprendidos entre otros dos dados, si no se especifica
+lo contrario, se asumirá que los de los extremos se incluyen.
+
+
+
+
+
+
+
+

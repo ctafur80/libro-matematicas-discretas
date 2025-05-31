@@ -1,0 +1,489 @@
+
+
+
+
+
+\begin{deffinition}[Divisor común de dos números]
+  Dados $a, b \in \zset$. Un $d \in \zset$ tal que $d \mid a$ y $d \mid b$
+  se dice que es un \emph{divisor común} de $a$ y de $b$.
+\end{deffinition}
+
+Se me ocurre la notación $d \mid \{a, b\}$ o, también, $\divset(a, b)$.
+
+Algo que le puede resultar curioso es que es mucho más fácil encontrar
+divisores comunes de dos números que divisores de estos por separado. Vea
+\cite{stillwell-elem-maths} pág. 36.
+
+\begin{properties}
+  Dados $a, b, d \in \zset$.
+
+  \begin{enumerate}
+    \item El conjunto de divisores comunes de $a$ y $b$ no es vacío. Es
+      decir,
+
+      $$ \left\{d \in \zset \st d \mid a \ \text{y} \ d \mid b\right\} \neq
+      \emptyset $$
+
+    \item A menos que $a = b = 0$, $0 \nmid \{a, b\}$. Es decir, el 0 no es
+      divisor común de dos números salvo si ambos valen 0.
+
+    \item Siempre que no se dé que $a = b = 0$, el conjunto de divisores
+      comunes de $a$ y $b$ será finito.
+  \end{enumerate}
+\end{properties}
+
+\begin{proof}
+  -
+  \begin{enumerate}
+    \item Se debe a que, para todo $n \in \zset$, se cumple que $1 \mid n$,
+      así que el conjunto contendrá al menos al 1.
+
+    \item Como el 0 no divide a ningún número distinto de 0, tampoco
+      dividirá conjuntamente a $a$ y a $b$, salvo si ambos valen 0.
+
+    \item Podríamos expresarlo de forma conjuntista. Tenemos que
+
+      $$ \divset(a, b) = \{x \in \zset \st x \mid a \ \text{y} \ x \mid b\}
+      = \{x \in \zset \st x \mid a\} \cap \{x \in \zset \st x \mid b\} =
+      \divset(a) \cap \divset(b) $$
+
+      Tal y como vimos, si un número $a \in \zset$ es distinto de 0,
+      entonces $\divset(a)$ será finito. Lo mismo para $b$. Además, la
+      intersección de dos conjuntos finitos ha de ser finita, por lo que
+      $\divset(a, b)$ será finito.
+
+      Veamos ahora los casos extraños. Si alguno de ambos es igual a 0, pero
+      el otro no, por ejemplo, $a = 0$ y $b \neq 0$, se dará que
+      $\divset(a)$ será un conjunto infinito pero no $\divset(b)$. La
+      intersección de ambos conjuntos nos da $\divset(b)$.
+
+      El caso en el que sería infinito sería cuando $a = b = 0$; de ahí que
+      lo hayamos excluido.\qedhere
+
+    \iffalse
+    \item Fijémonos primero en una sola de las variables. Supongamos que $a
+      \neq 0$. Tenemos que existe algún $d \in \zset$ para el que $d \mid
+      a$. Entonces, por la proposición \ref{prop-factor-men}, se tendrá que
+      $|d| \leq |a|$, o, lo que es lo mismo, ${-a} \leq q \leq a$. Es decir,
+      $d \in [{-a}, a]_{\zset}$, intervalo que consta de un número finito de
+      elementos.
+
+      En cualquier caso, tendremos que hallar la intersección de este
+      conjunto con el de los divisores comunes de la otra variable.
+
+      Si la otra variable, $b$, vale 0, el conjunto de divisores de esta
+      será todo $\zset$, como ya sabemos. Así, la intersección de ambos
+      conjuntos de divisores será
+
+      $$ q \mid \{a, b\} = \zset \cap [{-a}, a]_{\zset} = [{-a}, a]_{\zset}
+      $$
+
+      Si, por el contrario, $b$ es, al igual que $a$, distinto de 0, se
+      hallará la intersección de ambos conjuntos, que serán ambos
+      intervalos.
+
+      $$ q \mid \{a, b\} = [{-a}, a]_{\zset} \cap [{-b}, b]_{\zset} $$
+
+      \noindent cosa que habría que averiguar para cada caso en concreto; es
+      decir, no podemos averiguar más, de momento, sobre el conjunto
+      intersección. Lo que sí sabemos es que será finito, al ser la
+      intersección de dos conjuntos finitos.
+    \fi
+    \end{enumerate}
+\end{proof}
+
+\begin{deffinition}[Máximo común divisor]
+  Dados $a, b \in \zset$ y un $d \in \nset$ que sea divisor común de $a$ y
+  $b$. Si para cualquier otro divisor común $d'$ de $a$ y $b$ se cumple que
+  $d' \mid d$, a $d$ se le llamará \m{máximo común divisor} de $a$ y $b$,
+  cosa que también se denota como $\gcd(a, b)$.
+\end{deffinition}
+
+Advierta que hemos mencionado que es un divisor tal que $d \in \nset$. Esto
+es perfectamente factible. Imagine que hubiésemos puesto que $d \in \zset$.
+Al ser $d$ un número tal que $d \mid a$ y $d \mid b$, se tiene, tal y como
+vimos antes, que ${-d} \mid a$ y ${-d} \mid b$. Además, como ya vimos, si $d
+\geq 0$, entonces ${-d} \leq 0$, y viceversa. Por tanto, podemos seleccionar
+al que deseemos de $\{{-d}, d\}$ y usarlo en la definición.
+
+De hecho, si hubiésemos especificado $d \in \zset$, se tendrían dos
+soluciones igualmente válidas: $\{{-d}, d\}$.
+
+En algunos libros usan la misma notación que los pares ordenados, es decir,
+algo como $(a, b)$, para denotar a lo que aquí designaríamos por $\gcd(a,
+b)$. Me parece que esa notación puede dar lugar a confisión en ciertos casos
+y, por tanto, prefiero no usarla.
+
+Veamos ahora algunas propiedades del máximo común divisor.
+
+\begin{proposition}\label{prop-mcd}
+  Dados $a, b \in \zset$, se cumple
+
+  \begin{enumerate}
+    \item $\gcd(0, 0) = 0$.
+    \item Si $a \neq 0$, $\gcd(a, 0) = |a|$.
+    \item $\gcd(a, b)$ es único.
+    \item Si $a \mid b$, entonces $\gcd(a, b) = a$.
+    \item $\gcd(a, b) = \gcd(|a|, |b|)$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  -
+  \begin{enumerate}
+    \item La decisión de admitir que $0 \mid 0$ nos obliga a admitir también
+      que $\gcd(0, 0) = 0$. Veamos por qué. Por un lado, 0 es un divisor
+      común de 0 y 0. Pero, además, cualquier otro número divide a 0.
+
+      \iffalse
+      Alternativamente, se puede razonar como que 0 es el único múltiplo de
+      0.
+      \fi
+
+    \item Podemos operar de forma similar con conjuntos, igual que antes:
+
+      \[ \divset(a, 0) = \{d \in \zset \st d \mid a \ \text{y} \ d \mid 0\}
+      = \{d \in \zset \st d \mid a\} \cap \zset = = \{d \in \zset \st d \mid
+      a\} \]
+
+      Ahora, tendríamos en cuenta los dos casos posibles: $a > 0$ y $a < 0$.
+      En el primero, se tiene que cualquier divisor de $a$ es divisor de
+      $a$, con lo que $\gcd(a, 0) = a$. En el otro, por esto mismo,
+      $\gcd({-a}, 0) = {-a}$. Por tanto, $\gcd(a, 0) = |a|$
+
+      Por cierto, sería lo mismo para $\gcd(0, a)$, ya que el orden de los
+      argumentos no afecta al resultado de esta función.
+
+    \item Para los casos en los que interviene el 0, se demostró en los
+      puntos anteriores. En los otros casos, supongamos que se tienen dos
+      números, $g_1$ y $g_2$, que son, de forma independiente, máximo común
+      divisor de dos números dados, es decir, de $a$ y $b$.
+
+      Atendiendo a la definición de máximo común divisor, por un lado se
+      tendrá que $g_1 \mid g_2$, pero, desde el punto de vista contrario, se
+      tendrá que $g_2 \mid g_1$.
+
+      Al tratarse de casos de máximo común divisor, los números $g_1$ y
+      $g_2$ serán necesariamente mayores que 0. Por lo tanto, por la
+      Propiedad \ref{prop-factor-men}, tendremos, por un lado, $g_1 \leq
+      g_2$, pero, por el otro, $g_2 \leq g_1$. Por tanto, se tiene que $g_1
+      = g_2$, con lo que queda demostrado que $\gcd(a, b)$ tiene que ser
+      único.
+
+      Por cierto, como quizás sepa, al ser único y existir para cualquier
+      combinación de valores de entrada, es una función. TKTK.
+
+    \item La demostración es trivial ya que cualquier $d \in \zset$
+      arbitrario que sea divisor común de $a$ y $b$ es evidente que divide a
+      $a$.
+
+      El caso particular en el que convendría fijarse sería cuando $a \neq
+      0$ y $b = 0$. En ese caso, se da que, por la parte de $b$, se aporta
+      todo $\mathbb{Z}$, y, por la de $a$, los divisores de $a$. La
+      intersección de ambos nos da un conjunto cuyo elemento mayor será $a$.
+
+    \item Se demuestra por una de las propiedades \ref{propi-divide-2}.
+      Concretamente, de la que dice que, si $a \mid b$, entonces $a \mid
+      ({-b})$.
+      \qedhere
+  \end{enumerate}
+\end{proof}
+
+La propiedad 4, aunque parezca muy simple y evidente, se usa con bastante
+frecuencia en demostraciones posteriores.
+
+Seguramente le enseñaron otra definición en la que se decía que $d' \leq d$,
+en lugar de $d' \mid d$. Esa otra definición es también equivalente a esta.
+El problema está en que se está haciendo uso de una relación de orden,
+$\leq$, distinta a ``divide a'', que es también una relación de orden. Por
+tanto, se podría decir que nuestra definición es ``autosuficiente'' y la
+otra no lo es.
+
+Tal y como se explica en \cite{burton} pág. 24, esto permite usarse también
+en sistemas algebraicos en los que que no se tenga la relación $\leq$, con
+lo que se trata de una definición más amplia.
+
+En los textos de teoría de números, a nuestra definición la suelen calificar
+de la ``moderna''.
+
+Una ventaja con la que contaría la definición antigua es que en esta no es
+necesario especificar que el máximo común divisor sea un número natural,
+pues, como los factores siempre van en pares de la forma $\pm a$, el mayor
+sería el valor absoluto de este, que es un número natural, pero no
+tendríamos que haberlo especificado. Además, algunas demostraciones son más
+sencillas de hacer con la demostración antigua, pero también pueden hacerse
+con la moderna.
+
+En cuanto a la terminología, el sintagma \m{máximo común divisor} es una
+traducción del inglés \engm{greatest common divisor}, pero personalmente la
+veo bastante ``artificial''. En mi opinión, sería más acertado traducirlo
+como \emph{el mayor de los divisores comunes}. En cualquier caso, es una
+forma de llamarlo tan asentada que no voy a tratar de llamarlo de otra
+forma.
+
+El concepto de máximo común divisor se puede extender a más de dos
+argumentos. Vea \cite{rosen} pág. 98.
+
+El siguiente lema es muy importante y, así aislado, quizás usted no advierta
+por qué lo es. Conforme avance en la materia, verá que se recurre a este muy
+a menudo.
+
+Este lema nos dice que el máximo común divisor de dos números enteros
+cualesquiera se puede expresar como combinación lineal (entera) de los
+mismos. Más concretamente, se trata de la menor combinación lineal de estos,
+como también se verá; pero esto último, más adelante.
+
+\begin{lemma}[Identidad de Bézout\footnotemark]\label{th-bezout}
+  Dados $a, b \in \zset$. Existen $x, y \in \zset$ tales que
+
+  $$ \gcd(a, b) = ax + by $$
+\end{lemma}
+
+\footnotetext{En realidad, ahora sabemos que el nombre de este lema hace
+honor erróneamente al matemático francés Étienne Bézout nacido en 1730. En
+realidad, este lema fue publicado por primera vez en Occidente 150 años
+antes por alguien, pero lo más sorprendente es que incluso fue descrito unos
+1000 años antes que eso por dos matemáticos indios llamados Aryabhata y
+Bhaskara.}
+
+A esos valores $x$ y $y$ que aparecen en el lema se les llama
+\m{coeficientes de Bézout}. Advierta que en la definición no se menciona que
+deban ser únicos. De hecho, lo más frecuente es que no lo sean. A la
+ecuación
+
+$$ \gcd(a, b) = ax + by $$
+
+\noindent se la conoce como la \m{identidad de Bézout}.
+
+En \cite{texto-uned} ponen la condición de que $a \neq 0$ y $b \neq
+0$, pero en realidad no sería necesario, pues, por un lado, si $a = b = 0$,
+la igualdad se cumpliría para cualesquiera $x$ e $y$:
+
+$$ \gcd(0, 0) = 0 = 0x + 0y $$
+
+Para el caso $a \neq 0$ y $b = 0$, como sabemos que $\gcd(a, 0) = |a|$,
+tendríamos que se cumpliría tanto para $a > 0$ como si $a < 0$. Los
+coeficientes $x$ e $y$ serían, respectivamente, para estos casos, $(1, y)$ y
+$({-1}, y)$. Como ve, el valor de $y$ da igual y, por esto mismo,
+demostramos que los coeficientes de Bézout no tienen por qué ser únicos.
+
+El caso de $a = 0$ y $b \neq 0$ ya lo hemos contemplado en el anterior, pues
+el operador máximo común divisor es conmutativo, es decir, $\gcd(a, b) =
+\gcd(b, a)$, propiedad que hereda de la operación ``divisor común de dos
+números'', en la que es evidente.
+
+Vamos a ver ahora la demostración del Lema \ref{th-bezout}.
+
+\begin{proof}
+  Los casos extraños, en los que aparece algún 0 en $a$ o $b$, ya los hemos
+  mencionado antes, con lo que ahora suponemos el caso general en el que
+  ninguno es 0.
+
+  Vamos a hacer la demostración en 3 fases, ya que es algo extensa.
+
+  Fase 1. Trataremos de demostrar que el elemento menor del conjunto de las
+  combinaciones lineales (enteras) positivas de $a$ y $b$ es un divisor
+  común de $a$ y $b$.
+
+  Definimos el conjunto siguiente:
+
+  $$ M = \{ax + by \ \st x, y \in \zset \ \text{y} \ ax + by > 0 \} $$
+
+  \noindent Es decir, $M$ es el conjunto de todas las combinaciones lineales
+  positivas de $a$ y $b$. ¿Por qué se ha tomado el conjunto en el que son
+  mayores que 0? Porque, cuando $a$ y $b$ no valen 0, su máximo común
+  divisor será positivo, tal y como vimos antes.
+
+  $M$ no puede ser vacío ya que bien la combinación $a \cdot 1 + b \cdot 0$
+  o bien la $a \cdot ({-1}) + b \cdot 0$ será positiva. Dependerá de si $a$
+  es positiva o negativa. Recuerde que estamos excluyendo la posibilidad de
+  que $a = 0$.
+
+  Por otro lado, al ser números positivos todos los elementos de dicho
+  conjunto, tendrán, por la Propiedad \ref{princ-buena-ord}, un primer
+  elemento, es decir, un elemento que es menor o igual que todos los demás
+  de $M$. Vamos a designar a este primer elemento por $d$ y, a los valores
+  de $x$ e $y$ que lo producen los designaremos por $k$ y $l$,
+  respectivamente. Es decir, tenemos en el conjunto $M$ al elemento
+
+  $$ d = ak + bl $$
+
+  Vamos a suponer ahora que ese primer elemento $d$ no divide a $a$, es
+  decir, $d \nmid a$. Entonces, aplicando la división en $\zset$ con resto
+  (Teorema \ref{th-div-entera-con-resto}), tendremos un único par de $q, r
+  \in \zset$ siendo $0 \leq r < |d|$ y
+
+  $$ a = qd + r $$
+
+  \noindent Pero podemos ser más restrictivos con los valores posibles de
+  $r$. Por un lado, sabemos que $d > 0$, ya que $d \in M$, por lo que el
+  rango de valores de $r$ pasa a ser $0 \leq r < d$. Además, hemos dicho que
+  $d \nmid a$, es decir, no es una división exacta, con lo que $r \neq 0$;
+  nos queda, entonces, $0 < r < d$.
+
+  Ahora, vamos a operar con $r$. Tenemos que
+
+  $$ r = a - dq = a - q(ak + bl) = a - qak - qbl = a(1 - qk) + b(-ql) $$
+
+  \noindent Es decir, $r$ es una combinación lineal de $a$ y $b$. Además,
+  tal y como hemos visto, $r > 0$, con lo que $r$ será también un elemento
+  de $M$, es decir, $r \in M$. Pero, por otro lado, también hemos visto que
+  $r < d$, y habíamos dicho que $d$ era el elemento menor de $M$, con lo que
+  hemos llegado a una contradicción. Esta nos obliga a rectificar la
+  hipótesis $d \nmid a$, con lo que, al contrario de como supusimos, $d$, el
+  menor elemento de $M$, será entonces un divisor de $a$.
+
+  De forma análoga podemos proceder para deducir que $d \mid b$. Así,
+  tenemos que $d$, el menor elemento de $M$, es un divisor común de $a$ y
+  $b$, es decir, $d \mid \{a, b\}$.
+
+  Fase 2. Trataremos de demostrar que el menor elemento de las combinaciones
+  lineales positivas de $a$ y $b$ (es decir, el mínimo del conjunto $M$) es
+  igual a $\gcd(a, b)$.
+
+  Sea $d' \in \zset$ un divisor común de $a$ y $b$, $d' \mid \{a, b\}$.
+  Entonces, existen $m, n \in \zset$ tales que $a = md'$ y $b = nd'$.
+  Entonces,
+
+  $$ d = ak + bl = md'k + nd'l = d'(mk + nl)$$
+
+  \noindent con lo que $d' \mid d$. Juntando esto con que $d$ es un divisor
+  común de $a$ y $b$, cosa que demostramos justo antes, se tiene que $d =
+  \gcd(a, b)$.
+
+  Una vez demostrado esto, y teniendo en cuenta que, tal y como demostramos
+  en la Proposición \ref{prop-mcd}, el máximo común divisor de dos números
+  es único, ya estaría demostrado el lema.
+\end{proof}
+
+Además, tal y como veremos, ese $\gcd(a, b)$ es el entero positivo más
+pequeño que puede expresarse en la forma $ax + by$. En \cite{texto-uned},
+esto último lo incluyen en el Lema \ref{th-bezout}, pero nosotros lo
+deduciremos luego por separado. Bueno, en realidad ya se ha demostrado en
+esta última demostración, pero se hará luego una vez más.
+
+Se deduce inmediatamente el corolario siguiente. Este en realidad hace
+alusión a los números primos relativos, cosa que veremos en el capítulo
+siguiente. Basta con que, de momento, sepa que dos números enteros se dice
+que son primos relativos si su máximo común divisor es 1.
+
+\begin{corollary}[de la Combinación Lineal de Primos Relativos]%
+\label{cor-comb-lin-primos-rel}
+  Sean $a, b \in \zset$. Se cumple que $\gcd(a, b) = 1$ si y solo si existen
+  $x, y \in \zset$ tales que
+
+  $$ ax + by = 1 $$
+\end{corollary}
+
+Es consecuencia directa del Lema \ref{th-bezout}. Este corolario se usa en
+varias demostraciones sobre números primos. Viene en \cite{rosen} pág. 97 y
+en \cite{burton} pág. 23.
+
+Ahora, vamos a ver un corolario muy importante. Este viene a decir que las
+combinaciones lineales enteras de dos números generan a todos los múltiplos
+de su máximo común divisor.
+
+\begin{corollary}[de los Múltiplos del Máximo Común
+  Divisor]\label{cor-mult-mcd}
+  Para cualesquiera $a, b \in \zset$, se da
+
+  $$ \{ax + by \st x, y \in \zset\} = \{k \, \gcd(a, b) \st k \in \zset\} $$
+\end{corollary}
+
+También sería un caso de particular relevancia la situación $a = b = 0$, y
+por eso en muchos textos verá que excluyen ese caso. Pero, si lo analizamos,
+podemos incluirlo sin problema. Si sustituimos los valores, vemos que ambos
+conjuntos producen el conjunto $\{0\}$.
+
+\begin{proof}
+  \iffalse
+  Llamamos $d$ al $\gcd(a, b)$. Por el Lema \ref{th-bezout}, tenemos que
+
+  $$ d = ax + by $$
+
+  \noindent para algún par de números $x, y \in \zset$. Multiplicando por un
+  $k \in \zset$ en ambas partes de la igualdad tenemos:
+
+  $$ kd = k(ax + by) = akx + bky = a(kx) + b(ky) $$
+
+  Ahora, podemos aplicar un par de cambios de variables y pasar a llamar $x$
+  a $kx$ e $y$ a $ky$, ya que la multiplicación de $(\zset, +, \cdot)$ es
+  una operación interna. Por tanto,
+
+  $$ k \gcd(a, b) = ax + by $$
+
+  % Hay algún conflicto con las variables nuevas? Creo que no. TKTK.
+  \fi
+
+  Vamos a demostrar la igualdad mediante la doble inclusión.
+
+  Primero, vamos a especificar algunas variables para ahorrarnos escribir
+  demasiado. Por un lado, tenemos $d = \gcd(a, b)$. También, definimos los
+  dos conjuntos siguientes:
+
+  $$ T = \{ax + by \st x, y \in \zset\} \quad \text{y} \quad M = \{k \,
+  \gcd(a, b) \st k \in \zset\} $$
+
+  Para cualquier combinación lineal entera de $a$ y $b$, como $d \mid a$ y
+  $d \mid b$, según las propiedades \ref{prop-divide-al-multiplo} y
+  \ref{princ-dos-de-tres} se tendrá que $d \mid (ax + by)$. Así pues, un
+  elemento arbitrario de $T$ será necesariamente también elemento de $M$, o,
+  lo que es lo mismo, $T \subseteq M$.
+
+  Ahora, trataremos de demostrar el subconjunto en el otro sentido. Según el
+  Lema \ref{th-bezout}, se tiene
+
+  $$ d = ax + by $$
+
+  \noindent para algún par de números $x, y \in \zset$. Multiplicando por un
+  $k \in \zset$ arbitrario, tenemos
+
+  $$ kd = k(ax + by) = a(kx) + b(ky) $$
+
+  \noindent con lo que $kd$ es una combinación lineal entera de $a$ y $b$.
+  Es decir, hemos demostrado que todo múltiplo de $\gcd(a, b)$, es decir,
+  todo elemento de $M$, será también un elemento de $T$. Por tanto, $M
+  \subseteq T$.
+
+  Como consecuencia de $T \subseteq M$ y $M \subseteq T$, se tiene que $T =
+  M$.
+\end{proof}
+
+Es la misma teoría que se muestra en \cite{burton} pág. 22.
+
+De este corolario podemos deducir algo interesante. Vamos a tratar de
+averiguar cuál sería el menor $m$ positivo.
+
+\begin{corollary}\label{id-bezout-2}
+  Dados $a, b \in \zset$. $\gcd(a, b)$ es el menor entero positivo que se
+  puede expresar como una combinación lineal entera de $a$ y $b$.
+\end{corollary}
+
+\begin{proof}
+  El caso con $a = b = 0$ lo excluiríamos, pues en este caso el máximo común
+  divisor vale 0 y no se puede generar, por tanto, un entero positivo.
+
+  Si $a \neq 0$ y $b = 0$, tenemos, por un lado, que $\gcd(a, 0) = |a|$. La
+  combinación lineal que le correspondería, sería, por tanto, $ax + 0y$ o
+  $a({-x}) + 0y$, según sea positivo o negativo $a$. En ambos casos, el
+  valor que tomase $y$ sería indiferente, al estar multiplicada por 0. El
+  otro caso, $a = 0$ y $b \neq 0$ sería análogo a este.
+
+  Caso $a \neq 0$ y $b \neq 0$. Se tiene siempre que $\gcd(a, b) > 0$. Como,
+  según el Corolario \ref{cor-mult-mcd}, la combinación lineal entera genera
+  todos los múltiplos de $\gcd(a, b)$, el primero será este.
+\end{proof}
+
+\iffalse
+No sé si poner o quitar la excepción del 00. Para este caso no es entero
+positivo, sino 0. TKTK.
+\fi
+
+De todos modos, esto ya se demuestra también en la demostración del Lema
+\ref{th-bezout}.
+
+
+
+
+
+

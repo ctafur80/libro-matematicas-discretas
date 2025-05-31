@@ -1,0 +1,1060 @@
+
+
+
+
+Tal y como se verá más adelante, los números primos son como los ``átomos''
+de los que están hechos los números.
+
+\begin{deffinition}[Número primo]
+  Dado un $p \in \nset$ con $p > 1$. Decimos que $p$ es un \emph{número primo}
+  (o, simplemente, un \emph{primo}) si sus únicos divisores positivos son 1 y
+  $p$. Si no es primo, se dice que es \emph{compuesto}.
+\end{deffinition}
+
+Si se fija, nos hemos limitado a números mayores que 1. Esto es lo que se hace
+con los números primos, pues TKTK. Así, pues, como particularidad se tiene que
+el 1 no es un número primo.
+
+En muchas definiciones, teoremas, etc., si se impone la condición de que una
+variable representa a un número primo, no se dirá que $p > 1$, pues sería
+redundante. Pero debe recordar que los números primos son siempre mayores que 1.
+
+Advierta también que, como $p > 1$, los divisores no pueden ser mayores que
+$p$, según la Proposición \ref{prop-factor-men}.
+
+Se podría dar la misma definición pero más simbólica.
+
+$$ p \in \nset \ \text{con} \ p > 1 \ \text{es primo} \quad \iff \quad
+\forall m \in \nset \ \text{con} \ 1 < m < p. \quad \nexists q \in \zset.
+\quad p = m \,q $$
+
+Podemos hacer otra definición equivalente que en realidad no dista tanto de
+esta. Simplemente, pasamos a llamar $a$ a $m$ y $b$ a $q$. Es la siguiente.
+
+\begin{proposition}[Definición Alternativa de Número Primo]
+  Un número $p \in \nset$ con $p > 1$ es primo si y solo si no existen $a, b
+  \in \nset$ con $1 < a < p$ y $1 < b < p$ para los que se cumple $p = a \,
+  b$.
+\end{proposition}
+
+Verá que también se usa la negación de esta para definir a los números
+compuestos, pues es útil hacerlo así en algunas ocasiones.
+
+\begin{proposition}[Definición Alternativa de Número Compuesto]
+  Un número $p \in \nset$ con $p > 1$ es compuesto si y solo si existen $a,
+  b \in \nset$ con $1 < a < p$ y $1 < b < p$ para los que se cumple $p = a
+  \, b$.
+\end{proposition}
+
+Es facil comprobar que los primeros números primos son $2, 3, 5, 7\ldots$.
+(Recuerde que el 1 no es número primo.) Como particularidad, es evidente que
+el 2 es el único número primo par, ya que, cualquier número natural mayor
+que 2 que sea par será compuesto al ser múltiplo de 2.
+
+\begin{deffinition}[Primos relativos]
+  Dados dos números $a, b \in \zset$. Si $\gcd(a, b) = 1$ diremos que $a$ y
+  $b$ son \emph{primos relativos}.
+\end{deffinition}
+
+Puede encontrar otras formas de llamar a los primos relativos. Por ejemplo,
+que $a$ y $b$ son primos entre sí o que son coprimos.
+
+La definición de primos relativos se puede generalizar a un número mayor y
+arbitrario de argumentos. Advierta que, dados $a, b, c \in \zset$, $\gcd(a,
+b, c) = 1$ no implica necesariamente que $\gcd(a, b)$, que $\gcd(a, c)$ o
+que $\gcd(b, c)$.
+
+\begin{lemma}[de Euclides]\label{th-lema-euclides}
+  Sean $a, b, k \in \zset$. Si $\gcd(a, b) = 1$ y $a \mid bk$, entonces $a
+  \mid k$.
+\end{lemma}
+
+\begin{proof}
+  Por el Corolario \ref{cor-comb-lin-primos-rel}, como $\gcd(a, b) = 1$, se
+  tendrá que existen $x, y \in \zset$ para los que $1 = ax + by$.
+  Multiplicando por un $k \in \zset$, se tiene
+
+  $$ k = 1 \cdot k = (ax + by)k = akx + bky = (ak)x + (bk)y $$
+
+  Además, es evidente que $a \mid ak$, al ser $ak$ un múltiplo de $a$. Con
+  esto, y la hipótesis $a \mid bk$, se sigue que $a$ divide a esa
+  combinación lineal de $x$ e $y$, es decir, $a \mid [(ak)x + (bk)y]$. Pero
+  esta es lo mismo, según la igualdad anterior, que $k$, con lo que se tiene
+  que $a \mid k$.
+\end{proof}
+
+Por lo que veo, tanto en \cite{burton} como en \cite{weissman} ponen una versión
+menos general del siguiente corolario que la que aparece en \cite{texto-uned}.
+Concretamente, es un condicional, en lugar de un bicondicional. Además, la
+última parte de la demostración de este último no la entiendo, aunque tampoco le
+he dedicado mucho tiempo. En cualquier caso, me quedo con la versión del
+condicional, que es la que presento a continuación.
+
+\begin{corollary}[Lema de Euclides Para un Número
+  Primo]\label{cor-lema-euclides-num-primos}
+  Dados $b, c, p \in \zset$ siendo $p$ un número primo. Si $p \mid bc$, entonces
+  $p \mid b$ o $p \mid c$ (o ambas).
+\end{corollary}
+
+\begin{proof}
+  Consideremos a $\gcd(p, b)$. Este es un divisor positivo de $p$ y, puesto que
+  $p$ es primo, se tiene que o bien $\gcd(p, b) = 1$ o bien $\gcd(p, b) = p$.
+
+  Si $\gcd(p, b) = p$, entonces, como $\gcd(p, b) \mid b$, cosa que es
+  evidente, se cumple que $p \mid b$ y se cumpliría el corolario. Si
+  $\gcd(p, b) = 1$, ya que $p \mid bc$, aplicando el Lema
+  \ref{th-lema-euclides}, se tiene que $p \mid c$.
+
+  Otra forma muy sencilla de abordar la demostración sería dividiéndolo en dos
+  casos: si $p \mid b$ y si $p \nmid b$. Esta demostración haría también uso del
+  Lema \ref{th-lema-euclides}.
+\end{proof}
+
+Ahora, se puede hacer una generalización del corolario anterior. Sería lo
+siguiente.
+
+\begin{corollary}\label{lema-euclides-cor-2}
+  Dados un número primo $p$ y una lista de números $a_1, a_2, a_3, \ldots,
+  a_r \in \zset$. Si $p \mid a_1 \, a_2 \, a_3 \, \cdots \, a_r$, entonces
+  se tiene $p \mid a_i$ para algún $a_i$ con $i \in \nset$ y $1 \leq i \leq
+  r$.
+\end{corollary}
+
+\begin{proof}
+  Por la propiedad asociativa, $a_1 \, a_2 \, a_3 \, \cdots \, a_r = (a_1 \,
+  a_2 \, a_3 \, \cdots \, a_{r-1}) a_r $. Por el Corolario
+  \ref{cor-lema-euclides-num-primos}, se tendrá que serán ciertas $p \mid
+  a_1 \, a_2 \, a_3 \, \cdots \, a_{r-1}$ o $p \mid a_r$, pudiendo serlo
+  ambas. En caso de que sea cierto $p \mid a_r$, ya estaría demostrado.
+
+  En caso contrario, tenemos que $p \mid a_1 \, a_2 \, a_3 \, \cdots \,
+  a_{r-1}$ y operamos sobre este del mismo modo. Llegamos a que $p \mid a_1
+  \, a_2 \, a_3 \, \cdots \, a_{r-2}$ o $p \mid a_{r-1}$.
+
+  Continuando sucesivamente con este mismo razonamiento, si no se ha
+  encontrado ninguno que detenga el procedimiento, se llegaría a la
+  situación en que nos quedan únicamente dos números. Tenemos que $p \mid
+  a_1 \, a_2$, con lo que $p \mid a_2$ o $p \mid a_1$. En cualquier caso, se
+  cumplirá $p \mid a_i$ para algún $a_i$ siendo $i \in \nset$ y $1 \leq i
+  \leq r$.
+\end{proof}
+
+\begin{corollary}\label{lema-euclides-cor-3}
+  Sean $p, q_1, q_2, q_3, \ldots, q_r \in \zset$ todos y cada uno números
+  primos (por separado; no me refiero a relativos). Si $p \mid q_1 \, q_2 \,
+  q_3 \, \cdots \, q_r$, entonces se tiene $p = q_i$ para algún $i \in
+  \nset$ con $1 \leq i \leq r$.
+\end{corollary}
+
+\begin{proof}
+  Aplicando el Corolario \ref{lema-euclides-cor-2}, tenemos que para algún
+  $i$ se da $p \mid q_i$. Por otro lado, al ser $q_i$ primo, sus únicos
+  divisores posibles serán 1 y $q_i$. Por tanto, $p$ solo puede valer 1 o
+  $q_i$. Pero, $p$ no puede valer 1 ya que el 1 no es un número primo. Por
+  tanto, $p$ solo puede valer $q_i$.
+\end{proof}
+
+Ahora, vamos a ver al que se conoce como Teorema Fundamental de la
+Aritmética. Con tal nombre, parece evicente que se trata de un teorema muy
+importante. En el fondo no es más que algo que ya conoce: la descomposición
+de un número natural mayor que 1 en factores primos.
+
+No me gusta nada cómo se enuncia en \cite{texto-uned}, por lo que
+voy a dar la definición de \cite{burton}.
+
+\begin{theorem}[Fundamental de la
+  Aritmética]\label{th-fundamental-aritmetica}
+  Todo número natural mayor que 1 es primo o un producto de primos. Además,
+  esta representación es única, siempre que se ignore el orden de
+  presentación de los factores.
+\end{theorem}
+
+\iffalse
+\begin{theorem}[Fundamental de la
+  Aritmética]\label{th-fundamental-aritmetica}
+  Dado $n \in \zset$ con $n > 1$. Existe un conjunto de números primos $p_1,
+  p_2, p_3, \ldots, p_r$ tales que
+
+  $$ n = p_1 \cdot p_2 \cdot p_3 \cdot \cdots \cdot p_r $$
+
+  \noindent donde $p_1 \leq p_2 \leq p_3 \leq \cdots \leq p_r$.
+
+  Además, la factorización es única en el sentido siguiente. Sean $q_1, q_2,
+  q_3, \ldots, q_s$ números primos con $q_1 \leq q_2 \leq q_3 \leq \cdots
+  \leq q_s$ y tales que $n = q_1 \cdot q_2 \cdot q_3 \cdot \cdots \cdot
+  q_s$, entonces $r = s$ y para todo $i \in \zset$ con $1 \leq i \leq r$ se
+  tiene $p_i = q_i$.
+\end{theorem}
+\fi
+
+\begin{proof}
+  Como se trata de un teorema de existencia y unicidad, estas serán las dos
+  fases que se seguirán en la demostración.
+
+  Fase 1. Todo número se puede representar como un producto de primos.
+
+  Para un número $n \in \zset$ siendo $n > 1$ solo se tienen dos
+  posibilidades: que sea primo o que sea compuesto. En el primer caso, ya
+  tendríamos la representación en factores primos y aquí terminaría la
+  demostración. En caso de que sea compuesto, entonces existe un $d \in
+  \zset$ con $1 < d < n$ tal que $d \mid n$.
+
+  Ahora, tomamos al menor de estos enteros $d$, es decir, al menor de los
+  divisores de $n$ en el intervalo $1 < d < n$, cosa que es perfectamente
+  factible debido a la Propiedad \ref{princ-buena-ord}. A este valor lo
+  representaremos por $p_1$.
+
+  Si $p_1$ fuese compuesto, entonces tendría algún divisor $q$ con $1 < q <
+  p_1$, y entonces se cumpliría $q \mid p_1$ y $p_1 \mid n$, y aplicando la
+  propiedad transitiva del operador ``divide a'', se tendría $q \mid n$, con
+  lo que entonces $p_1$ ya no sería el menor de los divisores de $n$ en el
+  rango $1 < p_1 < n$. Esta contradicción nos conduce a que $p_1$ no sea
+  compuesto, con lo que solo queda que sea primo.
+
+  Por tanto, ya que estamos en el caso de que $n$ sea compuesto, podemos
+  descomponerlo en una multiplicación de un primo $p_1$ y un número $n_1$
+  que necesariamente cumpla $1 < n_1 < n$.
+
+  $$ n = p_1 \, n_1 \quad \text{con} \ 1 < n_1 < n $$
+
+  Si $n_1$ es primo, entonces ya tenemos nuestra representación y aquí
+  terminaría la demostración. Si es compuesto, repetiríamos el argumento,
+  con otros datos actualizados, para producir un segundo primo $p_2$ tal que
+  $n_1 = p_2 n_2$ siendo $1 < n_2 < n_1$, y, por tanto,
+
+  $$ n = p_1 \, p_2 \, n_2 \quad \text{con} \ 1 < n_2 < n_1 < n $$
+
+  Si $n_2$ es primo, entonces ya tenemos nuestra representación y aquí
+  terminaría la demostración. Si es compuesto, repetiríamos el argumento,
+  con otros datos actualizados, para producir un tercer primo $p_3$ tal que
+
+  $$ n = p_1 \, p_2 \, p_3 \, n_3 \quad \text{con} \ 1 < n_3 < n_2 < n_1 < n
+  $$
+
+  Se seguiría así sucesivamente. La sucesión decreciente
+
+  $$ 1 < \cdots < n_3 < n_2 < n_1 < n $$
+
+  \noindent tendrá que terminar en un número finito de pasos, al ser
+  desigualdades estrictas. Por tanto, se llegará a un $n_{k-1}$ que sea
+  primo, al que pasaremos a denotar por $p_k$. Así, hemos llegado a tener la
+  descomposición en factores primos siguiente
+
+  $$ n = p_1 \, p_2 \, p_3 \, \cdots \, p_{k-1} \, n_{k-1} = p_1 \, p_2 \,
+  p_3 \, \cdots \, p_{k-1} \, p_k = \prod_{i=1}^k p_i $$
+
+  \noindent siendo $k \in \zset$ con $1 < k < n$ un índice cuyo valor se
+  determinará en cada caso, y siendo primos todos los factores $p_i$.
+
+  Fase 2. La representación de la fase anterior será única, si se obvia el
+  orden de los factores.
+
+  La forma en que se demostrará será por contradicción. Supondremos que
+  existen dos representaciones distintas de factores primos para el número
+  $n$ de antes. Evidentemente, se sigue suponiendo que $n$ es compuesto. Se
+  tiene, por tanto,
+
+  $$ n = p_1 \, p_2 \, p_3 \, \cdots \, p_r = q_1 \, q_2 \, q_3 \, \cdots \,
+  q_s $$
+
+  \noindent suponiendo, sin pérdida de generalidad, que $r \leq s$, y siendo
+  primos (individualmente) los $p_i$ y los $q_j$, para todos los $i, j \in
+  \zset$ con $1 \leq i \leq r$ y $1 \leq j \leq s$.
+
+  Supongamos, también sin pérdida de generalidad, que esas dos
+  representaciones están escritas en orden creciente, es decir,
+
+  $$ p_1 \leq p_2 \leq p_3 \leq \cdots \leq p_r \quad \text{y} \quad q_1
+  \leq q_2 \leq q_3 \leq \cdots \leq q_s $$
+
+  Ya que todos los $p_i$ y $q_j$ son primos y $p_1 \mid n$, se tendrá, por
+  el Corolario \ref{lema-euclides-cor-3}, que para algún $k \in \zset$ con
+  $1 \leq k \leq s$, $p_1 = q_k$, pero entonces se tiene que $p_1 \geq q_1$,
+  ya que los $q_i$ estaban ordenados. Análogamente, se tiene que $q_1 \geq
+  p_1$, con lo que de ambas desigualdades deducimos que $p_1 = q_1$. Por
+  tanto, podemos cancelar estos dos factores en la igualdad anterior, con lo
+  que quedaría
+
+  $$ p_2 \, p_3 \, \cdots \, p_r = q_2 \, q_3 \, \cdots \, q_s $$
+
+  Se repetiría ahora el proceso para $p_2$ y llegaríamos a la conclusión de
+  que $p_2 = q_2$, con lo que quedaría
+
+  $$ p_3 \, p_4 \, \cdots \, p_r = q_3 \, q_4 \, \cdots \, q_s $$
+
+  Continuando de esta forma, si se diera que $r = s$, se cancelarían todos y
+  terminaríamos con la expresión $1 = 1$. Así habríamos demostrado que las
+  dos representaciones en factores primos eran en ralidad la misma.
+
+  Si no se diera $r = s$, se supondría, sin pérdida de generalidad, como
+  dijimos antes, que $r < s$, y se llegaría, tras cancelar $r$ valores, a
+  algo como lo siguiente:
+
+  $$ 1 = q_{r+1} \, q_{r+2} \, \cdots \, q_s $$
+
+  \noindent lo cual no tiene sentido ya que para todo $j$ se tiene $q_j >
+  1$, cosa que rompería la igualdad $n = n$. Por tanto, se da
+  obligatoriamente que $r = s$.
+
+  En lo que respecta al orden de presentación de los factores, como es
+  evidente, ya que en la estructura algebraica en la que nos encontramos se
+  cumplen las propiedades asociativa y conmutativa, este es irrelevante.
+
+  Alternativamente, existe una demostración empleando el Principio de
+  Inducción, pero aún no hemos llegado a ese tema. Como verá, esa es muy
+  breve y sencilla comparada con esta.
+\end{proof}
+
+En realidad, la descomposición en factores primos de un número no se suele
+presentar tal y como acabamos de mostrar, sino que los factores repetidos se
+agrupan y la expresión aparece entonces con exponentes. Esta representación,
+es también única, evidentemente, como consecuencia del teorema anterior.
+
+En \cite{texto-uned} lo expresan generalizándolo para representar a
+cualquier número entero distinto de 0, pero en realidad no le veo el
+sentido. Es mejor definirlo para los números naturales mayores que 1 y luego
+mencionar como caso particular que se puede obtener su equivalente en
+negativo (es decir, su inverso aditivo) simplemente multiplicando ambas
+partes por ${-1}$.
+
+\begin{corollary}[de la Factorización Canónica en Números Primos]
+  Todo número $n$ natural mayor que 1 tiene una factorización única, llamada
+  \emph{factorización canónica}, de la forma
+
+  $$ n = p_1^{r_1} \, p_2^{r_2} \, p_3^{r_3} \, \cdots \, p_t^{r_t} $$
+
+  \noindent donde $t \in \nset$ con $t \geq 1$, todos los $p_i$ son números
+  primos distintos entre sí siendo $p_1 < p_2 < p_3 < \cdots < p_t$, y $r_i
+  \geq 1$ para $1 \leq i \leq t$.
+\end{corollary}
+
+\begin{proof}
+  Algo que hay que tener en cuenta es que tenemos, para las dos
+  representaciones, dos índices distintos. En la del Teorema
+  \ref{th-fundamental-aritmetica}, el índice de los factores es $r$, pero
+  ahí pueden entrar elementos repetidos. En esta, a los elementos repetidos
+  los agrupamos y elevamos el exponente en una unidad. Por tanto, en la
+  representación canónica (la de este corolario), se tendrán $t$ elementos,
+  que serán $t \leq r$.
+
+  Si $n > 1$, hacemos la factorización como se hace en el Teorema
+  \ref{th-fundamental-aritmetica}.
+
+  En la representación que obtenemos, para todos los $i$ con $1 \leq i \leq
+  r$, agrupamos todos los $p_i$ repetidos. Supongamos que hay $k_i$
+  repeticiones de $p_i$. Así, al comprimir la representación, nos quedará
+
+  $$ n = p_1^{k_1} \, p_2^{k_2} \, p_3^{k_3} \, \cdots \, p_t^{k_t} $$
+
+  \noindent que será la representación canónica.
+
+  Ahora, analicemos el caso cuando $n$ sea negativo. En este caso, se tiene
+  que $n = {-|n|}$. Entonces, podemos aplicar a $|n|$ lo que hicimos en el
+  caso anterior.
+\end{proof}
+
+En \cite{weissman} directamente usan la representación
+factorial; se saltan el Teorema \ref{th-fundamental-aritmetica}. También, la
+primera parte, en la que se demuestra la existencia de la factorización,
+está algo escondida, al comienzo del capítulo 2.
+
+Esta factorización nos permite calcular el máximo común divisor de dos
+números. Suponga que tiene dos números $a, b \in \zset$, y, sin pérdida de
+generalidad, supongamos que $a > b$. Sus representaciones canónicas
+supongamos que son:
+
+\begin{alignat*}{2}
+  a &= p_1^{k_1} \, p_2^{k_2} \, p_3^{k_3} \, \cdots \, p_n^{k_n} \\
+  b &= q_1^{j_1} \, q_2^{j_2} \, q_3^{j_3} \, \cdots \, q_n^{j_n}
+\end{alignat*}
+
+\noindent Hemos puesto ambas con $n$ factores, que serán los que tenga el
+mayor. En algunos de los factores, puede que el exponente del factor sea 0.
+Entonces, se tiene que
+
+$$ \gcd(a, b) = p_1^{r_1} \, p_2^{r_2} \, p_3^{r_3} \, \cdots \, p_n^{r_n}
+$$
+
+\noindent donde $r_i = \text{min}(k_i, j_i)$.
+
+Aunque existen muchos misterios sobre los números primos, hay algunos
+métodos para comprobar si un número es primo más eficientes que ir probando
+con todos los números menores que este si son son divisores suyos. Uno muy
+popular es la criba (\emph{sieve}) de Eratóstenes. Con este método, para
+decir si un número es primo, nos basta con comprobarlo con los primos
+menores que su raíz cuadrada.
+
+El teorema siguiente sirve para hacer esta criba. TKTK. Este viene a decir
+que un número compuesto $a$ siempre poseerá un divisor primo menor que
+$\sqrt{a}$ que será divisor de $a$.
+
+\begin{theorem}[de la Criba de Eratóstenes]
+  Para todo número compuesto $a \in \nset$ con $a > 1$, existe un número
+  primo $p$ tal que $p \leq \sqrt{a}$ para el que se cumple $p \mid a$.
+\end{theorem}
+
+También puede verse desde el otro punto de vista, es decir, si no existe un
+número primo $p$ entre 2 y $\sqrt{a}$ que tenga al número $a$ como múltiplo,
+entonces $a$ será primo.
+
+Viene también en \cite{burton} sección 3.2, pág. 44.
+
+\begin{proof}
+  Sea $a \in \nset$ con $a > 1$ un número compuesto. Al ser compuesto, este
+  se podrá escribir como $a = b \cdot c$ para $b, c \in \nset$ y $1 < b < a$
+  y $1 < c < a$.
+
+  Ahora, suponemos, sin pérdida de generalidad, que $b \leq c$.
+  Multiplicando esta expesión por $b$ en ambas partes de la desigualdad,
+  tenemos
+
+  \begin{alignat*}{2}
+    b           &\leq c \\
+    b \cdot b   &\leq c \cdot b \\
+    b^2         &\leq a \\
+    b           &\leq \sqrt{a}
+  \end{alignat*}
+
+  Al ser $b < 1$, por el Teorema \ref{th-fundamental-aritmetica} se tendrá
+  que $b$ tiene al menos un factor primo, que designaremos por $p$. Se
+  cumple, entonces, $p \leq b \leq \sqrt{a}$.
+
+  Además, como $p \mid b$ y $b \mid a$, aplicando la propiedad transitiva
+  del operador ``divide a'', tenemos que $p \mid a$. Esto último es la
+  evidencia de que $a$ posee un divisor primo $p$ tal que $p \leq \sqrt{a}$.
+
+  \iffalse
+  Suponemos que $a$ es un número natural positivo que además es compuesto.
+  Entonces, por la definición de número compuesto, existen $b, c \in \zset$
+  con $1 < b < a$ y $1 < c < a$ tales que $a = bc$.
+
+  Suponemos, sin pérdida de generalidad, que $b \leq c$. Entonces,
+
+  $$ b^2 \leq bc = a $$
+
+  \noindent y, por tanto,
+
+  \begin{alignat*}{2}
+    \sqrt{b^2}  &\leq \sqrt{a}   \\
+    |b|         &\leq \sqrt{a}   \\
+    b           &\leq \sqrt{a}
+  \end{alignat*}
+
+  \noindent Aquí, $|b| = b$ porque $b > 1$, como hemos dicho.
+
+  Si $b$ es primo, hemos llegado a una contradicción, ya que por hipótesis
+  $a$ no es múltiplo de ningún primo $p \leq \sqrt{a}$.
+
+  Si, por el contrario, $b$ es compuesto, entonces $b$ tiene factores
+  primos. Sea $p$ uno de ellos. Entonces, $p < b$ y, así,
+
+  $$ p < b \leq \sqrt{a} $$
+
+  \noindent lo cual es otra contradicción.
+  \fi
+\end{proof}
+
+Se puede ver inmediatamente dos tipos de ejercicios muy sencillos que surgen
+como consecuencia directa de la criba de Eratóstenes.
+
+Por un lado, podemos demostrar que un número $a$ es primo comprobando que no
+es múltiplo de ninguno de los números primos entre 2 y $\sqrt{a}$. Vea
+\cite{burton} pág. 44. Otro tipo de ejercicio es obtener los
+números primos entre 2 y $a$. Para esto, escribiríamos todos los números
+entre 2 y $\sqrt{a}$ y después iríamos tachando todos los múltiplos, entre 2
+y $a$, de los primos entre 2 y $\sqrt{a}$. Vea \cite{burton}
+pág. 45.
+
+Haciendo uso del teorema anterior, se puede encontrar todos los números
+primos no mayores de uno que deseemos, $n \in \nset$ con $n > 1$. Es un
+método que consiste en hacer una ``criba'' (\emph{sieve}). Al método se le
+conoce como La Criba de Eratóstenes (\eng{The Sieve of Eratosthenes}). Lo
+primero que se hace es una lista ordenada con todos los números entre 2 y
+$n$, ambos incluidos. Luego, comenzaremos por el primero, el 2, y tacharemos
+a todos sus múltiplos en la lista, pero este se dejaría sin tachar. Luego,
+se haría con el siguiente mayor que el 2 que no esté tachado, el 3, y se
+haría lo mismo. El proceso se repetiría hasta el mayor primo que sea menor o
+igual que $\sqrt{n}$. Tras terminar el cribado, los números de la lista que
+hayan quedado sin marcar podemos afirmar que son números primos.
+
+Por ejemplo, hallar los números primos no mayores que 100. Lo primero sería
+escribir la lista 2, 3, 4, 5, 6, 7, \ldots, 100. Se comenzaría el cribado
+por el 2, que es el primero de la lista sin marcar. Tachamos a todos los
+múltiplos de 2, pero no al 2. Por ejemplo, 4, 6, 8, 10, 12, \ldots.
+
+Pasamos a otra iteración del proceso. Seleccionamos el primer elemento de la
+lista sin marcar, el 3. Tachamos todos los múltiplos del 3 que no hayan sido
+ya tachados, dejando al 3 sin tachar. Se tacharían entonces 9, 15, 21,
+\ldots.
+
+El siguiente no sería el 4, ya que se tachó en el cribado del 2, sino el 5.
+Tachamos de la lista a todos los múltiplos de 5 que no se hayan tachado
+antes, y, además exceptuando al 5. Serían 25, 35, \ldots.
+
+Si se fija, aunque en cada iteración lo primero que hacemos es simplemente
+comenzar por el menor número sin tachar, estamos seleccionando en el fondo
+el menor número primo de la lista en su estado actual, ya que sabemos que
+este no tiene divisores entre 1 y él mismo, sin incluir ambos extremos.
+
+El último número que seleccionaríamos de la lista para hacer una criba sería
+el 7, pues es el mayor primo menor o igual que $\sqrt{100}$, que es 10.
+
+Una vez finalizada esta última criba, la del 7, se habría terminado el
+proceso. Entonces, el estado de la lista mostrará tachados a todos los
+números compuestos entre 2 y 100, ambos incluidos, y sin tachar a los primos
+en ese mismo rango.
+
+\begin{theorem}
+  $\sqrt{2}$ no es un número racional.
+\end{theorem}
+
+% TKTK Poner en la teoría qué es una fracción irreducible.
+
+\begin{proof}
+  Vamos a abordarlo por contradicción. Suponemos que $\sqrt{2}$ es racional.
+  Por tanto, existen $m, n \in \zset$ para los que $m/n = \sqrt{2}$. Podemos
+  suponer, además, sin pérdida de generalidad, que es una fracción
+  irreducible, es decir, $m$ y $n$, en sus respectivas descomposiciones en
+  factores primos, no tienen ningún factor en común, cosa que equivale a
+  decir que $m$ y $n$ son primos relativos.
+
+  Ahora, si elevamos al cuadrado en ambas partes de la ecuación, tenemos
+
+  \begin{alignat*}{2}
+    \frac{m}{n} &= \sqrt{2} \\
+    m           &= n \sqrt{2} \\
+    m^2
+      &= \left(n \sqrt{2}\right)^2 = n^2 \left(\sqrt{2}\right)^2 = 2n^2 \\
+  \end{alignat*}
+
+  Por tanto, $2 \mid m^2$. Como sabemos por TKTK, si $2 \mid m^2$, entonces
+  $2 \mid m$. Por tanto, existe un $k \in \zset$ tal que $m = 2k$. Así,
+  pues,
+
+  \begin{alignat*}{2}
+    m     &= 2k \\
+    m^2   &= (2k)^2 \\
+    2n^2  &= 4k^2 \\
+    n^2   &= 2k^2
+  \end{alignat*}
+
+  De esto se deduce que también se da $2 \mid n^2$. Entonces, al igual que
+  antes, se tiene que $2 \mid n$. Hemos llegado entonces a la conclusión de
+  que el 2 es un divisor común de $m$ y $n$, es decir, $2 \mid \{m, n\}$, lo
+  cual se contradice con que ambos números sean primos relativos.
+
+  Por tanto, la premisa de la que partimos será falsa. Esta era que
+  $\sqrt{2}$ era un número racional, con lo que hemos demostrado que no lo
+  es.
+\end{proof}
+
+\begin{theorem}[de la Infinitud de los Números Primos]
+  Existen infinitos números primos.
+\end{theorem}
+
+A continuación damos la misma demostración que incluyó Euclides en su libro.
+
+\begin{proof}
+  Se va a abordar por el método de contradicción.
+
+  Suponemos que existe una cantidad finita $n \in \nset$ con $n \geq 1$ de
+  números primos. Ese límite inferior es fácil demostrarlo puesto que
+  sabemos que, por ejemplo, el 2 es un número primo. Nos centraremos en los
+  números naturales mayores que 1, que son los únicos que pueden ser primos.
+  Los números primos son, en orden ascendente, $p_1 = 2$, $p_2 = 3$, $p_3 =
+  5$, $p_4 = 7$, \ldots. Al último lo designamos por $p_n$.
+
+  Considere ahora al número que es la multiplicación de todos los primos.
+
+  $$ N = p_1 \, p_2 \, p_3 \, \cdots \, p_n $$
+
+  $N$ tiene que ser un entero positivo, ya que todos los primos son enteros
+  mayores que 1. Así que $N+1$ será un entero mayor que 1. Por el Teorema
+  \ref{th-fundamental-aritmetica}, se tiene que $N+1$, puesto que ha de ser
+  necesariamente compuesto al no estar en esa lista de números primos, ha de
+  tener un factor primo $p$. Ese $p$ tiene que estar en la lista de factores
+  de $N$, ya que estos son todos los números primos. Por tanto, se da que $p
+  \mid N$.
+
+  Por otro lado, antes hemos dicho que $p$ es un factor de $N+1$, o lo que
+  es lo mismo, $p \mid (N+1)$. Entonces, por la Proposición
+  \ref{princ-dos-de-tres}, tenemos que
+
+  $$ p \mid ((N+1) - N) $$
+
+  \noindent o, lo que es lo mismo, $p \mid 1$. Pero ningún número primo es
+  un factor de 1. Por tanto, la hipótesis, es decir, que $p$ se encontraba
+  en la lista de los números primos, será falsa. Así, pues, $p$ será un
+  ``nuevo'' número primo que no habíamos tenido en cuenta.
+
+  Esto mismo se puede hacer continuamente y así ir obteniendo
+  sistemáticamente nuevos números primos. Por tanto, la cantidad de números
+  primos es ilimitada.
+
+  \iffalse
+  siendo $n \geq 1$, de números primos. A estos los representaremos por el
+  conjunto siguiente:
+
+  $$ P = \{p_1, p_2, p_3, \ldots, p_n\} $$
+
+  Sea $m = (p_1 \, p_2 \, p_3 \, \cdots \, p_n) + 1$. Por un lado, es
+  evidente que $m > 1$, ya que $m$ es 1 más un producto de números mayores
+  que 1. Además, podemos factorizar a $m$, con lo que obtenemos
+
+  $$ m = q_1 \, q_2 \, q_3 \, \cdots \, q_r $$
+
+  \noindent siendo todos los $q_i$ primos, y $r \in \zset$ con $r \geq 1$.
+
+  Por otro lado, para todo $j \in \zset$ con $1 \leq j \leq n$, se tiene $m
+  \opmod p_j = 1$, por lo que ninguno de los $p_j$ será factor primo de $m$.
+  Es decir, ningún elemento de $P$ será igual a $q_1$. En realidad,
+  sucedería para todos los $q_i$. Por tanto, $q_1$ (o cualquier $q_i$) será
+  un número primo que no pertenece a $P$, cosa que contradice la hipótesis
+  de partida y nos lleva a concluir que existen infinitos números primos.
+  \fi
+\end{proof}
+
+Que se puedan obtener de forma ilimitada números primos no quiere decir que
+sea fácil obtenerlos o que exista un algoritmo con el que obtenerlos con
+poco esfuerzo. De hecho, aunque existen algoritmos para obtener números
+primos de algunos tipos de forma algo eficiente, no existe uno que sea muy
+eficiente para ir obteniendo todos los números primos uno a uno. En eso se
+basa gran parte de la seguridad en las comunicaciones actualmente.
+
+Me gusta más, al parecerme más elegante, la demostración que aparece en
+\cite{weissman} en la pág. 50.
+
+Ejercicio. Demuestre que dos númeos consecutivos son primos relativos.
+
+Suponemos que tenemos los números $n, n+1 \in \zset$. Supongamos que ambos
+tienen un divisor común que designaremos por $d \in \zset$.
+
+Como $d \mid n$ y $d \mid (n+1)$, se tiene que $d \mid [(n+1) - n]$, que es
+lo mismo que decir que $d \mid 1$. Pero el único número positivo que divide
+a 1 es el 1, con lo que $d = 1$ y, por tanto, $\gcd(n, n+1) = 1$.
+
+Si se fija, es lo mismo que la última demostración que hemos hecho.
+
+Se podría demostrar tabién por contradicción, que es una demostración algo
+curiosa, al hacer uso de las propiedades del anillo conmutativo $(\zset, +,
+\times)$. Vea \url{https://www.youtube.com/watch?v=qFj7V769sY8}.
+
+\begin{lemma}
+  El producto de dos o más enteros de la forma $4n + 1$, para un $n \in
+  \zset$, es un número con esa misma forma.
+\end{lemma}
+
+\begin{proof}
+  Bastaría con considerar el producto de dos enteros, pues la multiplicación
+  de varios se puede hacer agrupándolos gracias a la propiedad asociativa,
+  con lo que, de cumplirse para dos, siempre tendríamos productos de dos
+  enteros de esa forma.
+
+  Tomemos dos números genéricos con esa forma. Los designaremos por
+
+  \begin{alignat*}{2}
+    k &= 4n + 1 \\
+    k' &= 4m + 1
+  \end{alignat*}
+
+  \noindent para $m, n \in \zset$. Si los multiplicamos, tenemos
+
+  $$ kk' = (4n + 1)(4m + 1) = 16nm + 4n + 4m + 1 = 4(4nm + n + m) + 1 $$
+\end{proof}
+
+\begin{theorem}
+  Existen infinitos números primos de la forma $4n + 3$ siendo $n \in
+  \zset$.
+\end{theorem}
+
+Viene en \cite{burton} pág. 54.
+
+\begin{proof}
+  La demostración la haremos por contradicción.
+
+  Suponemos que existe una cantidad finita de núeros primos de la forma $4n
+  + 3$, con $n \in \zset$. La lista será la siguiente:
+
+  $$ q_1, q_2, q_3, \ldots, q_s $$
+
+  \noindent Consideremos el número entero siguiente:
+
+  $$ N = 4 q_1 \, q_2 \, q_3 \, \cdots \, q_s - 1 = 4 q_1 \, q_2 \, q_3 \,
+  \cdots \, q_s - 4 + 3 = 4(q_1 \, q_2 \, q_3 \, \cdots \, q_s - 1) + 3 $$
+
+  Por el Teorema \ref{th-fundamental-aritmetica}, el número $N$ tendrá una
+  factorización prima. Supongamos que esta es
+
+  $$ N = r_1 \, r_2 \, r_3 \, \ldots \, r_t $$
+
+  Puesto que $N$ es un entero impar, ya que tiene la forma $4n + 3$,
+  tenemos, para todo $k \in \nset^{+}$ con $1 \leq k \leq t$, $r_k \neq 2$.
+  Por tanto, descartamos las posibilidades de que $r_k$ tenga la forma $4n$
+  o $4n + 2$, quedando entonces $4n + 1$ o $4n + 3$ como las únicas
+  posibilidades. Pero sabemos, por el Lema anterior TKTK, que el producto de
+  varios enteros de la forma $4n + 1$ será otro entero con la misma forma,
+  es decir $4n + 1$. Por tanto, por el contrarrecíproco, como $N$ tiene la
+  forma $4n + 3$, habrá algún $r_i$ que no tenga la forma $4n + 1$, siendo
+  $i \in \nset^{+}$ con $1 \leq i \leq t$. Ese $r_i$ tendrá entonces la
+  forma $4n + 3$, que es la única posibilidad que queda.
+
+  Pero si ese $r_i$ se encuentra entre los $q_1, q_2, q_3, \ldots, q_s$, se
+  tiene que $r_i \mid 1$. Esta parte no la entiendo TKTK. La única
+  conclusión posible es que haya más números primos de la forma $4n + 3$ que
+  los de la lista $q_1, q_2, q_3, \ldots, q_s$. Por tanto, habrá infinitos
+  números primos de la forma $4n + 3$.
+\end{proof}
+
+\begin{proposition}
+  Para cada $n \in \nset$. Existen al menos $n$ enteros compuestos
+  positivos.
+\end{proposition}
+
+\begin{proof}
+  Dado un $n \in \nset$, consideremos la suma siguiente:
+
+  $$ (n+1)! + 2, (n+1)! + 3, (n+1)! + 4, \ldots, (n+1)! + (n+1) $$
+
+  Para cada $2 \leq k \leq n+1$ se tiene que $k \mid (n+1)!$, ya que en ese
+  factorial aparecerá $k$ como uno de los factores. Con esto y, como $k \mid
+  k$, se tiene que $k \mid (n+1)! + k$.
+
+  Por tanto, en esta lista de $n$ números consecutivos todos son compuestos.
+\end{proof}
+
+El teorema siguiente nos da otro método para calcular el máximo común
+divisor de dos números.
+
+\begin{theorem}
+  Dados $a, b \in \zset$, con descomposiciones canónicas en factores primos,
+  hasta el mayor índice de ambas, el $t$-ésimo:
+
+  $$ a = \pm p_1^{r_1} \, p_2^{r_2} \, p_3^{r_3} \, \cdots \, p_t^{r_t}
+  \quad \text{y} \quad b = \pm p_1^{s_1} \, p_2^{s_2} \, p_3^{s_3} \, \cdots
+  \, p_t^{s_t} $$
+
+  \noindent Entonces se cumple
+
+  $$ \gcd(a, b) = p_1^{\mathrm{min}(r_1, s_1)} \, p_2^{\mathrm{min}(r_2,
+  s_2)} \, p_3^{\mathrm{min}(r_3, s_3)} \, \cdots \, p_t^{\mathrm{min}(r_t,
+  s_t)} $$
+\end{theorem}
+
+Advierta que, en las representaciones canónicas, algunos de los exponentes
+pueden ser 0.
+
+\begin{proof}
+  Sea
+
+  $$ d = p_1^{\mathrm{min}(r_1, s_1)} \, p_2^{\mathrm{min}(r_2, s_2)} \,
+  p_3^{\mathrm{min}(r_3, s_3)} \, \cdots \, p_t^{\mathrm{min}(r_t, s_t)} $$
+
+  Es evidente que $d$ es divisor común de $a$ y $b$, pues, por ejemplo, $a$
+  tiene en su representación canónica a todos esos factores, y, seguramente,
+  algunos más. Lo mismo con $b$.
+
+  Supongamos ahora que existe un $c \in \zset$ que sea también divisor común
+  de $a$ y $b$. Su descomposición canónica en factores primos sería
+
+  $$ c = p_1^{u_1} \, p_2^{u_2} \, p_3^{u_3} \, \cdots \, p_t^{u_t} $$
+
+  \noindent donde $r_i \leq r_i$ y $r_i \leq s_i$, para todo $i = 1, 2, 3,
+  \ldots, t$. Por tanto, $\u_i \leq \mathrm{min}(r_i, s_i)$ para todo $i =
+  1, 2, 3, \ldots, t$, con lo que tendremos que $c \mid d$. Por tanto, $d =
+  \gcd(a, b)$.
+\end{proof}
+
+
+\begin{deffinition}[Mínimo Común Múltiplo]
+  Dados $a, b \in \zset$. Llamamos \emph{mínimo común múltiplo} al menor entero
+  positivo que sea múltiplo de ambos. Lo designaremos por $\lcm(a, b)$.
+\end{deffinition}
+
+\begin{theorem}
+  Dados $a, b \in \zset$, con descomposiciones canónicas en factores primos,
+  hasta el mayor índice de ambas, el $t$-ésimo:
+
+  $$ a = \pm p_1^{r_1} \, p_2^{r_2} \, p_3^{r_3} \, \cdots \, p_t^{r_t}
+  \quad \text{y} \quad b = \pm p_1^{s_1} \, p_2^{s_2} \, p_3^{s_3} \, \cdots
+  \, p_t^{s_t} $$
+
+  \noindent Entonces se cumple
+
+  $$ \lcm(a, b) = p_1^{\mathrm{max}(r_1, s_1)} \, p_2^{\mathrm{max}(r_2,
+  s_2)} \, p_3^{\mathrm{max}(r_3, s_3)} \, \cdots \, p_t^{\mathrm{max}(r_t,
+  s_t)} $$
+\end{theorem}
+
+\begin{proof}
+  Si denominamos
+
+  $$ q = p_1^{\mathrm{max}(r_1, s_1)} \, p_2^{\mathrm{max}(r_2, s_2)} \,
+  p_3^{\mathrm{max}(r_3, s_3)} \, \ldots, p_t^{\mathrm{max}(r_t, s_t)} $$
+
+  Entonces, $a \mid q$ y $b \mid q$.
+
+  Por otro lado, supongamos $c \in \zset$ con $c > 0$ tal que $c$ es
+  múltiplo tanto de $a$ como de $b$. Entonces, su factorización canónica
+  será
+
+  $$ c = p_1^{u_1} \, p_2^{u_2} \, p_3^{u_3} \, \ldots, p_t^{u_t} $$
+
+  \noindent donde $u_i \geq r_i$ y $u_i \geq s_i$. Así, $u_i \geq
+  \mathrm{max}(r_i, s_i)$, con lo que $q \mid c$, y, por tanto, $q \leq c$.
+\end{proof}
+
+También, se tiene el mínimo común múltiplo de más de dos números.
+
+\begin{proposition}
+  Un número es un cuadrado perfecto si y solo si su descomposición canónica
+  en factores primos tiene todos los exponentes pares.
+\end{proposition}
+
+\begin{proof}
+  Lo demostraremos en dos fases. En la primera, demostraremos que, si un
+  número tiene todos los exponentes pares en su descomposición canónica en
+  factores primos, entonces dicho número será un cuadrado perfecto.
+
+  Supongamos que tenemos un número $a \in \nset$ con la descomposición
+  canónica en factores primos siguiente:
+
+  $$ a = p_1^{r_1} \, p_2^{r_2} \ p_3^{r_3} \, \cdots \, p_n^{r_n}
+  = \prod_{i=1}^n p_i^{r_i} $$
+
+  \noindent siendo el índice $i \in \nset$ con $1 \leq i \leq n$, $p_i$
+  número primo y $r_i \in \nset$ la multiplicidad del número primo en la
+  descomposición canónica. Si todas las multiplicidades son pares, es decir,
+  para todo $i$ se da que $r_i$ es par, entonces existirá un número $b \in
+  \nset$ con la siguiente descomposición canónica en factores primos
+
+  \begin{alignat*}{2}
+    b &= p_1^{r_1/2} \, p_2^{r_2/2} \ p_3^{r_3/2} \, \cdots \, p_n^{r_n/2} =
+        \sqrt{p_1^{r_1}} \, \sqrt{p_2^{r_2}} \, \sqrt{p_3^{r_3}} \, \cdots
+        \, \sqrt{p_n^{r_n}} \\
+      &= \sqrt{p_1^{r_1/2} \, p_2^{r_2/2} \ p_3^{r_3/2} \, \cdots \,
+        p_n^{r_n/2}} = \sqrt{a}
+  \end{alignat*}
+
+  \noindent con lo quee se tiene que $a = b^2$, es decir, $a$ es un cuadrado
+  perfecto.
+
+  Ahora, pasemos a la segunda fase. Vamos a demostrar que todo número que
+  sea un cuadrado perfecto tendrá su descomposición canónica en factores
+  primos con todos los exponentes pares.
+
+  Tenemos $a, b \in \nset$ tales que $a = b^2$. Sea la descomposición
+  canónica en factores primos de $b$ la siguiente:
+
+  $$ b = q_1^{s_1} \, q_2^{s_2} \, q_3^{s_3} \, \cdots \, q_m^{s_m} $$
+
+  \noindent Entonces, se tiene que
+
+  $$ a = b^2 = \left( q_1^{s_1} \, q_2^{s_2} \, q_3^{s_3} \, \cdots \,
+  q_m^{s_m} \right)^2 = q_1^{2s_1} \, q_2^{2s_2} \, q_3^{2s_3} \, \cdots \,
+  q_m^{2s_m} $$
+
+  \noindent Como esta expresión tiene la forma de una descomposición
+  canónica en factores primos de $a$, y sabemos que esta tiene que ser
+  necesariamente única, esta será la que tiene por descomposición canónica
+  en factores primos, y, si se fija, tiene todos los exponentes pares, como
+  queríamos demostrar.
+\end{proof}
+
+\begin{proposition}\label{prod-cuadrado-perfecto}
+  Dados dos números enteros positivos. Si son primos relativos y su
+  multiplicación es un cuadrado perfecto, entonces estos, de forma
+  independiente, serán también cuadrados perfectos.
+\end{proposition}
+
+\begin{proof}
+  Supongamos que los números son $r, s \in \zset$ y a su producto, $r \cdot
+  s$, lo designaremos por $t^2$.
+
+  Si se da que $r = 1$ o $s = 1$, será cierto y la demostración será
+  trivial, pues 1 es un cuadrado perfecto.
+
+  Veamos ahora el caso en el que $r > 1$ y $s > 1$. Estos tendrán las
+  siguientes descomposiciones canónicas en factores primos:
+
+  \begin{alignat*}{2}
+    r &= p_1^{a_1} \, p_2^{a_2} \, p_3^{a_3} \, \cdots \, p_u^{a_u} \\
+    s &= p_1^{a_{u+1}} \, p_2^{a_{u+2}} \, p_3^{a_{u+3}} \, \cdots \, p_v^{a_v}
+  \end{alignat*}
+
+  \noindent y la de $t$ será
+
+  $$ t = q_1^{b_1} \, q_2^{b_2} \, q_3^{b_3} \, \cdots \, q_k^{b_k} $$
+
+  Ya que $r$ y $s$ son primos relativos, necesariamente se dará que los
+  factores en estas factorizaciones de $r$ y $s$ son distintos, es decir, no
+  puede haber ninguna coincidencia, pues esto entraría en contradicción con
+  que sean primos relativos.
+
+  Por otro lado, como $rs = t^2$, tendremos
+
+  \begin{alignat*}{2}
+    p_1^{a_1} \, p_2^{a_2} \, p_3^{a_3} \, \cdots \, p_u^{a_u} \,
+      p_1^{a_{u+1}} \, p_2^{a_{u+2}} \, p_3^{a_{u+3}} \, \cdots \,
+      p_v^{a_{u+v}}
+      &= \left( q_1^{b_1} \, q_2^{b_2} \, q_3^{b_3} \, \cdots \, q_k^{b_k}
+        \right)^2 \\
+      &= q_1^{2b_1} \, q_2^{2b_2} \, q_3^{2b_3} \, \cdots \, q_k^{2b_k}
+  \end{alignat*}
+
+  Del Teorema de la Factorización Canónica TKTK, al ser única la
+  descomposición canónica en factores primos, las potencias que aparecen en
+  la expresión anterior han de ser las mismas, aunque no necesariamente en
+  el orden en el que se presentan aquí. Es decir, cada $p_i$ será igual que
+  algún $q_j$, siendo $i, j \in \nset$ los índices de las factorizaciones,
+  con $1 \leq i \leq u$ y $1 \leq j \leq v - u$. Además, los exponentes
+  correspondientes serán tales que $a_i = 2b_j$. Por tanto, todo exponente
+  $a_i$ será par y, por tanto, $a_i/2$ será un entero. Es decir, existirán
+  $m, n \in \zset$ tales que $r = m^2$ y $s = n^2$ siendo
+
+  \begin{alignat*}{2}
+    m &= p_1^{a_1/2} \, p_2^{a_2/2} \, p_3^{a_3/2} \, \cdots \, p_u^{a_u/2} \\
+    n &= p_1^{a_{u+1/2}} \, p_2^{a_{u+2/2}} \, p_3^{a_{u+3/2}} \, \cdots \,
+      p_v^{a_{u+v/2}}
+  \end{alignat*}
+
+  \iffalse
+  \noindent se tendrá la descomposición, no necesariamente canónica, de $a
+  \cdot b$ siguiente:
+
+  $$ c^2 = a \cdot b = p_1^{l_1} \, p_2^{l_2} \, p_3^{l_3} \, \cdots \,
+  p_n^{l_n} \, q_1^{k_1} \, q_2^{k_2} \, q_3^{k_3} \, \cdots \, q_m^{k_m} $$
+
+  Si se diese para algún par de esos factores $p_i, q_j$ que $p_i = q_j$,
+  esto podría provocar que algún exponente en la descomposición canónica de
+  $a \cdot b$ fuese impar, pero esto es imposible ya que $a$ y $b$ son
+  primos relativos, con lo que para todos los índices $i, j \in \nset$ con
+  $1 \leq i \leq n$ y $1 \leq j \leq m$ se tiene $p_i \neq q_j$. Por tanto,
+  esa será su descomposición canónica.
+
+  Por otro lado, por la proposición anterior TKTK, que $a \cdot b$ sea un
+  cuadrado perfecto, una de las condiciones de esta proposición, es lo mismo
+  que decir que su descomposición canónica en factores primos tenga todos
+  sus exponentes pares. Por tanto, en la anterior expresión de $a \cdot b$
+  todos los exponentes que aparecen serán pares. Concretamente, serán pares
+  todos los exponentes de la descomposición de $a$ y los de la de $b$. Así,
+  pues, aplicando otra vez el teorema anterior TKTK, tendremos que tanto $a$
+  como $b$ serán cuadrados perfectos.
+  \fi
+\end{proof}
+
+Ahora, vamos a ver la generalización de esto último para una potencia
+cualquiera $n \in \nset$.
+
+\begin{proposition}
+  Si $a \cdot b = c^n$ para un $n \in \nset$ y $\gcd(a, b) = 1$, entonces
+  tanto $a$ como $b$ son potencias $n$-ésimnas.
+\end{proposition}
+
+Está en \cite{burton} pág. 247.
+
+\begin{proof}
+  Supondremos que $a > 1$ y $b > 1$. Las descomposiciones canónicas en
+  factores primos de $a$ y $b$ suponemos que son
+
+  \begin{alignat*}{2}
+    a = p_1^{r_1} \, p_2^{r_2} \, p_3^{r_3} \, \cdots \, p_w^{r_w} \\
+    b = q_1^{s_1} \, q_2^{s_2} \, q_3^{s_3} \, \cdots \, q_m^{s_m}
+  \end{alignat*}
+
+  \noindent siendo $w, m \in \nset$. Teniendo en cuenta que $\gcd(a, b) =
+  1$, no puede haber ningún $p_i$ entre los $q_j$, siendo los índices $i, j
+  \in \nset$ con $1 \leq i \leq w$ y $1 \leq j \leq m$. Como consecuencia de
+  esto, tenemos que la descomposición canónica en factores primos de $a
+  \cdot b$ es
+
+  $$ a \cdot b = p_1^{r_1} \, p_2^{r_2} \, p_3^{r_3} \, \cdots \, p_w^{r_w}
+  \, q_1^{s_1} \, q_2^{s_2} \, q_3^{s_3} \, \cdots \, q_m^{s_m} $$
+
+  Por otro lado, supongamos que la descomposición en factores primos de $c$
+  es la siguiente:
+
+  $$ c = u_1^{l_1} \, u_2^{l_2} \, u_3^{l_3} \, \cdots \, u_t^{l_t} $$
+
+  \noindent con $t \in \nset$. Entonces, la condición $a \cdot b = c^n$ hace
+  que tengamos
+
+  \begin{alignat*}{2}
+    p_1^{r_1} \, p_2^{r_2} \, p_3^{r_3} \, \cdots \, p_w^{r_w} \, q_1^{s_1}
+      \, q_2^{s_2} \, q_3^{s_3} \, \cdots \, q_m^{s_m}
+      &= \left( u_1^{l_1} \, u_2^{l_2} \, u_3^{l_3} \, \cdots \, u_t^{l_t} \right)^n \\
+      &= u_1^{nl_1} \, u_2^{nl_2} \, u_3^{nl_3} \, \cdots \, u_t^{nl_t}
+  \end{alignat*}
+
+  \noindent y necesariamente se tiene que dar que los factores $u_1, u_2,
+  u_3, \ldots, u_t$ sean los mismos que $p_1, p_2\, p_3, \ldots, p_w, q_1,
+  q_2, q_3, \ldots, q_m$, en algún orden, así como que los exponentes $nl1,
+  nl_2, nl_3, \ldots, nl_t$ sean los mismos que $r_1, r_2, r_3, \ldots, r_w,
+  s_1, s_2, s_3, \ldots, s_m$. Y, evidentemente, $t = w + m$. Por tanto,
+  todos y cada uno de los enteros $r_1, r_2, r_3, \ldots, r_w, s_1, s_2,
+  s_3, \ldots, s_m$ tiene que ser divisible entre $n$. Si ahora ponemos
+
+  \begin{alignat*}{2}
+    a_1 &= p_1^{r_1/n} \, p_2^{r_2/n} \, p_3^{r_3/n} \, \cdots \,
+      p_w^{r_w/n} \\
+    b_1 &= q_1^{s_1/n} \, q_2^{s_2/n} \, q_3^{s_3/n} \, \cdots \,
+      q_m^{s_m/n}
+  \end{alignat*}
+
+  \noindent entonces $a_1^n = a$ y $b_1^n = b$, como deseábamos demostrar.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ----------------------------
+
+Números de Mersenne.
+
+Son los números de la forma $2^n - 1$. No quiere decir que todos los números
+de esa forma sean primos, sino que existen algunos números de esa forma que
+son primos.
+
+Una observación elemental es que, si en un número de Mersenne, se tiene que
+$n$ es par siendo $n \neq 2$, entonces este no es primo.
+
+Este tipo de preguntas ha dicho el profesor que es probable que caiga en el
+examen. No esta exactamente, pero este tipo de preguntas dice que le gustan
+mucho.

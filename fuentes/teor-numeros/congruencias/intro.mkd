@@ -1,0 +1,252 @@
+
+
+
+
+#### Introducción
+
+Viene en [@burton p. 61] capítulo 4.
+
+Las relaciones de congruencia son de gran utilidad para estudiar la
+divisibilidad en $\mathbb{Z}$. En el fondo, es lo mismo que la aritmética
+modular.
+
+::: { .deffinition }
+Dados $a, b \in \mathbb{Z}$ y $m \in \mathbb{N}^{+}$. Se dice que $a$ y $b$ son
+_congruentes_ (_congruents_) módulo $m$, y se escribe $a \equiv b \pmod m$,
+si y solo si $m \mid (a - b)$. En caso contrario, se dice que son
+_incongruentes_ (_incongruents_) módulo $m$.
+:::
+
+En este caso, al número $m$ se le llama _módulo_ (_módule_) de la
+congruencia.
+
+Evidentemente, dos números cualesquiera son congruentes módulo 1, aunque la
+congruencia módulo 1 en realidad no tiene ninguna relevancia ni es práctica
+para ningún fin. Dos números serán congruentes módulo 2 cuando tienen la
+misma paridad, es decir, si ambos son pares o bien ambos son impares.
+
+Si hacemos la división en $\mathbb{Z}$ con resto de un número $a \in \mathbb{Z}$ entre
+un número $m \in \mathbb{N}^{+}$, tenemos que existen $q, r \in \mathbb{Z}$ con $0
+\leq r < m$ para los que
+
+$$ a = mq + r $$
+
+De aquí, reordenando términos, tenemos $a - r = mq$, con lo que $a \equiv r
+\pmod m$. Puesto que la variable $r$ puede tomar los valores enteros entre
+$0 \leq r < m$, podemos afirmar que, en general, cualquier $a \in \mathbb{Z}$ es
+congruente módulo $m$ con uno y solo uno de los valores $0, 1, 2, 3, \ldots,
+m-1$, cosa que se justifica por el mismo Teorema que justifica la existencia
+de la división en $\mathbb{Z}$ con resto. En particular, se da que $a \equiv 0
+\pmod m$ si y solo si $m \mid a$.
+
+A ese $r$ entre 0 y $m-1$ se le conoce como _menor residuo no negativo_
+módulo $m$ (_least non-negative residue module_ $m$), y al conjunto de los
+$m$ enteros $0, 1, 2, 3, \ldots, m-1$, los _menores residuos no negativos_
+módulo $m$ (_least nonnegative residues_ modulo $m$).
+
+Por lo general, una colección de enteros $a_1, a_2, a_3, \ldots, a_m$ se
+dice que es un módulo $m$ si todo entero es congruente módulo $m$ a uno y
+solo uno de los $a_i$, siendo $1 \leq i \leq m$. Dicho de otro modo, los
+elementos de $a_1, a_2, a_3, \ldots, a_m$ son congruentes respectivamente
+con los elementos de alguna permutación de los menores residuos no negativos
+módulo $m$, es decir, de $0, 1, 2, 3, \ldots, m-1$.
+
+También se podría decir que un conjunto de números enteros no forman un
+conjunto completo de residuos módulo $m$ si y solo si no hay dos de estos
+que sean congruentes módulo $m$.
+
+El teorema siguiente proporciona una caracterización útil de la congruencia
+módulo $m$ en términos del resto de la división por $m$.
+
+::: theorem
+Dados $a, b \in \mathbb{Z}$ y $m \in \mathbb{N}^{+}$. Entonces, $a \equiv b \pmod m$
+si y solo si al dividir tanto a $a$ como a $b$ por $m$, se obtiene el mismo
+resto.
+:::
+
+::: proof
+Por un lado, puesto que $m \mid (a - b)$, tenemos que existirá algún $k \in
+\mathbb{Z}$ para el que $a = b + km$. Podemos hacer la división entera con resto
+de $b$ entre $m$ y tendremos
+
+$$ b = qm + r $$
+
+para algún par de $q, r \in \mathbb{Z}$ con $0 \leq r < m$. Uniendo ambas
+ecuaciones,
+
+$$ a = b + km = (qm + r) + km = (q + k)m + r $$
+
+con lo que $a$ y $b$ tienen el mismo resto, $r$.
+
+Por otro lado, suponga que podemos escribir $a = q_1 m + r$ y $b = q_2 m +
+r$, para $q_1, q_2, r \in \mathbb{Z}$, siendo, siendo $0 \leq r < m$. Entonces,
+
+$$ a - b = (q_1 m + r) - (q_2 m + r) = (q_1 - q_2)m $$
+
+por lo que $m \mid (a - b)$.
+:::
+
+La congruencia se puede ver como una forma generalizada de la igualdad, en
+el sentido de que su comportamiento con respecto a la suma y la
+multiplicación es reminiscente a la igualdad ordinaria. En el teorema
+siguiente se muestran algunas de las propiedades elementales de la igualdad
+que se trasladan a las congruencias.
+
+::: properties
+Dados $a, b, c, d \in \mathbb{Z}$ y $m \in \mathbb{N}^{+}$. Se tiene
+
+1.  $a \equiv a \pmod m$. Propiedad reflexiva.
+
+2.  Si $a \equiv b \pmod m$, entonces $b \equiv a \pmod m$. Propiedad
+    simétrica.
+
+3.  Si $a \equiv b \pmod m$ y $b \equiv c \pmod m$, entonces $a \equiv c
+    \pmod m$. Propiedad transitiva.
+
+4.  Si $a \equiv b \pmod m$ y $c \equiv d \pmod m$, entonces $a+c \equiv b+d
+    \pmod m$ y $ac \equiv bd \pmod m$.
+
+5.  Si $a \equiv b \pmod m$, entonces $a+c \equiv b+c \pmod m$ y $ac \equiv
+    bc \pmod m$.
+
+6.  Dado $k \in \mathbb{N}^{+}$. Si $a \equiv b \pmod m$, entonces $a^k \equiv
+    b^k \pmod m$.
+:::
+
+Estas propiedades son muy útiles para operar con las congruencias, como
+veremos luego, con lo que conviene aprendérselas de memoria. Ahora, veamos
+sus demostraciones.
+
+::: proof
+TKTK.
+
+1.  Para cualquier $a \in \mathbb{Z}$, tenemos que $a - a = 0\cdot m$.
+
+2.  Si $a \equiv b \pmod m$, entonces existe un $k \in \mathbb{Z}$ para el que $a
+    - b = km$. Por tanto, $b - a = {-(km)} = ({-k})m$ y, como ${-k} \in
+    \mathbb{Z}$, se tiene que $b \equiv a \pmod m$.
+
+3.  Suponga que $a \equiv b \pmod m$ y $b \equiv c \pmod m$. Entonces,
+    existen $h, k \in \mathbb{Z}$ para los que se cumple
+
+    $$
+    \begin{aligned}{2}
+      a - b &= hm \\
+      b - c &= km
+    \end{aligned}
+    $$
+
+    Sumándolas, tenemos
+
+    $$
+    \begin{aligned}{2}
+      (a - b) + (b - c)   &= hm + km \\
+      a - c               &= (h + k)m \\
+    \end{aligned}
+    $$
+
+    que es lo mismo que $a \equiv c \pmod m$.
+
+4.  Del mismo modo que antes, si $a \equiv b \pmod m$ y $c \equiv d \pmod
+    m$, entonces existirán $k_1, k_2 \in \mathbb{Z}$ para los que
+
+    $$
+    \begin{aligned}{2}
+      a - b   &= k_1 m \\
+      c - d   &= k_2 m
+    \end{aligned}
+    $$
+
+    Sumándolas, tenemos
+
+    $$
+    \begin{aligned}{2}
+      (a - b) + (c - d)   &= k_1 m + k_2 m \\
+      (a + c) - (b + d)   &= (k_1 + k_2)m
+    \end{aligned}
+    $$
+
+    que es lo mismo que $a + c \equiv b + d \pmod m$.
+
+    Para la segunda afirmación, se tiene que
+
+    $$ ac = (b + k_1 m)(d + k_2 m) = bd + (bk_2 + dk_1 + k_1 k_2 m)m $$
+
+    que es lo mismo que decir que $ac \equiv bd \pmod m$.
+
+5.  Se demuestra por la anterior teniendo en cuenta que $c \equiv c \pmod
+    m$, para todo $c \in \mathbb{Z}$.
+
+6.  Esta la demostraremos por inducción. De la propiedad 4, sabemos que si
+    se diese la hipótesis de inducción, es decir, $a \equiv b \pmod m$ y
+    $a^k \equiv b^k \pmod m$, se daría que $a \, a^k \equiv b \, b^k \pmod
+    m$, que sería lo mismo que $a^{k+1} \equiv b^{k+1} \pmod m$, que sería
+    la meta de inducción.
+:::
+
+En el libro aparece otra. Como la 5.ta pero con división en lugar de
+multiplicación.
+
+Advierta que, concretamente, se cumplen las propiedades reflexiva, simétrica
+y transitiva. Por lo tanto, la congruencia es una relación de equivalencia.
+
+Tal y como hemos visto, si $a \equiv b \pmod m$, entonces se dará que $ac
+\equiv bc \pmod m$, para todo $c \in \mathbb{Z}$. Sin embargo, lo contrario no
+tiene por qué darse. Bastaría con dar un contraejemplo; por ejemplo, se da
+$2 \cdot 4 \equiv 2 \cdot 1 \pmod 6$, pero $4 \not\equiv 1 \pmod 6$. Lo que
+sí podemos afirmar a este respecto es lo que explica el teorema siguiente.
+
+::: theorem
+Dados $a, b, c \in \mathbb{Z}$ y $m \in \mathbb{N}^{+}$. Si $ca \equiv cb \pmod m$,
+entonces $a \equiv b \pmod {m/d}$, siendo $d = \gcd(c, m)$.
+:::
+
+::: proof
+Por hipótesis, podemos escribir
+
+$$ c(a - b) = ca - cb = km $$
+
+para algún $k \in \mathbb{Z}$. Sabiendo que $d = \gcd(c, m)$, entonces, por el
+Corolario [](#cor-mcd-div-mcd){.nameref}, existirán $r, s \in \mathbb{Z}$ primos
+relativos para los que $c = dr$ y $m = ds$. Cuando sustituimos estos valores
+en la ecuación anterior y cancelamos el factor común $d$, tenemos
+
+$$ r(a - b) = ks $$
+
+Por tanto, $s \mid r(a - b)$ y $\gcd(r, s) = 1$. Por el Lema
+[](#th-lema-euclides){.nameref}, tenemos $s \mid (a - b)$, que es lo mismo
+que decir que $a \equiv b \pmod s$, o sea, $a \equiv b \pmod {m/d}$.
+:::
+
+::: corollary
+Dados $a, b, c \in \mathbb{Z}$ y $m \in \mathbb{N}^{+}$. Si $ca \equiv cb \pmod m$ y
+$\gcd(c, m) = 1$, entonces $a \equiv b \pmod m$.
+:::
+
+::: corollary
+Dados $a, b, c \in \mathbb{Z}$ y $p$ un número primo. Si $ca \equiv cb \pmod p$ y
+$p \nmid c$, entonces $a \equiv b \pmod p$.
+:::
+
+::: proof
+La condición de que $p$ sea primo y $p \nmid c$ hacen que $\gcd(c, p) = 1$,
+y ya sería el mismo caso que el del corolario anterior.
+:::
+
+Algo curioso con las congruencias, y que contrasta con el comportamiento de
+la igualdad, es que se puede tener 0 como resultado multiplicando dos
+números que no son congruentes con 0. Así, por ejemplo, se tiene que $4
+\cdot 3 \equiv 0 \pmod {12}$ siendo $4 \not\equiv 0 \pmod {12}$ y $3
+\not\equiv 0 \pmod {12}$.
+
+
+
+
+
+#### Representación binaria y decimal de números enteros
+
+
+
+
+
+

@@ -1,0 +1,294 @@
+
+references:
+
+- type: notes
+  id: leighton
+  author: Eric Lehman, F. Thomson Leighton, Albert R. Meyer
+  issued: 2018
+  title: Mathematics for Computer Science
+  language: en-US
+  URL: "https://courses.csail.mit.edu/6.042/spring18/mcs.pdf"
+
+- type: book
+  id: bujalance-costa
+  author:
+    - Emilio Bujalance
+    - Antonio F. Costa
+    - otros
+  issued: 2005
+  title: Elementos de matemática discreta
+  language: en-US
+  edition: 3
+  publisher: Editorial Sanz y Torres
+  isbn: 84-96094-61-8
+
+- type: book
+  id: brualdi
+  author: Richard A. Brualdi
+  issued: 2018
+  title: Introductory Combinatorics
+  language: en-US
+  edition: 5
+  publisher: Pearson
+  isbn: 978-93-534-3306-2
+
+- type: book
+  id: rosen-number-th
+  author: Kenneth H. Rosen
+  issued: 2010
+  title: Elementary Number Theory and Its Applications
+  language: en-US
+  edition: 6
+  publisher: Pearson
+  isbn: 978-0321500311
+
+- type: book
+  id: burton
+  author: David M. Burton
+  issued: 2010
+  title: Elementary Number Theory
+  language: en-US
+  edition: 7
+  publisher: William C. Brown Pub.
+  isbn: 978-0077349905
+
+- type: book
+  id: open-logic-text
+  title: The Open Logic Text
+  author:
+  - family: Zach
+    given: Richard
+  - family: 
+    given: 
+  # issued:
+  #   date-parts:
+  #   - - 2011
+  #     - 03
+  #     - 03
+  language: en-US
+  url: "https://github.com/OpenLogicProject/OpenLogic"
+  publisher: publicación independiente
+  # edition: 3
+  isbn: 
+
+- type: book
+  id: infinite-descent
+  title: An Infinite Descent into Pure Mathematics
+  author:
+  - family: Clive
+    given: Newstead
+  issued: 2024
+  language: en-US
+  url: "https://github.com/OpenLogicProject/OpenLogic"
+  publisher: publicación independiente
+  isbn: 978-1-950215-01-0
+
+- type: book
+  id: weissman
+  title: An Illustrated Theory of Numbers
+  author: Martin H. Weissman
+  issued: 2020
+  language: en-US
+  url: "http://illustratedtheoryofnumbers.com/"
+  edition: 1
+  publisher: American Mathematical Society
+  isbn: 978-1470463717
+
+
+
+
+
+
+
+
+#
+#
+#   \bibitem[theory-of-numbers-niven]{theory-of-numbers-niven}
+#     Ivan Niven, Herbert S. Zuckerman y Hugh L. Montgomery.
+#     \m{An Introduction to the Theory of Numbers}
+#     ---
+#     formato: libro,
+#     5.ta edición,
+#     editorial Wiley,
+#     1991,
+#     ISBN: 978-0471625469.
+#
+#   \bibitem[comb-num-th-mileti]{comb-num-th-mileti}
+#     Joseph R. Mileti.
+#     \m{Combinatorics and Number Theory}
+#     ---
+#     formato: apuntes,
+#     2022,
+#     \url{https://mileti.math.grinnell.edu/ComboNumber.pdf}.
+#
+#   \bibitem[Leighton]{leighton}
+#     Eric Lehman, F. Thomson Leighton y Albert R. Meyer.
+#     \m{Mathematics for Computer Science}
+#     ---
+#     formato: apuntes,
+#     2018,
+#     \url{https://courses.csail.mit.edu/6.042/spring18/mcs.pdf}.
+#
+#   \bibitem[Brualdi]{brualdi}
+#     \eng{Richard A.~Brualdi}.
+#     \m{\eng{Introductory Combinatorics}}
+#     ---
+#     formato: libro,
+#     5.ta edición,
+#     editorial Pearson India,
+#     2019,
+#     ISDN: 978-9353433062.
+#
+#   \bibitem[Chuan-Chong]{chuan-chong}
+#     Chen Chuan-Chong y Koh Khee-Meng.
+#     \m{Principles and Techniques in Combinatorics}
+#     ---
+#     formato: libro,
+#     1.ra edición,
+#     World Scientific Publishing,
+#     1992,
+#     ISBN: 978-9810211394.
+#
+#   \bibitem[proofs-cummings]{proofs-cummings}
+#     \eng{Jay Cummings}.
+#     \m{\eng{Proofs. A Long-Form Mathematics Textbook}}
+#     ---
+#     publicación independiente,
+#     2021,
+#     ISBN: 979-8595265973.
+#
+#   \bibitem[idescent-newstead]{idescent-newstead}
+#     \eng{Clive Newstead}.
+#     \m{\eng{An Infinite Descent into Pure Mathematics}}
+#     ---
+#     publicación independiente,
+#     2024,
+#     ISBN: 978-1-950215-01-0.
+#
+#   \bibitem[stillwell-elem-maths]{stillwell-elem-maths}
+#     \eng{Clive Newstead}.
+#     \m{\eng{An Infinite Descent into Pure Mathematics}}
+#     ---
+#     publicación independiente,
+#     2024,
+#     ISBN: 978-1-950215-01-0.
+#
+# \end{thebibliography}
+#
+#
+#
+#
+#
+#
+#
+#
+#
+# - type: book
+#   id: whiplash-ito
+#   author:
+#   - family: Ito
+#     given: Joi
+#   - family: Howe
+#     given: Jeff
+#   issued:
+#     date-parts:
+#     - - 2016
+#       - 12
+#       - 06
+#   title: 'Whiplash: How to Survive Our Faster Future'
+#   title-short: 'Whiplash'
+#   language: en-US
+#   publisher: 'Grand Central Publishing'
+#   isbn: 9781455544592
+#   URL: https://www.grandcentralpublishing.com/titles/joi-ito/whiplash/9781455544592/
+#   pages: 336
+#
+# - type: book
+#   id: cathed-raymond
+#   author:
+#   - family: Raymond
+#     given: Eric S.
+#   issued:
+#     date-parts:
+#     - - 2001
+#       - 01
+#       - 05
+#   title: 'The Cathedral & the Bazaar: Musings on Linux and Open Source by an Accidental Revolutionary'
+#   title-short: 'The Cathedral & the Bazaar'
+#   language: en-US
+#   publisher: "O'Reilly Media"
+#   isbn: 9780596001087
+#   URL: http://shop.oreilly.com/product/9780596001087.do
+#   pages: 256
+#   edition: 1
+#
+# - type: book
+#   id: stephenson-cline
+#   author:
+#   - family: Stephenson
+#     given: Neal
+#   issued:
+#     date-parts:
+#     - - 1999
+#       - 11
+#       - 09
+#   title: 'In the Beginning... was the Command Line'
+#   title-short: 'In the Beginning... was the Command Line'
+#   language: en-US
+#   publisher: "William Morrow Paperbacks"
+#   isbn: 9780380815937
+#   URL: https://www.harpercollins.com/9780380815937/in-the-beginning-was-the-command-line/
+#   pages: 160
+#   edition: 1
+#
+# - type: article-journal
+#   id: roads-and-bridges
+#   author:
+#   - family: Eghbal
+#     given: Nadia
+#   issued:
+#   - year: 2016
+#   title: 'Roads and Bridges: The Unseen Labor Behind Our Digital Infrastructure'
+#   title-short: 'Roads and Bridges'
+#   URL: https://www.fordfoundation.org/work/learning/research-reports/roads-and-bridges-the-unseen-labor-behind-our-digital-infrastructure/
+#   language: en-US
+#   pages: 143
+#
+# - type: book
+#   id: working-public-eghbal
+#   author:
+#   - family: Eghbal
+#     given: Nadia
+#   issued:
+#     date-parts:
+#     - - 2020
+#       - 08
+#       - 04
+#   title: 'Working in Public: The Making and Maintenance of Open Source Software'
+#   title-short: 'Working in Public'
+#   language: en-US
+#   publisher: "Stripe Press"
+#   isbn: 9780578675862
+#   edition: 1
+#   pages: 256
+#
+# - type: book
+#   id: stephenson-cline
+#   author:
+#   - family: Stephenson
+#     given: Neal
+#   issued:
+#     date-parts:
+#     - - 1999
+#       - 11
+#       - 09
+#   title: 'In the Beginning...was the Command Line'
+#   title-short: 'In the Beginning...was the Command Line'
+#   language: en-US
+#   publisher: "William Morrow Paperbacks"
+#   isbn: 9780380815937
+#   URL: https://www.harpercollins.com/9780380815937/in-the-beginning-was-the-command-line/
+#   pages: 160
+#   edition: 1
+#
+#

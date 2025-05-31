@@ -1,0 +1,449 @@
+
+
+
+
+Viene bastante bien explicado en \cite{burton} sección 12.1
+pág. 245, así como en \cite{rosen} sección 13.1 pág. 522.
+Prefiero la explicación del último.
+
+Ahora, vamos a considerar la ecuación $x^2 + y^2 = z^2$ con $x, y, z \in
+\zset^{+}$. Como puede imaginar, las soluciones serían, desde el punto de
+vista de la geometría, todos los triángulos rectángulos con lados de
+longitud entera (y, evidentemente, positiva); cosa que es evidente por el
+Teorema de Pitágoras. Este problema lo estudiaron los pitagóricos, y estos
+encontraron una cantidad infinita de soluciones, pero fue Euclides quien dio
+la solución general al problema, en su libro \emph{Elementos}.
+
+Primero, advierta que, si $(x_0, y_0, z_0)$ es una solución, cosa que se
+suele designar por \emph{terna pitagórica} (\engm{Pythagorean triple}), también
+lo serán $(\lambda x_0, \lambda y_0, \lambda z_0)$ para todos los $\lambda
+\in \zset$ con $\lambda \neq 0$, ya que
+
+$$ \lambda^2 x_0^2 + \lambda^2 y_0^2 = \lambda^2(x_0 + y_0) = \lambda^2 z_0
+$$
+
+Por otro lado, si $d = \gcd(x_0, y_0, z_0)$, entonces
+
+$$ \left( \frac{x_0}{d}, \frac{y_0}{d}, \frac{z_0}{d} \right) $$
+
+\noindent también será una solución, ya que esas tres divisiones tienen que
+ser exactas, necesariamente, es decir, tendrán resto 0, al darse $d \mid
+x_0$, $d \mid y_0$ y $d \mid z_0$. Además, se da que $x_0/d$, $y_0/d$ y
+$z_0/d$ son primos relativos, por el Corolario \ref{cor-mcd-div-mcd}. A una
+solución con esta particularidad, es decir, en la que los tres términos son
+primos relativos, recibe el nombre de \emph{terna pitagórica primitiva}
+(\engm{primitive Pythagorean triple}), y, como veremos en el teorema
+siguiente, basta con encontrar esta solución para obtener una forma general
+para todas las soluciones del problema. Es decir, para resolver el problema
+bastará con encontrar las ternas pitagóricas primitivas, $x'_0, y'_0, z'_0
+\in \zset^{+}$, y las demás soluciones vendrán dadas al multiplicarlas por
+un parámetro $\lambda \in \zset$ con $\lambda \neq 0$, es decir, $(\lambda
+x'_0, \lambda y'_0, \lambda z'_0)$. Es decir, construiremos la solución
+general a partir de las ternas pitagóricas primitivas.
+
+Antes de llegar a dar la solución general, vamos a dar algunos lemas que se
+usarán en su demostración.
+
+El lema siguiente explica que los elementos de una terna pitagórica
+primitiva son primos relativos también dos a dos.
+
+\begin{lemma}[de la Primalidad en las Ternas Pitagóricas
+  Primitivas]\label{lema-terna-pit-prim-dos-a-dos}
+  Si $(x, y, z)$ es una terna pitagórica primitiva, entonces sus componentes
+  son primos relativos dos a dos.
+\end{lemma}
+
+\begin{proof}
+  Suponga que $(x, y, z)$ es una terna pitagórica primitiva y $\gcd(x, y) >
+  1$, pues si valiese 1 ya estaría demostrado. Debido a esta última
+  condición, se podrá descomponer a $\gcd(x, y)$ en factores primos. Nos
+  quedamos con uno cualquiera de ellos, $p$. Se cumple entonces que $p \mid
+  \gcd(x, y)$. Por tanto, $p \mid x$ y $p \mid y$. Debido a esto, por las
+  proposiciones \ref{prop-divide-al-multiplo} y \ref{princ-dos-de-tres}, se
+  tiene que $p \mid (x^2 + y^2)$, o, lo que es lo mismo, $p \mid z^2$.
+  También, como $p \mid z^2$ siendo $p$ primo, aplicando el Corolario
+  \ref{cor-lema-euclides-num-primos} se tiene que $p \mid z$. Uniendo esto,
+  se tendría que $\gcd(x, y, z) = p > 1$, lo cual se contradice con la
+  condición de que esa terna pitagórica sea primitiva, con lo que, por
+  contradicción, se puede afirmar que $\gcd(x, y) = 1$.
+
+  Este mismo procedimiento se puede usar para los otros pares de elementos
+  de la terna, es decir, se da que $\gcd(x, y) = \gcd(x, z) = \gcd(y, z) =
+  1$.
+\end{proof}
+
+\begin{lemma}[de la Paridad de Ternas Pitagóricas
+  Primitivas]\label{lema-ternas-pit-prim-paridad}
+  Dada la terna pitagórica primitiva $(x, y, z)$. Se tiene que $x$ e $y$
+  tienen distinta paridad.
+\end{lemma}
+
+\begin{proof}
+  Analizaremos los distintos casos y veremos que no pueden tener la misma
+  paridad.
+
+  Si $x$ e $y$ son pares, se tendrán $m, n \in \zset$ tales que $x = 2m$ e
+  $y = 2n$. Entonces,
+
+  $$ x^2 + y^2 = (2m)^2 + (2n)^2 = 4m^2 + 4n^2 = 2(2m^2 + 2n^2) $$
+
+  \noindent con lo que $2 \mid (x^2 + z^2)$, que es lo mismo que $2 \mid
+  z^2$. Tenemos que $2 \mid z^2$ y que 2 es primo, si aplicamos el Corolario
+  \ref{cor-lema-euclides-num-primos} tenemos que entonces $2 \mid z$. De
+  esto se deduce que $\gcd(x, y, z) \geq 2$, cosa que se contradice con la
+  hipótesis de que se trate de ternas pitagóricas primitivas.
+
+  Por otro lado, supongamos que $x$ e $y$ son ambos impares, es decir, $x_0
+  = 2t + 1$ e $y_0 = 2q + 1$, para $t, q \in \zset$. Se tendrá entonces que
+
+  $$ z_0^2 = (2t + 1)^2 + (2q + 1)^2 = 4t^2 + 4t + 1 + 4q^2 + 4q + 1 = 4(t^2
+  + t + q^2 + q) + 2 = 4m + 2 $$
+
+  \noindent para $m \in \zset$. Pero esto no se puede dar, tal y como vimos
+  en un ejercicio de la sección de la división en $\zset$ con resto. Según
+  vimos, todo número entero al cuadrado se podrá poner de la forma $4m$ o
+  $4m + 1$, pero no como $4m + 2$ o $4m + 3$.
+
+  Por tanto, quedan descartadas las posibilidades de que $x$ e $y$ de la
+  terna pitagórica primitiva tengan la misma paridad.
+\end{proof}
+
+Ahora, veamos un teorema para hallar ternas pitagóricas primitivas y, por
+tanto, soluciones enteras de la ecuación $x^2 + y^2 = z^2$. No olvide que, a
+partir de una terna pitagórica primitiva podemos sacar todas las demás.
+
+% Se hallan para los valores positivos, pues luego se pueden multiplicar por
+% algún lambda TKTK
+
+\begin{theorem}[Forma de las Ternas Pitagóricas Primitivas]
+  La terna $(x, y, z)$ con $x, y, z \in \zset$ es una terna pitagórica
+  primitiva con $y \equiv 0 \pmod 2$ si y solo si existen $m, n \in
+  \zset^{+}$ con $\gcd(m, n) = 1$, $m > n$ y $m \not\equiv n \pmod 2$ tales
+  que
+
+  \begin{alignat*}{2}
+    x &= m^2 - n^2 \\
+    y &= 2mn \\
+    z &= m^2 + n^2
+  \end{alignat*}
+\end{theorem}
+
+En la demostración, nos servirán los lemas anteriores.
+
+\begin{proof}
+  Sea $(x, y, z)$ una terna pitagórica primitiva en la que $y$ es par.
+  Mostraremos que existen $m, n \in \zset$ de la forma que se especifica en
+  el teorema.
+
+  En la demostración, vamos a restringirnos a los valores $x, y, z \in
+  \nset^{+}$, pues, al ser 2 el exponente, cualquier valor de estas
+  variables podremos luego sustiruirlo por su inverso aditivo y la ecuación
+  seguirá cumpliéndose.
+
+  Como en el enunciado se dice que $y$ es par, no queda otra que $x$ sea
+  impar, por aplicación del Lema \ref{lema-ternas-pit-prim-paridad}.
+  También, podemos saber la paridad de $z$ a partir de estos datos y la
+  ecuación que tienen que satisfacer, es decir, $x^2 + y^2 = z^2$. Por un
+  lado, $x^2$ será impar, ya que el cuadrado de un número impar es también
+  impar. Por otro, $y^2$ será par, ya que el cuadrado de un número par es
+  par. Entonces, $z^2$ será impar, al ser la suma de un par y un impar. Pero
+  también sabemos que, si $z^2$ es impar, entonces $z$ es impar, cosa que
+  puede demostrarse fácilmente por su contrarrecíproco.
+
+  Así, tendremos que $z + x$ y $z - x$ serán pares, pues son suma y resta de
+  dos números impares. Por tanto, existirán $r, s \in \zset$ tales que
+
+  $$ r = \frac{z + x}{2} \quad \text{;} \quad s = \frac{z - x}{2} $$
+
+  Puesto que se tiene que cumplir $x^2 + y^2 = z^2$, se tiene que $y^2 = z^2
+  - x^2 = (z + x)(z - x)$, por lo que
+
+  $$ \left( \frac{y}{2} \right)^2 = \left( \frac{z + x}{2} \right) \cdot
+  \left( \frac{z - x}{2} \right) = rs $$
+
+  Ahora veremos que $\gcd(r, s) = 1$. Llamaremos $d$ a $\gcd(r, s)$, es
+  decir, $d = \gcd(r, s)$. Puesto que $d \mid r$ y $d \mid s$, se tiene que
+  $d \mid (r + s)$, o, lo que es lo mismo, $d \mid z$. También, $d \mid (r -
+  s)$, que es igual que decir que $d \mid x$. Entonces, por la definición de
+  máximo común divisor, se tendrá que $d \mid \gcd(x, z)$, pero, puesto que
+  $x$ y $z$ son elementos de una terna pitagórica primitiva, se tendrá,
+  según el Lema \ref{lema-terna-pit-prim-dos-a-dos}, que $\gcd(x, z) = 1$,
+  con lo que tenemos que $d = 1$, es decir, $\gcd(r, s) = 1$.
+
+  Sabiendo esto y que su producto es un cuadrado perfecto, concretamente,
+  como hemos visto, $(y/2)^2$, aplicando la Proposición
+  \ref{prod-cuadrado-perfecto} se tiene que $r$ y $s$ serán, a su vez,
+  cuadrados perfectos, por lo que existen $m, n \in \zset^{+}$ tales que $r
+  = m^2$ y $s = n^2$. Escribiendo entonces $x$, $y$ y $z$ en términos de $r$
+  y $s$, y estos, a su vez, en términos de $m$ y $n$, tenemos
+
+  \begin{alignat*}{2}
+    x &= r - s = m^2 - n^2 \\
+    y &= \sqrt{4rs} = \sqrt{4m^2n^2} = 2mn \\
+    z &= r + s = m^2 + n^2
+  \end{alignat*}
+
+  Vemos también que $\gcd(m, n) = 1$, pues cualquier divisor común de $m$ y
+  $n$ debe ser también divisor de $m^2 - n^2$, de $2mn$ y de $m^2 + n^2$,
+  que son $x$, $y$ y $z$, respectivamente, para los que se cumple $\gcd(x,
+  y, z) = 1$. Es decir, $\gcd(x, y, z) = 1$ es condición suficiente para que
+  $\gcd(m, n) = 1$.
+
+  También advertimos que no pueden ser ambos impares, pues, de serlo,
+  entonces $x$, $y$ y $z$ serían todos pares, cosa que contradice que
+  $\gcd(x, y, z) = 1$. Tampoco pueden ser pares, puesto que $\gcd(m, n) =
+  1$. Por tanto, no queda otra que $m \not\equiv n \pmod 2$, es decir, $m$ y
+  $n$ tendrán paridad diferente. Esto muestra que toda terna pitagórica
+  primitiva tiene la forma que muestra el teorema.
+
+  Para completar la demostración, debemos mostrar que toda terna $(x, y, z)$
+  para la que se cumpla
+
+  \begin{alignat*}{2}
+    x &= m^2 - n^2 \\
+    y &= 2mn \\
+    z &= m^2 + n^2
+  \end{alignat*}
+
+  \noindent con $m, n \in \zset^{+}$, $\gcd(m, n) = 1$ y $m \not\equiv n
+  \pmod 2$ es una terna pitagórica primitiva.
+
+  Primero, advierta que, para todos los $m, n \in \zset^{+}$, la terna $(m^2
+  - n^2, 2mn, m^2 + n^2)$ es pitagórica.
+
+  \begin{alignat*}{2}
+    x^2 + y^2 &= (m^2 - n^2)^2 + (2mn)^2 = (m^4 - 2m^2n^2 + n^4) +
+      4m^2n^2 \\
+              &= m^4 + 2m^2n^2 + n^4 (m^2 + n^2)^2 = z^2
+  \end{alignat*}
+
+  Para ver que es además primitiva, debemos mostrar que estos valores de
+  $x$, $y$ y $z$ son primos relativos. Supongamos que no lo son. Tendríamos
+  que existe un $d \in \nset$ con $d \neq 0$ tal que $\gcd(x, y, z) = d$.
+  Existirá entonces un número primo $p$ tal que $p \mid d$.
+
+  Advierta que $p \neq 2$, ya que $x$ es impar al ser $x = m^2 - n^2$
+  teniendo $m^2$ y $n^2$ distinta paridad.
+
+  Por otro lado, como $d \mid x$ y $d \mid z$, se tendrá también, ya que $p
+  \mid d$, que $p \mid x$ y $p \mid z$. Entonces, $p \mid (x + z)$, que es
+  lo mismo que $p \mid 2m^2$. También, $p \mid (x - z)$, que es lo mismo que
+  $p \mid 2n^2$. Esto último, juntándolo con que $p$ es primo, hace que $p
+  \mid m$ y $p \mid n$, cosa que contradice la hipótesis $\gcd(m, n) = 1$.
+  Por tanto, $\gcd(x, y, z) = 1$, con lo que $(x, y, z)$ será una terna
+  pitagórica primitiva.
+\end{proof}
+
+\iffalse Como en el Burton
+\begin{theorem}[Forma de las Ternas Pitagóricas Primmmitivas]
+  Las soluciones de la ecuación pitagórica $x^2 + y^2 = z^2$ que satisfacen
+  las condiciones
+
+  $$ \gcd(x, y, z) = 1 \quad \text{;} \quad 2 \mid x \quad \text{;} \quad x,
+  y, z \in \zset^{+} $$
+
+  \noindent vienen dadas por las fórmulas
+
+  \begin{alignat*}{2}
+    x &= 2st \\
+    y &= s^2 - t^2 \\
+    z &= s^2 + t^2
+  \end{alignat*}
+
+  \noindent para $s, t \in \zset^{+}$ con $s > t$ tales que $\gcd(s, t) = 1$
+  y teniendo $s$ y $t$ distinta paridad.
+\end{theorem}
+
+\begin{proof}
+  Supongamos que $(x_0, y_0, z_0)$ es una terna pitagórica primitiva, es
+  decir, es una solución de la ecuación $x^2 + y^2 = z^2$, con $x_0, y_0,
+  z_0 \in \zset^{+}$ siendo $\gcd(x_0, y_0, z_0) = 1$. Entonces, se tiene
+  que dar necesariamente que $x_0$ e $y_0$ tengan distinta paridad, cosa que
+  justificamos a continuación.
+
+  Por un lado, si $x_0$ e $y_0$ son pares, es decir, si $x_0 = 2t$ e $y_0 =
+  2q$, para $t, q \in \zset$, se tendrá que
+
+  $$ z_0^2 = (2t)^2 + (2q)^2 = 4t^2 + 4q^2 = 4(t^2 + q^2) = (2m)^2 $$
+
+  \noindent para $m \in \zset$, cosa que contradice que $\gcd(x_0, y_0, z_0)
+  = 1$, puesto que, por ejemplo, el $\gcd(x_0, z_0)$ ya no sería 1, al ser
+  ambos ahora múltiplos de 2.
+
+  Por otro lado, si ambos son impares, es decir, si $x_0 = 2t + 1$ e $y_0 =
+  2q + 1$, para $t, q \in \zset$, se tendrá que
+
+  $$ z_0^2 = (2t + 1)^2 + (2q + 1)^2 = 4t^2 + 4t + 1 + 4q^2 + 4q + 1 = 4(t^2
+  + t + q^2 + q) + 2 = 4m + 2 $$
+
+  \noindent para $m \in \zset$. Pero esto no se puede dar, tal y como vimos
+  en un ejercicio de la sección de la división en $\zset$ con resto. Según
+  vimos, todo número entero al cuadrado se podrá poner de la forma $4m$ o
+  $4m + 1$, pero no como $4m + 2$ o $4m + 3$.
+
+  Por tanto, $x_0$ e $y_0$ han de tener paridad distinta, necesariamente.
+  Supongamos el caso en que $x_0$ es par e $y_0$ impar. Se tendrá que $z_0$
+  será impar, ya que
+
+  % Se tendría que analizar también el otro caso? x_0 impar e y_0 par?
+
+  $$ z_0^2 = (2t)^2 + (2q + 1)^2 = 4t^2 + 4q^2 + 4q + 1 = 2(2t^2 + 2q^2 2q)
+  + 1 $$
+
+  Por tanto, tanto $z_0 + y_0$ como $z_0 - y_0$ son pares, al ser suma o
+  resta de dos números impares. Por tanto, podemos escribir
+
+  \begin{alignat*}{2}
+    z_0 - y_0   &= 2p \\
+    z_0 + y_0   &= 2q
+  \end{alignat*}
+
+  \noindent para $p, q \in \zset^{+}$. No confunda esta $q$ con la anterior.
+  Tenemos, entonces, que
+
+  $$ (z_0 - y_0)(z_0 + y_0) = z_0^2 - y_0^2 = x_0^2  $$
+
+  \noindent y, por otro lado, que
+
+  $$ (z_0 - y_0)(z_0 + y_0) = 2p \cdot 2q = 4pq $$
+
+  \noindent y, uniendo ambas, tenemos
+
+  $$ \left( \frac{x_0}{2} \right)^2 = pq $$
+
+  Vamos a hacer ahora algunas observaciones sobre estos resultados. Por un
+  lado, se tiene que $\gcd(p, q) = 1$, ya que, si $\gcd(p, q) \neq 1 = d$,
+  entonces $d \mid p$ y $d \mid q$, con lo que se tendría que $d \mid (p +
+  q)$ y $d \mid (q - p)$, que, manipulando las ecuaciones
+
+  \begin{alignat*}{2}
+    z_0 - y_0   &= 2p \\
+    z_0 + y_0   &= 2q
+  \end{alignat*}
+
+  \noindent y llegando a las expresiones equivalentes
+
+  \begin{alignat*}{2}
+    y_0   &= q - p \\
+    z_0   &= p + q
+  \end{alignat*}
+
+  \noindent vemos que es lo mismo que decir $d \mid y_0$ y $d \mid z_0$,
+  cosa que entra en contradicción con la hipótesis de que $x_0$ e $y_0$ sean
+  primos relativos. Por tanto, no queda otra que $p$ y $q$ sean primos
+  relativos. Si unimos a esto la condición $2 \mid x$ de este teorema, se
+  tendrá entonces que $p \, q$ será el cuadrado de un número entero
+  positivo. Aplicando aquí la Proposición TKTK, como $p$ y $q$ son primos
+  relativos y $p \cdot q$ es un cuadrado perfecto, se tiene que tanto $p$
+  como $q$ serán también cuadrados perfectos. Por tanto, tenemos que existen
+  $s, t \in \zset^{+}$ tales que $p = t^2$ y $q = s^2$. Entonces,
+  sustituyendo a $p$ y $q$ por esos valores, podemos escribir
+
+  \begin{alignat*}{2}
+    z_0 - y_0                       &= 2t^2 \\
+    z_0 + y_0                       &= 2s^2 \\
+    \left( \frac{x_0}{2} \right)^2  &= s^2 t^2
+  \end{alignat*}
+
+  \noindent y, operando, obtenemos
+
+  \begin{alignat*}{2}
+    z_0   &= s^2 + t^2 \\
+    y_0   &= s^2 - t^2 \\
+    x_0   &= 2st
+  \end{alignat*}
+
+  Además, se da que $s$ y $t$ son primos relativos, ya que, de no serlo,
+  tampoco lo serían $p$ y $q$, y antes demostramos que sí lo eran. También,
+  observemos que $s$ y $t$ no pueden tener la misma paridad, ya que, si la
+  tuviesen, entonces $y_0$ sería par, en contra de la hipótesis que estamos
+  siguiendo. Por último, de $2q > 2p$ se deduce que $s > t$.
+
+  Inversamente, supongamos que se cumple
+
+  \begin{alignat*}{2}
+    x   &= 2st \\
+    y   &= s^2 - t^2 \\
+    z   &= s^2 + t^2
+  \end{alignat*}
+
+  \noindent con las condiciones $s > t > 0$, $\gcd(s, t) = 1$ y $s$ y $t$
+  con paridad distinta. Entonces,
+
+  $$ x^2 + y^2 = 4s^2 t^2 + (s^2 - t^2)^2 = (s^2 + t^2)^2 = z^2 $$
+
+  \noindent cosa que prueba que es una terna pitagórica, es decir, que es
+  solución de la ecuación $x^2 + y^2 = z^2$.
+
+  Para comprobar que la terna $(2st, s^2 - t^2, s^2 + t^2)$ es primitiva,
+  tenemos que comprobar que $\gcd(x, y, z) = 1$. Sea $p$ un factor primo de
+  $\gcd(x, y, z)$. Como $p \mid z$ y $z$ es impar, entonces $p \neq 2$. De
+  $p \mid y$ y $p \mid z$, deducimos que $p \mid (z + y)$ y $p \mid (z -
+  y)$, o, lo que es lo mismo, $p \mid 2s^2$ y $p \mid 2t^2$, y, al ser $p
+  \neq 2$, entonces $p \mid s^2$ y $p \mid t^2$, y, de aquí, $p \mid s$ y
+  $p \mid t$, cosa que contradice la hipótesis de que $s$ y $t$ sean primos
+  relativos. Por tanto, $(2st,  s^2 - t^2, s^2 + t^2)$ con las condiciones
+  anteriores es una terna primitiva pitagórica. Cualquier otra solucíón de
+  la ecuación $x^2 + y^2 = z^2$ será de la forma
+
+  \begin{alignat*}{2}
+    x &= \lambda 2st \\
+    y &= \lambda(s^2 - t^2) \\
+    z &= \lambda(s^2 + t^2)
+  \end{alignat*}
+\end{proof}
+\fi
+
+
+
+
+
+
+
+% ------------------------------------------------
+
+\iffalse En realidad, es un caso particular del Lema de Euclides.
+
+Otras demostraciones accesorias
+
+\begin{proposition}
+  Dado un $n \in \zset$. Si $2 \mid n^2$, entonces $2 \mid n$.
+\end{proposition}
+
+\begin{proof}
+  Un enunciado alternativo sería decir que, si $n^2$ es par, entonces $n$
+  también será par.
+
+  Vamos a tratar de demostrar su contrarrecíproco, que sería que, si $n$ es
+  impar, entonces $n^2$ también será impar. Tenemos que existe un $k \in
+  \zset$ tal que $n = 2k + 1$. Entonces,
+
+  $$ n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1 $$
+
+  \noindent con lo que ya ha quedado demostrado.
+\end{proof}
+
+\fi
+
+Así, tenemos las cinco primeras térnas pritagóricas primitivas, que
+mostramos en la tabla \ref{primeras-ternas-pitagoricas-primitivas}.
+
+\begin{figure}\caption{Primeras ternas pitagóricas primitivas}
+  \centering
+  \begin{tabular}{| c | c | c | c | c |}
+    \hline
+    $m$ & $n$ & $x = m^2 - n^2$ & $y = 2mn$ & $z = m^2 + n^2$ \\
+    \hline
+    \hline
+    2   & 1   & 3   & 4   & 5 \\
+    \hline
+    3   & 2   & 5   & 12  & 13 \\
+    \hline
+    4   & 1   & 15  & 8   & 17 \\
+    \hline
+    4   & 3   & 7   & 24  & 25 \\
+    \hline
+    5   & 2   & 21  & 20  & 29 \\
+    \hline
+  \end{tabular}\label{primeras-ternas-pitagoricas-primitivas}
+\end{figure}
