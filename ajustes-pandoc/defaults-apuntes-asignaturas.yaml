@@ -60,12 +60,12 @@ resource-path:
 html-q-tags: true
 
 css:
-  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/variables/apuntes-asignaturas.css
-  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/base-mobile-first.css
-  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/tablas.css
-  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/codigo.css
-  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/matematicas.css
-  - ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/desktop.css
+  - ./ajustes-pandoc/salida-web/css/variables/apuntes-asignaturas.css
+  - ./ajustes-pandoc/salida-web/css/base-mobile-first.css
+  - ./ajustes-pandoc/salida-web/css/tablas.css
+  - ./ajustes-pandoc/salida-web/css/codigo.css
+  - ./ajustes-pandoc/salida-web/css/matematicas.css
+  - ./ajustes-pandoc/salida-web/css/desktop.css
 
 
 highlight-style: ${HOME}/Documents/disenno-tipografia/ajustes-pandoc/salida-web/resaltado-codigo/zf-darker.theme

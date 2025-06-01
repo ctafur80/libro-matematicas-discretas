@@ -1,14 +1,14 @@
 
 
-#### Division en $\mathbb{Z}$ con resto
+#### Division euclidiana
 
 Esta es la división que aprendió en la educación primaria, solo que ahora
 justificamos por qué funciona.
 
 ::: { .theorem #th-div-entera-con-resto data-label="Teorema de la División
-Entera con Resto" }
-Dados $a, b \in \mathbb{Z}$ con $b \neq 0$. Existe un único par de números $q, r,
-\in \mathbb{Z}$ con $0 \leq r < |b|$ tales que
+Euclidiana" }
+Dados $a, b \in \mathbb{Z}$ con $b \neq 0$. Existe un único par de números
+$q, r, \in \mathbb{Z}$ con $0 \leq r < |b|$ tales que
 
 $$ a = b \cdot q + r $$
 :::
@@ -16,9 +16,11 @@ $$ a = b \cdot q + r $$
 Se trata de un teorema de existencia y unicidad.
 
 Lo que viene a decir este teorema es que existe una operación, que llamamos
-división en $\mathbb{Z}$ con resto, de tal forma que podemos expresar TKTK. A
-esta operación también la llaman _división euclidiana_ (_Euclidean
-division_) o TKTK. También lo llaman _algoritmo de Euclides_. TKTK.
+división en $\mathbb{Z}$ con resto, de tal forma que podemos expresar TKTK.
+A esta operación, además de _división euclidiana_ (_Euclidean division_) la
+llaman _algoritmo de Euclides_, _división en $\mathbb{Z}$ con resto, etc.
+TKTK. No uso esta última porque existen otras divisiones en $\mathbb{Z}$ con
+resto, como la TKTK.
 
 A los distintos elementos que aparecen en esta forma de expresar la relación
 entre dos números se les dan los nombres siguientes:
@@ -81,9 +83,9 @@ Vamos a dividirla en dos casos.
 
 Caso $b > 0$.
 
-Tomamos un valor $q \in \mathbb{Z}$ tal que sea el mayor con el que se cumpla $bq
-\leq a$. Es decir, $bq$ es el mayor múltiplo de $b$ que es menor o igual que
-$a$. Entonces, se da
+Tomamos un valor $q \in \mathbb{Z}$ tal que sea el mayor con el que se
+cumpla $bq \leq a$. Es decir, $bq$ es el mayor múltiplo de $b$ que es menor
+o igual que $a$. Entonces, se da
 
 $$bq \leq a < b(q+1)$$
 
@@ -136,8 +138,8 @@ $$
 \end{align*}
 $$
 
-Por tanto, tenemos que $b \mid (r_2 - r_1)$, ya que $(q_1 - q_2) \in \mathbb{Z}$.
-Por la Proposición [](#prop-factor-men){.nameref}, se tiene que
+Por tanto, tenemos que $b \mid (r_2 - r_1)$, ya que $(q_1 - q_2) \in
+\mathbb{Z}$. Por la Proposición [](#prop-factor-men){.nameref}, se tiene que
 
 $$ |b| \leq |r_2 - r_1| $$
 

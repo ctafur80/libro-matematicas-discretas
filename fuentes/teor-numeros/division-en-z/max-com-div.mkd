@@ -47,9 +47,9 @@ Dados $a, b, d \in \mathbb{Z}$.
    $\text{div}(a, b)$ será finito.
 
    Veamos ahora los casos extraños. Si alguno de ambos es igual a 0, pero el
-   otro no, por ejemplo, $a = 0$ y $b \neq 0$, se dará que $\text{div}(a)$ será
-   un conjunto infinito pero no $\text{div}(b)$. La intersección de ambos
-   conjuntos nos da $\text{div}(b)$.
+   otro no, por ejemplo, $a = 0$ y $b \neq 0$, se dará que $\text{div}(a)$
+   será un conjunto infinito pero no $\text{div}(b)$. La intersección de
+   ambos conjuntos nos da $\text{div}(b)$.
 
    El caso en el que sería infinito sería cuando $a = b = 0$; de ahí que lo
    hayamos excluido.
@@ -57,18 +57,20 @@ Dados $a, b, d \in \mathbb{Z}$.
 
 ::: { .deffinition #def-mcd data-label="Definición de Máximo Común Divisor"
 }
-Dados $a, b \in \mathbb{Z}$ y un $d \in \mathbb{N}$ que sea divisor común de $a$ y
-$b$. Si para cualquier otro divisor común $d'$ de $a$ y $b$ se cumple que
-$d' \mid d$, a $d$ se le llamará _máximo común divisor_ (_greatest common
-denominator_) de $a$ y $b$, cosa que también se denota como $\gcd(a, b)$.
+Dados $a, b \in \mathbb{Z}$ y un $d \in \mathbb{N}$ que sea divisor común de
+$a$ y $b$. Si para cualquier otro divisor común $d'$ de $a$ y $b$ se cumple
+que $d' \mid d$, a $d$ se le llamará _máximo común divisor_ (_greatest
+common denominator_) de $a$ y $b$, cosa que también se denota como $\gcd(a,
+b)$.
 :::
 
-Advierta que hemos mencionado que es un divisor tal que $d \in \mathbb{N}$. Esto
-es perfectamente factible. Imagine que hubiésemos puesto que $d \in \mathbb{Z}$.
-Al ser $d$ un número tal que $d \mid a$ y $d \mid b$, se tiene, tal y como
-vimos antes, que ${-d} \mid a$ y ${-d} \mid b$. Además, como ya vimos, si $d
-\geq 0$, entonces ${-d} \leq 0$, y viceversa. Por tanto, podemos seleccionar
-al que deseemos de $\{{-d}, d\}$ y usarlo en la definición.
+Advierta que hemos mencionado que es un divisor tal que $d \in \mathbb{N}$.
+Esto es perfectamente factible. Imagine que hubiésemos puesto que $d \in
+\mathbb{Z}$. Al ser $d$ un número tal que $d \mid a$ y $d \mid b$, se tiene,
+tal y como vimos antes, que ${-d} \mid a$ y ${-d} \mid b$. Además, como ya
+vimos, si $d \geq 0$, entonces ${-d} \leq 0$, y viceversa. Por tanto,
+podemos seleccionar al que deseemos de $\{{-d}, d\}$ y usarlo en la
+definición.
 
 De hecho, si hubiésemos especificado $d \in \mathbb{Z}$, se tendrían dos
 soluciones igualmente válidas: $\{{-d}, d\}$.
@@ -84,65 +86,65 @@ Veamos ahora algunas propiedades del máximo común divisor.
 Divisor" }
 Dados $a, b \in \mathbb{Z}$, se cumple
 
-1.  $\gcd(0, 0) = 0$.
+1. $\gcd(0, 0) = 0$.
 
-2.  Si $a \neq 0$, $\gcd(a, 0) = |a|$.
+2. Si $a \neq 0$, $\gcd(a, 0) = |a|$.
 
-3.  $\gcd(a, b)$ es único.
+3. $\gcd(a, b)$ es único.
 
-4.  Si $a \mid b$, entonces $\gcd(a, b) = a$.
+4. Si $a \mid b$, entonces $\gcd(a, b) = a$.
 
-5.  $\gcd(a, b) = \gcd(|a|, |b|)$.
+5. $\gcd(a, b) = \gcd(|a|, |b|)$.
 :::
 
 ::: proof
-1.  La decisión de admitir que $0 \mid 0$ nos obliga a admitir también que
-    $\gcd(0, 0) = 0$. Veamos por qué. Por un lado, 0 es un divisor común de
-    0 y 0. Pero, además, cualquier otro número divide a 0.
+1. La decisión de admitir que $0 \mid 0$ nos obliga a admitir también que
+   $\gcd(0, 0) = 0$. Veamos por qué. Por un lado, 0 es un divisor común de 0
+   y 0. Pero, además, cualquier otro número divide a 0.
 
-2.  Podemos operar de forma similar con conjuntos, igual que antes:
+2. Podemos operar de forma similar con conjuntos, igual que antes:
 
-    $$ \text{div}(a, 0) = \{d \in \mathbb{Z} \; : \; d \mid a \ \text{y} \ d \mid 0\} =
-    \{d \in \mathbb{Z} \; : \; d \mid a\} \cap \mathbb{Z} = = \{d \in \mathbb{Z} \; : \; d \mid a\}
-    $$
+   $$ \text{div}(a, 0) = \{d \in \mathbb{Z} \; : \; d \mid a \ \text{y} \ d
+   \mid 0\} = \{d \in \mathbb{Z} \; : \; d \mid a\} \cap \mathbb{Z} = = \{d
+   \in \mathbb{Z} \; : \; d \mid a\} $$
 
-    Ahora, tendríamos en cuenta los dos casos posibles: $a > 0$ y $a < 0$.
-    En el primero, se tiene que cualquier divisor de $a$ es divisor de $a$,
-    con lo que $\gcd(a, 0) = a$. En el otro, por esto mismo, $\gcd({-a}, 0)
-    = {-a}$. Por tanto, $\gcd(a, 0) = |a|$
+   Ahora, tendríamos en cuenta los dos casos posibles: $a > 0$ y $a < 0$. En
+   el primero, se tiene que cualquier divisor de $a$ es divisor de $a$, con
+   lo que $\gcd(a, 0) = a$. En el otro, por esto mismo, $\gcd({-a}, 0) =
+   {-a}$. Por tanto, $\gcd(a, 0) = |a|$
 
-    Por cierto, sería lo mismo para $\gcd(0, a)$, ya que el orden de los
-    argumentos no afecta al resultado de esta función.
+   Por cierto, sería lo mismo para $\gcd(0, a)$, ya que el orden de los
+   argumentos no afecta al resultado de esta función.
 
-3.  Para los casos en los que interviene el 0, se demostró en los puntos
-    anteriores. En los otros casos, supongamos que se tienen dos números,
-    $g_1$ y $g_2$, que son, de forma independiente, máximo común divisor de
-    dos números dados, es decir, de $a$ y $b$.
+3. Para los casos en los que interviene el 0, se demostró en los puntos
+   anteriores. En los otros casos, supongamos que se tienen dos números,
+   $g_1$ y $g_2$, que son, de forma independiente, máximo común divisor de
+   dos números dados, es decir, de $a$ y $b$.
 
-    Atendiendo a la definición de máximo común divisor, por un lado se
-    tendrá que $g_1 \mid g_2$, pero, desde el punto de vista contrario, se
-    tendrá que $g_2 \mid g_1$.
+   Atendiendo a la definición de máximo común divisor, por un lado se tendrá
+   que $g_1 \mid g_2$, pero, desde el punto de vista contrario, se tendrá
+   que $g_2 \mid g_1$.
 
-    Al tratarse de casos de máximo común divisor, los números $g_1$ y $g_2$
-    serán necesariamente mayores que 0. Por lo tanto, por la Propiedad
-    [](#prop-factor-men){.nameref}, tendremos, por un lado, $g_1 \leq g_2$,
-    pero, por el otro, $g_2 \leq g_1$. Por tanto, se tiene que $g_1 = g_2$,
-    con lo que queda demostrado que $\gcd(a, b)$ tiene que ser único.
+   Al tratarse de casos de máximo común divisor, los números $g_1$ y $g_2$
+   serán necesariamente mayores que 0. Por lo tanto, por la Propiedad
+   [](#prop-factor-men){.nameref}, tendremos, por un lado, $g_1 \leq g_2$,
+   pero, por el otro, $g_2 \leq g_1$. Por tanto, se tiene que $g_1 = g_2$,
+   con lo que queda demostrado que $\gcd(a, b)$ tiene que ser único.
 
-    Por cierto, como quizás sepa, al ser único y existir para cualquier
-    combinación de valores de entrada, es una función. TKTK.
+   Por cierto, como quizás sepa, al ser único y existir para cualquier
+   combinación de valores de entrada, es una función. TKTK.
 
-4.  La demostración es trivial ya que cualquier $d \in \mathbb{Z}$ arbitrario que
-    sea divisor común de $a$ y $b$ es evidente que divide a $a$.
+4. La demostración es trivial ya que cualquier $d \in \mathbb{Z}$ arbitrario que
+   sea divisor común de $a$ y $b$ es evidente que divide a $a$.
 
-    El caso particular en el que convendría fijarse sería cuando $a \neq 0$
-    y $b = 0$. En ese caso, se da que, por la parte de $b$, se aporta todo
-    $\mathbb{Z}$, y, por la de $a$, los divisores de $a$. La intersección de
-    ambos nos da un conjunto cuyo elemento mayor será $a$.
+   El caso particular en el que convendría fijarse sería cuando $a \neq 0$ y
+   $b = 0$. En ese caso, se da que, por la parte de $b$, se aporta todo
+   $\mathbb{Z}$, y, por la de $a$, los divisores de $a$. La intersección de
+   ambos nos da un conjunto cuyo elemento mayor será $a$.
 
-5.  Se demuestra por una de las propiedades [](#propi-divide-2){.nameref}.
-    Concretamente, de la que dice que, si $a \mid b$, entonces $a \mid
-    ({-b})$.
+5. Se demuestra por una de las propiedades [](#propi-divide-2){.nameref}.
+   Concretamente, de la que dice que, si $a \mid b$, entonces $a \mid
+   ({-b})$.
 :::
 
 La propiedad 4, aunque parezca muy simple y evidente, se usa con bastante
@@ -151,9 +153,9 @@ frecuencia en demostraciones posteriores.
 Seguramente le enseñaron otra definición en la que se decía que $d' \leq d$,
 en lugar de $d' \mid d$. Esa otra definición es también equivalente a esta.
 El problema está en que se está haciendo uso de una relación de orden,
-$\leq$, distinta a división exacta, que es también una relación de orden. Por
-tanto, se podría decir que nuestra definición es "autosuficiente" y la otra
-no lo es.
+$\leq$, distinta a división exacta, que es también una relación de orden.
+Por tanto, se podría decir que nuestra definición es "autosuficiente" y la
+otra no lo es.
 
 Tal y como se explica en [@burton] pág. 24, esto permite usarse también en
 sistemas algebraicos en los que que no se tenga la relación $\leq$, con lo
@@ -236,7 +238,8 @@ de $a$ y $b$.
 
 Definimos el conjunto siguiente:
 
-$$ M = \{ax + by \ \; : \; x, y \in \mathbb{Z} \quad \text{y} \quad ax + by > 0 \} $$
+$$ M = \{ax + by \ \; : \; x, y \in \mathbb{Z} \quad \text{y} \quad ax + by
+> 0 \} $$
 
 Es decir, $M$ es el conjunto de todas las combinaciones lineales positivas
 de $a$ y $b$. ¿Por qué se ha tomado el conjunto en el que son mayores que 0?
@@ -317,15 +320,15 @@ que son primos relativos si su máximo común divisor es 1.
 
 ::: { .corollary #cor-comb-lin-primos-rel data-label="Corolario de la
 Combinación Lineal de Primos Relativos" }
-Sean $a, b \in \mathbb{Z}$. Se cumple que $\gcd(a, b) = 1$ si y solo si existen
-$x, y \in \mathbb{Z}$ tales que
+Sean $a, b \in \mathbb{Z}$. Se cumple que $\gcd(a, b) = 1$ si y solo si
+existen $x, y \in \mathbb{Z}$ tales que
 
 $$ ax + by = 1 $$
 :::
 
 Es consecuencia directa del Lema [](#lema-bezout){.nameref}. Este corolario
-se usa en varias demostraciones sobre números primos. Viene en [@rosen-number-th] pág.
-97 y en [@burton] pág. 23.
+se usa en varias demostraciones sobre números primos. Viene en
+[@rosen-number-th] pág. 97 y en [@burton] pág. 23.
 
 Ahora, vamos a ver un corolario muy importante. Este viene a decir que las
 combinaciones lineales enteras de dos números generan a todos los múltiplos
@@ -335,7 +338,8 @@ de su máximo común divisor.
 Máximo Común Divisor" }
 Para cualesquiera $a, b \in \mathbb{Z}$, se da
 
-$$ \{ax + by \; : \; x, y \in \mathbb{Z}\} = \{k \, \gcd(a, b) \; : \; k \in \mathbb{Z}\} $$
+$$ \{ax + by \; : \; x, y \in \mathbb{Z}\} = \{k \, \gcd(a, b) \; : \; k \in
+\mathbb{Z}\} $$
 :::
 
 También sería un caso de particular relevancia la situación $a = b = 0$, y
@@ -350,8 +354,8 @@ Primero, vamos a especificar algunas variables para ahorrarnos escribir
 demasiado. Por un lado, tenemos $d = \gcd(a, b)$. También, definimos los dos
 conjuntos siguientes:
 
-$$ T = \{ax + by \; : \; x, y \in \mathbb{Z}\} \quad \text{y} \quad M = \{k \,
-\gcd(a, b) \; : \; k \in \mathbb{Z}\} $$
+$$ T = \{ax + by \; : \; x, y \in \mathbb{Z}\} \quad \text{y} \quad M = \{k
+\, \gcd(a, b) \; : \; k \in \mathbb{Z}\} $$
 
 Para cualquier combinación lineal entera de $a$ y $b$, como $d \mid a$ y $d
 \mid b$, según las propiedades [](#prop-divide-al-multiplo){.nameref} y

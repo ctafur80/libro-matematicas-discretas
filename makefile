@@ -32,8 +32,7 @@ html: $(CONTENTS)
 	pandoc $^ \
 		--metadata-file metadatos.yaml \
 		--citeproc \
-		--defaults ~/Documents/disenno-tipografia/ajustes-pandoc/defaults-apuntes-asignaturas.yaml \
-		--include-in-header ajustes-especificos/mathjax.html \
+		--defaults ./ajustes-pandoc/defaults-apuntes-asignaturas.yaml \
 		--output $(OUTPUT_FILE_N).html ;
 
 

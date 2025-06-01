@@ -19,7 +19,7 @@ p > span.math.display {
 
 math {
     font-family: var(--math-font);
-    color: red;
+    /* color: red; */
 }
 
 mtext {
@@ -173,8 +173,8 @@ div.deffinition {
     background:
         linear-gradient(
             to right,
-            #2c2c3d,
-            #3b3b30
+            var(--math-env-bg-from),
+            var(--math-env-bg-to)
         );
 }
 

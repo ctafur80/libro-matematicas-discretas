@@ -14,12 +14,9 @@
     --main-font: "Noto Sans", sans-serif;
     --main-font-size: 1.1em;
     --main-font-letter-spacing: 0.03rem;
-
+    --math-font: "Noto Sans Math", serif;
     --code-font: "JetBrains Mono", monospace;
     --code-font-size: 0.85em;
-
-    --math-font: "Noto Sans Math", serif;
-
 
 
 
@@ -28,6 +25,10 @@
     /* --main-bg-color: #1e1e1e; */
     /* --main-fg-color: #b3adad; */
     /* --boton: rgba(132, 116, 140, 0.95); */
+    /* --math-env-bg-from: rgba(44, 44, 61, 0.95); */
+    /* --math-env-bg-to: rgba(59, 59, 48, 0.95); */
+    /* --euclid_ax_env_from: rgba(61, 44, 51, 0.95), */
+    /* --euclid_ax_env_to: rgba(59, 59, 48, 0.95), */
 
 
     /* Tema claro */
@@ -35,10 +36,10 @@
     --main-bg-color: #fff;
     --main-fg-color: #343832;
     --boton: rgba(132, 116, 140, 0.95);
-
-
-
-
+    --math-env-bg-from: rgba(237, 237, 247, 0.95);
+    --math-env-bg-to: rgba(245, 245, 233, 0.95);
+    --euclid_ax_env_from: rgba(250, 237, 243, 0.95),
+    --euclid_ax_env_to: rgba(245, 245, 233, 0.95),
 
 
 

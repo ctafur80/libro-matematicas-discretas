@@ -111,36 +111,12 @@ números, combinatoria, teoría de grafos, matemáticas discretas" />
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="/Users/ctafur/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/variables/apuntes-asignaturas.css" />
-  <link rel="stylesheet" href="/Users/ctafur/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/base-mobile-first.css" />
-  <link rel="stylesheet" href="/Users/ctafur/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/tablas.css" />
-  <link rel="stylesheet" href="/Users/ctafur/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/codigo.css" />
-  <link rel="stylesheet" href="/Users/ctafur/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/matematicas.css" />
-  <link rel="stylesheet" href="/Users/ctafur/Documents/disenno-tipografia/ajustes-pandoc/salida-web/css/desktop.css" />
-  <script>
-    window.MathJax = window.MathJax || {};
-    window.MathJax.tex = window.MathJax.tex || {};
-    Object.assign(window.MathJax.tex.macros, {
-
-
-
-      opmod: "\\,\\operatorname{MOD}\\,",
-      gcd: ["\\operatorname{mcd}#1", 1],
-      mcm: ["\\operatorname{mcm}#1", 1], // quedarme con el de debajo
-      lcm: ["\\operatorname{mcm}#1", 1],
-
-      divset: ["\\operatorname{div}#1", 1],
-
-
-      /* TODO No lo hace porque MathJax no llega a implementar muchas partes de
-      LaTeX. Otra forma sería con el entorno multiline, pero tampoco se puede en
-      MathJax. */
-      // wrap: ["\\begin{array}{r@{\\displaystyle}l}#1\\end{array}", 1],
-
-
-    });
-  </script>
-
+  <link rel="stylesheet" href="./ajustes-pandoc/salida-web/css/variables/apuntes-asignaturas.css" />
+  <link rel="stylesheet" href="./ajustes-pandoc/salida-web/css/base-mobile-first.css" />
+  <link rel="stylesheet" href="./ajustes-pandoc/salida-web/css/tablas.css" />
+  <link rel="stylesheet" href="./ajustes-pandoc/salida-web/css/codigo.css" />
+  <link rel="stylesheet" href="./ajustes-pandoc/salida-web/css/matematicas.css" />
+  <link rel="stylesheet" href="./ajustes-pandoc/salida-web/css/desktop.css" />
 </head>
 <body>
 <header id="title-block-header">
@@ -177,10 +153,8 @@ en
 <ul>
 <li><a href="#operador-división-exacta"
 id="toc-operador-división-exacta">Operador división exacta</a></li>
-<li><a href="#division-en-mathbbz-con-resto"
-id="toc-division-en-mathbbz-con-resto">Division en
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℤ</mi><annotation encoding="application/x-tex">\mathbb{Z}</annotation></semantics></math>
-con resto</a></li>
+<li><a href="#division-euclidiana" id="toc-division-euclidiana">Division
+euclidiana</a></li>
 <li><a href="#máximo-común-divisor" id="toc-máximo-común-divisor">Máximo
 común divisor</a></li>
 <li><a href="#algoritmo-de-euclides"
@@ -1961,21 +1935,19 @@ entonces, si
 se cumple que
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a \leq b</annotation></semantics></math>.</p>
 </section>
-<section id="division-en-mathbbz-con-resto" class="level3">
-<h3>Division en
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℤ</mi><annotation encoding="application/x-tex">\mathbb{Z}</annotation></semantics></math>
-con resto</h3>
+<section id="division-euclidiana" class="level3">
+<h3>Division euclidiana</h3>
 <p>Esta es la división que aprendió en la educación primaria, solo que
 ahora justificamos por qué funciona.</p>
 <div id="th-div-entera-con-resto" class="theorem"
-data-label="Teorema de la División Entera con Resto">
+data-label="Teorema de la División Euclidiana">
 <p>Dados
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">a, b \in \mathbb{Z}</annotation></semantics></math>
 con
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">b \neq 0</annotation></semantics></math>.
 Existe un único par de números
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>,</mo><mi>r</mi><mo>,</mo><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">q, r,
-\in \mathbb{Z}</annotation></semantics></math> con
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>,</mo><mi>r</mi><mo>,</mo><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">q, r, \in \mathbb{Z}</annotation></semantics></math>
+con
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>r</mi><mo>&lt;</mo><mo stretchy="false" form="prefix">|</mo><mi>b</mi><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">0 \leq r &lt; |b|</annotation></semantics></math>
 tales que</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>b</mi><mo>⋅</mo><mi>q</mi><mo>+</mo><mi>r</mi></mrow><annotation encoding="application/x-tex"> a = b \cdot q + r </annotation></semantics></math></p>
@@ -1984,10 +1956,14 @@ tales que</p>
 <p>Lo que viene a decir este teorema es que existe una operación, que
 llamamos división en
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℤ</mi><annotation encoding="application/x-tex">\mathbb{Z}</annotation></semantics></math>
-con resto, de tal forma que podemos expresar TKTK. A esta operación
-también la llaman <em>división euclidiana</em> (<em>Euclidean
-division</em>) o TKTK. También lo llaman <em>algoritmo de Euclides</em>.
-TKTK.</p>
+con resto, de tal forma que podemos expresar TKTK. A esta operación,
+además de <em>división euclidiana</em> (<em>Euclidean division</em>) la
+llaman <em>algoritmo de Euclides</em>, _división en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℤ</mi><annotation encoding="application/x-tex">\mathbb{Z}</annotation></semantics></math>
+con resto, etc. TKTK. No uso esta última porque existen otras divisiones
+en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℤ</mi><annotation encoding="application/x-tex">\mathbb{Z}</annotation></semantics></math>
+con resto, como la TKTK.</p>
 <p>A los distintos elementos que aparecen en esta forma de expresar la
 relación entre dos números se les dan los nombres siguientes:</p>
 <!--
@@ -2069,8 +2045,8 @@ Además, en ese caso el cociente no sería único.</p>
 <p>Tomamos un valor
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">q \in \mathbb{Z}</annotation></semantics></math>
 tal que sea el mayor con el que se cumpla
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>q</mi><mo>≤</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">bq
-\leq a</annotation></semantics></math>. Es decir,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>q</mi><mo>≤</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">bq \leq a</annotation></semantics></math>.
+Es decir,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">bq</annotation></semantics></math>
 es el mayor múltiplo de
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
@@ -2155,9 +2131,9 @@ restamos ambas expresiones, tenemos</p>
 <p>Por tanto, tenemos que
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>∣</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mn>2</mn></msub><mo>−</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">b \mid (r_2 - r_1)</annotation></semantics></math>,
 ya que
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>q</mi><mn>1</mn></msub><mo>−</mo><msub><mi>q</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">(q_1 - q_2) \in \mathbb{Z}</annotation></semantics></math>.
-Por la Proposición <a href="#prop-factor-men" class="nameref"></a>, se
-tiene que</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>q</mi><mn>1</mn></msub><mo>−</mo><msub><mi>q</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">(q_1 - q_2) \in
+\mathbb{Z}</annotation></semantics></math>. Por la Proposición <a
+href="#prop-factor-men" class="nameref"></a>, se tiene que</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>b</mi><mo stretchy="false" form="prefix">|</mo><mo>≤</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>r</mi><mn>2</mn></msub><mo>−</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex"> |b| \leq |r_2 - r_1| </annotation></semantics></math></p>
 <p>Ahora, nos centraremos en las desigualdades. Ya que se cumplen
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><msub><mi>r</mi><mn>1</mn></msub><mo>&lt;</mo><mo stretchy="false" form="prefix">|</mo><mi>b</mi><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">0 \leq r_1 &lt;
@@ -2534,13 +2510,14 @@ denominator</em>) de
 y
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>,
 cosa que también se denota como
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\gcd(a, b)</annotation></semantics></math>.</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\gcd(a,
+b)</annotation></semantics></math>.</p>
 </div>
 <p>Advierta que hemos mencionado que es un divisor tal que
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>∈</mo><mi>ℕ</mi></mrow><annotation encoding="application/x-tex">d \in \mathbb{N}</annotation></semantics></math>.
 Esto es perfectamente factible. Imagine que hubiésemos puesto que
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">d \in \mathbb{Z}</annotation></semantics></math>.
-Al ser
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">d \in
+\mathbb{Z}</annotation></semantics></math>. Al ser
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
 un número tal que
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>∣</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">d \mid a</annotation></semantics></math>
@@ -2551,8 +2528,8 @@ se tiene, tal y como vimos antes, que
 y
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>−</mi><mi>d</mi></mrow><mo>∣</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">{-d} \mid b</annotation></semantics></math>.
 Además, como ya vimos, si
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">d
-\geq 0</annotation></semantics></math>, entonces
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">d \geq 0</annotation></semantics></math>,
+entonces
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>−</mi><mi>d</mi></mrow><mo>≤</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">{-d} \leq 0</annotation></semantics></math>,
 y viceversa. Por tanto, podemos seleccionar al que deseemos de
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mrow><mi>−</mi><mi>d</mi></mrow><mo>,</mo><mi>d</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{{-d}, d\}</annotation></semantics></math>
@@ -2598,9 +2575,9 @@ Veamos por qué. Por un lado, 0 es un divisor común de 0 y 0. Pero,
 además, cualquier otro número divide a 0.</p></li>
 <li><p>Podemos operar de forma similar con conjuntos, igual que
 antes:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">div</mtext><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>d</mi><mo>∈</mo><mi>ℤ</mi><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>d</mi><mo>∣</mo><mi>a</mi><mspace width="0.222em"></mspace><mtext mathvariant="normal">y</mtext><mspace width="0.222em"></mspace><mi>d</mi><mo>∣</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>d</mi><mo>∈</mo><mi>ℤ</mi><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>d</mi><mo>∣</mo><mi>a</mi><mo stretchy="false" form="postfix">}</mo><mo>∩</mo><mi>ℤ</mi><mo>=</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>d</mi><mo>∈</mo><mi>ℤ</mi><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>d</mi><mo>∣</mo><mi>a</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex"> \text{div}(a, 0) = \{d \in \mathbb{Z} \; : \; d \mid a \ \text{y} \ d \mid 0\} =
-\{d \in \mathbb{Z} \; : \; d \mid a\} \cap \mathbb{Z} = = \{d \in \mathbb{Z} \; : \; d \mid a\}
-</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">div</mtext><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>d</mi><mo>∈</mo><mi>ℤ</mi><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>d</mi><mo>∣</mo><mi>a</mi><mspace width="0.222em"></mspace><mtext mathvariant="normal">y</mtext><mspace width="0.222em"></mspace><mi>d</mi><mo>∣</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>d</mi><mo>∈</mo><mi>ℤ</mi><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>d</mi><mo>∣</mo><mi>a</mi><mo stretchy="false" form="postfix">}</mo><mo>∩</mo><mi>ℤ</mi><mo>=</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>d</mi><mo>∈</mo><mi>ℤ</mi><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>d</mi><mo>∣</mo><mi>a</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex"> \text{div}(a, 0) = \{d \in \mathbb{Z} \; : \; d \mid a \ \text{y} \ d
+\mid 0\} = \{d \in \mathbb{Z} \; : \; d \mid a\} \cap \mathbb{Z} = = \{d
+\in \mathbb{Z} \; : \; d \mid a\} </annotation></semantics></math></p>
 <p>Ahora, tendríamos en cuenta los dos casos posibles:
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a &gt; 0</annotation></semantics></math>
 y
@@ -2612,8 +2589,8 @@ es divisor de
 con lo que
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">\gcd(a, 0) = a</annotation></semantics></math>.
 En el otro, por esto mismo,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mrow><mi>−</mi><mi>a</mi></mrow><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi>−</mi><mi>a</mi></mrow></mrow><annotation encoding="application/x-tex">\gcd({-a}, 0)
-= {-a}</annotation></semantics></math>. Por tanto,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mrow><mi>−</mi><mi>a</mi></mrow><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi>−</mi><mi>a</mi></mrow></mrow><annotation encoding="application/x-tex">\gcd({-a}, 0) =
+{-a}</annotation></semantics></math>. Por tanto,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">\gcd(a, 0) = |a|</annotation></semantics></math></p>
 <p>Por cierto, sería lo mismo para
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\gcd(0, a)</annotation></semantics></math>,
@@ -2809,7 +2786,8 @@ es un divisor común de
 y
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>.</p>
 <p>Definimos el conjunto siguiente:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mspace width="0.222em"></mspace><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>x</mi><mo>,</mo><mi>y</mi><mo>∈</mo><mi>ℤ</mi><mspace width="1.0em"></mspace><mtext mathvariant="normal">y</mtext><mspace width="1.0em"></mspace><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mo>&gt;</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex"> M = \{ax + by \ \; : \; x, y \in \mathbb{Z} \quad \text{y} \quad ax + by &gt; 0 \} </annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mspace width="0.222em"></mspace><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>x</mi><mo>,</mo><mi>y</mi><mo>∈</mo><mi>ℤ</mi><mspace width="1.0em"></mspace><mtext mathvariant="normal">y</mtext><mspace width="1.0em"></mspace><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mo>&gt;</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex"> M = \{ax + by \ \; : \; x, y \in \mathbb{Z} \quad \text{y} \quad ax + by
+&gt; 0 \} </annotation></semantics></math></p>
 <p>Es decir,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
 es el conjunto de todas las combinaciones lineales positivas de
@@ -3009,7 +2987,8 @@ data-label="Corolario de los Múltiplos del Máximo Común Divisor">
 <p>Para cualesquiera
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">a, b \in \mathbb{Z}</annotation></semantics></math>,
 se da</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>x</mi><mo>,</mo><mi>y</mi><mo>∈</mo><mi>ℤ</mi><mo stretchy="false" form="postfix">}</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>k</mi><mspace width="0.167em"></mspace><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>k</mi><mo>∈</mo><mi>ℤ</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex"> \{ax + by \; : \; x, y \in \mathbb{Z}\} = \{k \, \gcd(a, b) \; : \; k \in \mathbb{Z}\} </annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>x</mi><mo>,</mo><mi>y</mi><mo>∈</mo><mi>ℤ</mi><mo stretchy="false" form="postfix">}</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>k</mi><mspace width="0.167em"></mspace><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>k</mi><mo>∈</mo><mi>ℤ</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex"> \{ax + by \; : \; x, y \in \mathbb{Z}\} = \{k \, \gcd(a, b) \; : \; k \in
+\mathbb{Z}\} </annotation></semantics></math></p>
 </div>
 <p>También sería un caso de particular relevancia la situación
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a = b = 0</annotation></semantics></math>,
@@ -3023,8 +3002,8 @@ vemos que ambos conjuntos producen el conjunto
 escribir demasiado. Por un lado, tenemos
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">d = \gcd(a, b)</annotation></semantics></math>.
 También, definimos los dos conjuntos siguientes:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>x</mi><mo>,</mo><mi>y</mi><mo>∈</mo><mi>ℤ</mi><mo stretchy="false" form="postfix">}</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">y</mtext><mspace width="1.0em"></mspace><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>k</mi><mspace width="0.167em"></mspace><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>k</mi><mo>∈</mo><mi>ℤ</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex"> T = \{ax + by \; : \; x, y \in \mathbb{Z}\} \quad \text{y} \quad M = \{k \,
-\gcd(a, b) \; : \; k \in \mathbb{Z}\} </annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>x</mi><mo>,</mo><mi>y</mi><mo>∈</mo><mi>ℤ</mi><mo stretchy="false" form="postfix">}</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">y</mtext><mspace width="1.0em"></mspace><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>k</mi><mspace width="0.167em"></mspace><mi>gcd</mi><mo>&#8289;</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.278em"></mspace><mo>:</mo><mspace width="0.278em"></mspace><mi>k</mi><mo>∈</mo><mi>ℤ</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex"> T = \{ax + by \; : \; x, y \in \mathbb{Z}\} \quad \text{y} \quad M = \{k
+\, \gcd(a, b) \; : \; k \in \mathbb{Z}\} </annotation></semantics></math></p>
 <p>Para cualquier combinación lineal entera de
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
 y
