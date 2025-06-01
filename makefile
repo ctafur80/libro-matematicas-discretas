@@ -32,7 +32,7 @@ html: $(CONTENTS)
 	pandoc $^ \
 		--metadata-file metadatos.yaml \
 		--citeproc \
-		--defaults ./ajustes-pandoc/defaults-apuntes-asignaturas.yaml \
+		--defaults ./ajustes-pandoc/defaults-apuntes-asignaturas2.yaml \
 		--output $(OUTPUT_FILE_N).html ;
 
 
